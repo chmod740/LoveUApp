@@ -19,5 +19,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android-async-http-1.4.8" level="project" />
+    <orderEntry type="library" name="gson" level="project" />
   </component>
 </module>

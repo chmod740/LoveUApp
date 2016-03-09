@@ -12,6 +12,15 @@ public class RegisterModel {
     private String UserMajor;
     private String UserPhone;
     private Integer state;
+    private String msg;
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 
     public Integer getState() {
         return state;

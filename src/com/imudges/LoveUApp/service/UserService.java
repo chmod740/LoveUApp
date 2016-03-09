@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
+import com.imudges.LoveUApp.model.RegisterModel;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -64,11 +65,11 @@ public class UserService {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr = new String(bytes);
                 try {
-                    LoginModel loginModel = new Gson().fromJson(reponseStr,LoginModel.class);
-                    if (loginModel.getState()==1){
+                    RegisterModel registerModel = new Gson().fromJson(reponseStr,RegisterModel.class);
+                    if (registerModel.getState()==1){
                         listener.onSuccess();
                     }else {
-                        listener.onFailure(loginModel.getMsg());
+                        listener.onFailure(registerModel.getMsg());
                     }
                 }catch (Exception e){
                     listener.onFailure("网络异常");

@@ -15,6 +15,11 @@ import org.apache.http.client.methods.HttpPost;
 /**
  * Created by HUPENG on 2016/3/9.
  */
+
+/**
+ * 用户类
+ * 注册和登录
+ */
 public class UserService {
     private RequestParams params;
     private String reponseStr;
@@ -38,7 +43,6 @@ public class UserService {
                 }catch (Exception e){
                     listener.onFailure("网络异常");
                 }
-
 
             }
 

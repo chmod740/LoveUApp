@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.EditText;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.UserService;
 
@@ -11,7 +12,7 @@ import com.imudges.LoveUApp.service.UserService;
 public class LoginActivity extends Activity {
 
     private UserService userService=new UserService();
-
+    private EditText ed1,ed2;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.);
@@ -34,5 +35,10 @@ public class LoginActivity extends Activity {
 
             }
         });
+    }
+
+    private void findobject(){
+        ed1=(EditText) findViewById(R.id.login_zhuce);
+        ed2=(EditText) findViewById(R.id.login_mima);
     }
 }

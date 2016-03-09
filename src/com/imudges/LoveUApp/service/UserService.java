@@ -9,6 +9,7 @@ import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
+import org.apache.http.client.methods.HttpPost;
 
 /**
  * Created by HUPENG on 2016/3/9.
@@ -45,5 +46,39 @@ public class UserService {
                 listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
             }
         });
+    }
+    public void register(Context context,String username,String password,String truename,Integer usersex,
+                         Integer usergrade,String usermajor,String phone,Listener listener){
+        url="";
+        params = new RequestParams();
+        //params.add("username",username);
+        params.add("UserName",username);
+        params.add("Password",password);
+        params.add("TrueName",truename);
+        params.add("UserSex",usersex+"");
+        params.add("UserGrade",usergrade+"");
+        params.add("UserMajor",usermajor);
+        params.add("UserPhone",phone);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr = new String(bytes);
+                try {
+                    LoginModel loginModel = new Gson().fromJson(reponseStr,LoginModel.class);
+                    if (loginModel.getState()==1){
+                        listener.onSuccess();
+                    }else {
+                        listener.onFailure(loginModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure("网络异常");
+                }
+            }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
+            }
+        });
+
     }
 }

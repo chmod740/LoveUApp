@@ -45,5 +45,6 @@ public class WelcomeActivity extends Activity {
         //判断跳转主界面或者登陆界面
         startActivity(new Intent(this, MainActivity.class));
         finish();
+
     }
 }

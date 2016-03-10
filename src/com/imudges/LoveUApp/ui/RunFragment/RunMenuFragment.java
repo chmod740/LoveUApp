@@ -12,7 +12,7 @@ import com.imudges.LoveUApp.ui.R;
 /**
  * Created by 1111 on 2016/3/10.
  */
-public class RunMenuFragment extends ListFragment {
+public class RunMenuFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -29,7 +29,7 @@ public class UserService {
     private String reponseStr;
     private String url;
     public void login(String username, String password, Context context, Listener listener){
-        url = "Service.php";
+        url = "sevice/rService.php";
         params = new RequestParams();
         params.add("Name",username);
         params.add("PassWord",password);
@@ -58,7 +58,7 @@ public class UserService {
     }
     public void register(Context context,String username,String password,String truename,Integer usersex,
                          Integer usergrade,String usermajor,String phone,Listener listener){
-        url="RegisterService.php";
+        url="service/RegisterService.php";
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);

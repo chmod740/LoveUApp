@@ -14,5 +14,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.imudges.LoveUApp.ui.MainActivity"/>
+        <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity"/>
     </application>
 </manifest>

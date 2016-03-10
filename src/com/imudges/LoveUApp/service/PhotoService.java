@@ -103,9 +103,9 @@ public class PhotoService {
     }
 
     /**
-     * 显示图片
+     * 下载图片
+     * 显示图片方法Handler(需放在Activity中与downPhoto函数一起用)
      */
-
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -115,9 +115,6 @@ public class PhotoService {
             }
         }
     };
-    /**
-     * 下载图片
-     */
     public void downPhoto(){
         new Thread(){
             @Override
@@ -139,8 +136,5 @@ public class PhotoService {
                 }
             }
         }.start();
-    }
-    public Bitmap getBitmap(){
-        return bitmap;
     }
 }

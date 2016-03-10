@@ -27,8 +27,8 @@ public class UserService {
     public void login(String username, String password, Context context, Listener listener){
         url = "Service.php";
         params = new RequestParams();
-        params.add("username",username);
-        params.add("password",password);
+        params.add("Name",username);
+        params.add("PassWord",password);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -58,7 +58,7 @@ public class UserService {
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);
-        params.add("Password",password);
+        params.add("PassWord",password);
         params.add("TrueName",truename);
         params.add("UserSex",usersex+"");
         params.add("UserGrade",usergrade+"");

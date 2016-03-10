@@ -29,7 +29,7 @@ public class UserService {
     private String reponseStr;
     private String url;
     public void login(String username, String password, Context context, Listener listener){
-        url = "sevice/rService.php";
+        url = "service/LoginService.php";
         params = new RequestParams();
         params.add("Name",username);
         params.add("PassWord",password);

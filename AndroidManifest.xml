@@ -15,5 +15,6 @@
         </activity>
         <activity android:name="com.imudges.LoveUApp.ui.MainActivity"/>
         <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity"/>
+        <activity android:name="com.imudges.LoveUApp.ui.LoginActivity"/>
     </application>
 </manifest>

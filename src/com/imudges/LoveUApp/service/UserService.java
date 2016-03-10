@@ -12,6 +12,10 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.apache.http.client.methods.HttpPost;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * Created by HUPENG on 2016/3/9.
  */
@@ -25,10 +29,10 @@ public class UserService {
     private String reponseStr;
     private String url;
     public void login(String username, String password, Context context, Listener listener){
-        url = "Service.php";
+        url = "sevice/rService.php";
         params = new RequestParams();
-        params.add("username",username);
-        params.add("password",password);
+        params.add("Name",username);
+        params.add("PassWord",password);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -54,11 +58,11 @@ public class UserService {
     }
     public void register(Context context,String username,String password,String truename,Integer usersex,
                          Integer usergrade,String usermajor,String phone,Listener listener){
-        url="";
+        url="service/RegisterService.php";
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);
-        params.add("Password",password);
+        params.add("PassWord",password);
         params.add("TrueName",truename);
         params.add("UserSex",usersex+"");
         params.add("UserGrade",usergrade+"");
@@ -84,6 +88,5 @@ public class UserService {
                 listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
             }
         });
-
     }
 }

@@ -62,10 +62,11 @@ public class SellService {
     /**
      * 拍卖获取get
      */
-    public void userGet(String name,Context context,Listener listener){
+    public void userGet(String key,String name,Context context,Listener listener){
         url="";
         params=new RequestParams();
         params.add("UserName",name);
+        params.add("SecretKey",key);
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

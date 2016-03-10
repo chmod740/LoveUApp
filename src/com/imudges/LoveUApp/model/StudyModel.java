@@ -1,5 +1,7 @@
 package com.imudges.LoveUApp.model;
 
+import java.sql.Timestamp;
+
 /**
  * Created by dy on 2016/3/9.
  */
@@ -8,7 +10,7 @@ public class StudyModel {
     private String information;
     private String friendname;
     private String studyArea;
-    private String studyTime;
+    private Timestamp studyTime;
     private Integer state;
     private String msg;
 
@@ -44,11 +46,11 @@ public class StudyModel {
         this.studyArea = studyArea;
     }
 
-    public String getStudyTime() {
+    public Timestamp getStudyTime() {
         return studyTime;
     }
 
-    public void setStudyTime(String studyTime) {
+    public void setStudyTime(Timestamp studyTime) {
         this.studyTime = studyTime;
     }
 

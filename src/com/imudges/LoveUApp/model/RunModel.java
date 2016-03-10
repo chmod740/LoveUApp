@@ -1,5 +1,7 @@
 package com.imudges.LoveUApp.model;
 
+import java.sql.Timestamp;
+
 /**
  * Created by dy on 2016/3/9.
  */
@@ -7,7 +9,7 @@ public class RunModel {
     private Integer state;
     private String msg;
     private String information;
-    private String runtime;
+    private Timestamp runtime;
     private String username;
     private String friendname;
 
@@ -19,11 +21,11 @@ public class RunModel {
         this.information = information;
     }
 
-    public String getRuntime() {
+    public Timestamp getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(String runtime) {
+    public void setRuntime(Timestamp runtime) {
         this.runtime = runtime;
     }
 

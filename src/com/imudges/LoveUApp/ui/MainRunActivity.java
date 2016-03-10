@@ -1,9 +1,9 @@
 package com.imudges.LoveUApp.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import com.imudges.LoveUApp.ui.RunFragment.RunMainFragment;
+import com.imudges.LoveUApp.ui.RunFragment.RunMenuFragment;
 import com.slidingmenu.lib.SlidingMenu;
 
 /**
@@ -36,12 +36,13 @@ public class MainRunActivity extends FragmentActivity {
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         menu.setShadowWidthRes(R.dimen.shadow_width);
         menu.setShadowDrawable(R.drawable.shadow);
+        menu.toggle();
         menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         menu.setFadeDegree(0.35f);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         // 设置滑动菜单的视图界面
         menu.setMenu(R.layout.menu_frame);
-        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new MenuFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new RunMenuFragment()).commit();
     }
 
     @Override

@@ -43,7 +43,7 @@ public class WelcomeActivity extends Activity {
 
     private void skip() {
         //判断跳转主界面或者登陆界面
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
 
     }

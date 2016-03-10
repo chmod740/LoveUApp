@@ -1,6 +1,7 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -55,6 +56,8 @@ public class RegisterActivity extends Activity {
             @Override
             public void onSuccess() {
                 Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                finish();
             }
 
             @Override
@@ -127,7 +130,7 @@ public class RegisterActivity extends Activity {
 
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
                                    long arg3) {
-            gradevalue=arg2;
+            gradevalue=arg2+1;
         }
 
         public void onNothingSelected(AdapterView<?> arg0) {

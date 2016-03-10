@@ -3,18 +3,25 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text=" "
+    android:textSize="20dip"/>
     <TextView  android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="账号："/>
     <EditText android:layout_width="match_parent"
               android:layout_height="wrap_content"
-                android:id="@+id/login_zhuce"/>
+                android:id="@+id/login_zhuce"
+    android:maxLines="1"
+    android:maxLength="12"/>
     <TextView  android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="密码："/>
     <EditText android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:id="@+id/login_mima"/>
+              android:id="@+id/login_mima"
+              android:maxLines="1"
+              android:maxLength="16"/>
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注册"

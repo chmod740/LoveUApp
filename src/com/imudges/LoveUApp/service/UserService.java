@@ -45,7 +45,7 @@ public class UserService {
                         listener.onFailure(loginModel.getMsg());
                     }
                 }catch (Exception e){
-                    listener.onFailure("网络异常");
+                    listener.onFailure(e.getLocalizedMessage());
                 }
 
             }
@@ -80,7 +80,7 @@ public class UserService {
                         listener.onFailure(registerModel.getMsg());
                     }
                 }catch (Exception e){
-                    listener.onFailure("网络异常");
+                    listener.onFailure(e.getLocalizedMessage());
                 }
             }
             @Override

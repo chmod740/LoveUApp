@@ -12,6 +12,10 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.apache.http.client.methods.HttpPost;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * Created by HUPENG on 2016/3/9.
  */
@@ -54,7 +58,7 @@ public class UserService {
     }
     public void register(Context context,String username,String password,String truename,Integer usersex,
                          Integer usergrade,String usermajor,String phone,Listener listener){
-        url="";
+        url="RegisterService.php";
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);
@@ -84,6 +88,5 @@ public class UserService {
                 listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
             }
         });
-
     }
 }

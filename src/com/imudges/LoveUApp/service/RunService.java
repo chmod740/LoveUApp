@@ -58,10 +58,11 @@ public class RunService {
      * @param name
      * @param listener
      */
-    public void userGet(Context context,String name,Listener listener){
+    public void userGet(String key,Context context,String name,Listener listener){
         url="";
         params=new RequestParams();
         params.add("UserName",name);
+        params.add("SecretKey",key);
         HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

@@ -58,7 +58,7 @@ public class LoginActivity extends Activity {
         ed2=(EditText) findViewById(R.id.login_mima);
 
     }
-    private void registeredclick(View v){
+    public void registeredclick(View v){
         startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
     }
     public void loginclick(View v){

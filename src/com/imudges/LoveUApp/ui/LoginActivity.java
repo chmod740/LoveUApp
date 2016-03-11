@@ -1,7 +1,9 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,11 +28,13 @@ public class LoginActivity extends Activity {
     private LoginModel loginModel=new LoginModel();
     private EditText ed1,ed2;
     private String username,password;
+    private String secretKey;
     //private Button button1,button2;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         findobject();
+
     }
 
     /**
@@ -42,7 +46,9 @@ public class LoginActivity extends Activity {
         userService.login(name, password, getApplicationContext(), new Listener() {
             @Override
             public void onSuccess() {
-
+                secretKey =  loginModel.getSecretKey();
+                System.out.println("第一次得到"+secretKey);
+                saveData(getApplicationContext());
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 finish();
             }
@@ -67,5 +73,19 @@ public class LoginActivity extends Activity {
         login(username,password);
 
         Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void saveData(Context context){
+        SharedPreferences sp = context.getSharedPreferences("loginconfig", MODE_PRIVATE);
+        //建立编辑器  然后开始写入 文件
+        SharedPreferences.Editor editor = sp.edit();
+        secretKey =  loginModel.getSecretKey();
+        editor.putString("username", username);
+        editor.putString("secretkey",secretKey);
+        editor.putString("username",username);
+        System.out.println(username+secretKey);
+        editor.commit();
+        editor.commit();
     }
 }

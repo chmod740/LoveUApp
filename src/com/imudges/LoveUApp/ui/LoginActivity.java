@@ -32,6 +32,7 @@ public class LoginActivity extends Activity {
     private String username,password;
     private String secretKey;
     private TextView tv1;
+    private TextView tv2;
     //private Button button1,button2;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,14 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+        });
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //切换到忘记密码页面！
+                ;
+
             }
         });
     }
@@ -75,7 +84,7 @@ public class LoginActivity extends Activity {
         ed1=(EditText) findViewById(R.id.login_zhuce);
         ed2=(EditText) findViewById(R.id.login_mima);
         tv1=(TextView) findViewById(R.id.login_register);
-
+        tv2=(TextView) findViewById(R.id.login_losspass);
     }
     public void loginclick(View v){
         username = ed1.getText().toString();

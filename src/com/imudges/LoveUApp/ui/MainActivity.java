@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,10 @@ public class MainActivity extends Activity {
             public void onClick(View view, int pos){
                 Toast.makeText(MainActivity.this,
                         pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
+                switch (pos){
+                    case 0:startActivity(new Intent(getApplicationContext(),MainRunActivity.class));
+                        break;
+                }
             }
         });
     }

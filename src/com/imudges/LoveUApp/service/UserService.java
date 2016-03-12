@@ -1,7 +1,6 @@
 package com.imudges.LoveUApp.service;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
@@ -10,11 +9,6 @@ import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
-import org.apache.http.client.methods.HttpPost;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 /**
  * Created by HUPENG on 2016/3/9.
@@ -89,4 +83,7 @@ public class UserService {
             }
         });
     }
+
+
+
 }

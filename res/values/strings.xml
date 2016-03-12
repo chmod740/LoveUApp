@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LoveUApp</string>
+    <drawable name="clr_normal">#0099FF</drawable>
+    <drawable name="clr_pressed">#0000FF</drawable>
+    <color name="black">#000000</color>
 </resources>

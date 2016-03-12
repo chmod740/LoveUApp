@@ -48,5 +48,6 @@
     </orderEntry>
     <orderEntry type="library" name="slidingmenu" level="project" />
     <orderEntry type="library" name="v4" level="project" />
+    <orderEntry type="library" name="android-support-v41" level="project" />
   </component>
 </module>

@@ -1,14 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
->
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, WelcomeActivity"
-            android:textSize="20dip"
-    />
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:zhy="http://schemas.android.com/apk/res/com.imudges.LoveUApp.ui"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
+    <com.imudges.LoveUApp.ui.ArcMenu.ArcMenu
+            android:id="@+id/id_arcmenu1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            zhy:position="left_top"
+            zhy:radius="130dp" >
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/composer_button" >
+
+            <ImageView
+                    android:id="@+id/id_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/composer_icn_plus" />
+        </RelativeLayout>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_camera"
+                android:tag="Camera" />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_thought"
+                android:tag="Sun" />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_place"
+                android:tag="Place" />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_sleep"
+                android:tag="Sleep" />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_with"
+                android:tag="shezhi" />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/composer_music"
+                android:tag="people" />
+
+    </com.imudges.LoveUApp.ui.ArcMenu.ArcMenu>
+</RelativeLayout>

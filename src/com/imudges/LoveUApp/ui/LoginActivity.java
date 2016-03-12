@@ -96,6 +96,6 @@ public class LoginActivity extends Activity {
         editor.putString("username",username);
         System.out.println(username+secretKey);
         editor.commit();
-        editor.commit();   ;
+        editor.commit();
     }
 }

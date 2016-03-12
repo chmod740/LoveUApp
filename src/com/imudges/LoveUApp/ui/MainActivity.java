@@ -4,17 +4,30 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
+import com.imudges.LoveUApp.ui.ArcMenu.ArcMenu;
 
 /**
  * Created by dy on 2016/3/9.
  */
 public class MainActivity extends Activity {
 
-    public void onCreate(Bundle savedInstanceState) {
+    private ArcMenu mArcMenuLeftTop;
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        //向各个功能界面跳转
+        mArcMenuLeftTop = (ArcMenu) findViewById(R.id.id_arcmenu1);
+
+        mArcMenuLeftTop.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener(){
+            @Override
+            public void onClick(View view, int pos){
+                Toast.makeText(MainActivity.this,
+                        pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
 import com.imudges.LoveUApp.model.RegisterModel;
+import com.imudges.LoveUApp.model.SimpleModel;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -86,6 +87,47 @@ public class UserService {
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
+            }
+        });
+    }
+
+
+    /**
+     * 找回密码的业务逻辑
+     * */
+    public void forgrtPasswd(Context context,String userId,Listener listener){
+        //判断userI格式的合法性
+        if (userId == null  || userId.length() <5){
+            listener.onFailure("请先输入用户名");
+            return;
+        }
+
+        url = "sendForgetEmail.action";
+        params = new RequestParams();
+        params.add("userId",userId);
+
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                //获取返回的Json串
+                reponseStr = new String(bytes);
+                //构造实体类
+                try {
+                    SimpleModel simpleModel = new Gson().fromJson(reponseStr,SimpleModel.class);
+                    if (simpleModel.getStatus() == 1){
+                        //验证成功
+                        listener.onSuccess();
+                    }else{
+                        listener.onFailure("找回密码失败，原因："+ simpleModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure("找回密码失败，原因：" + "服务器发生错误");
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("找回密码失败，原因：" + throwable.getLocalizedMessage());
             }
         });
     }

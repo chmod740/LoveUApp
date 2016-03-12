@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
@@ -29,12 +31,22 @@ public class LoginActivity extends Activity {
     private EditText ed1,ed2;
     private String username,password;
     private String secretKey;
+    private TextView tv1;
     //private Button button1,button2;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.login_layout);
+        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.login_title);
+
         findobject();
 
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+        });
     }
 
     /**
@@ -62,17 +74,15 @@ public class LoginActivity extends Activity {
     private void findobject(){
         ed1=(EditText) findViewById(R.id.login_zhuce);
         ed2=(EditText) findViewById(R.id.login_mima);
+        tv1=(TextView) findViewById(R.id.login_register);
 
-    }
-    public void registeredclick(View v){
-        startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
     }
     public void loginclick(View v){
         username = ed1.getText().toString();
         password = ed2.getText().toString();
         login(username,password);
 
-        Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
     }
 
 

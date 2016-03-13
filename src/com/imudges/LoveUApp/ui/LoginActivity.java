@@ -3,7 +3,10 @@ package com.imudges.LoveUApp.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -11,6 +14,8 @@ import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
+
+import java.io.InputStream;
 
 /**
  * Created by dy on 2016/3/9.
@@ -90,5 +95,11 @@ public class LoginActivity extends Activity {
         Save save=new Save("User",getApplicationContext());
         save.savein("username",username);
         save.savein("password",password);
+    }
+    public void setImage(){
+        Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.default1);
+        PhotoCut cut=new PhotoCut(getApplicationContext());
+        cut.toRoundBitmap(icon);
+        UserImage.setImageBitmap(cut.toRoundBitmap(icon));
     }
 }

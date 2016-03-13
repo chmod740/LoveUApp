@@ -3,12 +3,14 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:background="#E0E0E0"
 >
 
     <ImageView
             android:id="@+id/welcome_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="true"
     />
 </LinearLayout>
 

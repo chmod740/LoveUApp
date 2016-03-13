@@ -56,10 +56,8 @@ public class RegisterActivity extends Activity {
 
      * @param sex
      */
-    public void register(String name,String password,String phone ,Integer sex
-                         ){
-        userService.register(getApplicationContext(), name, password, sex,
-                 phone, new Listener() {
+    public void register(String name,String password,String phone ,Integer sex){
+        userService.register(getApplicationContext(), name, password, sex,phone, new Listener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();

@@ -53,17 +53,17 @@ public class UserService {
             }
         });
     }
-    public void register(Context context,String username,String password,String truename,Integer usersex,
-                         Integer usergrade,String usermajor,String phone,Listener listener){
+    public void register(Context context,String username,String password,Integer usersex,
+                        String phone,Listener listener){
         url="service/RegisterService.php";
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);
         params.add("PassWord",password);
-        params.add("TrueName",truename);
+        //params.add("TrueName",truename);
         params.add("UserSex",usersex+"");
-        params.add("UserGrade",usergrade+"");
-        params.add("UserMajor",usermajor);
+        //params.add("UserGrade",usergrade+"");
+        //params.add("UserMajor",usermajor);
         params.add("UserPhone",phone);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override

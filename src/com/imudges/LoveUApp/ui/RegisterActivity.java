@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.UserService;
@@ -38,6 +39,10 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.register_layout);
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.login_title);
 
         findobject();

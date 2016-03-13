@@ -9,6 +9,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.UserService;
 
@@ -53,12 +54,11 @@ public class WelcomeActivity extends Activity {
     }
 
     private void loadData(Context context) {
-        //第一个参数是 文件名字  第二个参数 是访问权限  一般是MODE_PRIVATE
-
-        SharedPreferences sp = context.getSharedPreferences("loginconfig", MODE_PRIVATE);
-        username = sp.getString("username","").toString();
-        secretKey = sp.getString("secretkey","错误数据").toString();
-
-        Toast.makeText(this, username+secretKey+sp.getString("password","密码空"), Toast.LENGTH_SHORT).show();
+        Get get=new Get("User",getApplicationContext());
+        String a=get.getout("username","");
+        String b=get.getout("password","");
+        Get get1=new Get("UserKey",getApplicationContext());
+        String c=get1.getout("secretkey","");
+        Toast.makeText(WelcomeActivity.this,a+b+c , Toast.LENGTH_SHORT).show();
     }
 }

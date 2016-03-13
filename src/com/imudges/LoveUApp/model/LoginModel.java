@@ -6,7 +6,7 @@ package com.imudges.LoveUApp.model;
 public class LoginModel {
     private Integer state;
     private String msg;
-    private String secretKey;
+    private String SecretKey;
 
     public Integer getState() {
         return state;
@@ -25,10 +25,10 @@ public class LoginModel {
     }
 
     public String getSecretKey() {
-        return secretKey;
+        return SecretKey;
     }
 
     public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
+        this.SecretKey = secretKey;
     }
 }

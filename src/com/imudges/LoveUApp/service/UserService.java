@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.service;
 
 import android.content.Context;
 import com.google.gson.Gson;
+import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
 import com.imudges.LoveUApp.model.RegisterModel;
@@ -34,6 +35,8 @@ public class UserService {
                 try {
                     LoginModel loginModel = new Gson().fromJson(reponseStr,LoginModel.class);
                     if (loginModel.getState()==1){
+                        Save save=new Save("UserKey",context);
+                        save.savein("secretkey",loginModel.getSecretKey());
                         listener.onSuccess();
                     }else {
                         listener.onFailure(loginModel.getMsg());

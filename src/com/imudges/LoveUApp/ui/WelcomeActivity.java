@@ -31,16 +31,7 @@ public class WelcomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
-        AdService adService=new AdService();
-        adService.GetAdurl(getApplicationContext(), new Listener() {
-            @Override
-            public void onSuccess() {
-                getPhotoUrl();
-            }
-            @Override
-            public void onFailure(String msg) {
-            }
-        });
+
         welcomeImg = (ImageView) this.findViewById(R.id.welcome_img);
         //loadData(getApplicationContext());
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
@@ -85,11 +76,25 @@ public class WelcomeActivity extends Activity {
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {
-            if(Url.equals("")){
-                welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
-            }else{
-                downPhoto(Url);
-            }
+            AdService adService=new AdService();
+            adService.GetAdurl(getApplicationContext(), new Listener() {
+                @Override
+                public void onSuccess() {
+                    Get get=new Get("Ad",getApplicationContext());
+                    Url=get.getout("Ad","");
+                    //Toast.makeText(getApplicationContext(),Url,Toast.LENGTH_SHORT).show();
+                    if(Url.equals("")){
+                        welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
+                    }else{
+                        downPhoto(Url);
+                    }
+                }
+                @Override
+                public void onFailure(String msg) {
+                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+                    welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
+                }
+            });
         }
 
         public void onAnimationEnd(Animation animation) {
@@ -132,8 +137,5 @@ public class WelcomeActivity extends Activity {
             }
         }, secretKey, username);
     }
-    public void getPhotoUrl(){
-        Get get=new Get("Ad",getApplicationContext());
-        Url=get.getout("Ad","");
-    }
+
 }

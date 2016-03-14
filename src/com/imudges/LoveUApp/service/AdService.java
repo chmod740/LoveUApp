@@ -31,6 +31,7 @@ public class AdService {
                     if (adModel.getState() == 1) {
                         listener.onSuccess();
                         Save save=new Save("Ad",context);
+                        save.savein("Ad",adModel.getMsg());
                     } else {
                         listener.onFailure(adModel.getMsg());
                     }

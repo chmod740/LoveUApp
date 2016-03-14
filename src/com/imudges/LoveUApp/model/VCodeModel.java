@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.model;
 
 /**
  * Created by caolu on 2016/3/14.
+ * 短信验证码model类
  */
 public class VCodeModel  {
     private String UserPhone,Vcode,msg;

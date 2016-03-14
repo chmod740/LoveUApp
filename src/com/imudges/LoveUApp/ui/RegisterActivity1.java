@@ -47,12 +47,11 @@ public class RegisterActivity1 extends Activity {
             public void onSuccess() {
                 Intent intent =new Intent(getApplicationContext(),RegisterActivity2.class);
                 Bundle bundle = new Bundle();
-
                 bundle.putString("number",number);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
             }
-
             @Override
             public void onFailure(String msg) {
                 Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();

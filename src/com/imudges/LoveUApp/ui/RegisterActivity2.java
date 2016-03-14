@@ -36,8 +36,8 @@ public class RegisterActivity2  extends Activity{
             @Override
             public void onSuccess() {
                 startActivity(new Intent(RegisterActivity2.this,RegisterActivity.class));
+                finish();
             }
-
             @Override
             public void onFailure(String msg) {
                 Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();

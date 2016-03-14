@@ -30,7 +30,7 @@ public class VCodeService {
                     if (vCodeModel.getState()==1){
                         listener.onSuccess();
                     }else {
-                        listener.onFailure(vCodeModel.getMsg());
+                        listener.onFailure("请求错误");
                     }
                 }catch (Exception e){
                     listener.onFailure(e.getLocalizedMessage());
@@ -49,7 +49,7 @@ public class VCodeService {
         url = "service/CheckCode.php";
         params = new RequestParams();
         params.add("UserPhone",phonenumber);
-        params.add("Vcode",vcode);
+        params.add("CheckCode",vcode);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -65,8 +65,6 @@ public class VCodeService {
                 listener.onFailure(e.getLocalizedMessage());
             }
         }
-
-
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());

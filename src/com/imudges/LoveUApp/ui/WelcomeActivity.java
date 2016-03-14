@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.service.AdService;
 import com.imudges.LoveUApp.service.UserService;
 
 import java.io.InputStream;
@@ -24,13 +25,22 @@ public class WelcomeActivity extends Activity {
     private ImageView welcomeImg = null;
     private UserService userService = new UserService();
     private String username,secretKey;
-    private String Url="http://b314.photo.store.qq.com/psb?/V12j9viK0UIhfb/TqpqEDysh10rdlbJbM9qGShY08pCAvXOnWn.CU" +
-            ".em.8!/b/dHNWNrv1AgAA&bo=AAOAAgAAAAABB6E!&rf=viewer_4";
+    private String Url="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
+        AdService adService=new AdService();
+        adService.GetAdurl(getApplicationContext(), new Listener() {
+            @Override
+            public void onSuccess() {
+                getPhotoUrl();
+            }
+            @Override
+            public void onFailure(String msg) {
+            }
+        });
         welcomeImg = (ImageView) this.findViewById(R.id.welcome_img);
         //loadData(getApplicationContext());
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
@@ -75,8 +85,11 @@ public class WelcomeActivity extends Activity {
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {
-            //downPhoto(Url);
-            welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
+            if(Url.equals("")){
+                welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
+            }else{
+                downPhoto(Url);
+            }
         }
 
         public void onAnimationEnd(Animation animation) {
@@ -118,5 +131,9 @@ public class WelcomeActivity extends Activity {
                 Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();;
             }
         }, secretKey, username);
+    }
+    public void getPhotoUrl(){
+        Get get=new Get("Ad",getApplicationContext());
+        Url=get.getout("Ad","");
     }
 }

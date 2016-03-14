@@ -16,9 +16,37 @@ public class VCodeService {
     private String url;
     private String reponseStr;
 
+
+    public void applyVcode(String phonenumber,Context context,Listener listener){
+        url = "service/PhoneService.php";
+        params = new RequestParams();
+        params.add("UserPhone",phonenumber);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr = new String(bytes);
+                try {
+                    VCodeModel vCodeModel = new Gson().fromJson(reponseStr,VCodeModel.class);
+                    if (vCodeModel.getState()==1){
+                        listener.onSuccess();
+                    }else {
+                        listener.onFailure(vCodeModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络请求失败："+ throwable.getLocalizedMessage());
+            }
+        });
+    }
+
     public void vCode(String phonenumber, String vcode, Context context, Listener listener){
 
-        url = "service/PhoneService.php";
+        url = "service/CheckCode.php";
         params = new RequestParams();
         params.add("UserPhone",phonenumber);
         params.add("Vcode",vcode);

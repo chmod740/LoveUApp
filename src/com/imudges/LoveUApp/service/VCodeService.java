@@ -30,7 +30,7 @@ public class VCodeService {
                     if (vCodeModel.getState()==1){
                         listener.onSuccess();
                     }else {
-                        listener.onFailure("请求错误");
+                        listener.onFailure(vCodeModel.getMsg());
                     }
                 }catch (Exception e){
                     listener.onFailure(e.getLocalizedMessage());

@@ -6,14 +6,14 @@ package com.imudges.LoveUApp.model;
 public class AdModel {
     private String msg;
     private Integer state;
-    private String PhotoUrl;
+    private String Url;
 
     public String getPhotoUrl() {
-        return PhotoUrl;
+        return Url;
     }
 
     public void setPhotoUrl(String photoUrl) {
-        PhotoUrl = photoUrl;
+        Url = photoUrl;
     }
 
     public String getMsg() {

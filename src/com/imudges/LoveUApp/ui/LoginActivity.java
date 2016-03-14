@@ -3,31 +3,26 @@ package com.imudges.LoveUApp.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
+import com.imudges.LoveUApp.DAO.GetPhoto;
+import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
-import com.imudges.LoveUApp.model.LoginModel;
+import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FilePermission;
 
 /**
  * Created by dy on 2016/3/9.
  */
 public class LoginActivity extends Activity {
 
-
+    private ImageView UserImage;
     private UserService userService=new UserService();
-    private LoginModel loginModel=new LoginModel();
+    private PhotoCut photoCut=new PhotoCut(LoginActivity.this);
     private EditText ed1,ed2;
     private String username,password;
     private String secretKey;
@@ -40,19 +35,19 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login_layout);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.login_title);
 
+        //显示图片
         findobject();
-
+        setImage();
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this,RegisterActivity1.class));
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //切换到忘记密码页面！
-                ;
 
             }
         });
@@ -67,8 +62,6 @@ public class LoginActivity extends Activity {
         userService.login(name, password, getApplicationContext(), new Listener() {
             @Override
             public void onSuccess() {
-                secretKey =  loginModel.getSecretKey();
-                System.out.println("第一次得到"+secretKey);
                 saveData(getApplicationContext());
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 finish();
@@ -85,26 +78,28 @@ public class LoginActivity extends Activity {
         ed2=(EditText) findViewById(R.id.login_mima);
         tv1=(TextView) findViewById(R.id.login_register);
         tv2=(TextView) findViewById(R.id.login_losspass);
+        UserImage=(ImageView) findViewById(R.id.userimage);
     }
     public void loginclick(View v){
         username = ed1.getText().toString();
         password = ed2.getText().toString();
         login(username,password);
-
-       // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
     }
 
 
     private void saveData(Context context){
-        SharedPreferences sp = context.getSharedPreferences("loginconfig", MODE_PRIVATE);
-        //建立编辑器  然后开始写入 文件
-        SharedPreferences.Editor editor = sp.edit();
-        secretKey =  loginModel.getSecretKey();
-        editor.putString("username", username);
-        editor.putString("secretkey",secretKey);
-        editor.putString("username",username);
-        System.out.println(username+secretKey);
-        editor.commit();
-        editor.commit();
+        Save save=new Save("User",getApplicationContext());
+        save.savein("username",username);
+        save.savein("password",password);
     }
+    public void setImage(){
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        if(bitmap!=null){
+            UserImage.setImageBitmap(bitmap);
+        }
+    }
+
+
 }

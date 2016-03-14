@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.service;
 
 import android.content.Context;
 import com.google.gson.Gson;
+import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
 import com.imudges.LoveUApp.model.RegisterModel;
@@ -34,6 +35,8 @@ public class UserService {
                 try {
                     LoginModel loginModel = new Gson().fromJson(reponseStr,LoginModel.class);
                     if (loginModel.getState()==1){
+                        Save save=new Save("UserKey",context);
+                        save.savein("secretkey",loginModel.getSecretKey());
                         listener.onSuccess();
                     }else {
                         listener.onFailure(loginModel.getMsg());
@@ -50,17 +53,17 @@ public class UserService {
             }
         });
     }
-    public void register(Context context,String username,String password,String truename,Integer usersex,
-                         Integer usergrade,String usermajor,String phone,Listener listener){
+    public void register(Context context,String username,String password,Integer usersex,
+                        String phone,Listener listener){
         url="service/RegisterService.php";
         params = new RequestParams();
         //params.add("username",username);
         params.add("UserName",username);
         params.add("PassWord",password);
-        params.add("TrueName",truename);
+        //params.add("TrueName",truename);
         params.add("UserSex",usersex+"");
-        params.add("UserGrade",usergrade+"");
-        params.add("UserMajor",usermajor);
+        //params.add("UserGrade",usergrade+"");
+        //params.add("UserMajor",usermajor);
         params.add("UserPhone",phone);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
@@ -84,6 +87,34 @@ public class UserService {
         });
     }
 
+    public void SureName(Context context,Listener listener,String Key,String name){
+        url = "service/ReLoginService.php";
+        params = new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",Key);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr = new String(bytes);
+                try {
+                    RegisterModel registerModel = new Gson().fromJson(reponseStr,RegisterModel.class);
+                    if (registerModel.getState()==1){
+                        listener.onSuccess();
+                    }else {
+                        listener.onFailure(registerModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络请求失败！");
+            }
+        });
+
+    }
 
 
 }

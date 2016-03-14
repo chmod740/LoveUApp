@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#E0E0E0">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text=" "
+              android:textSize="7dp"
+              android:background="#0099FF"
+              android:fitsSystemWindows="true"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:textSize="20dp"
+              android:background="#0099FF"
+              android:gravity="center"
+              android:text="安全验证"
+              android:textColor="#FFFFFF"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text=" "
+              android:textSize="8dp"
+              android:background="#0099FF"/>
+
+    <!--头部结束-->
+
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="  "
+              android:textSize="20dp"
+              android:background="#E0E0E0"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:textSize="5dp"
+    android:background="#FFFFFF"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="  "/>
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:inputType="phone"
+        android:hint="请输入验证码"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+                  android:textCursorDrawable="@null"
+                  android:id="@+id/register2_verification"
+        />
+
+    </LinearLayout>
+
+
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:textSize="5dp"
+              android:background="#FFFFFF"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="  "
+              android:textSize="20dp"
+              android:background="#E0E0E0"/>
+
+
+    <!--以下是按钮-->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:paddingLeft="@dimen/activity_horizontal_margin"
+                  android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@drawable/login_button_selector"
+        android:text="提交"
+        android:onClick="verificationclick"/>
+    </LinearLayout>
+</LinearLayout>

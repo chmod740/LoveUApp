@@ -8,11 +8,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.service.VCodeService;
 
 
 public class RegisterActivity1 extends Activity {
     private EditText ednumber;
     private String number;
+    private VCodeService vCodeService = new VCodeService();
    // private Button bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +37,26 @@ public class RegisterActivity1 extends Activity {
             return ;
         }
 
-        Intent intent =new Intent(getApplicationContext(),RegisterActivity2.class);
-        Bundle bundle = new Bundle();
+        applyvcode(number);
 
-        bundle.putString("number",number);
-        intent.putExtras(bundle);
-        startActivity(intent);
+    }
 
+    public void applyvcode(String number){
+        vCodeService.applyVcode(number, getApplicationContext(), new Listener() {
+            @Override
+            public void onSuccess() {
+                Intent intent =new Intent(getApplicationContext(),RegisterActivity2.class);
+                Bundle bundle = new Bundle();
 
+                bundle.putString("number",number);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
 
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

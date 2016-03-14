@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#E0E0E0">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text=" "
+              android:textSize="7dp"
+              android:background="#0099FF"
+              android:fitsSystemWindows="true"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:textSize="20dp"
+              android:background="#0099FF"
+              android:gravity="center"
+              android:text="填写手机号码"
+              android:textColor="#FFFFFF"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text=" "
+              android:textSize="8dp"
+              android:background="#0099FF"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:text="  "
+              android:textSize="5dp"
+              android:background="#E0E0E0"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:text="  "
+    android:background="#FFFFFF"
+    android:textSize="6dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="    +86    "
+        android:textSize="20dp"/>
+
+        <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:hint="请输入你的电话号码"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+                  android:textSize="20dp"
+                  android:maxLength="12"
+                  android:textCursorDrawable="@null"
+                  android:lines="1"
+        android:inputType="phone"
+        android:id="@+id/register1_number"/>
+
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="  "
+              android:background="#FFFFFF"
+              android:textSize="6dp"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="  "
+              android:textSize="15dp"
+              android:background="#E0E0E0"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:paddingLeft="@dimen/activity_horizontal_margin"
+                  android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@drawable/login_button_selector"
+        android:text="下一步"
+        android:onClick="numberclick"/>
+    </LinearLayout>
+
+</LinearLayout>

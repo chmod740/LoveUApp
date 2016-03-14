@@ -3,10 +3,8 @@ package com.imudges.LoveUApp.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -14,8 +12,6 @@ import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
-
-import java.io.InputStream;
 
 /**
  * Created by dy on 2016/3/9.
@@ -44,7 +40,7 @@ public class LoginActivity extends Activity {
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this,RegisterActivity1.class));
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
@@ -102,4 +98,6 @@ public class LoginActivity extends Activity {
         cut.toRoundBitmap(icon);
         UserImage.setImageBitmap(cut.toRoundBitmap(icon));
     }
+
+
 }

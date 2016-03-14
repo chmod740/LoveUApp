@@ -12,6 +12,7 @@
                android:id="@+id/userimage"
                android:src="@drawable/default1"
                android:clickable="true"
+
                android:layout_gravity="center_horizontal"
     />
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"

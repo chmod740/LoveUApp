@@ -19,5 +19,10 @@
         <activity android:name="com.imudges.LoveUApp.ui.LoginActivity"
                   android:theme="@android:style/Theme.NoTitleBar"/>
         <activity android:name="com.imudges.LoveUApp.ui.MainRunActivity"/>
+        <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity1"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
+        <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity2"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        />
     </application>
 </manifest>

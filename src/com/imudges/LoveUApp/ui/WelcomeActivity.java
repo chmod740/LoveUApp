@@ -22,6 +22,7 @@ import java.net.URL;
 
 public class WelcomeActivity extends Activity {
     private ImageView welcomeImg = null;
+    private UserService userService = new UserService();
     private String username,secretKey;
     private String Url="http://b314.photo.store.qq.com/psb?/V12j9viK0UIhfb/TqpqEDysh10rdlbJbM9qGShY08pCAvXOnWn.CU" +
             ".em.8!/b/dHNWNrv1AgAA&bo=AAOAAgAAAAABB6E!&rf=viewer_4";
@@ -74,8 +75,8 @@ public class WelcomeActivity extends Activity {
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {
-            downPhoto(Url);
-            //welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
+            //downPhoto(Url);
+            welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
         }
 
         public void onAnimationEnd(Animation animation) {
@@ -102,5 +103,20 @@ public class WelcomeActivity extends Activity {
         Get get1=new Get("UserKey",getApplicationContext());
         String c=get1.getout("secretkey","");
         Toast.makeText(WelcomeActivity.this,a+b+c , Toast.LENGTH_SHORT).show();
+    }
+
+    public void relogin(String username,String secretKey){
+        userService.SureName(getApplicationContext(), new Listener() {
+            @Override
+            public void onSuccess() {
+                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
+                Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();;
+            }
+        }, secretKey, username);
     }
 }

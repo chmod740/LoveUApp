@@ -22,6 +22,7 @@ public class RegisterActivity2  extends Activity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.register2_layout);
+        SysApplication.getInstance().addActivity(this);
         Bundle bundle = this.getIntent().getExtras();;
         number = bundle.getString("number");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -35,8 +36,12 @@ public class RegisterActivity2  extends Activity{
         vCodeService.vCode(number, verification, getApplicationContext(), new Listener() {
             @Override
             public void onSuccess() {
-                startActivity(new Intent(RegisterActivity2.this,RegisterActivity.class));
-                finish();
+                Intent intent =new Intent(RegisterActivity2.this,RegisterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("number",number);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                //finish();
             }
             @Override
             public void onFailure(String msg) {

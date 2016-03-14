@@ -21,6 +21,7 @@ public class RegisterActivity1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register1_layout);
+        SysApplication.getInstance().addActivity(this);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //透明导航栏
@@ -45,12 +46,11 @@ public class RegisterActivity1 extends Activity {
         vCodeService.applyVcode(number, getApplicationContext(), new Listener() {
             @Override
             public void onSuccess() {
-                Intent intent =new Intent(getApplicationContext(),RegisterActivity2.class);
+                Intent intent =new Intent(RegisterActivity1.this,RegisterActivity2.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("number",number);
                 intent.putExtras(bundle);
                 startActivity(intent);
-                finish();
             }
             @Override
             public void onFailure(String msg) {

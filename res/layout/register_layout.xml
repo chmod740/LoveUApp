@@ -49,13 +49,13 @@
                       android:text=" "/>
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="账号："
+                      android:text="用户名："
                       android:textSize="20dip" android:background="#FFFFFF"
                       android:textColor="#000000"/>
             <EditText android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:textColor="#000000"
-                      android:hint="账号"
+                      android:hint="用户名"
                       android:textSize="20dip"
                       android:maxLength="12"
                       android:textCursorDrawable="@null"
@@ -180,14 +180,11 @@
                       android:layout_height="wrap_content"
                       android:text="手机号码："
                       android:textSize="20dip" android:background="#FFFFFF"/>
-            <EditText android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:textColor="#000000"
                       android:textSize="20dip"
-                      android:maxLength="11"
-                      android:phoneNumber="true"
-                      android:textCursorDrawable="@null"
-                      android:lines="1"
+
                       android:id="@+id/register_haoma" android:background="#FFFFFF"/>
 
         </LinearLayout>

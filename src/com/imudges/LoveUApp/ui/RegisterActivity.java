@@ -31,7 +31,7 @@ public class RegisterActivity extends Activity {
     private EditText ed_password1;
     private EditText ed_password2;
     private EditText ed_truename;
-    private EditText ed_number;
+    private TextView tx_number;
     private EditText ed_major;
     private String username,password1,password2,truename,number,major;
     private int sexvalue,gradevalue;
@@ -39,12 +39,15 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.register_layout);
+        SysApplication.getInstance().addActivity(this);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.login_title);
 
+        Bundle bundle = this.getIntent().getExtras();;
+        number = bundle.getString("number");
         findobject();
     }
 
@@ -61,8 +64,8 @@ public class RegisterActivity extends Activity {
             @Override
             public void onSuccess() {
                 Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                finish();
+                //startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                SysApplication.getInstance().exit();
             }
 
             @Override
@@ -76,11 +79,12 @@ public class RegisterActivity extends Activity {
     private void findobject(){
 
 
-        ed_number = (EditText)findViewById(R.id.register_haoma);
+        tx_number = (TextView) findViewById(R.id.register_haoma);
         ed_password1 = (EditText)findViewById(R.id.register_mima1);
         ed_password2 = (EditText)findViewById(R.id.register_mima2);
         ed_username = (EditText)findViewById(R.id.register_zhanghao);
 
+        tx_number.setText(number);
         showsex = (TextView) findViewById(R.id.register_sex);
         //showgrade = (TextView) findViewById(R.id.register_grade);
 
@@ -137,7 +141,6 @@ public class RegisterActivity extends Activity {
         username = ed_username.getText().toString();
         password1 = ed_password1.getText().toString();
         password2 = ed_password2.getText().toString();
-        number = ed_number.getText().toString();
 
 
         if(password1.equals(password2)!=true)

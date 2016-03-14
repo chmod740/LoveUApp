@@ -6,13 +6,18 @@ import android.app.ProgressDialog;
 import android.content.*;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
+import com.imudges.LoveUApp.DAO.GetPhoto;
+import com.imudges.LoveUApp.DAO.SavePhoto;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.ArcMenu.ArcMenu;
 
@@ -29,22 +34,18 @@ public class MainActivity extends Activity {
     private final int IMAGE_CODE=1;
     private Bitmap TestBitmap;
     private String Path;
-    private static Bitmap myBitmap=null;
+    private static Bitmap myBitmap;
 
     private ArcMenu mArcMenuLeftTop;
     private TextView UserSaying,UserName;
-    ImageView UserImage;
+    private ImageView UserImage;
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        if(myBitmap!=null){
-            UserImage.setImageBitmap(myBitmap);
-        }
-
         init();
         myclick();
-
+        setphoto();
         mArcMenuLeftTop = (ArcMenu) findViewById(R.id.id_arcmenu1);
 
         mArcMenuLeftTop.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener(){
@@ -94,6 +95,8 @@ public class MainActivity extends Activity {
                 PhotoCut bitmapUtil = new PhotoCut(MainActivity.this);
                 myBitmap = bitmapUtil.toRoundBitmap(TestBitmap);
                 UserImage.setImageBitmap(myBitmap);
+                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                savePhoto.Savephoto();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -111,26 +114,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        UserSaying.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText ev=new EditText(getApplicationContext());
-                new  AlertDialog.Builder(MainActivity.this)
-                        .setTitle("请输入" )
-                        .setIcon(android.R.drawable.ic_menu_call)
-                        .setView(ev)
-                        .setPositiveButton("确定",new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                String s=ev.getText().toString();
-                                UserSaying.setText(s);
-                            }
-                        })
-                        .setNegativeButton("取消" ,  null )
-                        .show();
-            }
-        });
-
         Get get=new Get("User",getApplicationContext());
         UserName.setText(get.getout("username",""));
 
@@ -143,5 +126,12 @@ public class MainActivity extends Activity {
         UserImage=(ImageView) findViewById(R.id.UserImage);
         UserName=(TextView) findViewById(R.id.UserName);
         UserSaying=(TextView)findViewById(R.id.UserSaying);
+    }
+    public void setphoto(){
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        if(bitmap!=null){
+            UserImage.setImageBitmap(bitmap);
+        }
     }
 }

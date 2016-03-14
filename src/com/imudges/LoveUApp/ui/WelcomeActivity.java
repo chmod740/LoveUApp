@@ -32,7 +32,7 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
         welcomeImg = (ImageView) this.findViewById(R.id.welcome_img);
-        loadData(getApplicationContext());
+        //loadData(getApplicationContext());
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
         anima.setDuration(3000);// 设置动画显示时间
         welcomeImg.startAnimation(anima);

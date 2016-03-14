@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.*;
+import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
@@ -34,9 +36,8 @@ public class LoginActivity extends Activity {
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.login_title);
 
         //显示图片
-        //setImage();
         findobject();
-
+        setImage();
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +84,7 @@ public class LoginActivity extends Activity {
         username = ed1.getText().toString();
         password = ed2.getText().toString();
         login(username,password);
-       // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
     }
 
 
@@ -93,10 +94,11 @@ public class LoginActivity extends Activity {
         save.savein("password",password);
     }
     public void setImage(){
-        Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.default1);
-        PhotoCut cut=new PhotoCut(getApplicationContext());
-        cut.toRoundBitmap(icon);
-        UserImage.setImageBitmap(cut.toRoundBitmap(icon));
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        if(bitmap!=null){
+            UserImage.setImageBitmap(bitmap);
+        }
     }
 
 

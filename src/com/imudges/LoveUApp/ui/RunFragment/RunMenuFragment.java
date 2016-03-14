@@ -22,6 +22,6 @@ public class RunMenuFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.menu_fragment, null);
+        return inflater.inflate(R.layout.slidingmenu_fragment, null);
     }
 }

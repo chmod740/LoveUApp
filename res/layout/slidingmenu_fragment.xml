@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                  android:layout_height="80dp"
+                  android:layout_marginLeft="40dp"
+                  android:layout_marginTop="20dp">
+
+        <ImageView android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/ic_launcher"
+                   android:id="@+id/menu_img_user"
+        />
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="18sp"
+                  android:layout_toRightOf="@+id/menu_img_user"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="20dp"
+                  android:id="@+id/menu_text"
+                  android:gravity="center"
+                  android:text="Name"
+        />
+    </RelativeLayout>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text1"
+              android:text="主菜单"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text2"
+              android:text="约饭"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text3"
+              android:text="约跑"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text4"
+              android:text="跳蚤市场"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text5"
+              android:text="课程表"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:clickable="true"
+              android:textSize="21sp"
+              android:gravity="center"
+              android:id="@+id/menu_text6"
+              android:text="个人信息"
+    />
+
+</LinearLayout>

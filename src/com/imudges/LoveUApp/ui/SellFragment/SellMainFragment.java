@@ -24,6 +24,6 @@ public class SellMainFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is 1");
+        tv.setText("this is Sell");
     }
 }

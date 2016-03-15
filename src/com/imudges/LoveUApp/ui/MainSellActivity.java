@@ -12,20 +12,20 @@ import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.imudges.LoveUApp.ui.SellFragment.SellMenuFragment;
+import com.imudges.LoveUApp.ui.YueFragment.YueMenuFragment;
 import com.slidingmenu.lib.SlidingMenu;
 
 /**
  * Created by dy on 2016/3/9.
  */
-public class MainSellActivity extends FragmentActivity implements View.OnClickListener{
+public class MainSellActivity extends FragmentActivity{
     private SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private RadioButton rbOne, rbTwo, rbThree, rbFour;
-
-    private TextView tv_text1, tv_text2, tv_text3, tv_text4, tv_text5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,6 @@ public class MainSellActivity extends FragmentActivity implements View.OnClickLi
 
         //初始化滑动菜单
         initSlidingMenu();
-
-        initView();
 
     }
 
@@ -93,20 +91,6 @@ public class MainSellActivity extends FragmentActivity implements View.OnClickLi
         });
     }
 
-    private void initView() {
-        tv_text1 = (TextView) findViewById(R.id.menu_text1);
-        tv_text2 = (TextView) findViewById(R.id.menu_text2);
-        tv_text3 = (TextView) findViewById(R.id.menu_text3);
-        tv_text4 = (TextView) findViewById(R.id.menu_text4);
-        tv_text5 = (TextView) findViewById(R.id.menu_text5);
-
-        tv_text1.setOnClickListener(this);
-        tv_text2.setOnClickListener(this);
-        tv_text3.setOnClickListener(this);
-        tv_text4.setOnClickListener(this);
-        tv_text5.setOnClickListener(this);
-    }
-
     /**
      * 初始化滑动菜单
      */
@@ -121,40 +105,8 @@ public class MainSellActivity extends FragmentActivity implements View.OnClickLi
         menu.setFadeDegree(0.35f);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         // 设置滑动菜单的视图界面
-        menu.setMenu(R.layout.slidingmenu_fragment);
-//        getSupportFragmentManager().beginTransaction().replace(R.id.menu_linearlayout, new RunMenuFragment()).commit();
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()){
-            case R.id.menu_text1:
-                Intent intent = new Intent(this,MainActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_text2:
-                intent = new Intent(this,MainMealActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_text3:
-                intent = new Intent(this,MainPresentActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_text4:
-                intent = new Intent(this,MainSellActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.menu_text5:
-                intent = new Intent(this,MainActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-        }
+        menu.setMenu(R.layout.menu_fragment);
+        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new SellMenuFragment()).commit();
     }
 
     @Override

@@ -1,8 +1,9 @@
-package com.imudges.LoveUApp.ui.SyllabusFragment;
+package com.imudges.LoveUApp.ui.YueFragment;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
- * Created by 1111 on 2016/3/14.
+ * Created by 1111 on 2016/3/10.
  */
-public class SyllabusMenuFragment extends Fragment {
+public class YueMenuFragment extends Fragment {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,7 @@ public class SyllabusMenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),
+                SimpleAdapter adapter = new SimpleAdapter(getActivity(),
                 getData(),
                 R.layout.slidingmenu_item,
                 new String[]{"text"},
@@ -48,23 +51,24 @@ public class SyllabusMenuFragment extends Fragment {
                         startActivity(new Intent(getActivity().getApplicationContext(),MainActivity.class));
                         break;
                     case 1:
-                        startActivity(new Intent(getActivity().getApplicationContext(),MainYueActivity.class));
-                        break;
-                    case 2:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainMealActivity.class));
                         break;
-                    case 3:
+                    case 2:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainPresentActivity.class));
                         break;
-                    case 4:
+                    case 3:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainSellActivity.class));
                         break;
-                    case 5:
+                    case 4:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainCooperationActivity.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(getActivity().getApplicationContext(),MainSyllabusActivity.class));
                         break;
                 }
             }
         });
+
         return view;
     }
 
@@ -77,11 +81,7 @@ public class SyllabusMenuFragment extends Fragment {
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "约" );
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("text", "吃饭");
+        map.put("text", "吃饭" );
         list.add(map);
 
         map = new HashMap<String, Object>();
@@ -94,6 +94,10 @@ public class SyllabusMenuFragment extends Fragment {
 
         map = new HashMap<String, Object>();
         map.put("text", "互助");
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("text", "课程表");
         list.add(map);
 
         return list;

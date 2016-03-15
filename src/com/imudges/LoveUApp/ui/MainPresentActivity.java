@@ -17,7 +17,8 @@ import com.slidingmenu.lib.SlidingMenu;
 /**
  * Created by dy on 2016/3/9.
  */
-public class MainMealActivity extends FragmentActivity implements View.OnClickListener {
+public class MainPresentActivity extends FragmentActivity implements View.OnClickListener {
+
     private SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
@@ -32,7 +33,7 @@ public class MainMealActivity extends FragmentActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
 
         //设置标题
-        setTitle("Meal");
+        setTitle("Present");
 
         //初始化主界面
         initMain();

@@ -1,6 +1,5 @@
 package com.imudges.LoveUApp.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,9 +14,9 @@ import android.widget.TextView;
 import com.slidingmenu.lib.SlidingMenu;
 
 /**
- * Created by dy on 2016/3/9.
+ * Created by 1111 on 2016/3/14.
  */
-public class MainMealActivity extends FragmentActivity implements View.OnClickListener {
+public class MainCooperationActivity extends FragmentActivity implements View.OnClickListener {
     private SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
@@ -32,7 +31,7 @@ public class MainMealActivity extends FragmentActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
 
         //设置标题
-        setTitle("Meal");
+        setTitle("Cooperation");
 
         //初始化主界面
         initMain();

@@ -1,15 +1,11 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.*;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -54,7 +50,17 @@ public class MainActivity extends Activity {
                 Toast.makeText(MainActivity.this,
                         pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
                 switch (pos){
-                    case 0:startActivity(new Intent(getApplicationContext(),MainRunActivity.class));
+                    case 0:startActivity(new Intent(getApplicationContext(),MainYueActivity.class));
+                        break;
+                    case 1:startActivity(new Intent(getApplicationContext(),MainPresentActivity.class));
+                        break;
+                    case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));
+                        break;
+                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));
+                        break;
+                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));
+                        break;
+                    case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));
                         break;
                 }
             }

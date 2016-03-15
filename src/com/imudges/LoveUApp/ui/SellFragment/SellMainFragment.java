@@ -1,8 +1,7 @@
-package com.imudges.LoveUApp.ui.RunFragment;
+package com.imudges.LoveUApp.ui.SellFragment;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,9 @@ import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
 
 /**
- * Created by 1111 on 2016/3/10.
+ * Created by 1111 on 2016/3/14.
  */
-public class RunMainFragment extends Fragment {
+public class SellMainFragment extends Fragment {
     private TextView tv;
 
     @Override

@@ -11,14 +11,12 @@ import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.imudges.LoveUApp.ui.RunFragment.RunMainFragment;
-import com.imudges.LoveUApp.ui.RunFragment.RunMenuFragment;
 import com.slidingmenu.lib.SlidingMenu;
 
 /**
  * Created by dy on 2016/3/9.
  */
-public class MainRunActivity extends FragmentActivity implements View.OnClickListener{
+public class MainYueActivity extends FragmentActivity implements View.OnClickListener{
     private SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
@@ -33,7 +31,7 @@ public class MainRunActivity extends FragmentActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
 
         //设置标题
-        setTitle("Attach");
+        setTitle("Yue");
 
         //初始化主界面
         initMain();
@@ -141,7 +139,7 @@ public class MainRunActivity extends FragmentActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.menu_text3:
-                intent = new Intent(this,MainStudyActivity.class);
+                intent = new Intent(this,MainPresentActivity.class);
                 startActivity(intent);
                 finish();
                 break;

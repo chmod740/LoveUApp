@@ -1,4 +1,4 @@
-package com.imudges.LoveUApp.ui.RunFragment;
+package com.imudges.LoveUApp.ui.MealFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
 
 /**
- * Created by 1111 on 2016/3/13.
+ * Created by 1111 on 2016/3/14.
  */
-public class RunThirdFragment extends Fragment {
+public class MealThirdFragment extends Fragment {
     private TextView tv;
 
     @Override

@@ -30,8 +30,8 @@ public class AdService {
                     AdModel adModel = new Gson().fromJson(reponseStr, AdModel.class);
                     if (adModel.getState() == 1) {
                         listener.onSuccess();
-                        Save save=new Save("Ad",context);
-                        save.savein("Ad",adModel.getMsg());
+                        Save save=new Save("AdS",context);
+                        save.savein("AdS",adModel.getMsg());
                     } else {
                         listener.onFailure(adModel.getMsg());
                     }

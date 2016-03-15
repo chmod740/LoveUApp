@@ -101,7 +101,8 @@ public class MainActivity extends Activity {
                 PhotoCut bitmapUtil = new PhotoCut(MainActivity.this);
                 myBitmap = bitmapUtil.toRoundBitmap(TestBitmap);
                 UserImage.setImageBitmap(myBitmap);
-                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                Get get=new Get("User",getApplicationContext());
+                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),get.getout("username",""));
                 savePhoto.Savephoto();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
@@ -121,8 +122,9 @@ public class MainActivity extends Activity {
         });
 
         Get get=new Get("User",getApplicationContext());
-        UserName.setText(get.getout("username",""));
-
+        //UserName.setText(get.getout("username",""));
+        Get get1=new Get("Nick",getApplicationContext());
+        UserName.setText(get1.getout(get.getout("username",""),get.getout("username","")));
     }
 
     /**
@@ -134,7 +136,8 @@ public class MainActivity extends Activity {
         UserSaying=(TextView)findViewById(R.id.UserSaying);
     }
     public void setphoto(){
-        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Get get=new Get("User",getApplicationContext());
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),get.getout("username",""));
         Bitmap bitmap=getPhoto.getphoto();
         if(bitmap!=null){
             UserImage.setImageBitmap(bitmap);

@@ -6,6 +6,7 @@ import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.LoginModel;
 import com.imudges.LoveUApp.model.RegisterModel;
+import com.imudges.LoveUApp.model.UserModel;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -116,5 +117,59 @@ public class UserService {
 
     }
 
+    /**
+     * 获取昵称
+     */
+
+    public void getNickP(Context context,String Phone,Listener listener){
+        url="service/NumberService.php";
+        params=new RequestParams();
+        params.add("UserPhone",Phone);
+        HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
+                if(userModel.getState()==1){
+                    listener.onSuccess();
+                    Save save=new Save("Nick",context);
+                    save.savein(Phone,userModel.getNickName());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络异常");
+            }
+        });
+    }
+    public void getNickU(Context context,String Name,Listener listener){
+        url="service/UserNameService.php";
+        params=new RequestParams();
+        params.add("UserName",Name);
+        HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                try{
+                    UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
+                    if(userModel.getState()==1){
+                        listener.onSuccess();
+                        Save save=new Save("Nick",context);
+                        save.savein(Name,userModel.getNickName());
+                    }else{
+                        listener.onFailure(userModel.getMag());
+                    }
+                }catch(Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络异常");
+            }
+        });
+    }
 
 }

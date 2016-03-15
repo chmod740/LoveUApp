@@ -76,23 +76,17 @@ public class WelcomeActivity extends Activity {
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {
+            Get get=new Get("AdS",getApplicationContext());
+            Url=get.getout("AdS","http://imgsrc.baidu.com/forum/w%3D580/sign=b520cc5deb50352ab16125006341fb1a/2ca959086e061d9585a8f4d279f40ad160d9ca93.jpg");
+            Toast.makeText(getApplicationContext(),Url,Toast.LENGTH_LONG).show();
+            downPhoto(Url);
             AdService adService=new AdService();
             adService.GetAdurl(getApplicationContext(), new Listener() {
                 @Override
                 public void onSuccess() {
-                    Get get=new Get("Ad",getApplicationContext());
-                    Url=get.getout("Ad","");
-                    //Toast.makeText(getApplicationContext(),Url,Toast.LENGTH_SHORT).show();
-                    if(Url.equals("")){
-                        welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
-                    }else{
-                        downPhoto(Url);
-                    }
                 }
                 @Override
                 public void onFailure(String msg) {
-                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
-                    welcomeImg.setBackgroundResource(R.drawable.ic_launcher);
                 }
             });
         }
@@ -120,7 +114,7 @@ public class WelcomeActivity extends Activity {
         String b=get.getout("password","");
         Get get1=new Get("UserKey",getApplicationContext());
         String c=get1.getout("secretkey","");
-        Toast.makeText(WelcomeActivity.this,a+b+c , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(WelcomeActivity.this,a+b+c , Toast.LENGTH_SHORT).show();
     }
 
     public void relogin(String username,String secretKey){

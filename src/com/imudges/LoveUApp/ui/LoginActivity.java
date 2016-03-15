@@ -83,6 +83,7 @@ public class LoginActivity extends Activity {
     public void loginclick(View v){
         username = ed1.getText().toString();
         password = ed2.getText().toString();
+        getUser();
         login(username,password);
         // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
     }
@@ -101,5 +102,36 @@ public class LoginActivity extends Activity {
         }
     }
 
+    /**
+     * 获取昵称
+     */
 
+    public void getUser(){
+        char []a=username.toCharArray();
+        int k=1;
+        for (char s:a) {
+            if (s <= '9' && s >= '0') {
+                k++;
+            }
+        }
+        if(k==11){
+            userService.getNickP(getApplicationContext(), username, new Listener() {
+                @Override
+                public void onSuccess() {}
+                @Override
+                public void onFailure(String msg) {}
+            });
+        }else{
+            userService.getNickU(getApplicationContext(), username, new Listener() {
+                @Override
+                public void onSuccess() {
+                    //Toast.makeText(getApplicationContext(),"成功",Toast.LENGTH_LONG).show();
+                }
+                @Override
+                public void onFailure(String msg) {
+                    Toast.makeText(getApplicationContext(),"msg"+msg,Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    }
 }

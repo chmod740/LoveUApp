@@ -129,14 +129,20 @@ public class UserService {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr=new String(bytes);
-                UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
-                if(userModel.getState()==1){
-                    listener.onSuccess();
-                    Save save=new Save("Nick",context);
-                    save.savein(Phone,userModel.getNickName());
+                try{
+                    UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
+                    if(userModel.getState()==1){
+                        listener.onSuccess();
+                        Save save=new Save("Nick",context);
+                        save.savein(Phone,userModel.getNickName());
+                        save.savein("Photo",userModel.getUserPhoto());
+                    }else{
+                        listener.onFailure(userModel.getMag());
+                    }
+                }catch(Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
                 }
             }
-
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络异常");
@@ -157,6 +163,7 @@ public class UserService {
                         listener.onSuccess();
                         Save save=new Save("Nick",context);
                         save.savein(Name,userModel.getNickName());
+                        save.savein("Photo",userModel.getUserPhoto());
                     }else{
                         listener.onFailure(userModel.getMag());
                     }

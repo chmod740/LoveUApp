@@ -5,20 +5,28 @@ import android.app.ProgressDialog;
 import android.content.*;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.SavePhoto;
+import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
+import com.imudges.LoveUApp.service.PhotoService;
+import com.imudges.LoveUApp.service.UserService;
 import com.imudges.LoveUApp.ui.ArcMenu.ArcMenu;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by dy on 2016/3/9.
@@ -32,6 +40,9 @@ public class MainActivity extends Activity {
     private String Path;
     private static Bitmap myBitmap;
 
+    private Bitmap Mybitmap;
+    private String PhotoUrl;
+
     private ArcMenu mArcMenuLeftTop;
     private TextView UserSaying,UserName;
     private ImageView UserImage;
@@ -43,7 +54,6 @@ public class MainActivity extends Activity {
         myclick();
         setphoto();
         mArcMenuLeftTop = (ArcMenu) findViewById(R.id.id_arcmenu1);
-
         mArcMenuLeftTop.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener(){
             @Override
             public void onClick(View view, int pos){
@@ -101,9 +111,15 @@ public class MainActivity extends Activity {
                 PhotoCut bitmapUtil = new PhotoCut(MainActivity.this);
                 myBitmap = bitmapUtil.toRoundBitmap(TestBitmap);
                 UserImage.setImageBitmap(myBitmap);
+
                 Get get=new Get("User",getApplicationContext());
                 SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),get.getout("username",""));
                 savePhoto.Savephoto();
+
+                PhotoService service=new PhotoService();
+                Get get1=new Get("UserKey",getApplicationContext());
+                String s=service.uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -135,12 +151,91 @@ public class MainActivity extends Activity {
         UserName=(TextView) findViewById(R.id.UserName);
         UserSaying=(TextView)findViewById(R.id.UserSaying);
     }
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 0x9527) {
+                //显示从网上下载的图片
+                PhotoCut bitmapUtil = new PhotoCut(MainActivity.this);
+                Mybitmap = bitmapUtil.toRoundBitmap(Mybitmap);
+                UserImage.setImageBitmap(myBitmap);
+                UserImage.setImageBitmap(Mybitmap);
+                SavePhoto savePhoto=new SavePhoto(Mybitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                savePhoto.Savephoto();
+            }
+        }
+    };
     public void setphoto(){
+        UserService user=new UserService();
         Get get=new Get("User",getApplicationContext());
-        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),get.getout("username",""));
-        Bitmap bitmap=getPhoto.getphoto();
-        if(bitmap!=null){
-            UserImage.setImageBitmap(bitmap);
+        char []a=get.getout("username","").toCharArray();
+        int k=1;
+        for (char s:a) {
+            if(s>='0'&&s<='9'){
+                k++;
+            }
+        }
+        if(k==12){
+            user.getNickP(getApplicationContext(), get.getout("username", ""), new Listener() {
+                @Override
+                public void onSuccess() {
+                    Get get1=new Get("Nick",getApplicationContext());
+                    PhotoUrl=get1.getout("Photo","");
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                //创建一个url对象
+                                URL url = new URL(PhotoUrl);
+                                //打开URL对应的资源输入流
+                                InputStream is = url.openStream();
+                                //从InputStream流中解析出图片
+                                Mybitmap = BitmapFactory.decodeStream(is);
+                                //  imageview.setImageBitmap(bitmap);
+                                //发送消息，通知UI组件显示图片
+                                handler.sendEmptyMessage(0x9527);
+                                //关闭输入流
+                                is.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+                }
+                @Override
+                public void onFailure(String msg) {}
+            });
+        }else{
+            user.getNickU(getApplicationContext(), get.getout("username", ""), new Listener() {
+                @Override
+                public void onSuccess() {
+                    Get get1=new Get("Nick",getApplicationContext());
+                    PhotoUrl=get1.getout("Photo","");
+                    Toast.makeText(MainActivity.this, PhotoUrl, Toast.LENGTH_SHORT).show();
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                //创建一个url对象
+                                URL url = new URL(PhotoUrl);
+                                //打开URL对应的资源输入流
+                                InputStream is = url.openStream();
+                                //从InputStream流中解析出图片
+                                Mybitmap = BitmapFactory.decodeStream(is);
+                                //  imageview.setImageBitmap(bitmap);
+                                //发送消息，通知UI组件显示图片
+                                handler.sendEmptyMessage(0x9527);
+                                //关闭输入流
+                                is.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+                }
+                @Override
+                public void onFailure(String msg) {}
+            });
         }
     }
 }

@@ -7,13 +7,21 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
+import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
+
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by dy on 2016/3/9.
@@ -28,6 +36,10 @@ public class LoginActivity extends Activity {
     private String secretKey;
     private TextView tv1;
     private TextView tv2;
+
+    private String PhotoUrl;
+    private Bitmap bitmap;
+
     //private Button button1,button2;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +63,7 @@ public class LoginActivity extends Activity {
 
             }
         });
+        trends();
     }
 
     /**
@@ -83,8 +96,8 @@ public class LoginActivity extends Activity {
     public void loginclick(View v){
         username = ed1.getText().toString();
         password = ed2.getText().toString();
-        getUser();
         login(username,password);
+        getUser();
         // Toast.makeText(getApplicationContext(),username+password,Toast.LENGTH_SHORT).show();
     }
 
@@ -103,23 +116,136 @@ public class LoginActivity extends Activity {
     }
 
     /**
+     * 动态获取用户图片
+     */
+    public void test(){
+        UserService user=new UserService();
+        char []a=username.toCharArray();
+        int k=1;
+        for (char s:a) {
+            if(s>='0'&&s<='9'){
+                k++;
+            }
+        }
+        if(k==12){
+            user.getNickP(getApplicationContext(),username, new Listener() {
+                @Override
+                public void onSuccess() {
+                    Get get1=new Get("Nick",getApplicationContext());
+                    PhotoUrl=get1.getout("Photo","");
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                //创建一个url对象
+                                URL url = new URL(PhotoUrl);
+                                //打开URL对应的资源输入流
+                                InputStream is = url.openStream();
+                                //从InputStream流中解析出图片
+                                bitmap = BitmapFactory.decodeStream(is);
+                                PhotoCut p=new PhotoCut(getApplicationContext());
+                                bitmap=p.toRoundBitmap(bitmap);
+                                //  imageview.setImageBitmap(bitmap);
+                                //发送消息，通知UI组件显示图片
+                                handler.sendEmptyMessage(0x9527);
+                                //关闭输入流
+                                is.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+                }
+                @Override
+                public void onFailure(String msg) {}
+            });
+        }else{
+            user.getNickU(getApplicationContext(), username, new Listener() {
+                @Override
+                public void onSuccess() {
+                    Get get1=new Get("Nick",getApplicationContext());
+                    PhotoUrl=get1.getout("Photo","");
+                    //Toast.makeText(LoginActivity.this, PhotoUrl, Toast.LENGTH_SHORT).show();
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                //创建一个url对象
+                                URL url = new URL(PhotoUrl);
+                                //打开URL对应的资源输入流
+                                InputStream is = url.openStream();
+                                //从InputStream流中解析出图片
+                                bitmap = BitmapFactory.decodeStream(is);
+                                PhotoCut p=new PhotoCut(getApplicationContext());
+                                bitmap=p.toRoundBitmap(bitmap);
+                                //  imageview.setImageBitmap(bitmap);
+                                //发送消息，通知UI组件显示图片
+                                handler.sendEmptyMessage(0x9527);
+                                //关闭输入流
+                                is.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.start();
+                }
+                @Override
+                public void onFailure(String msg) {}
+            });
+        }
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                //显示从网上下载的图片
+                UserImage.setImageBitmap(bitmap);
+            }
+        }
+    };
+    public void trends(){
+        ed1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                username=ed1.getText().toString();
+                test();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                username=ed1.getText().toString();
+                test();
+                //Toast.makeText(LoginActivity.this, username, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    /**
      * 获取昵称
      */
 
     public void getUser(){
-        char []a=username.toCharArray();
         int k=1;
+        char a[]=username.toCharArray();
         for (char s:a) {
-            if (s <= '9' && s >= '0') {
+            if(s>='0'&&s<='9'){
                 k++;
             }
         }
-        if(k==11){
+        if(k==12){
             userService.getNickP(getApplicationContext(), username, new Listener() {
                 @Override
-                public void onSuccess() {}
+                public void onSuccess() {
+                    //Toast.makeText(getApplicationContext(),"成功",Toast.LENGTH_LONG).show();
+                }
                 @Override
-                public void onFailure(String msg) {}
+                public void onFailure(String msg) {
+                    Toast.makeText(getApplicationContext(),"msg"+msg,Toast.LENGTH_LONG).show();
+                }
             });
         }else{
             userService.getNickU(getApplicationContext(), username, new Listener() {

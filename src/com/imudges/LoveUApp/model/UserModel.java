@@ -7,6 +7,15 @@ public class UserModel {
     private String NickName;
     private Integer state;
     private String mag;
+    private String UserPhoto;
+
+    public String getUserPhoto() {
+        return UserPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        UserPhoto = userPhoto;
+    }
 
     public Integer getState() {
         return state;

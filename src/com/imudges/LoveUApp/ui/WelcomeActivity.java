@@ -78,7 +78,7 @@ public class WelcomeActivity extends Activity {
         public void onAnimationStart(Animation animation) {
             Get get=new Get("AdS",getApplicationContext());
             Url=get.getout("AdS","http://imgsrc.baidu.com/forum/w%3D580/sign=b520cc5deb50352ab16125006341fb1a/2ca959086e061d9585a8f4d279f40ad160d9ca93.jpg");
-            Toast.makeText(getApplicationContext(),Url,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),Url,Toast.LENGTH_LONG).show();
             downPhoto(Url);
             AdService adService=new AdService();
             adService.GetAdurl(getApplicationContext(), new Listener() {

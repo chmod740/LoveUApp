@@ -37,14 +37,13 @@ public class RegisterActivity extends Activity {
     private int sexvalue,gradevalue;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.register_layout);
         SysApplication.getInstance().addActivity(this);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.login_title);
+
 
         Bundle bundle = this.getIntent().getExtras();;
         number = bundle.getString("number");

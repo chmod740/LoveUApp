@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
         init();
         myclick();
         setphoto();

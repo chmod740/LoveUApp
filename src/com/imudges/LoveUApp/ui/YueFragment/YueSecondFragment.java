@@ -12,7 +12,7 @@ import com.imudges.LoveUApp.ui.R;
  * Created by 1111 on 2016/3/13.
  */
 public class YueSecondFragment extends Fragment{
-    private TextView tv;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,7 +23,6 @@ public class YueSecondFragment extends Fragment{
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is 2_1");
+
     }
 }

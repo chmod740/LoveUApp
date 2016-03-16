@@ -12,6 +12,15 @@ public class RunModel {
     private Timestamp runtime;
     private String username;
     private String friendname;
+    private String SecretKey;
+
+    public String getSecretKey() {
+        return SecretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        SecretKey = secretKey;
+    }
 
     public String getInformation() {
         return information;

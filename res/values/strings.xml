@@ -4,4 +4,7 @@
     <drawable name="clr_normal">#0099FF</drawable>
     <drawable name="clr_pressed">#0000FF</drawable>
     <color name="black">#000000</color>
+    <color name="blue">#0099FF</color>
+    <color name="gray">#E0E0E0</color>
+    <string name="fuhao">&#060;</string>
 </resources>

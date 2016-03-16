@@ -21,11 +21,10 @@ public class MainYueActivity extends FragmentActivity {
     private SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
-    private RadioGroup topRg1,topRg2;
+    private RadioGroup topRg1,topRg2,topRg3;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private RadioButton rbOne, rbTwo, rbThree;
-    private RadioButton topRb1_1,topRb1_2,topRb2_1,topRb2_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +53,17 @@ public class MainYueActivity extends FragmentActivity {
         mFragments[2] = fragmentManager.findFragmentById(R.id.run_fragment2);
         mFragments[3] = fragmentManager.findFragmentById(R.id.run_fragment2_2);
         mFragments[4] = fragmentManager.findFragmentById(R.id.run_fragment3);
+        mFragments[5] = fragmentManager.findFragmentById(R.id.run_fragment3_2);
         //top fragment
-        mFragments[5] = fragmentManager.findFragmentById(R.id.top_fragment1);
-        mFragments[6] = fragmentManager.findFragmentById(R.id.top_fragment2);
-        mFragments[7] = fragmentManager.findFragmentById(R.id.top_fragment3);
+        mFragments[6] = fragmentManager.findFragmentById(R.id.top_fragment1);
+        mFragments[7] = fragmentManager.findFragmentById(R.id.top_fragment2);
+        mFragments[8] = fragmentManager.findFragmentById(R.id.top_fragment3);
         fragmentTransaction = fragmentManager.beginTransaction()
                 .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
                 .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5])
-                .hide(mFragments[6]).hide(mFragments[7]);
-        fragmentTransaction.show(mFragments[0]).show(mFragments[5]).commit();
+                .hide(mFragments[6]).hide(mFragments[7]).hide(mFragments[8]);
+        //初始显示的fragment
+        fragmentTransaction.show(mFragments[0]).show(mFragments[6]).commit();
         setFragmentIndicator();
     }
 
@@ -77,12 +78,8 @@ public class MainYueActivity extends FragmentActivity {
         rbThree.setText("记录");
 
         topRg1 = (RadioGroup) findViewById(R.id.topRg1);
-        topRb1_1 = (RadioButton) findViewById(R.id.run_top_11);
-        topRb1_2 = (RadioButton) findViewById(R.id.run_top_12);
-
         topRg2 = (RadioGroup) findViewById(R.id.topRg2);
-        topRb2_1 = (RadioButton) findViewById(R.id.run_top_21);
-        topRb2_2 = (RadioButton) findViewById(R.id.run_top_22);
+        topRg3 = (RadioGroup) findViewById(R.id.topRg3);
 
         bottomRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -91,18 +88,18 @@ public class MainYueActivity extends FragmentActivity {
                 fragmentTransaction = fragmentManager.beginTransaction()
                         .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
                         .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5])
-                        .hide(mFragments[6]).hide(mFragments[7]);
+                        .hide(mFragments[6]).hide(mFragments[7]).hide(mFragments[8]);
                 switch (checkedId) {
                     case R.id.rbOne:
-                        fragmentTransaction.show(mFragments[0]).show(mFragments[5]).commit();
+                        fragmentTransaction.show(mFragments[0]).show(mFragments[6]).commit();
                         break;
 
                     case R.id.rbTwo:
-                        fragmentTransaction.show(mFragments[2]).show(mFragments[6]).commit();
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[7]).commit();
                         break;
 
                     case R.id.rbThree:
-                        fragmentTransaction.show(mFragments[4]).show(mFragments[7]).commit();
+                        fragmentTransaction.show(mFragments[4]).show(mFragments[8]).commit();
                         break;
 
                     default:
@@ -117,14 +114,14 @@ public class MainYueActivity extends FragmentActivity {
                 fragmentTransaction = fragmentManager.beginTransaction()
                         .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
                         .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5])
-                        .hide(mFragments[6]).hide(mFragments[7]);
+                        .hide(mFragments[6]).hide(mFragments[7]).hide(mFragments[8]);
                 switch (checkedId) {
                     case R.id.run_top_11:
-                        fragmentTransaction.show(mFragments[0]).show(mFragments[5]).commit();
+                        fragmentTransaction.show(mFragments[0]).show(mFragments[6]).commit();
                         break;
 
                     case R.id.run_top_12:
-                        fragmentTransaction.show(mFragments[1]).show(mFragments[5]).commit();
+                        fragmentTransaction.show(mFragments[1]).show(mFragments[6]).commit();
                         break;
 
                     default:
@@ -139,14 +136,36 @@ public class MainYueActivity extends FragmentActivity {
                 fragmentTransaction = fragmentManager.beginTransaction()
                         .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
                         .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5])
-                        .hide(mFragments[6]).hide(mFragments[7]);
+                        .hide(mFragments[6]).hide(mFragments[7]).hide(mFragments[8]);
                 switch (checkedId) {
                     case R.id.run_top_21:
-                        fragmentTransaction.show(mFragments[2]).show(mFragments[6]).commit();
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[7]).commit();
                         break;
 
                     case R.id.run_top_22:
-                        fragmentTransaction.show(mFragments[3]).show(mFragments[6]).commit();
+                        fragmentTransaction.show(mFragments[3]).show(mFragments[7]).commit();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+
+        topRg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                fragmentTransaction = fragmentManager.beginTransaction()
+                        .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
+                        .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5])
+                        .hide(mFragments[6]).hide(mFragments[7]).hide(mFragments[8]);
+                switch (checkedId) {
+                    case R.id.run_top_31:
+                        fragmentTransaction.show(mFragments[4]).show(mFragments[8]).commit();
+                        break;
+
+                    case R.id.run_top_32:
+                        fragmentTransaction.show(mFragments[5]).show(mFragments[8]).commit();
                         break;
 
                     default:

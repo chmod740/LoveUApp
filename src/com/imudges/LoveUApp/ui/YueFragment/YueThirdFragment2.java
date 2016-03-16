@@ -9,21 +9,21 @@ import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
 
 /**
- * Created by 1111 on 2016/3/13.
+ * Created by 1111 on 2016/3/16.
  */
-public class YueSecondFragment extends Fragment{
+public class YueThirdFragment2 extends Fragment{
     private TextView tv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.run_2, container, false);
+        return inflater.inflate(R.layout.run_3_2, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is 2_1");
+        tv.setText("this is 3_2");
     }
 }

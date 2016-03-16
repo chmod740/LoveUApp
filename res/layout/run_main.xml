@@ -69,6 +69,13 @@
             android:layout_height="fill_parent"
             android:layout_weight="10" />
 
+    <fragment
+            android:id="@+id/run_fragment3_2"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueThirdFragment2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
     <!-- 底部菜单页面 -->
 
     <RadioGroup

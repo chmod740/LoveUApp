@@ -24,6 +24,6 @@ public class YueThirdFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is 3");
+        tv.setText("this is 3_1");
     }
 }

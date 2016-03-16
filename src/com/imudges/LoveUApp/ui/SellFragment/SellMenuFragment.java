@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 import com.imudges.LoveUApp.ui.*;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class SellMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        Toast.makeText(getActivity(),"Sell",Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -63,6 +65,7 @@ public class SellMenuFragment extends Fragment {
                         startActivity(new Intent(getActivity().getApplicationContext(),MainSyllabusActivity.class));
                         break;
                 }
+                getActivity().finish();
             }
         });
 

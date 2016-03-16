@@ -66,6 +66,7 @@ public class YueMenuFragment extends Fragment {
                         startActivity(new Intent(getActivity().getApplicationContext(),MainSyllabusActivity.class));
                         break;
                 }
+                getActivity().finish();
             }
         });
 

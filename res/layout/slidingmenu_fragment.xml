@@ -28,62 +28,6 @@
     <ListView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:paddingTop="20dp"
-              android:id="@+id/menu_list"
-    >
+              android:id="@+id/menu_list">
     </ListView>
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text1"-->
-              <!--android:text="主菜单"-->
-    <!--/>-->
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text2"-->
-              <!--android:text="约饭"-->
-    <!--/>-->
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text3"-->
-              <!--android:text="约跑"-->
-    <!--/>-->
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text4"-->
-              <!--android:text="跳蚤市场"-->
-    <!--/>-->
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text5"-->
-              <!--android:text="课程表"-->
-    <!--/>-->
-    <!--<TextView android:layout_width="match_parent"-->
-              <!--android:layout_height="wrap_content"-->
-              <!--android:layout_marginTop="30dp"-->
-              <!--android:clickable="true"-->
-              <!--android:textSize="21sp"-->
-              <!--android:gravity="center"-->
-              <!--android:id="@+id/menu_text6"-->
-              <!--android:text="个人信息"-->
-    <!--/>-->
-
 </LinearLayout>

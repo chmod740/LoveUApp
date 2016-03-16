@@ -6,7 +6,32 @@
               android:layout_height="match_parent"
               android:background="@drawable/background_login"
               android:orientation="vertical" >
+    <!-- 上边菜单栏 -->
 
+    <fragment
+            android:id="@+id/top_fragment1"
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment1"
+            android:layout_weight="0.5">
+    </fragment>
+
+    <fragment
+            android:id="@+id/top_fragment2"
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment2"
+            android:layout_weight="0.5">
+    </fragment>
+
+    <fragment
+            android:id="@+id/top_fragment3"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment3"
+            android:layout_weight="0.5">
+    </fragment>
     <!-- 上边主页面 -->
 
     <fragment
@@ -17,8 +42,22 @@
             android:layout_weight="10" />
 
     <fragment
+            android:id="@+id/run_fragment1_2"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueMainFragment2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+    <fragment
             android:id="@+id/run_fragment2"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueSecondFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+    <fragment
+            android:id="@+id/run_fragment2_2"
+            android:name="com.imudges.LoveUApp.ui.YueFragment.YueSecondFragment2"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="10" />
@@ -36,7 +75,7 @@
             android:id="@+id/bottomRg"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:background="@drawable/tab_footer_bg"
             android:orientation="horizontal" >
 

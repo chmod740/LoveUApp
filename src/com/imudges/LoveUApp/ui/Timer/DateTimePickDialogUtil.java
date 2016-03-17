@@ -17,6 +17,7 @@ import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.TimePicker.OnTimeChangedListener;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.RunService;
+import com.imudges.LoveUApp.service.StudyService;
 import com.imudges.LoveUApp.ui.MainActivity;
 import com.imudges.LoveUApp.ui.R;
 
@@ -25,14 +26,13 @@ import com.imudges.LoveUApp.ui.R;
  * initDateTime="2012年9月3日 14:44",//初始日期时间值 在点击事件中使用：
  * inputDate.setOnClickListener(new OnClickListener() {
  *
- * @Override public void onClick(View v) { DateTimePickDialogUtil
- *           dateTimePicKDialog=new
- *           DateTimePickDialogUtil(SinvestigateActivity.this,initDateTime);
- *           dateTimePicKDialog.dateTimePicKDialog(inputDate);
- *
- *           } });
- *
  * @author
+ * @Override public void onClick(View v) { DateTimePickDialogUtil
+ * dateTimePicKDialog=new
+ * DateTimePickDialogUtil(SinvestigateActivity.this,initDateTime);
+ * dateTimePicKDialog.dateTimePicKDialog(inputDate);
+ * <p>
+ * } });
  */
 public class DateTimePickDialogUtil implements OnDateChangedListener,
         OnTimeChangedListener {
@@ -45,24 +45,40 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     private String info;
     private String secretkey;
     private String username;
-    private RunService runService=new RunService();
+    private RunService runService = new RunService();
     private String end;
+    private String address;
+    private StudyService studyService = new StudyService();
+    private int which;
 
     /**
      * 日期时间弹出选择框构造函数
      *
-     * @param activity
-     *            ：调用的父activity
-     * @param initDateTime
-     *            初始日期时间值，作为弹出窗口的标题和日期时间初始值
+     * @param activity     ：调用的父activity
+     * @param initDateTime 初始日期时间值，作为弹出窗口的标题和日期时间初始值
      */
-    public DateTimePickDialogUtil(Activity activity, String initDateTime,String info) {
-        Date date=new Date();
-        DateFormat format=new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
-        String time=format.format(date);
+    public DateTimePickDialogUtil(Activity activity, String initDateTime, String info, int which) {
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+        String time = format.format(date);
         this.activity = activity;
         this.initDateTime = time;
         this.info = info;
+        this.address = null;
+        this.which = 2;
+        loadData(activity);
+
+    }
+
+    public DateTimePickDialogUtil(Activity activity, String initDateTime, String info, String address) {
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+        String time = format.format(date);
+        this.activity = activity;
+        this.initDateTime = time;
+        this.info = info;
+        this.address = address;
+        this.which = 1;
         loadData(activity);
 
     }
@@ -89,8 +105,7 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     /**
      * 弹出日期时间选择框方法
      *
-     * @param inputDate
-     *            :为需要设置的日期时间文本编辑框
+     * @param inputDate :为需要设置的日期时间文本编辑框
      * @return
      */
     public AlertDialog dateTimePicKDialog(final EditText inputDate) {
@@ -110,10 +125,17 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
                         inputDate.setText(dateTime);
 
                         chai(dateTime);
-                        //Toast.makeText(activity,"******",Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(activity,end,Toast.LENGTH_SHORT).show();
-                        Toast.makeText(activity,dateTime+" "+info+" "+username+" "+secretkey,Toast.LENGTH_SHORT).show();
-                        updata(username,info,secretkey,end,activity);
+
+                        Toast.makeText(activity, dateTime + " " + info + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                        if (which == 2) {
+                            updata(username, info, secretkey, end, activity);
+                            Toast.makeText(activity, dateTime + " " + info + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                        }
+                        if (which == 1) {
+                            xuedata(username, info, secretkey, end, address, activity);
+                            Toast.makeText(activity, dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -147,8 +169,7 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     /**
      * 实现将初始日期时间2012年07月02日 16:45 拆分成年 月 日 时 分 秒,并赋值给calendar
      *
-     * @param initDateTime
-     *            初始日期时间值 字符串型
+     * @param initDateTime 初始日期时间值 字符串型
      * @return Calendar
      */
     private Calendar getCalendarByInintData(String initDateTime) {
@@ -181,10 +202,8 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     /**
      * 截取子串
      *
-     * @param srcStr
-     *            源串
-     * @param pattern
-     *            匹配模式
+     * @param srcStr      源串
+     * @param pattern     匹配模式
      * @param indexOrLast
      * @param frontOrBack
      * @return
@@ -215,28 +234,43 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
         secretkey = sd.getString("secretkey", "").toString();
     }
 
-    public void updata(String username,String infomation,String secretkey,String end,Context activity){
+    public void updata(String username, String infomation, String secretkey, String end, Context activity) {
         runService.userPost(username, infomation, secretkey, end, activity, new Listener() {
             @Override
             public void onSuccess() {
-               Toast.makeText(activity,"上传成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(String msg) {
-                Toast.makeText(activity,msg,Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
-    public void chai(String str){
-        String s1 = str.substring(0,4);
-        String s2 = str.substring(5,7);
-        String s3 = str.substring(8,10);
-        String s4 = str.substring(11,13);
-        String s5 = str.substring(14,16);
-        end = s1+"-"+s2+"-"+s3+" "+s4+":"+s5+":"+"00";
-       // Toast.makeText(activity,end,Toast.LENGTH_SHORT).show();
+
+    public void xuedata(String username, String infomation, String secretkey, String end, String address, Context activity) {
+        studyService.userPost(activity, new Listener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
+            }
+        }, username, infomation, address, end, secretkey);
+    }
+
+    public void chai(String str) {
+        String s1 = str.substring(0, 4);
+        String s2 = str.substring(5, 7);
+        String s3 = str.substring(8, 10);
+        String s4 = str.substring(11, 13);
+        String s5 = str.substring(14, 16);
+        end = s1 + "-" + s2 + "-" + s3 + " " + s4 + ":" + s5 + ":" + "00";
+        // Toast.makeText(activity,end,Toast.LENGTH_SHORT).show();
 
     }
 }

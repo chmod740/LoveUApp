@@ -43,7 +43,7 @@ public class YueSecondFragment2 extends Fragment {
                 infomation = info.getText().toString();
                 //addRess = address.getText().toString();
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
-                        getActivity(), initEndDateTime,infomation);
+                        getActivity(), initEndDateTime,infomation,2);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
 
 

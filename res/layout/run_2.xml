@@ -37,6 +37,9 @@
                       android:paddingLeft="3dp"
                       android:paddingRight="3dp"
                       android:paddingTop="3dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                      android:text="内容："/>
             <EditText android:layout_width="match_parent" android:layout_height="match_parent"
                       android:background="@color/white"
                       android:textColor="@color/black"
@@ -48,7 +51,24 @@
                       android:paddingLeft="3dp"
                       android:paddingRight="3dp"
                       android:paddingTop="3dp"
-                      android:maxLines="7"/>
+                      android:maxLines="7"
+            android:layout_weight="5"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+
+            android:text="地点："/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:background="@color/white"
+                      android:textColor="@color/black"
+                      android:textSize="20dp"
+                      android:id="@+id/run2_ed3"
+                      android:textCursorDrawable="@null"
+                      android:gravity="top"
+                      android:paddingBottom="3dp"
+                      android:paddingLeft="3dp"
+                      android:paddingRight="3dp"
+                      android:paddingTop="3dp"
+                      android:maxLines="1"
+            android:maxLength="10"/>
 
         </LinearLayout>
 

@@ -28,13 +28,14 @@ public class StudyService {
      * @param studyTime
      */
     public void userPost(Context context, Listener listener,String username,String information,String studyArea,
-                         String studyTime){
-        url="";
+                         String studyTime, String secretkey){
+        url="xueservice/UpXueService";
         params=new RequestParams();
         params.add("UserName",username);
-        params.add("UserInformation",information);
-        params.add("UserStudyArea",studyArea);
-        params.add("StudyTime",studyTime);
+        params.add("XueInformation",information);
+        params.add("XueArea",studyArea);
+        params.add("XueTime",studyTime);
+        params.add("SecretKey",secretkey);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

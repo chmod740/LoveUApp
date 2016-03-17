@@ -61,7 +61,7 @@
                 android:layout_alignParentBottom="true"
                 android:id="@+id/run2_bt"
                 android:onClick="run2_click"
-        android:text="提交"/>
+        android:text="设置时间"/>
     </RelativeLayout>
     =
 

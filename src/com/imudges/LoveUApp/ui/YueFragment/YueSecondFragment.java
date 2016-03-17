@@ -40,6 +40,7 @@ public class YueSecondFragment extends Fragment{
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                infomation = info.getText().toString();
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
                         getActivity(), initEndDateTime,infomation);
                 dateTimePicKDialog.dateTimePicKDialog(ed);

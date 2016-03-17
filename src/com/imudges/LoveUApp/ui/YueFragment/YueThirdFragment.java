@@ -37,7 +37,7 @@ public class YueThirdFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getView().findViewById(R.id.run3_list);
+        listView = (ListView) getView().findViewById(R.id.run3_3_list1);
         imageView = (ImageView)getView().findViewById(R.id.run3_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.default1);
         PhotoCut photoCut = new PhotoCut(getActivity().getApplicationContext());
@@ -70,4 +70,6 @@ public class YueThirdFragment extends Fragment {
 
         return list;
     }
+
+
 }

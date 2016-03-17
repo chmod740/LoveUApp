@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:fitsSystemWindows="true"
+>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:background="@color/blue">
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="@string/fuhao"
+                android:id="@+id/run2_2_back"
+                android:background="@color/blue"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:background="@color/blue"
+                  android:text="                跑"
+                  android:textSize="25dp"
+                  android:textColor="@color/white"
 
-    <include
-            android:id="@+id/one_title"
-            layout="@layout/title_bar" />
+        />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:textSize="20dp"/>
 
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:text="这是第二个的第二个"
-            android:textColor="#000000" />
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
+
+        +        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                               android:orientation="vertical"
+                               android:layout_above="@+id/run2_2_tx2"
+                               android:paddingBottom="3dp"
+                               android:paddingLeft="3dp"
+                               android:paddingRight="3dp"
+                               android:paddingTop="3dp">
+        <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:background="@color/white"
+                  android:textColor="@color/black"
+                  android:textSize="20dp"
+                  android:id="@+id/run2_2_ed2"
+                  android:textCursorDrawable="@null"
+                  android:gravity="top"
+                  android:paddingBottom="3dp"
+                  android:paddingLeft="3dp"
+                  android:paddingRight="3dp"
+                  android:paddingTop="3dp"
+                  android:maxLines="7"/>
+
+    </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:textSize="20dp"
+                  android:layout_above="@+id/run2_2_bt"
+                  android:id="@+id/run2_2_tx2"/>
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/login_button_selector"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/run2_2_bt"
+                android:onClick="run2_2_click"
+                android:text="设置时间"/>
+    </RelativeLayout>
+
+
 
 </LinearLayout>

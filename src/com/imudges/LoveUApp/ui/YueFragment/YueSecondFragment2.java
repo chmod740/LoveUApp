@@ -5,25 +5,45 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.Timer.DateTimePickDialogUtil;
 
 /**
  * Created by 1111 on 2016/3/16.
  */
 public class YueSecondFragment2 extends Fragment {
-    private TextView tv;
-
+    private Button bt;
+    private String infomation;
+    private EditText info;
+    private EditText ed;
+    private String initEndDateTime = "2013年9月3日 14:44"; // 初始化开始时间
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.run_2_2, container, false);
+
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is 2_2");
+
+        bt =(Button)getView().findViewById(R.id.run2_2_bt);
+        ed = new EditText(getActivity().getApplicationContext());
+        info = (EditText) getView().findViewById(R.id.run2_2_ed2);
+        bt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                infomation = info.getText().toString();
+                DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
+                        getActivity(), initEndDateTime,infomation);
+                dateTimePicKDialog.dateTimePicKDialog(ed);
+
+
+            }
+        });
     }
 }

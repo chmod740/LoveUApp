@@ -1,26 +1,30 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.Inflater;
 
 /**
  * Created by 1111 on 2016/3/10.
  */
 public class YueMainFragment extends ListFragment {
 
-    private int numOfList=0;
+    private int numOfList=10;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +43,14 @@ public class YueMainFragment extends ListFragment {
                 new int[] { R.id.img, R.id.title, R.id.text1, R.id.text2 }
         );
         setListAdapter(adapter);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // TODO Auto-generated method stub
+        super.onListItemClick(l, v, position, id);
+        Intent intent = new Intent(getActivity(),DetailActivity.class);
+        startActivity(intent);
     }
 
     private List<Map<String, Object>> getData() {

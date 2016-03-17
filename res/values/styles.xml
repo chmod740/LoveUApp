@@ -53,5 +53,11 @@
         <item name="android:background">@drawable/rg_btn_selector</item>
     </style>
 
+    <style name="details_main_padding">
+        <item name="android:paddingBottom">30dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">30dp</item>
+    </style>
 
 </resources>

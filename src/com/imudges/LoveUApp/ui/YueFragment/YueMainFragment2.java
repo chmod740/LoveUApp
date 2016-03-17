@@ -6,6 +6,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import com.imudges.LoveUApp.ui.R;
@@ -38,6 +39,11 @@ public class YueMainFragment2 extends ListFragment {
                 new int[] { R.id.img, R.id.title, R.id.text1, R.id.text2 }
         );
         setListAdapter(adapter);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
     }
 
     private List<Map<String, Object>> getData() {

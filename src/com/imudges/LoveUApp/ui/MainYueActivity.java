@@ -92,14 +92,17 @@ public class MainYueActivity extends FragmentActivity {
                 switch (checkedId) {
                     case R.id.rbOne:
                         fragmentTransaction.show(mFragments[0]).show(mFragments[6]).commit();
+                        topRg1.check(R.id.run_top_11);
                         break;
 
                     case R.id.rbTwo:
                         fragmentTransaction.show(mFragments[2]).show(mFragments[7]).commit();
+                        topRg2.check(R.id.run_top_21);
                         break;
 
                     case R.id.rbThree:
                         fragmentTransaction.show(mFragments[4]).show(mFragments[8]).commit();
+                        topRg3.check(R.id.run_top_31);
                         break;
 
                     default:

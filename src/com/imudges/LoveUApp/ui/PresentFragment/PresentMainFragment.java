@@ -13,18 +13,9 @@ import com.imudges.LoveUApp.ui.R;
  */
 public class PresentMainFragment extends Fragment{
 
-    private TextView tv;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.run_1, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        tv = (TextView) getView().findViewById(R.id.titleTv);
-        tv.setText("this is Present");
     }
 }

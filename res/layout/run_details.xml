@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@drawable/background_login"
+              style="@style/details_main_padding"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="120dp">
+        <ImageView
+                android:id="@+id/run_details_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/black"
+        />
+
+        <TextView
+                android:id="@+id/run_details_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/run_details_img"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="name"
+        />
+
+        <TextView
+                android:id="@+id/run_details_sex"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/run_details_name"
+                android:layout_toRightOf="@+id/run_details_img"
+                android:textColor="@color/black"
+                android:text="sex"
+        />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/run_details_sex"
+                android:layout_toRightOf="@id/run_details_img"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="submit time"
+        />
+
+    </RelativeLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_weight="3"
+            android:textSize="14sp"
+            android:text="details"
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="time"
+    />
+</LinearLayout>

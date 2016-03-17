@@ -37,16 +37,16 @@ public class YueThirdFragment2 extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         listView = (ListView) getView().findViewById(R.id.run3_3_list2);
-        imageView = (ImageView)getView().findViewById(R.id.run3_img);
+        imageView = (ImageView)getView().findViewById(R.id.run3_2_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.default1);
         PhotoCut photoCut = new PhotoCut(getActivity().getApplicationContext());
         Bitmap bitmap1 = photoCut.toRoundBitmap(bitmap);
         //imageView.setImageBitmap(bitmap1);
         simpleAdapter = new SimpleAdapter(getActivity(),
                 getData(),
-                R.layout.item_run_3_1,
-                new String[] { "img", "title", "time", "location" },
-                new int[] { R.id.run3_img, R.id.run3_tx1, R.id.run3_tx2, R.id.run_3tx3 }
+                R.layout.item_run_3_2,
+                new String[] { "img", "title", "time", "location","man"},
+                new int[] { R.id.run3_2_img, R.id.run3_2_tx1, R.id.run3_2_tx2, R.id.run3_2_tx3,R.id.run3_2_tx4 }
         );
         listView.setAdapter(simpleAdapter);
     }
@@ -62,8 +62,9 @@ public class YueThirdFragment2 extends Fragment{
             map = new HashMap<String, Object>();
             map.put("title",  "内容");
             map.put("time",  "时间");
-            map.put("location", "人");
+            map.put("location", "地点");
             map.put("img", img);
+            map.put("man","人");
             list.add(map);
         }
 

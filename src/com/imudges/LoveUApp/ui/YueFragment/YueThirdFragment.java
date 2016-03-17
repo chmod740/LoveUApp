@@ -47,7 +47,7 @@ public class YueThirdFragment extends Fragment {
                 getData(),
                 R.layout.item_run_3_1,
                 new String[] { "img", "title", "time", "location" },
-                new int[] { R.id.run3_img, R.id.run3_tx1, R.id.run3_tx2, R.id.run_3tx3 }
+                new int[] { R.id.run3_img, R.id.run3_tx1, R.id.run3_tx2, R.id.run3_tx3 }
         );
         listView.setAdapter(simpleAdapter);
     }

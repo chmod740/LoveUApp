@@ -16,6 +16,7 @@ import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
+import com.imudges.LoveUApp.DAO.SavePhoto;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
@@ -200,6 +201,8 @@ public class LoginActivity extends Activity {
             if (msg.what==0x9527) {
                 //显示从网上下载的图片
                 UserImage.setImageBitmap(bitmap);
+                SavePhoto savePhoto=new SavePhoto(bitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                savePhoto.Savephoto();
             }
         }
     };

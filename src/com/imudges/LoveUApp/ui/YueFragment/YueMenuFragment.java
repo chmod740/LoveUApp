@@ -1,16 +1,19 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.widget.*;
+import com.imudges.LoveUApp.DAO.Get;
+import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.ui.*;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +26,9 @@ import java.util.Map;
  */
 public class YueMenuFragment extends Fragment {
 
+    private ImageView userImage;
+    private TextView UserTv;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +38,13 @@ public class YueMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
+        userImage=(ImageView)view.findViewById(R.id.menu_img_user);
+        UserTv=(TextView) view.findViewById(R.id.menu_text);
+        //tvOutput.setText (savedInstanceState.getString ("output"));
+
+
+        //init();
+        setUser();
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(),
@@ -102,5 +115,20 @@ public class YueMenuFragment extends Fragment {
         list.add(map);
 
         return list;
+    }
+
+    /**
+     * 显示用户
+     */
+    public void setUser(){
+        Get get=new Get("User",getActivity().getApplicationContext());
+        //UserName.setText(get.getout("username",""));
+        Get get1=new Get("Nick",getActivity().getApplicationContext());
+        Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
+        UserTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
+
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        userImage.setImageBitmap(bitmap);
     }
 }

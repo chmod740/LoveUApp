@@ -153,91 +153,9 @@ public class MainActivity extends Activity {
         UserName=(TextView) findViewById(R.id.UserName);
         UserSaying=(TextView)findViewById(R.id.UserSaying);
     }
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 0x9527) {
-                //显示从网上下载的图片
-                PhotoCut bitmapUtil = new PhotoCut(MainActivity.this);
-                Mybitmap = bitmapUtil.toRoundBitmap(Mybitmap);
-                UserImage.setImageBitmap(myBitmap);
-                UserImage.setImageBitmap(Mybitmap);
-                SavePhoto savePhoto=new SavePhoto(Mybitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
-                savePhoto.Savephoto();
-            }
-        }
-    };
     public void setphoto(){
-        UserService user=new UserService();
-        Get get=new Get("User",getApplicationContext());
-        char []a=get.getout("username","").toCharArray();
-        int k=1;
-        for (char s:a) {
-            if(s>='0'&&s<='9'){
-                k++;
-            }
-        }
-        if(k==12){
-            user.getNickP(getApplicationContext(), get.getout("username", ""), new Listener() {
-                @Override
-                public void onSuccess() {
-                    Get get1=new Get("Nick",getApplicationContext());
-                    PhotoUrl=get1.getout("Photo","");
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            try {
-                                //创建一个url对象
-                                URL url = new URL(PhotoUrl);
-                                //打开URL对应的资源输入流
-                                InputStream is = url.openStream();
-                                //从InputStream流中解析出图片
-                                Mybitmap = BitmapFactory.decodeStream(is);
-                                //  imageview.setImageBitmap(bitmap);
-                                //发送消息，通知UI组件显示图片
-                                handler.sendEmptyMessage(0x9527);
-                                //关闭输入流
-                                is.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }.start();
-                }
-                @Override
-                public void onFailure(String msg) {}
-            });
-        }else{
-            user.getNickU(getApplicationContext(), get.getout("username", ""), new Listener() {
-                @Override
-                public void onSuccess() {
-                    Get get1=new Get("Nick",getApplicationContext());
-                    PhotoUrl=get1.getout("Photo","");
-                    Toast.makeText(MainActivity.this, PhotoUrl, Toast.LENGTH_SHORT).show();
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            try {
-                                //创建一个url对象
-                                URL url = new URL(PhotoUrl);
-                                //打开URL对应的资源输入流
-                                InputStream is = url.openStream();
-                                //从InputStream流中解析出图片
-                                Mybitmap = BitmapFactory.decodeStream(is);
-                                //  imageview.setImageBitmap(bitmap);
-                                //发送消息，通知UI组件显示图片
-                                handler.sendEmptyMessage(0x9527);
-                                //关闭输入流
-                                is.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }.start();
-                }
-                @Override
-                public void onFailure(String msg) {}
-            });
-        }
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        UserImage.setImageBitmap(bitmap);
     }
 }

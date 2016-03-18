@@ -32,5 +32,6 @@
         <activity android:name=".MainCooperationActivity"/>
         <activity android:name=".MainMealActivity"/>
         <activity android:name=".YueFragment.DetailActivity"/>
+        <activity android:name=".MainSetActivity"/>
     </application>
 </manifest>

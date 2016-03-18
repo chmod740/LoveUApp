@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
 
         init();

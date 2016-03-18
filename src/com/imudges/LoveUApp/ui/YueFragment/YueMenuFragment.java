@@ -27,7 +27,7 @@ import java.util.Map;
 public class YueMenuFragment extends Fragment {
 
     private ImageView userImage;
-    private TextView UserTv;
+    private TextView UserTv,UserSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class YueMenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
         userImage=(ImageView)view.findViewById(R.id.menu_img_user);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
+        UserSet=(TextView) view.findViewById(R.id.UserSet);
         //tvOutput.setText (savedInstanceState.getString ("output"));
 
 
@@ -83,6 +84,12 @@ public class YueMenuFragment extends Fragment {
             }
         });
 
+        UserSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
+            }
+        });
         return view;
     }
 
@@ -124,7 +131,7 @@ public class YueMenuFragment extends Fragment {
         Get get=new Get("User",getActivity().getApplicationContext());
         //UserName.setText(get.getout("username",""));
         Get get1=new Get("Nick",getActivity().getApplicationContext());
-        Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
         UserTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
 
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");

@@ -85,10 +85,10 @@ public class YueMainFragment extends ListFragment {
                         map.put("title",studyModels.get(j).getPostUser());
                         map.put("time", studyModels.get(j).getXueTime());
                         map.put("location", studyModels.get(j).getXueInformation());
-//                        downPhoto(studyModels.get(j).getPostImage());
+                        downPhoto(studyModels.get(j).getPostImage());
 //                        Drawable drawable=new BitmapDrawable(getActivity().getApplicationContext().getResources(),bitmap);
 //                        new ImageView(getActivity().getApplicationContext()).setImageBitmap(bitmap);
-                        map.put("img",img);
+                        map.put("img",bitmap);
                         list.add(map);
                     }
                 }catch(Exception e){

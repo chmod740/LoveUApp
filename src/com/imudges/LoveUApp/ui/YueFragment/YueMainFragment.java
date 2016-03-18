@@ -1,11 +1,16 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +23,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,12 +35,12 @@ import java.util.Map;
  */
 public class YueMainFragment extends ListFragment {
 
-    private String url="";
+    private String url;
     private String responStr;
     private RequestParams params;
-    List<YueStudyModel> studyModels;
-
-    private int numOfList=0;
+    private List<YueStudyModel> studyModels;
+    private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+    private Bitmap bitmap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,42 +52,21 @@ public class YueMainFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
+
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),
-                getData(),
+                GetStudy(),
                 R.layout.run_1,
-                new String[] { "img", "title", "time", "location" },
-                new int[] { R.id.img, R.id.title, R.id.text1, R.id.text2 }
+                new String[]{"img", "title", "time", "location"},
+                new int[]{R.id.img, R.id.title, R.id.text1, R.id.text2}
         );
         setListAdapter(adapter);
     }
-
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-
-        numOfList = 10;
-        Map<String, Object> map;
-        for(int i = numOfList-1; i>=0; i--){
-            int img = R.drawable.ic_launcher;
-
-            map = new HashMap<String, Object>();
-            map.put("title",  "1-1的title");
-            map.put("time",  "time");
-            map.put("location", "location");
-            map.put("img", img);
-            list.add(map);
-        }
-
-        return list;
-    }
-
     /**
      * 获取自习表中所有信息
      */
     public List<Map<String, Object>> GetStudy(){
         url="xueservice/DownXueService.php";
         params=new RequestParams();
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-
         HttpRequest.get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -89,9 +75,6 @@ public class YueMainFragment extends ListFragment {
                     System.out.println(responStr);
                     Gson gson=new Gson();
                     studyModels = gson.fromJson(responStr,new TypeToken<List<YueStudyModel>>(){}.getType());
-                    System.out.println(studyModels.get(0).getPostUser());
-                    System.out.println(studyModels.get(1).getState());
-                    System.out.println(studyModels.size());
 
                     Map<String, Object> map;
                     int Length=studyModels.size();
@@ -102,12 +85,13 @@ public class YueMainFragment extends ListFragment {
                         map.put("title",studyModels.get(j).getPostUser());
                         map.put("time", studyModels.get(j).getXueTime());
                         map.put("location", studyModels.get(j).getXueInformation());
-                        map.put("img", img);
+//                        downPhoto(studyModels.get(j).getPostImage());
+//                        Drawable drawable=new BitmapDrawable(getActivity().getApplicationContext().getResources(),bitmap);
+//                        new ImageView(getActivity().getApplicationContext()).setImageBitmap(bitmap);
+                        map.put("img",img);
                         list.add(map);
                     }
-                    //onActivityCreated(null);
                 }catch(Exception e){
-                    //System.out.println(e.getLocalizedMessage()+"*******************8");
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
@@ -117,5 +101,24 @@ public class YueMainFragment extends ListFragment {
             }
         });
         return list;
+    }
+    public void downPhoto(String Urldownphoto){
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    //创建一个url对象
+                    URL url=new URL(Urldownphoto);
+                    //打开URL对应的资源输入流
+                    InputStream is= url.openStream();
+                    //从InputStream流中解析出图片
+                    bitmap = BitmapFactory.decodeStream(is);
+                    //关闭输入流
+                    is.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 }

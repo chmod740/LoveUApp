@@ -11,6 +11,15 @@ public class YueStudyModel {
     private String XueInformation;
     private String XueTime;
     private Integer state;
+    private String PostImage;
+
+    public String getPostImage() {
+        return PostImage;
+    }
+
+    public void setPostImage(String postImage) {
+        PostImage = postImage;
+    }
 
     public String getPostUser() {
         return PostUser;

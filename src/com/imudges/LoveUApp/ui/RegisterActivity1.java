@@ -54,7 +54,7 @@ public class RegisterActivity1 extends Activity {
             }
             @Override
             public void onFailure(String msg) {
-                Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
             }
         });
     }

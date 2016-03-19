@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
                 UserImage.setImageBitmap(myBitmap);
 
                 Get get=new Get("User",getApplicationContext());
-                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),get.getout("username",""));
+                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
                 savePhoto.Savephoto();
 
                 PhotoService service=new PhotoService();

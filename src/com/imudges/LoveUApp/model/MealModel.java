@@ -7,13 +7,61 @@ import java.sql.Timestamp;
  */
 public class MealModel {
     private String Username;
-    private String Area;
-    private String Information;
+    private String FoodArea;
+    private String FoodInformation;
     private String Friendname;
-    private String mealWay;
-    private Timestamp mealTime;
+    private String FoodWay;
+    private String FoodTime ;
     private String msg;
     private Integer state;
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public String getFoodArea() {
+        return FoodArea;
+    }
+
+    public void setFoodArea(String foodArea) {
+        FoodArea = foodArea;
+    }
+
+    public String getFoodInformation() {
+        return FoodInformation;
+    }
+
+    public void setFoodInformation(String foodInformation) {
+        FoodInformation = foodInformation;
+    }
+
+    public String getFriendname() {
+        return Friendname;
+    }
+
+    public void setFriendname(String friendname) {
+        Friendname = friendname;
+    }
+
+    public String getFoodWay() {
+        return FoodWay;
+    }
+
+    public void setFoodWay(String foodWay) {
+        FoodWay = foodWay;
+    }
+
+    public String getFoodTime() {
+        return FoodTime;
+    }
+
+    public void setFoodTime(String foodTime) {
+        FoodTime = foodTime;
+    }
 
     public String getMsg() {
         return msg;
@@ -29,53 +77,5 @@ public class MealModel {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public String getUsername() {
-        return Username;
-    }
-
-    public void setUsername(String username) {
-        Username = username;
-    }
-
-    public String getArea() {
-        return Area;
-    }
-
-    public void setArea(String area) {
-        Area = area;
-    }
-
-    public String getInformation() {
-        return Information;
-    }
-
-    public void setInformation(String information) {
-        Information = information;
-    }
-
-    public String getFriendname() {
-        return Friendname;
-    }
-
-    public void setFriendname(String friendname) {
-        Friendname = friendname;
-    }
-
-    public String getMealWay() {
-        return mealWay;
-    }
-
-    public void setMealWay(String mealWay) {
-        this.mealWay = mealWay;
-    }
-
-    public Timestamp getMealTime() {
-        return mealTime;
-    }
-
-    public void setMealTime(Timestamp mealTime) {
-        this.mealTime = mealTime;
     }
 }

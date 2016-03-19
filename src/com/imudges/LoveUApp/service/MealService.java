@@ -22,14 +22,14 @@ public class MealService {
     /**
      * post请求
      */
-    public void userPost(Context context, Listener listener, String secretkey, String username, String Area ,
-                         String information, String mealway, Timestamp time){
-        url="";
+    public void userPost(Context context, String secretkey, String username, String Area ,
+                         String information, String mealway, String time,Listener listener){
+        url="foodservice/UpFoodService.php";
         params=new RequestParams();
         params.add("SecretKey",secretkey);
         params.add("UserName",username);
         params.add("FoodArea",mealway);
-        params.add("UserInformation",information);
+        params.add("FoodInformation ",information);
         params.add("FoodWay",mealway);
         params.add("FoodTime",time+"");
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
@@ -40,6 +40,8 @@ public class MealService {
                     MealModel mealModel=new Gson().fromJson(reponseStr,MealModel.class);
                     if(mealModel.getState()==1){
                         listener.onSuccess();
+                    }else{
+                        listener.onFailure(mealModel.getMsg());
                     }
                 }catch (Exception e){
                     listener.onFailure(e.getLocalizedMessage());

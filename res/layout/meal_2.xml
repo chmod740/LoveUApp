@@ -1,13 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:fitsSystemWindows="true"
+>
+    <!--<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:background="@color/blue">
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="@string/fuhao"
+                android:id="@+id/run2_back"
+                android:background="@color/blue"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:background="@color/blue"
+                  android:text="                学"
+                  android:textSize="25dp"
+                  android:textColor="@color/white"
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This is meal_2"
-            android:textSize="20sp"
-            android:layout_gravity="center_horizontal"/>
+        />
+    </LinearLayout>-->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:textSize="20dp"/>
+
+    <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/meal2_group">
+
+        <RadioButton
+                android:id="@+id/meal2_radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_weight="3"
+                android:text="我请客"/>
+        <RadioButton
+                android:id="@+id/meal2_radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_weight="3"
+        android:text="55开" />
+
+        <RadioButton
+                android:id="@+id/meal2_radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+
+                android:text="他/她请客"/>
+    </RadioGroup>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_above="@+id/meal2_tx2"
+                      android:paddingBottom="3dp"
+                      android:paddingLeft="3dp"
+                      android:paddingRight="3dp"
+                      android:paddingTop="3dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                      android:text="内容："/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:background="@color/white"
+                      android:textColor="@color/black"
+                      android:textSize="20dp"
+                      android:id="@+id/meal2_ed2"
+                      android:textCursorDrawable="@null"
+                      android:gravity="top"
+                      android:paddingBottom="3dp"
+                      android:paddingLeft="3dp"
+                      android:paddingRight="3dp"
+                      android:paddingTop="3dp"
+                      android:maxLines="7"
+                      android:layout_weight="5"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                      android:text="地点："/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:background="@color/white"
+                      android:textColor="@color/black"
+                      android:textSize="20dp"
+                      android:id="@+id/meal2_ed3"
+                      android:textCursorDrawable="@null"
+                      android:gravity="top"
+                      android:paddingBottom="3dp"
+                      android:paddingLeft="3dp"
+                      android:paddingRight="3dp"
+                      android:paddingTop="3dp"
+                      android:maxLines="1"
+                      android:maxLength="10"/>
+
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:textSize="20dp"
+                  android:layout_above="@+id/meal2_bt"
+                  android:id="@+id/meal2_tx2"/>
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/login_button_selector"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/meal2_bt"
+                android:onClick="meal2_click"
+                android:text="设置时间"/>
+    </RelativeLayout>
+
+
 </LinearLayout>

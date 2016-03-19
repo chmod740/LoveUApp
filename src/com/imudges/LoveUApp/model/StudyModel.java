@@ -6,60 +6,52 @@ import java.sql.Timestamp;
  * Created by dy on 2016/3/9.
  */
 public class StudyModel {
-    private String username;
-    private String information;
-    private String friendname;
-    private String studyArea;
-    private Timestamp studyTime;
+    private String PostName;
+    private String XueInformation;
+    private String GetName;
+    private String XueArea;
+    private Timestamp XueTime;
     private Integer state;
     private String msg;
 
-    public String getUsername() {
-        return username;
+    public String getPostName() {
+        return PostName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPostName(String postName) {
+        PostName = postName;
     }
 
-    public String getInformation() {
-        return information;
+    public String getXueInformation() {
+        return XueInformation;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public void setXueInformation(String xueInformation) {
+        XueInformation = xueInformation;
     }
 
-    public String getFriendname() {
-        return friendname;
+    public String getGetName() {
+        return GetName;
     }
 
-    public void setFriendname(String friendname) {
-        this.friendname = friendname;
+    public void setGetName(String getName) {
+        GetName = getName;
     }
 
-    public String getStudyArea() {
-        return studyArea;
+    public String getXueArea() {
+        return XueArea;
     }
 
-    public void setStudyArea(String studyArea) {
-        this.studyArea = studyArea;
+    public void setXueArea(String xueArea) {
+        XueArea = xueArea;
     }
 
-    public Timestamp getStudyTime() {
-        return studyTime;
+    public Timestamp getXueTime() {
+        return XueTime;
     }
 
-    public void setStudyTime(Timestamp studyTime) {
-        this.studyTime = studyTime;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
+    public void setXueTime(Timestamp xueTime) {
+        XueTime = xueTime;
     }
 
     public String getMsg() {
@@ -68,5 +60,13 @@ public class StudyModel {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

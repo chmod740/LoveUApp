@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -46,6 +47,10 @@ public class MainYueActivity extends FragmentActivity {
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.run_main);
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         mFragments = new Fragment[10];
         fragmentManager = getSupportFragmentManager();
         mFragments[0] = fragmentManager.findFragmentById(R.id.run_fragment1);

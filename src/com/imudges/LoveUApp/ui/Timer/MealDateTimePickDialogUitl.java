@@ -16,6 +16,7 @@ import android.widget.*;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.TimePicker.OnTimeChangedListener;
 import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.service.MealService;
 import com.imudges.LoveUApp.service.RunService;
 import com.imudges.LoveUApp.service.StudyService;
 import com.imudges.LoveUApp.ui.MainActivity;
@@ -34,7 +35,7 @@ import com.imudges.LoveUApp.ui.R;
  * <p>
  * } });
  */
-public class DateTimePickDialogUtil implements OnDateChangedListener,
+public class MealDateTimePickDialogUitl implements OnDateChangedListener,
         OnTimeChangedListener {
     private DatePicker datePicker;
     private TimePicker timePicker;
@@ -45,10 +46,10 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     private String info;
     private String secretkey;
     private String username;
-    private RunService runService = new RunService();
+    private MealService mealService= new MealService();
     private String end;
     private String address;
-    private StudyService studyService = new StudyService();
+
     private int which;
 
     /**
@@ -57,7 +58,7 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
      * @param activity     ：调用的父activity
      * @param initDateTime 初始日期时间值，作为弹出窗口的标题和日期时间初始值
      */
-    public DateTimePickDialogUtil(Activity activity, String initDateTime, String info, int which) {
+    /*public MealDateTimePickDialogUitl(Activity activity, String initDateTime, String info, int which) {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = format.format(date);
@@ -67,9 +68,9 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
         this.which = which;
         loadData(activity);
 
-    }
+    }*/
 
-    public DateTimePickDialogUtil(Activity activity, String initDateTime, String info, String address, int which) {
+    public MealDateTimePickDialogUitl(Activity activity, String initDateTime, String info, String address, int which) {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = format.format(date);
@@ -125,15 +126,9 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
 
                         chai(dateTime);
 
+                            updata(username, info,  secretkey, end, activity);
+                            Toast.makeText(activity, "饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey, Toast.LENGTH_SHORT).show();
 
-                        if (which == 2) {
-                            updata(username, info, secretkey, end, activity);
-                            Toast.makeText(activity, "跑" + " " + dateTime + " " + info + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
-                        }
-                        if (which == 1) {
-                            xuedata(username, info, secretkey, end, address, activity);
-                            Toast.makeText(activity, "学" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
-                        }
 
                     }
                 })
@@ -234,11 +229,10 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
     }
 
     public void updata(String username, String infomation, String secretkey, String end, Context activity) {
-        runService.userPost(username, infomation, secretkey, end, activity, new Listener() {
+        mealService.userPost(activity, secretkey, username, address, infomation, which + "", end, new Listener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
@@ -248,19 +242,7 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
         });
     }
 
-    public void xuedata(String username, String infomation, String secretkey, String end, String address, Context activity) {
-        studyService.userPost(activity, new Listener() {
-            @Override
-            public void onSuccess() {
-                Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onFailure(String msg) {
-                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
-            }
-        }, username, infomation, address, end, secretkey);
-    }
 
     public void chai(String str) {
         String s1 = str.substring(0, 4);

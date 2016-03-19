@@ -29,7 +29,7 @@ public class StudyService {
      */
     public void userPost(Context context, Listener listener,String username,String information,String studyArea,
                          String studyTime, String secretkey){
-        url="xueservice/UpXueService";
+        url="xueservice/UpXueService.php";
         params=new RequestParams();
         params.add("UserName",username);
         params.add("XueInformation",information);
@@ -41,6 +41,7 @@ public class StudyService {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr=new String(bytes);
                 try{
+                    System.out.println(reponseStr);
                     StudyModel studyModel=new Gson().fromJson(reponseStr,StudyModel.class);
                     if(studyModel.getState()==1){
                         listener.onSuccess();

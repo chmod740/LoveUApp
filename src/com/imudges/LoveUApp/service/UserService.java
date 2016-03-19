@@ -135,6 +135,7 @@ public class UserService {
                         listener.onSuccess();
                         Save save=new Save("Nick",context);
                         save.savein(Phone,userModel.getNickName());
+                        save.savein("user_Phone",userModel.getUserPhone());
                         save.savein("Photo",userModel.getUserPhoto());
                     }else{
                         listener.onFailure(userModel.getMag());
@@ -162,6 +163,7 @@ public class UserService {
                     if(userModel.getState()==1){
                         listener.onSuccess();
                         Save save=new Save("Nick",context);
+                        save.savein("user_Phone",userModel.getUserPhone());
                         save.savein(Name,userModel.getNickName());
                         save.savein("Photo",userModel.getUserPhoto());
                     }else{

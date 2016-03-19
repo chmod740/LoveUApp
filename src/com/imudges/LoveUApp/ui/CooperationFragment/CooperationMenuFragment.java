@@ -1,15 +1,16 @@
 package com.imudges.LoveUApp.ui.CooperationFragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
+import android.widget.*;
+import com.imudges.LoveUApp.DAO.Get;
+import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.ui.*;
 
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ import java.util.Map;
  * Created by 1111 on 2016/3/14.
  */
 public class CooperationMenuFragment extends Fragment {
+
+    private ImageView userImage;
+    private TextView UserTv,UserSet;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,10 @@ public class CooperationMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
 
+        userImage=(ImageView)view.findViewById(R.id.menu_img_user);
+        UserTv=(TextView) view.findViewById(R.id.menu_text);
+        UserSet=(TextView) view.findViewById(R.id.UserSet);
+
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),
                 getData(),
@@ -40,6 +48,8 @@ public class CooperationMenuFragment extends Fragment {
                 new int[]{R.id.item}
         );
         listView.setAdapter(adapter);
+
+        setUser();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -69,7 +79,14 @@ public class CooperationMenuFragment extends Fragment {
             }
         });
 
+        UserSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
+            }
+        });
         return view;
+
     }
 
     private List<Map<String, Object>> getData() {
@@ -101,5 +118,20 @@ public class CooperationMenuFragment extends Fragment {
         list.add(map);
 
         return list;
+    }
+
+    /**
+     * 显示用户
+     */
+    public void setUser(){
+        Get get=new Get("User",getActivity().getApplicationContext());
+        //UserName.setText(get.getout("username",""));
+        Get get1=new Get("Nick",getActivity().getApplicationContext());
+        //Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
+        UserTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
+
+        GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
+        Bitmap bitmap=getPhoto.getphoto();
+        userImage.setImageBitmap(bitmap);
     }
 }

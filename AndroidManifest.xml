@@ -33,5 +33,6 @@
         <activity android:name=".MainMealActivity"/>
         <activity android:name=".YueFragment.DetailActivity"/>
         <activity android:name=".MainSetActivity"/>
+        <activity android:name=".Set.UserSet"/>
     </application>
 </manifest>

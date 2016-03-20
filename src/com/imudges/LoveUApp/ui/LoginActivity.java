@@ -39,7 +39,7 @@ public class LoginActivity extends Activity {
     private TextView tv2;
 
     private String PhotoUrl;
-    private Bitmap bitmap;
+    private Bitmap mybitmap;
 
     //private Button button1,button2;
     public void onCreate(Bundle savedInstanceState) {
@@ -143,9 +143,9 @@ public class LoginActivity extends Activity {
                                 //打开URL对应的资源输入流
                                 InputStream is = url.openStream();
                                 //从InputStream流中解析出图片
-                                bitmap = BitmapFactory.decodeStream(is);
+                                mybitmap = BitmapFactory.decodeStream(is);
                                 PhotoCut p=new PhotoCut(getApplicationContext());
-                                bitmap=p.toRoundBitmap(bitmap);
+                                mybitmap=p.toRoundBitmap(mybitmap);
                                 //  imageview.setImageBitmap(bitmap);
                                 //发送消息，通知UI组件显示图片
                                 handler.sendEmptyMessage(0x9527);
@@ -176,9 +176,9 @@ public class LoginActivity extends Activity {
                                 //打开URL对应的资源输入流
                                 InputStream is = url.openStream();
                                 //从InputStream流中解析出图片
-                                bitmap = BitmapFactory.decodeStream(is);
+                                mybitmap = BitmapFactory.decodeStream(is);
                                 PhotoCut p=new PhotoCut(getApplicationContext());
-                                bitmap=p.toRoundBitmap(bitmap);
+                                mybitmap=p.toRoundBitmap(mybitmap);
                                 //  imageview.setImageBitmap(bitmap);
                                 //发送消息，通知UI组件显示图片
                                 handler.sendEmptyMessage(0x9527);
@@ -200,9 +200,10 @@ public class LoginActivity extends Activity {
         public void handleMessage(Message msg) {
             if (msg.what==0x9527) {
                 //显示从网上下载的图片
-                UserImage.setImageBitmap(bitmap);
-                SavePhoto savePhoto=new SavePhoto(bitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                //UserImage.setImageBitmap(bitmap);
+                SavePhoto savePhoto=new SavePhoto(mybitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
                 savePhoto.Savephoto();
+                UserImage.setImageBitmap(mybitmap);
             }
         }
     };
@@ -217,6 +218,7 @@ public class LoginActivity extends Activity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 username=ed1.getText().toString();
                 test();
+                //Toast.makeText(LoginActivity.this, username, Toast.LENGTH_SHORT).show();
             }
 
             @Override

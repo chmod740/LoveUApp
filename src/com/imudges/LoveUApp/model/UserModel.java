@@ -9,6 +9,42 @@ public class UserModel {
     private Integer state;
     private String mag;
     private String UserPhoto;
+    private String TrueName;
+    private Integer UserSex;
+    private String UserGrade;
+    private String UserMajor;
+
+    public String getTrueName() {
+        return TrueName;
+    }
+
+    public void setTrueName(String trueName) {
+        TrueName = trueName;
+    }
+
+    public Integer getUserSex() {
+        return UserSex;
+    }
+
+    public void setUserSex(Integer userSex) {
+        UserSex = userSex;
+    }
+
+    public String getUserGrade() {
+        return UserGrade;
+    }
+
+    public void setUserGrade(String userGrade) {
+        UserGrade = userGrade;
+    }
+
+    public String getUserMajor() {
+        return UserMajor;
+    }
+
+    public void setUserMajor(String userMajor) {
+        UserMajor = userMajor;
+    }
 
     public String getUserPhone() {
         return UserPhone;

@@ -1,5 +1,7 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -7,10 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
 
@@ -50,6 +49,26 @@ public class YueThirdFragment extends Fragment {
                 new int[] { R.id.run3_img, R.id.run3_tx1, R.id.run3_tx2, R.id.run3_tx3 }
         );
         listView.setAdapter(simpleAdapter);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                new  AlertDialog.Builder(getActivity())
+                        .setTitle("删除" )
+                        .setMessage("确定删除吗？" )
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                /**
+                                 * 删除数据逻辑
+                                 */
+                                Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("否" , null)
+                        .show();
+                return false;
+            }
+        });
     }
 
     private List<Map<String, Object>> getData() {

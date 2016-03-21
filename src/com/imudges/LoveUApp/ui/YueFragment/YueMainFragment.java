@@ -1,5 +1,6 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,13 +11,11 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.model.YueStudyModel;
+import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -41,6 +40,8 @@ public class YueMainFragment extends ListFragment {
     private List<YueStudyModel> studyModels;
     private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     private Bitmap bitmap;
+    private int Length = 0;
+    private String[] Username = new String[10];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +60,7 @@ public class YueMainFragment extends ListFragment {
                 new String[]{"img", "title", "time", "location"},
                 new int[]{R.id.img, R.id.title, R.id.text1, R.id.text2}
         );
+
         setListAdapter(adapter);
     }
     /**
@@ -77,10 +79,11 @@ public class YueMainFragment extends ListFragment {
                     studyModels = gson.fromJson(responStr,new TypeToken<List<YueStudyModel>>(){}.getType());
 
                     Map<String, Object> map;
-                    int Length=studyModels.size();
+                    Length=studyModels.size();
                     int j;
                     for(j=Length-1;j>=0;j--) {
                         int img = R.drawable.ic_launcher;
+                        Username[j] = studyModels.get(j).getPostUser();
                         map = new HashMap<String, Object>();
                         map.put("title",studyModels.get(j).getPostUser());
                         map.put("time", studyModels.get(j).getXueTime());
@@ -120,5 +123,20 @@ public class YueMainFragment extends ListFragment {
                 }
             }
         }.start();
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        int num = Length-1;
+        String send_Username = null;
+        send_Username = Username[num-position];
+
+        if (send_Username != null){
+            MainYueActivity.setUserName(send_Username);
+            Intent intent = new Intent(getActivity(),DetailActivity.class);
+            startActivity(intent);
+        }
     }
 }

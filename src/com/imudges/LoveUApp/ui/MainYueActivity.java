@@ -26,6 +26,7 @@ public class MainYueActivity extends FragmentActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private RadioButton rbOne, rbTwo, rbThree;
+    private static String userName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,5 +215,13 @@ public class MainYueActivity extends FragmentActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public static void setUserName(String userName1){
+        userName = userName1;
+    }
+
+    public static String getUserName(){
+        return userName;
     }
 }

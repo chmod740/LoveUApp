@@ -26,6 +26,7 @@ public class MainMealActivity extends FragmentActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

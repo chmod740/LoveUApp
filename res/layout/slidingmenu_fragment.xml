@@ -27,30 +27,29 @@
                       android:text="ajksdhka"
             />
         </RelativeLayout>
-
         <ListView android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:paddingTop="20dp"
                   android:id="@+id/menu_list">
         </ListView>
-    </LinearLayout>
-    <ImageView android:layout_width="25dp"
-              android:layout_height="25dp"
-              android:layout_alignParentBottom="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginLeft="10dp"
-              android:layout_marginBottom="25dp"
-              android:src="@drawable/settt"/>
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="设置"
-              android:textColor="@color/white"
-              android:textSize="20dp"
-              android:layout_alignParentBottom="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginLeft="40dp"
-              android:layout_marginBottom="25dp"
-              android:clickable="true"
-              android:id="@+id/UserSet"/>
 
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentBottom="true">
+        <ImageView android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_marginLeft="15dp"
+                   android:layout_marginBottom="25dp"
+                   android:src="@drawable/settt"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="设置"
+                  android:textColor="@color/white"
+                  android:textSize="20dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginBottom="25dp"
+                  android:clickable="true"
+                  android:id="@+id/UserSet"/>
+    </LinearLayout>
 </RelativeLayout>

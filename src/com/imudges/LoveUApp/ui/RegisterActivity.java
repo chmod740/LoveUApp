@@ -37,6 +37,8 @@ public class RegisterActivity extends Activity {
     private int sexvalue,gradevalue;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.register_layout);
         SysApplication.getInstance().addActivity(this);
         //透明状态栏

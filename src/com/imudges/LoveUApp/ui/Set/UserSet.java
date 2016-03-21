@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.imudges.LoveUApp.DAO.Get;
@@ -37,12 +38,12 @@ public class UserSet extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.set_user);
         init();
         Myclick();
     }
-
-
     public void Myclick(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.imudges.LoveUApp.ui.PresentFragment.PresentMenuFragment;
@@ -39,6 +40,8 @@ public class MainPresentActivity extends FragmentActivity {
 
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.present_main);
         mFragments = new Fragment[5];
         fragmentManager = getSupportFragmentManager();

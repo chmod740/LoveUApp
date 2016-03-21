@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.imudges.LoveUApp.ui.SyllabusFragment.SyllabusMenuFragment;
@@ -29,12 +32,16 @@ public class MainSyllabusActivity extends FragmentActivity{
         //初始化主界面
         initMain();
 
+        init();
+
         //初始化滑动菜单
         initSlidingMenu();
     }
 
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.syllabus_main);
     }
 
@@ -64,5 +71,20 @@ public class MainSyllabusActivity extends FragmentActivity{
         } else {
             super.onBackPressed();
         }
+    }
+    public void init(){
+        WebView webView = (WebView) findViewById(R.id.syllabus_Webview);
+        //WebView加载web资源
+        webView.loadUrl("http://www.baidu.com");
+        //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                // TODO Auto-generated method stub
+                //返回值是true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 }

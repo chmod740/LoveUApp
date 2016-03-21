@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
@@ -18,7 +19,7 @@ import com.imudges.LoveUApp.ui.Set.UserSet;
  */
 public class MainSetActivity extends Activity{
 
-    private TextView set_phone,setback;
+    private TextView set_phone,setback,setself;
     private ImageView set_image;
     private TextView set_help,set_about,set_out;
     private LinearLayout set_user,set_user_P;
@@ -26,6 +27,8 @@ public class MainSetActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.setting);
         init();
         setUserImage();
@@ -41,6 +44,7 @@ public class MainSetActivity extends Activity{
         setback=(TextView)findViewById(R.id.setback);
         set_user=(LinearLayout) findViewById(R.id.set_user_User);
         set_user_P=(LinearLayout) findViewById(R.id.set_user_Phone);
+        setself=(TextView) findViewById(R.id.set_user_self);
 
     }
     public void Myclick(){
@@ -83,6 +87,12 @@ public class MainSetActivity extends Activity{
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainSetActivity.this, "电话", Toast.LENGTH_SHORT).show();
+            }
+        });
+        setself.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainSetActivity.this, "个人信息", Toast.LENGTH_SHORT).show();
             }
         });
     }

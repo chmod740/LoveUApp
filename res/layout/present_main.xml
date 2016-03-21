@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background_login"
+              android:orientation="vertical" >
+
+    <!-- 上边菜单栏 -->
+    <fragment
+            android:id="@+id/present_top_fragment3"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentAboveFragment3"
+            android:layout_weight="0.5">
+    </fragment>
+
+    <!-- 上边主页面 -->
+
+    <fragment
+            android:id="@+id/present_fragment1"
+            android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentMainFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+    <fragment
+            android:id="@+id/present_fragment2"
+            android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentSecondFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+
+    <fragment
+            android:id="@+id/present_fragment3_1"
+            android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentThirdFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+    <fragment
+            android:id="@+id/present_fragment3_2"
+            android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentThirdFragment2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" />
+
+    <!-- 底部菜单页面 -->
+
+    <RadioGroup
+            android:id="@+id/present_bottomRg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:background="@drawable/tab_footer_bg"
+            android:orientation="horizontal" >
+
+        <RadioButton
+                android:id="@+id/present_rbOne"
+                style="@style/rg_btn_style"
+                android:checked="true"
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="首页" />
+
+        <RadioButton
+                android:id="@+id/present_rbTwo"
+                style="@style/rg_btn_style"
+                android:drawableTop="@drawable/rb_two_btn_selector"
+                android:text="搜索" />
+
+        <RadioButton
+                android:id="@+id/present_rbThree"
+                style="@style/rg_btn_style"
+                android:drawableTop="@drawable/rb_three_btn_selector"
+                android:text="设置" />
+    </RadioGroup>
+
+</LinearLayout>

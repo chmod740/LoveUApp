@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
+
+import static com.imudges.LoveUApp.ui.R.id.run_details_time;
 
 /**
  * Created by 1111 on 2016/3/17.
@@ -22,7 +25,8 @@ import com.imudges.LoveUApp.ui.R;
 public class DetailActivity extends Activity{
 
     private String userName = null;
-    private TextView tv_userName;
+    private TextView tv_userName,tv_sex,tv_submitTime,tv_time,tv_other;
+    private Button btn_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +37,23 @@ public class DetailActivity extends Activity{
     }
 
     private void initView() {
+
+        tv_userName = (TextView) findViewById(R.id.run_details_name);
+        tv_sex = (TextView) findViewById(R.id.run_details_sex);
+        tv_submitTime = (TextView) findViewById(R.id.run_details_submit_time);
+        tv_other = (TextView) findViewById(R.id.run_details_other);
+        tv_time = (TextView) findViewById(run_details_time);
+        btn_button = (Button) findViewById(R.id.run_details_button);
+
+        //<-----------获取userName---------->
         userName = MainYueActivity.getUserName();
         if(userName == null){
             Toast.makeText(this,"userName is null",Toast.LENGTH_LONG).show();
         }
         else {
-            tv_userName = (TextView) findViewById(R.id.run_details_name);
             tv_userName.setText(userName);
         }
+        //<--------------------------------->
     }
 
 }

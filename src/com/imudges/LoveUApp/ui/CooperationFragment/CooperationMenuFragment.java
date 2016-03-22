@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class CooperationMenuFragment extends Fragment {
 
-    private ImageView userImage;
+    private ImageView userImage,userSetImg;
     private TextView UserTv,UserSet;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,9 @@ public class CooperationMenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
 
         userImage=(ImageView)view.findViewById(R.id.menu_img_user);
+        userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
-        UserSet=(TextView) view.findViewById(R.id.UserSet);
+        UserSet=(TextView) view.findViewById(R.id.userSet);
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),
@@ -80,6 +81,13 @@ public class CooperationMenuFragment extends Fragment {
         });
 
         UserSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
+            }
+        });
+
+        userSetImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));

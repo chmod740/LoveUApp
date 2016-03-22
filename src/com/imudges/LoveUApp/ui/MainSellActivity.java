@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,10 +22,9 @@ import com.slidingmenu.lib.SlidingMenu;
 public class MainSellActivity extends FragmentActivity{
     private SlidingMenu menu;
     private Fragment[] mFragments;
-    private RadioGroup bottomRg;
+    private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-    private RadioButton rbOne, rbTwo, rbThree, rbFour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,46 +43,68 @@ public class MainSellActivity extends FragmentActivity{
 
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        setContentView(R.layout.run_main);
-        mFragments = new Fragment[3];
+        setContentView(R.layout.sell_main);
+        mFragments = new Fragment[5];
         fragmentManager = getSupportFragmentManager();
-        mFragments[0] = fragmentManager.findFragmentById(R.id.run_fragment1);
-        mFragments[1] = fragmentManager.findFragmentById(R.id.run_fragment2);
-        mFragments[2] = fragmentManager
-                .findFragmentById(R.id.run_fragment3);
+        mFragments[0] = fragmentManager.findFragmentById(R.id.sell_fragment1);
+        mFragments[1] = fragmentManager.findFragmentById(R.id.sell_fragment2);
+        mFragments[2] = fragmentManager.findFragmentById(R.id.sell_fragment3_1);
+        mFragments[3] = fragmentManager.findFragmentById(R.id.sell_fragment3_2);
+
+        mFragments[4] = fragmentManager.findFragmentById(R.id.sell_top_fragment3);
+
         fragmentTransaction = fragmentManager.beginTransaction()
-                .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2]);
+                .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
+                .hide(mFragments[3]).hide(mFragments[4]);
         fragmentTransaction.show(mFragments[0]).commit();
         setFragmentIndicator();
     }
 
     private void setFragmentIndicator() {
 
-        bottomRg = (RadioGroup) findViewById(R.id.bottomRg);
-        rbOne = (RadioButton) findViewById(R.id.rbOne);
-        rbTwo = (RadioButton) findViewById(R.id.rbTwo);
-        rbThree = (RadioButton) findViewById(R.id.rbThree);
+        bottomRg = (RadioGroup) findViewById(R.id.sell_bottomRg);
+        topRg = (RadioGroup) findViewById(R.id.sell_topRg3);
 
         bottomRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 fragmentTransaction = fragmentManager.beginTransaction()
-                        .hide(mFragments[0]).hide(mFragments[1])
-                        .hide(mFragments[2]);
+                        .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
+                        .hide(mFragments[3]).hide(mFragments[4]);
                 switch (checkedId) {
-                    case R.id.rbOne:
+                    case R.id.sell_rbOne:
                         fragmentTransaction.show(mFragments[0]).commit();
                         break;
 
-                    case R.id.rbTwo:
+                    case R.id.sell_rbTwo:
                         fragmentTransaction.show(mFragments[1]).commit();
                         break;
 
-                    case R.id.rbThree:
-                        fragmentTransaction.show(mFragments[2]).commit();
+                    case R.id.sell_rbThree:
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[4]).commit();
+                        topRg.check(R.id.sell_top_31);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+
+        topRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                fragmentTransaction = fragmentManager.beginTransaction()
+                        .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
+                        .hide(mFragments[3]).hide(mFragments[4]);
+                switch (checkedId) {
+                    case R.id.sell_top_31:
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[4]).commit();
+                        break;
+
+                    case R.id.sell_top_32:
+                        fragmentTransaction.show(mFragments[3]).show(mFragments[4]).commit();
                         break;
 
                     default:

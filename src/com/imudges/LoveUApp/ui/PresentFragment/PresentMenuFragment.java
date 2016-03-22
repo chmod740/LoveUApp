@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class PresentMenuFragment extends Fragment {
 
-    private ImageView userImage;
+    private ImageView userImage,userSetImg;
     private TextView UserTv,UserSet;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,9 @@ public class PresentMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
         userImage=(ImageView)view.findViewById(R.id.menu_img_user);
+        userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
-        UserSet=(TextView) view.findViewById(R.id.UserSet);
+        UserSet=(TextView) view.findViewById(R.id.userSet);
 
         setUser();
 
@@ -78,6 +79,13 @@ public class PresentMenuFragment extends Fragment {
             }
         });
         UserSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
+            }
+        });
+
+        userSetImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));

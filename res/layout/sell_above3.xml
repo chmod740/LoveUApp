@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/black"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RadioGroup
+            android:id="@+id/sell_topRg3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/tab_footer_bg">
+
+        <RadioButton
+                android:id="@+id/sell_top_31"
+                android:shadowColor="@color/black"
+                style="@style/yue_above_rb_style"
+                android:checked="true"
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="我的" />
+        <RadioButton
+                android:id="@+id/sell_top_32"
+                android:shadowColor="@color/black"
+                style="@style/yue_above_rb_style"
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="别人的" />
+    </RadioGroup>
+
+</LinearLayout>

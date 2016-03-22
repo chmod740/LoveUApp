@@ -26,8 +26,8 @@ import java.util.Map;
  */
 public class YueMenuFragment extends Fragment {
 
-    private ImageView userImage;
-    private TextView UserTv,UserSet;
+    private ImageView userImage,userSetImg;
+    private TextView userTv,userSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,11 @@ public class YueMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
         userImage=(ImageView)view.findViewById(R.id.menu_img_user);
-        UserTv=(TextView) view.findViewById(R.id.menu_text);
-        UserSet=(TextView) view.findViewById(R.id.UserSet);
+        userSetImg = (ImageView) view.findViewById(R.id.userset_img);
+        userTv=(TextView) view.findViewById(R.id.menu_text);
+        userSet=(TextView) view.findViewById(R.id.userSet);
         //tvOutput.setText (savedInstanceState.getString ("output"));
 
-
-        //init();
         setUser();
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
@@ -84,7 +83,14 @@ public class YueMenuFragment extends Fragment {
             }
         });
 
-        UserSet.setOnClickListener(new View.OnClickListener() {
+        userSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
+            }
+        });
+
+        userSetImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
@@ -132,7 +138,7 @@ public class YueMenuFragment extends Fragment {
         //UserName.setText(get.getout("username",""));
         Get get1=new Get("Nick",getActivity().getApplicationContext());
         //Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
-        UserTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
+        userTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
 
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
         Bitmap bitmap=getPhoto.getphoto();

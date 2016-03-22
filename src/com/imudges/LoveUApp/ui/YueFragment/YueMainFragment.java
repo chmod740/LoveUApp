@@ -3,9 +3,6 @@ package com.imudges.LoveUApp.ui.YueFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -135,7 +132,7 @@ public class YueMainFragment extends ListFragment {
 
         if (send_Username != null){
             MainYueActivity.setUserName(send_Username);
-            Intent intent = new Intent(getActivity(),DetailActivity.class);
+            Intent intent = new Intent(getActivity(),StudyDetailActivity.class);
             startActivity(intent);
         }
     }

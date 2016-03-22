@@ -41,6 +41,5 @@
                 android:background="@drawable/abovebutton_selector"
                 android:textColor="@color/abovewrite_selector"/>
 
-
     </RadioGroup>
 </RelativeLayout>

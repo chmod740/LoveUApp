@@ -2,12 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:background="@drawable/background_login"
-              style="@style/details_main_padding"
               android:layout_width="match_parent"
               android:layout_height="match_parent" >
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#FF72CAE1">
+        <Button android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:text="返回"
+                android:background="@drawable/detail_button"
+                android:id="@+id/run_details_above_button"/>
+
+    </RelativeLayout>
 
     <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    style="@style/details_main_padding">
         <ImageView
                 android:id="@+id/run_details_img"
                 android:layout_width="100dp"
@@ -52,6 +63,7 @@
 
     <TextView
             android:id="@+id/run_details_other"
+            style="@style/details_main_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -61,6 +73,7 @@
     />
     <TextView
             android:id="@+id/run_details_time"
+            style="@style/details_main_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -72,6 +85,7 @@
     <Button android:id="@+id/run_details_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/blue_button"/>
 </LinearLayout>

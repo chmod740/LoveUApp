@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +20,7 @@ import com.imudges.LoveUApp.DAO.SavePhoto;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.ui.ArcMenu.ArcMenu;
+import com.imudges.LoveUApp.ui.ArcMenu.MyThread;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class MainActivity extends Activity {
 
     private Bitmap Mybitmap;
     private String PhotoUrl;
+    public static boolean key=false;
 
     private ArcMenu mArcMenuLeftTop;
     private TextView UserSaying,UserName;
@@ -157,4 +160,20 @@ public class MainActivity extends Activity {
         Bitmap bitmap=getPhoto.getphoto();
         UserImage.setImageBitmap(bitmap);
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        MyThread my=new MyThread();
+        my.start();
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&& key==true) {
+            finish();
+            return true;
+        }
+        if(key==false){
+            Toast.makeText(MainActivity.this, "(>ˍ<) ～您真的想要离开吗?", Toast.LENGTH_LONG).show();
+            key=true;
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

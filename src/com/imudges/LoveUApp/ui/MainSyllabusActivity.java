@@ -92,7 +92,7 @@ public class MainSyllabusActivity extends FragmentActivity{
         s.setGeolocationEnabled(true);
         s.setDomStorageEnabled(true);
         webView.requestFocus();
-        webView.loadUrl("http://183.175.11.218/LOVEU/classservice/classview.php?UserName="+get.getout("username",""));
+        webView.loadUrl("http://183.175.12.157/LOVEU/classservice/classview.php?UserName="+get.getout("username",""));
         //webView.loadUrl("http://baidu.com");
         //webView.setScrollBarStyle(0);
         //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开

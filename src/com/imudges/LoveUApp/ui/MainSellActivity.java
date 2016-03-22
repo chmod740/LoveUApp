@@ -44,6 +44,7 @@ public class MainSellActivity extends FragmentActivity{
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sell_main);
+        SysApplication.getInstance().addActivity(this);
         mFragments = new Fragment[5];
         fragmentManager = getSupportFragmentManager();
         mFragments[0] = fragmentManager.findFragmentById(R.id.sell_fragment1);

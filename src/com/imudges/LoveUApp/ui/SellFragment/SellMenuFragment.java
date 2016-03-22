@@ -83,7 +83,6 @@ public class SellMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
-                getActivity().finish();
             }
         });
 
@@ -91,7 +90,6 @@ public class SellMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
-                getActivity().finish();
             }
         });
 

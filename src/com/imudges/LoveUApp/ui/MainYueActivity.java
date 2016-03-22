@@ -48,6 +48,7 @@ public class MainYueActivity extends FragmentActivity {
     private void initMain() {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.run_main);
+        SysApplication.getInstance().addActivity(this);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //透明导航栏

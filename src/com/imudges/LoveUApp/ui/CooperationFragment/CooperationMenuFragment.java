@@ -84,7 +84,7 @@ public class CooperationMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
-                getActivity().finish();
+
             }
         });
 
@@ -92,7 +92,7 @@ public class CooperationMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity().getApplicationContext(),MainSetActivity.class));
-                getActivity().finish();
+
             }
         });
         return view;

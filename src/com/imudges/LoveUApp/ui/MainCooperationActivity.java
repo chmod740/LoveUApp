@@ -43,6 +43,7 @@ public class MainCooperationActivity extends FragmentActivity {
     private void initMain() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.cooperation_main);
+        SysApplication.getInstance().addActivity(this);
         mFragments = new Fragment[5];
         fragmentManager = getSupportFragmentManager();
         mFragments[0] = fragmentManager.findFragmentById(R.id.cooperation_fragment1);

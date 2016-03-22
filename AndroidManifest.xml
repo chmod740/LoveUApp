@@ -33,7 +33,8 @@
         <activity android:name=".MainSellActivity"/>
         <activity android:name=".MainCooperationActivity"/>
         <activity android:name=".MainMealActivity"/>
-        <activity android:name=".YueFragment.DetailActivity"/>
+        <activity android:name=".YueFragment.StudyDetailActivity"/>
+        <activity android:name=".YueFragment.RunDetailActivity"/>
         <activity android:name=".MainSetActivity"/>
         <activity android:name=".Set.UserSet"/>
     </application>

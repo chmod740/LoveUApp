@@ -10,7 +10,7 @@ public class StudyModel {
     private String XueInformation;
     private String GetName;
     private String XueArea;
-    private Timestamp XueTime;
+    private String XueTime;
     private Integer state;
     private String msg;
 
@@ -46,11 +46,11 @@ public class StudyModel {
         XueArea = xueArea;
     }
 
-    public Timestamp getXueTime() {
+    public String getXueTime() {
         return XueTime;
     }
 
-    public void setXueTime(Timestamp xueTime) {
+    public void setXueTime(String xueTime) {
         XueTime = xueTime;
     }
 

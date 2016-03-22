@@ -5,12 +5,9 @@ import android.app.ProgressDialog;
 import android.content.*;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
@@ -19,16 +16,12 @@ import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.SavePhoto;
-import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.PhotoService;
-import com.imudges.LoveUApp.service.UserService;
 import com.imudges.LoveUApp.ui.ArcMenu.ArcMenu;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
 /**
  * Created by dy on 2016/3/9.
@@ -67,16 +60,17 @@ public class MainActivity extends Activity {
                         pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
                 switch (pos){
                     case 0:startActivity(new Intent(getApplicationContext(),MainYueActivity.class));
+                        finish();
                         break;
-                    case 1:startActivity(new Intent(getApplicationContext(),MainPresentActivity.class));
+                    case 1:startActivity(new Intent(getApplicationContext(),MainPresentActivity.class));finish();
                         break;
-                    case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));
+                    case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));finish();
                         break;
-                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));
+                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));finish();
                         break;
-                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));
+                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));finish();
                         break;
-                    case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));
+                    case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));finish();
                         break;
                 }
                 //finish();
@@ -109,7 +103,7 @@ public class MainActivity extends Activity {
                 Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originUri);
                 TestBitmap = bm;
                 String[] proj = {MediaStore.Images.Media.DATA};
-                Cursor cursor = managedQuery(originUri, proj, null, null, null);
+                Cursor cursor = getApplicationContext().getContentResolver().query(originUri, proj, null, null, null);
                 int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                 cursor.moveToFirst();
                 String path = cursor.getString(column_index);

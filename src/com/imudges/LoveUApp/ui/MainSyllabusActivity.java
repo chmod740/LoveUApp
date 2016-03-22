@@ -8,10 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.ui.SyllabusFragment.SyllabusMenuFragment;
 import com.slidingmenu.lib.SlidingMenu;
 
@@ -73,9 +75,26 @@ public class MainSyllabusActivity extends FragmentActivity{
         }
     }
     public void init(){
+        Get get=new Get("User",getApplicationContext());
         WebView webView = (WebView) findViewById(R.id.syllabus_Webview);
         //WebView加载web资源
-        webView.loadUrl("http://www.baidu.com");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.requestFocus();
+        //webView.setScrollBarStyle(0);
+        WebSettings s = webView.getSettings();
+        s.setBuiltInZoomControls(true);
+        s.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        s.setUseWideViewPort(true);
+        s.setLoadWithOverviewMode(true);
+        s.setSavePassword(true);
+        s.setSaveFormData(true);
+        s.setJavaScriptEnabled(true);
+        s.setGeolocationEnabled(true);
+        s.setDomStorageEnabled(true);
+        webView.requestFocus();
+        webView.loadUrl("http://183.175.11.218/LOVEU/classservice/classview.php?UserName="+get.getout("username",""));
+        //webView.loadUrl("http://baidu.com");
+        //webView.setScrollBarStyle(0);
         //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
         webView.setWebViewClient(new WebViewClient(){
             @Override

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.Timer.DateTimePickDialogUtil;
 
 import static com.imudges.LoveUApp.ui.R.id.run_details_time;
 
@@ -45,6 +46,8 @@ public class DetailActivity extends Activity{
         tv_time = (TextView) findViewById(run_details_time);
         btn_button = (Button) findViewById(R.id.run_details_button);
 
+        btn_button.setText("约");
+
         //<-----------获取userName---------->
         userName = MainYueActivity.getUserName();
         if(userName == null){
@@ -54,6 +57,12 @@ public class DetailActivity extends Activity{
             tv_userName.setText(userName);
         }
         //<--------------------------------->
+
+        btn_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(DetailActivity.this,"需要添加",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 }

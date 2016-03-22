@@ -33,11 +33,16 @@
         android:textSize="25dp"/>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
-            <TextView android:layout_width="match_parent" android:layout_height="70dp"
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/run3_tx2"
                       android:text="显示内容"
                       android:textSize="25dp"
-                      android:layout_weight="5"/>
+            />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:text="跑/学"
+                      android:textColor="@color/green"
+                      android:textSize="25dp"
+                      android:gravity="right" android:id="@+id/run3_1_way"/>
 
         </LinearLayout>
     </LinearLayout>

@@ -7,6 +7,9 @@
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
             <solid android:color="@color/white"></solid>
+            <stroke
+                    android:width="2dp"
+                    android:color="@color/white"/>
             <!-- 设置按钮的四个角为弧形 -->
             <!-- android:radius 弧形的半径 -->
             <corners android:radius="10dip"/>
@@ -19,6 +22,9 @@
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
             <solid android:color="@color/white"></solid>
+            <stroke
+                    android:width="2dp"
+                    android:color="@color/white"/>
             <!-- 设置按钮的四个角为弧形 -->
             <!-- android:radius 弧形的半径 -->
             <corners android:radius="10dip"/>
@@ -30,6 +36,9 @@
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
             <solid android:color="@color/lightblue"></solid>
+            <stroke
+                    android:width="2dp"
+                    android:color="@color/white"/>
             <!-- 设置按钮的四个角为弧形 -->
             <!-- android:radius 弧形的半径 -->
             <corners android:radius="10dip"/>
@@ -41,6 +50,9 @@
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
             <solid android:color="@color/lightblue"></solid>
+            <stroke
+                    android:width="2dp"
+                    android:color="@color/white"/>
             <!-- 设置按钮的四个角为弧形 -->
             <!-- android:radius 弧形的半径 -->
             <corners android:radius="10dip"/>

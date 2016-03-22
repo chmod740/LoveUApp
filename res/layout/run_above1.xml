@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:background="@color/black"
+              android:background="#FF72CAE1"
               android:layout_height="match_parent">
 
     <RadioGroup
             android:id="@+id/topRg1"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/tab_footer_bg">
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/lightblue"
+
+           >
 
         <RadioButton
                 android:id="@+id/run_top_11"
-                android:shadowColor="@color/black"
-                style="@style/yue_above_rb_style"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:checked="true"
-                android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="自习" />
+                android:text="自习"
+                android:button="@null"
+                android:textSize="20dp"
+                android:textColor="@color/abovewrite_selector"
+                android:background="@drawable/abovebutton_selector"
+
+        />
         <RadioButton
                 android:id="@+id/run_top_12"
-                android:shadowColor="@color/black"
-                style="@style/yue_above_rb_style"
-                android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="跑步" />
+                android:button="@null"
+
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:textSize="20dp"
+                android:text="跑步"
+                android:gravity="center"
+                android:background="@drawable/abovebutton_selector"
+                android:textColor="@color/abovewrite_selector"/>
+
 
     </RadioGroup>
-</LinearLayout>
+</RelativeLayout>

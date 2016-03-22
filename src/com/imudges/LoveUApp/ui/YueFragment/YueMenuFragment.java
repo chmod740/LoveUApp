@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
@@ -33,10 +34,15 @@ public class YueMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //透明状态栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         View view = inflater.inflate(R.layout.slidingmenu_fragment, container,false);
         userImage=(ImageView)view.findViewById(R.id.menu_img_user);
         userSetImg = (ImageView) view.findViewById(R.id.userset_img);

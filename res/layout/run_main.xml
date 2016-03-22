@@ -5,7 +5,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@drawable/background_login"
-              android:orientation="vertical" >
+              android:orientation="vertical"
+              android:fitsSystemWindows="true"
+android:clipToPadding="true">
     <!-- 上边菜单栏 -->
 
     <fragment
@@ -39,42 +41,42 @@
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueMainFragment"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/run_fragment1_2"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueMainFragment2"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/run_fragment2"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueSecondFragment"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/run_fragment2_2"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueSecondFragment2"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/run_fragment3"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueThirdFragment"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <fragment
             android:id="@+id/run_fragment3_2"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueThirdFragment2"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="10" />
+            android:layout_weight="10"/>
 
     <!-- 底部菜单页面 -->
 
@@ -84,26 +86,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:background="@drawable/tab_footer_bg"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
         <RadioButton
                 android:id="@+id/rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
                 android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="首页" />
+                android:text="首页"/>
 
         <RadioButton
                 android:id="@+id/rbTwo"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_two_btn_selector"
-                android:text="搜索" />
+                android:text="搜索"/>
 
         <RadioButton
                 android:id="@+id/rbThree"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_three_btn_selector"
-                android:text="设置" />
+                android:text="设置"/>
     </RadioGroup>
 
 </LinearLayout>

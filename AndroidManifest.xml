@@ -25,7 +25,9 @@
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
         <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity2"
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
-        <activity android:name=".MainYueActivity"/>
+        <activity android:name=".MainYueActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar.TranslucentDecor"
+
+        />
         <activity android:name=".MainPresentActivity"/>
         <activity android:name=".MainSyllabusActivity"/>
         <activity android:name=".MainSellActivity"/>

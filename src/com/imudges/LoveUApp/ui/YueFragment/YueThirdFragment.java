@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
@@ -36,6 +37,10 @@ public class YueThirdFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //透明状态栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//透明导航栏
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         listView = (ListView) getView().findViewById(R.id.run3_3_list1);
         imageView = (ImageView)getView().findViewById(R.id.run3_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.default1);

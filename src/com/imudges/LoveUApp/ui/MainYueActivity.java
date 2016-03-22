@@ -46,7 +46,7 @@ public class MainYueActivity extends FragmentActivity {
     }
 
     private void initMain() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.run_main);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -127,6 +127,7 @@ public class MainYueActivity extends FragmentActivity {
                 switch (checkedId) {
                     case R.id.run_top_11:
                         fragmentTransaction.show(mFragments[0]).show(mFragments[6]).commit();
+
                         break;
 
                     case R.id.run_top_12:

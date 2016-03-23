@@ -43,7 +43,7 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".MainMealActivity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".YueFragment.DetailActivity"
+        <activity android:name="com.imudges.LoveUApp.ui.YueFragment.StudyDetailActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".MainSetActivity"
                   android:screenOrientation="portrait"/>

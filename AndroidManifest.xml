@@ -46,7 +46,6 @@
         <activity android:name=".YueFragment.StudyDetailActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".YueFragment.RunDetailActivity"
-        <activity android:name="com.imudges.LoveUApp.ui.YueFragment.StudyDetailActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".MainSetActivity"
                   android:screenOrientation="portrait"/>

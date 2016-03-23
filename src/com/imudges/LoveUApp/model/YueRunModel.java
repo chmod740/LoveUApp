@@ -7,8 +7,26 @@ public class YueRunModel {
     private String PostUser;
     private String RunInformation;
     private String RunTime;
+    private String RunArea;
     private Integer state;
     private String PostImage;
+    private Integer RunId;
+
+    public String getRunArea() {
+        return RunArea;
+    }
+
+    public void setRunArea(String runArea) {
+        RunArea = runArea;
+    }
+
+    public Integer getRunId() {
+        return RunId;
+    }
+
+    public void setRunId(Integer runId) {
+        RunId = runId;
+    }
 
     public String getPostUser() {
         return PostUser;

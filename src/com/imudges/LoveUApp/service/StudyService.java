@@ -94,6 +94,37 @@ public class StudyService {
             }
         });
     }
+    /**
+     * 决定约
+     */
+    public void makeY(String key,String name,String userId,Context context,Listener listener){
+        url="xueservice/DoXueService.php";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("XueId",userId);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                try{
+                    StudyModel studyModel=new Gson().fromJson(reponseStr,StudyModel.class);
+                    if(studyModel.getState()==1){
+                        listener.onSuccess();
+                    }else{
+                        listener.onFailure(studyModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络错误");
+            }
+        });
+    }
 
     public void deleteInfor(String key,Context context,String name,Listener listener){
         url="";

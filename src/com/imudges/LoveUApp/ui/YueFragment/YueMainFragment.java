@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.YueStudyModel;
 import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
@@ -38,7 +39,8 @@ public class YueMainFragment extends ListFragment {
     private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     private Bitmap bitmap;
     private int Length = 0;
-    private String[] Username = new String[10];
+    private List<String> user_id=new ArrayList<>();
+    private List<String> ID=new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,6 +68,10 @@ public class YueMainFragment extends ListFragment {
     public List<Map<String, Object>> GetStudy(){
         url="xueservice/DownXueService.php";
         params=new RequestParams();
+        Get get=new Get("User",getActivity().getApplicationContext());
+        Get get1=new Get("UserKey",getActivity().getApplicationContext());
+        params.add("UserName",get.getout("username",""));
+        params.add("SecretKey",get.getout("secretkey",""));
         HttpRequest.get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -77,20 +83,21 @@ public class YueMainFragment extends ListFragment {
 
                     Map<String, Object> map;
                     Length=studyModels.size();
-                    int j;
-                    for(j=Length-1;j>=0;j--) {
+                    int j,ii=0;
+                    for(j=Length-1;j>=0;j--,ii++) {
                         int img = R.drawable.ic_launcher;
-                        Username[j] = studyModels.get(j).getPostUser();
                         map = new HashMap<String, Object>();
                         map.put("title",studyModels.get(j).getPostUser());
                         map.put("time", studyModels.get(j).getXueTime());
                         map.put("location", studyModels.get(j).getXueInformation());
                         downPhoto(studyModels.get(j).getPostImage());
+                        user_id.add(ii,studyModels.get(j).getXueId()+"");
 //                        Drawable drawable=new BitmapDrawable(getActivity().getApplicationContext().getResources(),bitmap);
 //                        new ImageView(getActivity().getApplicationContext()).setImageBitmap(bitmap);
                         map.put("img",bitmap);
                         list.add(map);
                     }
+                    change();
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -121,15 +128,20 @@ public class YueMainFragment extends ListFragment {
             }
         }.start();
     }
+    public void change(){
+        int j=user_id.size()-1;
+        for(int i=0;i<user_id.size();i++,j--){
+            ID.add(i,user_id.get(j));
+        }
+    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        int num = Length-1;
-        String send_Username = null;
-        send_Username = Username[num-position];
-
+        String send_Username=null;
+        int num=user_id.size()-1;
+        send_Username = ID.get(num-position);
         if (send_Username != null){
             MainYueActivity.setUserName(send_Username);
             Intent intent = new Intent(getActivity(),StudyDetailActivity.class);

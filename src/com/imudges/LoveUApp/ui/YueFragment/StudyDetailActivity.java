@@ -123,14 +123,15 @@ public class StudyDetailActivity extends Activity{
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
+                    //System.out.println(responStr);
                     Gson gson=new Gson();
                     YueStudyModel studyModels = gson.fromJson(responStr,YueStudyModel.class);
-                    downPhoto(studyModels.getPostImage());
                     tv_submitTime.setText(studyModels.getXueTime());
                     tv_userName.setText(studyModels.getPostUser());
                     tv_time.setText(studyModels.getXueArea());
                     tv_other.setText(studyModels.getXueInformation());
+                    downPhoto(studyModels.getPostImage());
+                    //System.out.println(studyModels.getPostImage());
                 }catch(Exception e){
                     Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -144,8 +145,10 @@ public class StudyDetailActivity extends Activity{
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what==0x9527) {
+            if (msg.what==0x9521) {
                 //显示从网上下载的图片
+                PhotoCut cut=new PhotoCut(getApplicationContext());
+                bitmap=cut.toRoundBitmap(bitmap);
                 userImage.setImageBitmap(bitmap);
             }
         }
@@ -161,9 +164,7 @@ public class StudyDetailActivity extends Activity{
                     InputStream is= url.openStream();
                     //从InputStream流中解析出图片
                     bitmap = BitmapFactory.decodeStream(is);
-                    PhotoCut cut=new PhotoCut(getApplicationContext());
-                    bitmap=cut.toRoundBitmap(bitmap);
-                    handler.sendEmptyMessage(0x9527);
+                    handler.sendEmptyMessage(0x9521);
                     //关闭输入流
                     is.close();
                 } catch (Exception e) {

@@ -2,6 +2,8 @@ package com.imudges.LoveUApp.ui.YueFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import com.imudges.LoveUApp.model.YueRunModel;
 import com.imudges.LoveUApp.model.YueStudyModel;
 import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -33,11 +36,12 @@ import java.util.Map;
  * Created by 1111 on 2016/3/16.
  */
 public class YueMainFragment2 extends ListFragment {
+
+    private RefreshableView refreshableView;
     private String url;
     private String responStr;
     private RequestParams params;
     private List<YueRunModel> studyModels;
-    private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     private int Length = 0;
     private List<String> user_id=new ArrayList<>();
     private List<String> ID=new ArrayList<>();
@@ -46,7 +50,7 @@ public class YueMainFragment2 extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.list, container, false);
+        return inflater.inflate(R.layout.list, container, true);
     }
 
     @Override
@@ -64,12 +68,26 @@ public class YueMainFragment2 extends ListFragment {
                 new int[] { R.id.img, R.id.title, R.id.text1, R.id.text2 }
         );
         setListAdapter(adapter);
+        View view =getView();
+        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    next();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 1);
     }
     /**
      * 获取跑步类
      * @return
      */
     public List<Map<String, Object>> GetRun(){
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         url="runservice/DownRunService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
@@ -89,10 +107,9 @@ public class YueMainFragment2 extends ListFragment {
                     Length=studyModels.size();
                     int Length=studyModels.size();
                     int j;
-                    int ii=0;
-                    for(j=Length-1;j>=0;j--,ii++) {
+                    for(j=0;j<Length;j++) {
                         int img = R.drawable.ic_launcher;
-                        user_id.add(ii,studyModels.get(j).getRunId()+"");
+                        user_id.add(j,studyModels.get(j).getRunId()+"");
                         map = new HashMap<String, Object>();
                         map.put("title",studyModels.get(j).getPostUser());
                         map.put("time", studyModels.get(j).getRunTime());
@@ -103,7 +120,6 @@ public class YueMainFragment2 extends ListFragment {
                         map.put("img",img);
                         list.add(map);
                     }
-                    change();
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -116,19 +132,12 @@ public class YueMainFragment2 extends ListFragment {
         return list;
     }
 
-    public void change(){
-        int j=user_id.size()-1;
-        for(int i=0;i<user_id.size();i++,j--){
-            ID.add(i,user_id.get(j));
-        }
-    }
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
         String send_Username=null;
-        int num=user_id.size()-1;
-        send_Username = ID.get(num-position);
+        send_Username = user_id.get(position);
 
         if (send_Username != null){
             MainYueActivity.setUserName(send_Username);
@@ -136,4 +145,20 @@ public class YueMainFragment2 extends ListFragment {
             startActivity(intent);
         }
     }
+    public void next(){
+        new Thread(){
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x9527);
+            }
+        }.start();
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                onActivityCreated(null);
+            }
+        }
+    };
 }

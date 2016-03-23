@@ -149,8 +149,10 @@ public class RunDetailActivity extends Activity {
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what==0x9527) {
+            if (msg.what==0x9522) {
                 //显示从网上下载的图片
+                PhotoCut cut=new PhotoCut(getApplicationContext());
+                bitmap=cut.toRoundBitmap(bitmap);
                 userImage.setImageBitmap(bitmap);
             }
         }
@@ -166,9 +168,8 @@ public class RunDetailActivity extends Activity {
                     InputStream is= url.openStream();
                     //从InputStream流中解析出图片
                     bitmap = BitmapFactory.decodeStream(is);
-                    PhotoCut cut=new PhotoCut(getApplicationContext());
-                    bitmap=cut.toRoundBitmap(bitmap);
-                    handler.sendEmptyMessage(0x9527);
+
+                    handler.sendEmptyMessage(0x9522);
                     //关闭输入流
                     is.close();
                 } catch (Exception e) {

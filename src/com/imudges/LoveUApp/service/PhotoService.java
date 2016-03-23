@@ -17,7 +17,10 @@ public class PhotoService {
 
     private String fileName = "image.jpg";  //报文中的文件名参数
     private String uploadFile;//+ "/" + fileName;    //待上传的文件路径
-    private String Url="http://183.175.12.157/LOVEU/service/ImageService.php";
+    private String Url;//="http://183.175.12.157/LOVEU/service/ImageService.php";
+    public PhotoService(String Url){
+        this.Url=Url;
+    }
     /**
      * 上传图片文件至Server的方法
      * 传参

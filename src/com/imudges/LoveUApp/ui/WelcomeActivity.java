@@ -49,7 +49,7 @@ public class WelcomeActivity extends Activity {
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what==0x9527) {
+            if (msg.what==0x9528) {
                 //显示从网上下载的图片
                 welcomeImg.setImageBitmap(bitmap);
             }
@@ -68,7 +68,7 @@ public class WelcomeActivity extends Activity {
                     bitmap = BitmapFactory.decodeStream(is);
                     //  imageview.setImageBitmap(bitmap);
                     //发送消息，通知UI组件显示图片
-                    handler.sendEmptyMessage(0x9527);
+                    handler.sendEmptyMessage(0x9528);
                     //关闭输入流
                     is.close();
                 } catch (Exception e) {

@@ -134,7 +134,7 @@ public class RunService {
                         listener.onFailure(runModel.getMsg());
                     }
                 }catch (Exception e){
-                    listener.onFailure("获取信息失败");
+                    listener.onFailure(e.getLocalizedMessage());
                 }
             }
 

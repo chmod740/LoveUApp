@@ -107,12 +107,41 @@ public class RunService {
                     listener.onFailure("获取信息失败");
                 }
             }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络错误");
+            }
+        });
+    }
+    /**
+     * 约
+     */
+    public void makeY(String key,Context context,String userid,String name,Listener listener){
+        url="runservice/DoRunService.php";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("RunId",userid);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                try {
+                    RunModel runModel= new Gson().fromJson(reponseStr,RunModel.class);
+                    if (runModel.getState()==1){
+                        listener.onSuccess();
+                    }else {
+                        listener.onFailure(runModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure("获取信息失败");
+                }
+            }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络错误");
             }
         });
-
     }
 }

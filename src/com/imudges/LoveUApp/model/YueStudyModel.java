@@ -12,6 +12,15 @@ public class YueStudyModel {
     private String XueTime;
     private Integer state;
     private String PostImage;
+    private Integer XueId;
+
+    public Integer getXueId() {
+        return XueId;
+    }
+
+    public void setXueId(Integer xueId) {
+        XueId = xueId;
+    }
 
     public String getPostImage() {
         return PostImage;

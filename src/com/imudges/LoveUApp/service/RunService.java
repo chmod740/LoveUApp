@@ -23,13 +23,14 @@ public class RunService {
     /**
      * 向表上传发出约跑信息
      */
-    public void userPost(String name, String information,String secretkey, String runtime , Context context, Listener listener){
+    public void userPost(String name, String information,String secretkey, String runtime ,String address,Context context, Listener listener){
         url="RunService/UpRunService.php";
         params=new RequestParams();
         params.add("UserName",name);
         params.add("RunInformation",information);
         params.add("RunTime",runtime);
         params.add("SecretKey",secretkey);
+        params.add("RunArea",address);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

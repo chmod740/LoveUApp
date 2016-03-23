@@ -21,6 +21,8 @@ public class YueSecondFragment2 extends Fragment {
    // private String addRess;
     private EditText info;
     private EditText ed;
+    private EditText add;
+    private String addrss;
     //private EditText address;
     private String initEndDateTime = "2013年9月3日 14:44"; // 初始化开始时间
     @Override
@@ -41,14 +43,15 @@ public class YueSecondFragment2 extends Fragment {
         bt =(Button)getView().findViewById(R.id.run2_2_bt);
         ed = new EditText(getActivity().getApplicationContext());
         info = (EditText) getView().findViewById(R.id.run2_2_ed2);
+        add = (EditText)getView().findViewById(R.id.run2_2_ed3);
        // address = (EditText) getView().findViewById(R.id.run2_2_ed3);
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 infomation = info.getText().toString();
-                //addRess = address.getText().toString();
+                addrss = add.getText().toString();
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
-                        getActivity(), initEndDateTime,infomation,2);
+                        getActivity(), initEndDateTime,infomation,addrss,2);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
 
 

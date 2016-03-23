@@ -127,8 +127,8 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
 
 
                         if (which == 2) {
-                            updata(username, info, secretkey, end, activity);
-                            Toast.makeText(activity, "跑" + " " + dateTime + " " + info + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                            updata(username, info, secretkey, end, address, activity);
+                            Toast.makeText(activity, "跑" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
                         }
                         if (which == 1) {
                             xuedata(username, info, secretkey, end, address, activity);
@@ -233,8 +233,8 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
         secretkey = sd.getString("secretkey", "").toString();
     }
 
-    public void updata(String username, String infomation, String secretkey, String end, Context activity) {
-        runService.userPost(username, infomation, secretkey, end, activity, new Listener() {
+    public void updata(String username, String infomation, String secretkey, String end, String address, Context activity) {
+        runService.userPost(username, infomation, secretkey, end, address, activity, new Listener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();

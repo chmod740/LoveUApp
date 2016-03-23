@@ -63,17 +63,16 @@ public class MainActivity extends Activity {
                         pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
                 switch (pos){
                     case 0:startActivity(new Intent(getApplicationContext(),MainYueActivity.class));
-                        finish();
                         break;
-                    case 1:startActivity(new Intent(getApplicationContext(),MainPresentActivity.class));finish();
+                    case 1:startActivity(new Intent(getApplicationContext(),MainPresentActivity.class));
                         break;
-                    case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));finish();
+                    case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));
                         break;
-                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));finish();
+                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));
                         break;
-                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));finish();
+                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));
                         break;
-                    case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));finish();
+                    case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));
                         break;
                 }
                 //finish();

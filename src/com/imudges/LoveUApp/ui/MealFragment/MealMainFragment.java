@@ -35,7 +35,7 @@ public class MealMainFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getView().findViewById(R.id.meal3_3_list2);
+        listView = (ListView) getView().findViewById(R.id.meal3_1_list1);
         imageView = (ImageView)getView().findViewById(R.id.meal3_2_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.default1);
         PhotoCut photoCut = new PhotoCut(getActivity().getApplicationContext());
@@ -57,9 +57,7 @@ public class MealMainFragment extends Fragment {
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                /**
-                                 * 删除数据逻辑
-                                 */
+
                                 Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
                             }
                         })

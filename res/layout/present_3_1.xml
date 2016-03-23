@@ -3,10 +3,9 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="present3_1"
-              android:textSize="22sp"
-              android:layout_gravity="center_horizontal"/>
+    <ListView android:layout_width="match_parent" android:layout_height="match_parent"
+              android:id="@+id/present_3_listview1">
+
+    </ListView>
 
 </LinearLayout>

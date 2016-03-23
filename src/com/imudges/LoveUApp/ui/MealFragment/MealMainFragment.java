@@ -48,24 +48,6 @@ public class MealMainFragment extends Fragment {
                 new int[] { R.id.meal3_2_img, R.id.meal3_2_tx1, R.id.meal3_2_tx2, R.id.meal3_2_tx3,R.id.meal3_2_tx4 ,R.id.meal3_2_tx5}
         );
         listView.setAdapter(simpleAdapter);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new  AlertDialog.Builder(getActivity())
-                        .setTitle("删除" )
-                        .setMessage("确定删除吗？" )
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setNegativeButton("否" , null)
-                        .show();
-                return false;
-            }
-        });
     }
 
     private List<Map<String, Object>> getData() {

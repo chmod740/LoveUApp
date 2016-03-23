@@ -87,7 +87,7 @@ public class RunService {
         });
     }
     public void deleteInfor(String key,Context context,String name,Listener listener){
-        url="";
+        url="runservice/DeleteRunService.php";
         params=new RequestParams();
         params.add("UserName",name);
         params.add("SecretKey",key);

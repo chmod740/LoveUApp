@@ -16,6 +16,10 @@ public class SellSecondFragment extends Fragment {
 
     private Spinner spinner;
     private ArrayAdapter<String> adapter;
+    private EditText title,info;
+    private Button selectimg,sure;
+    private String time;
+    private String titleString,infoString;//EditText 中的数据
     private static final String[] m={"三天","五天","七天"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,6 +30,10 @@ public class SellSecondFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        title = (EditText) getView().findViewById(R.id.sell_2_title);
+        info = (EditText) getView().findViewById(R.id.sell_2_info);
+        selectimg = (Button) getView().findViewById(R.id.sell_2_selectimg);
+        sure = (Button) getView().findViewById(R.id.sell_2_sure);
         spinner = (Spinner)getView().findViewById(R.id.sell_2_spinner);
         //将可选内容与ArrayAdapter连接起来
         adapter = new ArrayAdapter<String>(getActivity(),R.layout.spinnertext,m);
@@ -50,6 +58,12 @@ public class SellSecondFragment extends Fragment {
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
                                    long arg3) {
             Toast.makeText(getActivity(),m[arg2],Toast.LENGTH_SHORT).show();
+            switch (arg2){
+                case 0:time="三天";break;
+                case 1:time="五天";break;
+                case 2:time="七天";break;
+                default:time="错误数据";break;
+            }
         }
 
         public void onNothingSelected(AdapterView<?> arg0) {

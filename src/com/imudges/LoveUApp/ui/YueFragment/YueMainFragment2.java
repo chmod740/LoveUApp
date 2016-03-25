@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +11,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.YueRunModel;
-import com.imudges.LoveUApp.model.YueStudyModel;
 import com.imudges.LoveUApp.ui.MainYueActivity;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 import com.imudges.LoveUApp.ui.R;
-import com.imudges.LoveUApp.ui.RefreshableView;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -80,7 +78,7 @@ public class YueMainFragment2 extends ListFragment {
                 }
                 refreshableView.finishRefreshing();
             }
-        }, 1);
+        }, ReFreshId.Yue_Main_Run);
     }
     /**
      * 获取跑步类

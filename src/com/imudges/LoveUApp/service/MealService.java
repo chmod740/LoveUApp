@@ -28,11 +28,13 @@ public class MealService {
         params=new RequestParams();
         params.add("SecretKey",secretkey);
         params.add("UserName",username);
-        params.add("FoodArea",mealway);
-        params.add("FoodInformation ",information);
+        params.add("FoodArea",Area);
+        params.add("FoodInformation",information);
         params.add("FoodWay",mealway);
         params.add("FoodTime",time+"");
+        System.out.println("************"+information);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr=new String(bytes);

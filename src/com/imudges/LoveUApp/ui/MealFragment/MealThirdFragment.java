@@ -1,8 +1,8 @@
 package com.imudges.LoveUApp.ui.MealFragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,8 @@ import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.MealModel;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -23,12 +25,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * meal发出
+ */
 public class MealThirdFragment extends Fragment {
 
     private String responStr;
     private List<MealModel> MealModels;
     private int Length=0;
+    private RefreshableView refreshableView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,8 +48,10 @@ public class MealThirdFragment extends Fragment {
 
         ListView listView;
         SimpleAdapter simpleAdapter;
-
+        View view = getView();
         listView = (ListView) getView().findViewById(android.R.id.list);
+
+//        Toast.makeText(getActivity(),"one",Toast.LENGTH_LONG).show();
         simpleAdapter = new SimpleAdapter(getActivity(),
                 getData(),
                 R.layout.item_meal_3_1,
@@ -51,26 +59,40 @@ public class MealThirdFragment extends Fragment {
                 new int[] { R.id.meal3_img, R.id.meal3_tx1, R.id.meal3_tx2, R.id.meal3_tx3,R.id.meal3_tx4 }
         );
         listView.setAdapter(simpleAdapter);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new  AlertDialog.Builder(getActivity())
-                        .setTitle("删除" )
-                        .setMessage("确定删除吗？" )
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                /**
-                                 * 删除数据逻辑
-                                 */
-                                Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setNegativeButton("否" , null)
-                        .show();
-                return false;
+            public void onRefresh() {
+                try {
+                    next();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
             }
-        });
+        }, ReFreshId.Meal_Third_Send);
+
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                new  AlertDialog.Builder(getActivity())
+//                        .setTitle("删除" )
+//                        .setMessage("确定删除吗？" )
+//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                /**
+//                                 * 删除数据逻辑
+//                                 */
+//                                Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
+//                            }
+//                        })
+//                        .setNegativeButton("否" , null)
+//                        .show();
+//                return false;
+//            }
+//        });
     }
 
     private List<Map<String, Object>> getData() {
@@ -78,7 +100,7 @@ public class MealThirdFragment extends Fragment {
         RequestParams params;
         String url;
 
-        url="foodservice/DownFoodService.php";
+        url="foodservice/DownFService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
         Get get1=new Get("UserKey",getActivity().getApplicationContext());
@@ -108,7 +130,7 @@ public class MealThirdFragment extends Fragment {
                         list.add(map);
                     }
                 }catch(Exception e){
-                    Toast.makeText(getActivity(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"MealThird "+ e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -119,4 +141,21 @@ public class MealThirdFragment extends Fragment {
         });
         return list;
     }
+
+    public void next(){
+        new Thread(){
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x9527);
+            }
+        }.start();
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                onActivityCreated(null);
+            }
+        }
+    };
 }

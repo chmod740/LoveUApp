@@ -4,7 +4,7 @@
         android:layout_height="fill_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
 >
-    <com.imudges.LoveUApp.ui.RefreshableView
+    <com.imudges.LoveUApp.ui.ReFresh.RefreshableView
             android:id="@+id/refreshable_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -14,6 +14,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
         />
-    </com.imudges.LoveUApp.ui.RefreshableView>
+    </com.imudges.LoveUApp.ui.ReFresh.RefreshableView>
 
 </RelativeLayout>

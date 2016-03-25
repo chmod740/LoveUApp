@@ -1,6 +1,8 @@
 package com.imudges.LoveUApp.ui.MealFragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.MealModel;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -25,6 +29,8 @@ import java.util.Map;
  * Created by 1111 on 2016/3/14.
  */
 public class MealMainFragment extends Fragment {
+
+    private RefreshableView refreshableView;
 
     private String responStr;
     private List<MealModel> MealModels;
@@ -41,6 +47,7 @@ public class MealMainFragment extends Fragment {
 
         ListView listView;
         SimpleAdapter simpleAdapter;
+        View view = getView();
 
         listView = (ListView) getView().findViewById(android.R.id.list);
         simpleAdapter = new SimpleAdapter(getActivity(),
@@ -50,6 +57,19 @@ public class MealMainFragment extends Fragment {
                 new int[] { R.id.meal3_2_img, R.id.meal3_2_tx1, R.id.meal3_2_tx2, R.id.meal3_2_tx3,R.id.meal3_2_tx4 ,R.id.meal3_2_tx5}
         );
         listView.setAdapter(simpleAdapter);
+
+        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    next();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, ReFreshId.Meal_Main);
     }
 
     private List<Map<String, Object>> getData() {
@@ -87,7 +107,7 @@ public class MealMainFragment extends Fragment {
                         list.add(map);
                     }
                 }catch(Exception e){
-                    Toast.makeText(getActivity(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"MealMain " + e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -98,4 +118,21 @@ public class MealMainFragment extends Fragment {
         });
         return list;
     }
+
+    public void next(){
+        new Thread(){
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x9527);
+            }
+        }.start();
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                onActivityCreated(null);
+            }
+        }
+    };
 }

@@ -91,7 +91,7 @@ public class YueMainFragment extends ListFragment {
         Get get=new Get("User",getActivity().getApplicationContext());
         Get get1=new Get("UserKey",getActivity().getApplicationContext());
         params.add("UserName",get.getout("username",""));
-        params.add("SecretKey",get.getout("secretkey",""));
+        params.add("SecretKey",get1.getout("secretkey",""));
         HttpRequest.get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

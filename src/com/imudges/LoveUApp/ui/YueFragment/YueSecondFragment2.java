@@ -54,7 +54,6 @@ public class YueSecondFragment2 extends Fragment {
                         getActivity(), initEndDateTime,infomation,addrss,2);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
 
-
             }
         });
     }

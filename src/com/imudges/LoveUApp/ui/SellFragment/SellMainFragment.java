@@ -31,14 +31,14 @@ public class SellMainFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.sell_1, container, false);
+        return inflater.inflate(R.layout.list, container, false);
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getView().findViewById(R.id.sell_1_listview);
+        listView = (ListView) getView().findViewById(android.R.id.list);
         imageView = (ImageView)getView().findViewById(R.id.sell_1_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.default1);
         PhotoCut photoCut = new PhotoCut(getActivity().getApplicationContext());

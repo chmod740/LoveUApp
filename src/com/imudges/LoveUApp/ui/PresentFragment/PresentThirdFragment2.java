@@ -24,12 +24,12 @@ public class PresentThirdFragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.present_3_2, container, false);
+        return inflater.inflate(R.layout.list, container, false);
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getView().findViewById(R.id.present_3_listview2);
+        listView = (ListView) getView().findViewById(android.R.id.list);
         simpleAdapter = new SimpleAdapter(getActivity(),
                 getData(),
                 R.layout.item_sell_1,

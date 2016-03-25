@@ -52,5 +52,7 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".Set.UserSet"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".SellFragment.SellDetialActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 </manifest>

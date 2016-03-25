@@ -1,5 +1,6 @@
 package com.imudges.LoveUApp.ui.SellFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -84,6 +85,16 @@ public class SellThirdFragment extends Fragment {
                 refreshableView.finishRefreshing();
             }
         }, ReFreshId.Sell_Main);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(),SellDetialActivity.class);
+                intent.putExtra("SellId",SellId.get(i));
+                intent.putExtra("State","self");
+                startActivity(intent);
+            }
+        });
     }
 
     public void GetSell(){

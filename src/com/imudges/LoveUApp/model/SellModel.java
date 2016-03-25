@@ -15,6 +15,15 @@ public class SellModel {
     private String PaiImage;
     private String PaiTitle;
     private Integer PaiId;
+    private String UpTime;
+
+    public String getUpTime() {
+        return UpTime;
+    }
+
+    public void setUpTime(String upTime) {
+        UpTime = upTime;
+    }
 
     public Integer getPaiId() {
         return PaiId;

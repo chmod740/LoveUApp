@@ -25,18 +25,16 @@ public class SellService {
      * @param context
      * @param listener
      * @param name
-     * @param money
-     * @param uptime
      * @param information
      */
-    public void userPost(Context context, Listener listener, String name, String money, Timestamp uptime,
-                         String information){
-        url="";
+    public void userPost(Context context, String name, String secretkey, String title,
+                         String information, Listener listener){
+        url="paiservice/UpPaiService.php";
         params=new RequestParams();
         params.add("UserName",name);
-        params.add("UserMoney",money);
-        params.add("UpTime",uptime+"");
-        params.add("UserInformation",information);
+        params.add("SecretKey",secretkey);
+        params.add("PaiTitle",title);
+        params.add("PaiInformation",information);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -52,7 +50,6 @@ public class SellService {
                     listener.onFailure(e.getLocalizedMessage());
                 }
             }
-
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络错误");

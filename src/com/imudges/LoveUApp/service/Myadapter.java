@@ -19,14 +19,26 @@ import android.widget.ListView;
 public class Myadapter extends BaseAdapter {
     private AsyncImageLoader asyncImageLoader;
     List<String> data;
+    List<String> name;
+    List<String> info;
+    List<String> area;
+    List<String> time;
+    List<String> state;
+
     Context context;
     ImageView iv;
-    TextView tv1,tv2,tv3,tv4;
+    TextView tv1,tv2,tv3,tv4,tv5;
     private ListView listView;
 
-    public Myadapter(Context context, List<String> list,ListView listView) {
+    public Myadapter(Context context, List<String> list,List<String> name,List<String> info,List<String> area,
+                     List<String> time,List<String> state,ListView listView) {
         this.context = context;
         this.data = list;
+        this.name=name;
+        this.info=info;
+        this.area=area;
+        this.time=time;
+        this.state=state;
         asyncImageLoader = new AsyncImageLoader();
         this.listView=listView;
         // TODO Auto-generated constructor stub
@@ -54,16 +66,21 @@ public class Myadapter extends BaseAdapter {
     public View getView(int position,  View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_run_3_1,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_run_3_2,null);
         }
-        iv = (ImageView) convertView.findViewById(R.id.run3_img);
-        tv1=(TextView) convertView.findViewById(R.id.run3_tx1);
-        tv2=(TextView) convertView.findViewById(R.id.run3_tx2);
-        tv3=(TextView) convertView.findViewById(R.id.run3_tx3);
-        tv4=(TextView) convertView.findViewById(R.id.run3_1_way);
+        iv = (ImageView) convertView.findViewById(R.id.run3_2_img);
+        tv1=(TextView) convertView.findViewById(R.id.run3_2_tx4);
+        tv1.setText(name.get(position).toString());
+        tv2=(TextView) convertView.findViewById(R.id.run3_2_tx1);
+        tv2.setText(info.get(position).toString());
+        tv3=(TextView) convertView.findViewById(R.id.run3_2_tx2);
+        tv3.setText(time.get(position).toString());
+        tv5=(TextView) convertView.findViewById(R.id.run3_2_tx3);
+        tv5.setText(area.get(position).toString());
+        tv4=(TextView) convertView.findViewById(R.id.run3_2_way);
+        tv4.setText(state.get(position).toString());
         String url=data.get(position).toString();
         iv.setTag(url);
-        tv1.setText("hhhhhhhhhhhhhhhhhhhhhhhhhh");
 
         Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
             public void imageLoaded(Drawable imageDrawable, String imageUrl) {

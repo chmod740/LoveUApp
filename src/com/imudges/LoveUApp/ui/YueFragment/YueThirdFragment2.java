@@ -38,16 +38,19 @@ import java.util.Map;
 public class YueThirdFragment2 extends Fragment{
 
     private RefreshableView refreshableView;
-    private SimpleAdapter simpleAdapter;
-    private ListView listView,lv;
+    private ListView lv;
 
     private int Length;
 
     private String url;
     private String responStr;
     private RequestParams params;
-    Map<String, Object> map;
     public List<String> URL;
+    public List<String> name;
+    public List<String> info;
+    public List<String> area;
+    public List<String> time;
+    public List<String> state;
     Myadapter adapter;
 
     @Override
@@ -62,20 +65,19 @@ public class YueThirdFragment2 extends Fragment{
 
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        listView = (ListView) getView().findViewById(R.id.run3_3_list2);
+        GetStudy();
+
         lv = (ListView) getView().findViewById(R.id.run3_3_list2);
 
         URL = new ArrayList<String>();
+        name=new ArrayList<String>();
+        info=new ArrayList<String>();
+        time=new ArrayList<String>();
+        area=new ArrayList<String>();
+        state=new ArrayList<String>();
 
-        simpleAdapter = new SimpleAdapter(getActivity(),
-                GetStudy(),
-                R.layout.item_run_3_2,
-                new String[] { "img", "title", "time", "location","man","state"},
-                new int[] { R.id.run3_2_img, R.id.run3_2_tx1, R.id.run3_2_tx2, R.id.run3_2_tx3,R.id.run3_2_tx4 ,R.id.run3_2_way}
-        );
-        adapter = new Myadapter(getActivity().getApplicationContext(), URL,lv);
+        adapter = new Myadapter(getActivity().getApplicationContext(), URL,name,info,area,time,state,lv);
         lv.setAdapter(adapter);
-        listView.setAdapter(simpleAdapter);
 //        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 //            @Override
 //            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -112,9 +114,8 @@ public class YueThirdFragment2 extends Fragment{
         }, 4);
     }
 
-    public List<Map<String, Object>> GetStudy(){
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        url="xueservice/DownXService.php";
+    public void GetStudy(){
+        url="xueservice/DownXServiceme.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
         Get get1=new Get("UserKey",getActivity().getApplicationContext());
@@ -132,17 +133,12 @@ public class YueThirdFragment2 extends Fragment{
                     Length=studyModels.size();
                     int j;
                     for(j=0;j<Length;j++) {
-                        int img = R.drawable.default1;
-                        map = new HashMap<String, Object>();
-
-                        map.put("title",studyModels.get(j).getXueInformation());
-                        map.put("time", studyModels.get(j).getXueTime());
-                        map.put("location",studyModels.get(j).getXueArea());
-                        map.put("img", img);
-                        map.put("man",studyModels.get(j).getPostUser());
-                        map.put("state","学");
                         URL.add(studyModels.get(j).getPostImage());
-                        list.add(map);
+                        name.add(studyModels.get(j).getPostUser());
+                        area.add(studyModels.get(j).getXueArea());
+                        time.add(studyModels.get(j).getXueTime());
+                        info.add(studyModels.get(j).getXueInformation());
+                        state.add("学");
                     }
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
@@ -153,7 +149,7 @@ public class YueThirdFragment2 extends Fragment{
                 Toast.makeText(getActivity().getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
-        url="runservice/DownRService.php";
+        url="runservice/DownRServiceme.php";
         params=new RequestParams();
         params.add("UserName",get.getout("username",""));
         params.add("SecretKey",get1.getout("secretkey",""));
@@ -169,16 +165,12 @@ public class YueThirdFragment2 extends Fragment{
                     Length=studyModels.size();
                     int j;
                     for(j=0;j<Length;j++) {
-                        int img = R.drawable.default1;
-                        map = new HashMap<String, Object>();
-                        map.put("title",studyModels.get(j).getRunInformation());
-                        map.put("time", studyModels.get(j).getRunTime());
-                        map.put("location",studyModels.get(j).getRunArea());
-                        map.put("img", img);
-                        map.put("man",studyModels.get(j).getPostUser());
-                        map.put("state","跑");
                         URL.add(studyModels.get(j).getPostImage());
-                        list.add(map);
+                        name.add(studyModels.get(j).getPostUser());
+                        area.add(studyModels.get(j).getRunArea());
+                        time.add(studyModels.get(j).getRunTime());
+                        info.add(studyModels.get(j).getRunInformation());
+                        state.add("跑");
                     }
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
@@ -189,7 +181,6 @@ public class YueThirdFragment2 extends Fragment{
                 Toast.makeText(getActivity().getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
-        return list;
     }
     public void next(){
         new Thread(){

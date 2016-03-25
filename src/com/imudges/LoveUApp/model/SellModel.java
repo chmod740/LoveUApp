@@ -8,19 +8,20 @@ import java.sql.Timestamp;
 public class SellModel {
     private Integer state;
     private String msg;
-    private String username;
-    private String sellMoney;
-    private Timestamp upTime;
-    private Timestamp downTime;
-    private String information;
-    private String Buyer;
+    private String PostUser;
+    private String PaiMoney;
+    private String DownTime;
+    private String PaiInformation;
+    private String PaiImage;
+    private String PaiTitle;
+    private Integer PaiId;
 
-    public String getMsg() {
-        return msg;
+    public Integer getPaiId() {
+        return PaiId;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setPaiId(Integer paiId) {
+        PaiId = paiId;
     }
 
     public Integer getState() {
@@ -31,51 +32,59 @@ public class SellModel {
         this.state = state;
     }
 
-    public String getBuyer() {
-        return Buyer;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setBuyer(String buyer) {
-        Buyer = buyer;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPostUser() {
+        return PostUser;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPostUser(String postUser) {
+        PostUser = postUser;
     }
 
-    public String getSellMoney() {
-        return sellMoney;
+    public String getPaiMoney() {
+        return PaiMoney;
     }
 
-    public void setSellMoney(String sellMoney) {
-        this.sellMoney = sellMoney;
+    public void setPaiMoney(String paiMoney) {
+        PaiMoney = paiMoney;
     }
 
-    public Timestamp getUpTime() {
-        return upTime;
+    public String getDownTime() {
+        return DownTime;
     }
 
-    public void setUpTime(Timestamp upTime) {
-        this.upTime = upTime;
+    public void setDownTime(String downTime) {
+        DownTime = downTime;
     }
 
-    public Timestamp getDownTime() {
-        return downTime;
+    public String getPaiInformation() {
+        return PaiInformation;
     }
 
-    public void setDownTime(Timestamp downTime) {
-        this.downTime = downTime;
+    public void setPaiInformation(String paiInformation) {
+        PaiInformation = paiInformation;
     }
 
-    public String getInformation() {
-        return information;
+    public String getPaiImage() {
+        return PaiImage;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public void setPaiImage(String paiImage) {
+        PaiImage = paiImage;
+    }
+
+    public String getPaiTitle() {
+        return PaiTitle;
+    }
+
+    public void setPaiTitle(String paiTitle) {
+        PaiTitle = paiTitle;
     }
 }

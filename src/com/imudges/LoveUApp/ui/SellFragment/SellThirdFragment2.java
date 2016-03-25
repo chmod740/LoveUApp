@@ -1,64 +1,139 @@
 package com.imudges.LoveUApp.ui.SellFragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.imudges.LoveUApp.service.PhotoCut;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.imudges.LoveUApp.DAO.Get;
+import com.imudges.LoveUApp.model.SellModel;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
+import com.imudges.LoveUApp.util.HttpRequest;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import org.apache.http.Header;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class SellThirdFragment2 extends Fragment {
 
+    private RefreshableView refreshableView;
+
+    private String url;
+    private String responStr;
+    private RequestParams params;
+    private List<SellModel> sellModels;
+    private int Length;
+
     private ListView listView;
-    private SimpleAdapter simpleAdapter;
+    private SellAdpter adpter;
+
+    public List<String> URL;
+    public List<String> name;
+    public List<String> info;
+    public List<String> user;
+    public List<String> time;
+    public List<String> money;
+    public List<String> SellId;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list, container, false);
+        return inflater.inflate(R.layout.sell_main_list, container, false);
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getView().findViewById(android.R.id.list);
-        simpleAdapter = new SimpleAdapter(getActivity(),
-                getData(),
-                R.layout.item_sell_1,
-                new String[] { "img", "title", "man", "time","money"},
-                new int[] { R.id.sell_1_img, R.id.sell_1_biaoti, R.id.sell_1_paimairen, R.id.sell_1_time,R.id.sell_1_money }
-        );
-        listView.setAdapter(simpleAdapter);
+
+        GetSell();
+
+        listView = (ListView) getView().findViewById(R.id.sell_list_main);
+
+        URL = new ArrayList<String>();
+        name=new ArrayList<String>();
+        time=new ArrayList<String>();
+        user=new ArrayList<String>();
+        money=new ArrayList<String>();
+        SellId=new ArrayList<String>();
+
+        adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
+        listView.setAdapter(adpter);
+
+        refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    Thread.sleep(1000);
+                    next();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, ReFreshId.Sell_Main);
     }
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
-        int numOfList = 10;
-        Map<String, Object> map;
-        for(int i = numOfList-1; i>=0; i--){
-            int img = R.drawable.default1;
+    public void GetSell(){
+        url="paiservice/DownPServiceme.php";
+        params=new RequestParams();
+        Get get=new Get("User",getActivity().getApplicationContext());
+        Get get1=new Get("UserKey",getActivity().getApplicationContext());
+        params.add("UserName",get.getout("username",""));
+        params.add("SecretKey",get1.getout("secretkey",""));
 
-            map = new HashMap<String, Object>();
-            map.put("title",  "内容");
-            map.put("man",  "当前竞拍者");
-            map.put("time", "下架时间");
-            map.put("img", img);
-            map.put("money","买拍价钱");
-            list.add(map);
+        HttpRequest.get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                responStr=new String(bytes);
+                try{
+                    System.out.println(responStr);
+                    Gson gson=new Gson();
+                    sellModels = gson.fromJson(responStr,new TypeToken<List<SellModel>>(){}.getType());
+                    Length=sellModels.size();
+                    int j;
+                    for(j=0;j<Length;j++) {
+                        URL.add(sellModels.get(j).getPaiImage());
+                        name.add(sellModels.get(j).getPaiTitle());
+                        user.add(sellModels.get(j).getPostUser());
+                        time.add(sellModels.get(j).getDownTime());
+                        money.add(sellModels.get(j).getPaiMoney());
+                        SellId.add(sellModels.get(j).getPaiId()+"");
+                    }
+                }catch(Exception e){
+                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                Toast.makeText(getActivity().getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void next(){
+        new Thread(){
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x9527);
+            }
+        }.start();
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                onActivityCreated(null);
+            }
         }
-
-        return list;
-    }
+    };
 }

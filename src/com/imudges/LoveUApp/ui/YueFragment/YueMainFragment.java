@@ -15,14 +15,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.YueStudyModel;
-import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.ui.MainYueActivity;
 import com.imudges.LoveUApp.ui.R;
-import com.imudges.LoveUApp.ui.RefreshableView;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -33,6 +33,7 @@ import java.util.Map;
 
 /**
  * Created by 1111 on 2016/3/10.
+ * 自习
  */
 public class YueMainFragment extends ListFragment {
 
@@ -79,7 +80,7 @@ public class YueMainFragment extends ListFragment {
                 }
                 refreshableView.finishRefreshing();
             }
-        }, 0);
+        }, ReFreshId.Yue_Main_Study);
     }
     /**
      * 获取自习表中所有信息

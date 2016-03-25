@@ -29,7 +29,6 @@ public class MealMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        Toast.makeText(getActivity(),"Meal",Toast.LENGTH_LONG).show();
     }
 
     @Override

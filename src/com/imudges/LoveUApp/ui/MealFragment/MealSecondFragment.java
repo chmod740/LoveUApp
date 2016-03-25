@@ -23,7 +23,7 @@ public class MealSecondFragment extends Fragment {
     private String addrss;
     private RadioGroup radioGroup;
     private RadioButton rb1, rb2, rb3;
-    private int which = 1;
+    private String which = "我请客";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,12 +49,12 @@ public class MealSecondFragment extends Fragment {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 //Toast.makeText(getActivity(),"改变",Toast.LENGTH_SHORT).show();
                 if (i == rb1.getId())
-                    which = 1;
+                    which = "我请客";
                 if (i == rb2.getId())
-                    which = 0;
+                    which = "55开";
                 if (i == rb3.getId())
-                    which = -1;
-                //Toast.makeText(getActivity(),""+which,Toast.LENGTH_SHORT).show();
+                    which = "他/她请客";
+//                Toast.makeText(getActivity(),""+which,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -62,12 +62,12 @@ public class MealSecondFragment extends Fragment {
             public void onClick(View v) {
 
                 infomation = info.getText().toString();
+//                Toast.makeText(getActivity(),infomation,Toast.LENGTH_LONG).show();
                 addrss = add.getText().toString();
-                Toast.makeText(getActivity(), addrss, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), addrss, Toast.LENGTH_SHORT).show();
                 MealDateTimePickDialogUitl dateTimePicKDialog = new MealDateTimePickDialogUitl(
                         getActivity(), initEndDateTime, infomation, addrss, which);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
-
 
             }
         });

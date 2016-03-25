@@ -1,4 +1,4 @@
-package com.imudges.LoveUApp.ui;
+package com.imudges.LoveUApp.ui.ReFresh;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.RotateAnimation;
 import android.widget.*;
+import com.imudges.LoveUApp.ui.R;
 
 /**
  * Created by dy on 2016/3/23.

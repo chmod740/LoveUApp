@@ -50,7 +50,7 @@ public class MealDateTimePickDialogUitl implements OnDateChangedListener,
     private String end;
     private String address;
 
-    private int which;
+    private String which;
 
     /**
      * 日期时间弹出选择框构造函数
@@ -70,7 +70,7 @@ public class MealDateTimePickDialogUitl implements OnDateChangedListener,
 
     }*/
 
-    public MealDateTimePickDialogUitl(Activity activity, String initDateTime, String info, String address, int which) {
+    public MealDateTimePickDialogUitl(Activity activity, String initDateTime, String info, String address, String which) {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = format.format(date);
@@ -126,8 +126,19 @@ public class MealDateTimePickDialogUitl implements OnDateChangedListener,
 
                         chai(dateTime);
 
-                            updata(username, info,  secretkey, end, activity);
+                        mealService.userPost(activity, secretkey, username, address, info, which + "", end, new Listener() {
+                            @Override
+                            public void onSuccess() {
+                                Toast.makeText(activity, "上传成功", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(String msg) {
+                                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                             Toast.makeText(activity, "饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                            System.out.println("饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey);
 
 
                     }

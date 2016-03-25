@@ -1,9 +1,5 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,11 +13,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.YueRunModel;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 import com.imudges.LoveUApp.model.YueStudyModel;
 import com.imudges.LoveUApp.service.Myadapter;
-import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
-import com.imudges.LoveUApp.ui.RefreshableView;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -34,13 +30,14 @@ import java.util.Map;
 
 /**
  * Created by 1111 on 2016/3/13.
+ * Yue的 我发出的
  */
 public class YueThirdFragment extends Fragment {
 
     private RefreshableView refreshableView;
     private ListView lv;
 
-    private int Length;
+    private int Length, reFresh=2;
 
     private String url;
     private String responStr;
@@ -112,7 +109,7 @@ public class YueThirdFragment extends Fragment {
                 }
                 refreshableView.finishRefreshing();
             }
-        }, 3);
+        }, ReFreshId.Yue_Third_Send);
     }
     public void GetStudy(){
         url="xueservice/DownXService.php";

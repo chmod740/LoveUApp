@@ -56,16 +56,16 @@ public class SellThirdFragment2 extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        GetSell();
-
-        listView = (ListView) getView().findViewById(R.id.sell_list_main);
-
         URL = new ArrayList<String>();
         name=new ArrayList<String>();
         time=new ArrayList<String>();
         user=new ArrayList<String>();
         money=new ArrayList<String>();
         SellId=new ArrayList<String>();
+
+        GetSell();
+
+        listView = (ListView) getView().findViewById(R.id.sell_list_main);
 
         adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
         listView.setAdapter(adpter);

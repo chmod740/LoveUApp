@@ -1,19 +1,19 @@
 package com.imudges.LoveUApp.ui.SellFragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.util.DisplayMetrics;
+import android.view.*;
+import android.widget.*;
 import com.google.gson.Gson;
+import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.SellModel;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
@@ -34,9 +34,10 @@ public class SellDetialActivity extends Activity {
     private String responStr;
     private RequestParams params;
 
-    private String SellId;
+    private String SellId,Money,myMoney;
     private TextView uptime,downtime,money,title,information,back,user;
     private ImageView image;
+    private Button button;
     private Bitmap bitmap;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class SellDetialActivity extends Activity {
         uptime=(TextView)findViewById(R.id.sell_d_uptime);
         user=(TextView)findViewById(R.id.sell_d_username);
         image=(ImageView) findViewById(R.id.sell_d_image);
+        button=(Button)findViewById(R.id.sell_d_button);
     }
     public void GetInfor(){
         Intent intent = this.getIntent();
@@ -86,6 +88,7 @@ public class SellDetialActivity extends Activity {
                         uptime.setText(sell.getUpTime());
                         downtime.setText(sell.getDownTime());
                         money.setText(sell.getPaiMoney());
+                        Money=sell.getPaiMoney();
                         title.setText(sell.getPaiTitle());
                         user.setText(sell.getPostUser());
                         information.setText(sell.getPaiInformation());
@@ -136,15 +139,183 @@ public class SellDetialActivity extends Activity {
     public void SetView(){
         Intent intent = this.getIntent();
         switch (intent.getStringExtra("State")){
-            case "main":
-                Toast.makeText(SellDetialActivity.this, "main", Toast.LENGTH_SHORT).show();
+            case "main":sellmain();
                 break;
-            case "self":
-                Toast.makeText(SellDetialActivity.this, "self", Toast.LENGTH_SHORT).show();
+            case "self":sellmy();
                 break;
-            case "it":
-                Toast.makeText(SellDetialActivity.this, "it", Toast.LENGTH_SHORT).show();
+            case "it":sellit();
                 break;
         }
+    }
+    public void sellmain(){
+        WindowManager windowManager = this.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+
+        windowManager.getDefaultDisplay().getMetrics(outMetrics);
+        int width = outMetrics.widthPixels;
+
+        button.setWidth(width/3);
+        button.setText("竞价拍卖");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText ev=new EditText(SellDetialActivity.this);
+                new AlertDialog.Builder(SellDetialActivity.this)
+                        .setTitle("请输入竞拍价格")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setView(ev)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String s=ev.getText().toString();
+                                Integer now=new Integer(Money);
+                                Integer jing=new Integer(s);
+                                if(now>=jing){
+                                    new AlertDialog.Builder(SellDetialActivity.this)
+                                            .setMessage("输入竞拍不能小于当前竞拍！！！")
+                                            .setIcon(android.R.drawable.ic_dialog_info)
+                                            .show();
+                                }else{
+                                    myMoney=s;
+                                    auction(ev.getText().toString());
+                                }
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .show();
+            }
+        });
+    }
+    public void auction(String money){
+        url="moneyservice/CheckService.php";
+        params=new RequestParams();
+        Get get=new Get("User",getApplicationContext());
+        Get get1=new Get("UserKey",getApplicationContext());
+        params.add("UserName",get.getout("username",""));
+        params.add("SecretKey",get1.getout("secretkey",""));
+        params.add("Money",money);
+        HttpRequest.post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                responStr=new String(bytes);
+                try{
+                    SellModel sell=new Gson().fromJson(responStr,SellModel.class);
+                    if(sell.getState()==1){
+                        auctionext();
+                    }else{
+                        Toast.makeText(SellDetialActivity.this,sell.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch(Exception e){
+                    Toast.makeText(SellDetialActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                Toast.makeText(SellDetialActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void auctionext(){
+        EditText ev=new EditText(SellDetialActivity.this);
+        new AlertDialog.Builder(SellDetialActivity.this)
+                .setTitle("请输密码")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(ev)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        auctionexto(ev.getText().toString());
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
+    }
+    public void auctionexto(String password){
+                url="paiservice/DoPaiService.php";
+                params=new RequestParams();
+                Get get=new Get("User",getApplicationContext());
+                Get get1=new Get("UserKey",getApplicationContext());
+                params.add("UserName",get.getout("username",""));
+                params.add("SecretKey",get1.getout("secretkey",""));
+                params.add("Money",myMoney);
+                params.add("PaiId",SellId);
+                params.add("Comment","非常好");
+                params.add("PayPassword",password);
+                HttpRequest.post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                        responStr=new String(bytes);
+                try{
+                    SellModel sell=new Gson().fromJson(responStr,SellModel.class);
+                    if(sell.getState()==1){
+                        GetInfor();
+                        Toast.makeText(SellDetialActivity.this, "竞拍成功", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(SellDetialActivity.this,sell.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+                }catch(Exception e){
+                    Toast.makeText(SellDetialActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                Toast.makeText(SellDetialActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void sellmy(){
+        WindowManager windowManager = this.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+
+        windowManager.getDefaultDisplay().getMetrics(outMetrics);
+        int width = outMetrics.widthPixels;
+
+        button.setWidth(width/3);
+        button.setText("查看状态");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(SellDetialActivity.this, "还没有被拍下哦！", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void sellit(){
+        WindowManager windowManager = this.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+
+        windowManager.getDefaultDisplay().getMetrics(outMetrics);
+        int width = outMetrics.widthPixels;
+
+        button.setWidth(width/3);
+        button.setText("继续竞价");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText ev=new EditText(SellDetialActivity.this);
+                new AlertDialog.Builder(SellDetialActivity.this)
+                        .setTitle("请输入竞拍价格")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setView(ev)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String s=ev.getText().toString();
+                                Integer now=new Integer(Money);
+                                Integer jing=new Integer(s);
+                                if(now>=jing){
+                                    new AlertDialog.Builder(SellDetialActivity.this)
+                                            .setMessage("输入竞拍不能小于当前竞拍！！！")
+                                            .setIcon(android.R.drawable.ic_dialog_info)
+                                            .show();
+                                }else{
+                                    myMoney=s;
+                                    auction(ev.getText().toString());
+                                }
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .show();
+            }
+        });
     }
 }

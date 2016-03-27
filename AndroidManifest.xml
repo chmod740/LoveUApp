@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
-        <activity android:name=".MainActivity"
+        <activity android:name=".WelcomeActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
                   android:screenOrientation="portrait">
@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.imudges.LoveUApp.ui.WelcomeActivity" android:screenOrientation="portrait">
+        <activity android:name="com.imudges.LoveUApp.ui.MainActivity" android:screenOrientation="portrait">
 
         </activity>
         <activity android:name="com.imudges.LoveUApp.ui.RegisterActivity"
@@ -63,5 +63,7 @@
         <activity android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentCommentActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
+        <activity android:name=".SellFragment.SellDetialActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 </manifest>

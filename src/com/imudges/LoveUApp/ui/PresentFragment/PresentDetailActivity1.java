@@ -31,7 +31,7 @@ public class PresentDetailActivity1 extends Activity{
     private String responStr;
     private RequestParams params;
     private Bitmap bitmap;
-    private TextView man,info;
+    private TextView man,info,back;
     private ImageView img;
     private boolean set;
     @Override
@@ -45,6 +45,13 @@ public class PresentDetailActivity1 extends Activity{
         man = (TextView) findViewById(R.id.present_detail1_man);
         info = (TextView) findViewById(R.id.present_detai11_info);
         img = (ImageView) findViewById(R.id.present_detail1_img) ;
+        back=(TextView)findViewById(R.id.present_d_back1) ;
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         getinfo();
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

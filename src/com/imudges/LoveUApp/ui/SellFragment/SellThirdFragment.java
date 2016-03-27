@@ -97,7 +97,7 @@ public class SellThirdFragment extends Fragment {
     }
 
     public void GetSell(){
-        url="paiservice/DownPaiService.php";
+        url="paiservice/DownPService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
         Get get1=new Get("UserKey",getActivity().getApplicationContext());

@@ -39,7 +39,7 @@ public class PresentDetailActivity extends Activity{
     private TextView man,info;
     private ImageView img;
     private EditText ed;
-    private TextView pinglun;
+    private TextView pinglun,back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,13 @@ public class PresentDetailActivity extends Activity{
         img = (ImageView) findViewById(R.id.present_detail_img) ;
         ed = (EditText) findViewById(R.id.present_detail_ed);
         pinglun = (TextView) findViewById(R.id.present_detail_pinglun);
+        back=(TextView)findViewById(R.id.present_d_back) ;
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         getinfo();
         pinglun.setOnClickListener(new View.OnClickListener() {
             @Override

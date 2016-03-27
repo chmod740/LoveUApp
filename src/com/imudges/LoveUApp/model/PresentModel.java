@@ -8,6 +8,16 @@ public class PresentModel {
     private String GiveInformation;
     private String UserName;
     private String SecretKey;
+    private String upinfomation;
+
+
+    public String getUpinfomation() {
+        return upinfomation;
+    }
+
+    public void setUpinfomation(String upinfomation) {
+        this.upinfomation = upinfomation;
+    }
 
     public Integer getState() {
         return state;

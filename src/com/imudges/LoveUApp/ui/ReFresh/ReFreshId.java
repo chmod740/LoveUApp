@@ -20,4 +20,8 @@ public class ReFreshId {
     public static final int Cooperation_Main = 13;
     public static final int Cooperation_Third_Send = 14;
     public static final int Cooperation_Third_Get = 15;
+    public static final int Present_1 = 999;
+    public static final int Present_2 = 998;
+    public static final int Present_3 = 997;
+    public static final int Present_comment = 996;
 }

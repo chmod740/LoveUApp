@@ -4,39 +4,55 @@ package com.imudges.LoveUApp.model;
  * Created by caolu on 2016/3/23.
  */
 public class GetPresentModel {
-    private String PostUser;
-    private String PostTime;
-    private String PresentInformation;
-    private String PostTitle;
+    private String GiveUser;
+    private String GiveInformation;
     private Integer state;
-    private String PostImage;
+    private String GiveImage;
+    private Integer GiveId;
+    private String msg;
+    private String UserId;
+    private String GetInformation;
+    private String UserName;
 
-    public String getPostTitle() {
-        return PostTitle;
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setPostTitle(String postTitle) {
-        PostTitle = postTitle;
-    }
-    public String getPostTime() {
-        return PostTime;
+    public void setUserName(String userName) {
+        UserName = userName;
     }
 
-    public void setPostTime(String postTime) {
-        PostTime = postTime;
+    public String getGetInformation() {
+        return GetInformation;
     }
 
-    private Integer PresentId;
-
-    public String getPostUser() {
-        return PostUser;
+    public void setGetInformation(String getInformation) {
+        GetInformation = getInformation;
     }
 
-    public void setPostUser(String postUser) {
-        PostUser = postUser;
+    public String getUserId() {
+        return UserId;
     }
 
+    public void setUserId(String userId) {
+        UserId = userId;
+    }
 
+    public String getGiveUser() {
+        return GiveUser;
+    }
+
+    public void setGiveUser(String giveUser) {
+        GiveUser = giveUser;
+    }
+
+    public String getGiveInformation() {
+        return GiveInformation;
+    }
+
+    public void setGiveInformation(String giveInformation) {
+        GiveInformation = giveInformation;
+    }
 
     public Integer getState() {
         return state;
@@ -46,27 +62,27 @@ public class GetPresentModel {
         this.state = state;
     }
 
-    public String getPostImage() {
-        return PostImage;
+    public String getGiveImage() {
+        return GiveImage;
     }
 
-    public void setPostImage(String postImage) {
-        PostImage = postImage;
+    public void setGiveImage(String giveImage) {
+        GiveImage = giveImage;
     }
 
-    public String getPresentInformation() {
-        return PresentInformation;
+    public Integer getGiveId() {
+        return GiveId;
     }
 
-    public void setPresentInformation(String presentInformation) {
-        PresentInformation = presentInformation;
+    public void setGiveId(Integer giveId) {
+        GiveId = giveId;
     }
 
-    public Integer getPresentId() {
-        return PresentId;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setPresentId(Integer presentId) {
-        PresentId = presentId;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

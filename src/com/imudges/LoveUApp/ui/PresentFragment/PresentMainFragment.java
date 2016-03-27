@@ -1,8 +1,11 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +19,8 @@ import com.imudges.LoveUApp.model.GetPresentModel;
 import com.imudges.LoveUApp.model.YueStudyModel;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
+import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -39,9 +44,11 @@ public class PresentMainFragment extends Fragment{
     private String responStr;
     private RequestParams params;
     private List<GetPresentModel> getPresentModels;
-    private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     private Bitmap bitmap;
     private int Length = 0;
+    private  Map<String, Object> map;
+    private RefreshableView refreshableView;
+
     private List<String> user_id=new ArrayList<>();
     private List<String> ID=new ArrayList<>();
     @Override
@@ -54,46 +61,63 @@ public class PresentMainFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
         listView = (ListView) getView().findViewById(android.R.id.list);
         simpleAdapter = new SimpleAdapter(getActivity(),
-                getData(),
+                GetPresent(),
                 R.layout.item_present_1,
                 new String[] { "man","img","info"},
                 new int[] { R.id.present_1_man,R.id.present_1_img,R.id.present_1_info }
         );
+        /*simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
+
+            @Override
+            public boolean setViewValue(View view, Object attentionList, String textRepresentation) {
+                // TODO Auto-generated method stub
+                if(view instanceof ImageView && attentionList instanceof Bitmap){
+                    ImageView iv=(ImageView)view;
+                    iv.setImageBitmap((Bitmap) attentionList);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        });*/
         listView.setAdapter(simpleAdapter);
+
+        refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    next();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, ReFreshId.Present_1);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent =new Intent(getActivity(),PresentDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id",user_id.get(i));
+                intent.putExtras(bundle);
+                //startActivityForResult(intent, 10);
+                startActivity(intent);
+                //getActivity().finish();
             }
         });
     }
 
-    private List<Map<String, Object>> getData() {
+    public List<Map<String, Object>> GetPresent(){
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
-        int numOfList = 10;
-        Map<String, Object> map;
-        for(int i = numOfList-1; i>=0; i--){
-            int img = R.drawable.default1;
-
-            map = new HashMap<String, Object>();
-            map.put("man",  "拍卖人");
-            map.put("img", img);
-            map.put("info","详细信息");
-            list.add(map);
-        }
-
-        return list;
-    }
-
-
-    public List<Map<String, Object>> GetStudy(){
-        url="xueservice/DownXueService.php";
+        url="giveservice/DownGiveService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
         Get get1=new Get("UserKey",getActivity().getApplicationContext());
         params.add("UserName",get.getout("username",""));
-        params.add("SecretKey",get.getout("secretkey",""));
+        params.add("SecretKey",get1.getout("secretkey",""));
         HttpRequest.get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
@@ -103,22 +127,20 @@ public class PresentMainFragment extends Fragment{
                     Gson gson=new Gson();
                     getPresentModels = gson.fromJson(responStr,new TypeToken<List<GetPresentModel>>(){}.getType());
 
-                    Map<String, Object> map;
                     Length=getPresentModels.size();
-                    int j,ii=0;
-                    for(j=Length-1;j>=0;j--,ii++) {
+                    int j;
+                    for(j=0;j<Length;j++) {
                         int img = R.drawable.ic_launcher;
                         map = new HashMap<String, Object>();
-                        map.put("man", getPresentModels.get(j).getPostUser());
-                        map.put("money","买拍价钱");
-                        downPhoto(getPresentModels.get(j).getPostImage());
-                        user_id.add(ii,getPresentModels.get(j).getPresentId()+"");
-//                        Drawable drawable=new BitmapDrawable(getActivity().getApplicationContext().getResources(),bitmap);
-//                        new ImageView(getActivity().getApplicationContext()).setImageBitmap(bitmap);
-                        map.put("img",bitmap);
+                        map.put("man",getPresentModels.get(j).getGiveUser());
+                        map.put("info", getPresentModels.get(j).getGiveInformation());
+                        user_id.add(j,getPresentModels.get(j).getGiveId()+"");
+
+                        //System.out.println("1");
+                        //downPhoto(getPresentModels.get(j).getGiveImage());
+                        map.put("img",img);
                         list.add(map);
                     }
-                    change();
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -130,6 +152,22 @@ public class PresentMainFragment extends Fragment{
         });
         return list;
     }
+    public void next(){
+        new Thread(){
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x9527);
+            }
+        }.start();
+    }
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                onActivityCreated(null);
+            }
+        }
+    };
     public void downPhoto(String Urldownphoto){
         new Thread(){
             @Override
@@ -141,6 +179,9 @@ public class PresentMainFragment extends Fragment{
                     InputStream is= url.openStream();
                     //从InputStream流中解析出图片
                     bitmap = BitmapFactory.decodeStream(is);
+                    //  imageview.setImageBitmap(bitmap);
+                    //发送消息，通知UI组件显示图片
+                    handler.sendEmptyMessage(0x9527);
                     //关闭输入流
                     is.close();
                 } catch (Exception e) {
@@ -148,11 +189,5 @@ public class PresentMainFragment extends Fragment{
                 }
             }
         }.start();
-    }
-    public void change(){
-        int j=user_id.size()-1;
-        for(int i=0;i<user_id.size();i++,j--){
-            ID.add(i,user_id.get(j));
-        }
     }
 }

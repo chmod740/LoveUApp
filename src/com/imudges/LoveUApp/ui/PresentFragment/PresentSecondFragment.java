@@ -50,6 +50,7 @@ public class PresentSecondFragment extends Fragment {
     private String titleString,infoString;//EditText 中的数据
     private PresentService presentService = new PresentService();
     private ImageView UserImage;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,29 +64,23 @@ public class PresentSecondFragment extends Fragment {
         UserImage = (ImageView) getView().findViewById(R.id.present_2_img);
         info = (EditText) getView().findViewById(R.id.present_2_info);
         selectimg = (Button) getView().findViewById(R.id.present_2_selectimg);
-        /*selectimg.setOnClickListener(new View.OnClickListener() {
+        selectimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setImage();
             }
-        });*/
+        });
         sure = (Button) getView().findViewById(R.id.present_2_sure);
         sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 infoString = info.getText().toString();
                 Toast.makeText(getActivity(),username+""+secretkey+""+infoString,Toast.LENGTH_SHORT).show();
-              presentService.userPost(username, secretkey, infoString, getActivity(), new Listener() {
-                  @Override
-                  public void onSuccess() {
-                      Toast.makeText(getActivity(),"上传成功",Toast.LENGTH_SHORT).show();
-                  }
-
-                  @Override
-                  public void onFailure(String msg) {
-                      Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
-                  }
-              });
+                PhotoService service=new PhotoService("http://183.175.12.157/LOVEU/giveservice/UpGiveService.php");
+                //Get get1=new Get("UserKey",getActivity().getApplicationContext());
+                String s=service.Uppic(username,secretkey,Path,infoString);
+                Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
+                System.out.println(s+"******************************************"+secretkey);
             }
         });
 
@@ -130,14 +125,11 @@ public class PresentSecondFragment extends Fragment {
                 myBitmap = bitmapUtil.toRoundBitmap(TestBitmap);
                 UserImage.setImageBitmap(myBitmap);
 
-                Get get=new Get("User",getActivity().getApplicationContext());
-                SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
-                savePhoto.Savephoto();
 
-                PhotoService service=new PhotoService("http://183.175.12.157/LOVEU/service/ImageService.php");
-                Get get1=new Get("UserKey",getActivity().getApplicationContext());
-                String s=service.uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
-                Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
+                /*SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
+                savePhoto.Savephoto();*/
+
+
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

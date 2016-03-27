@@ -13,6 +13,15 @@ public class UserModel {
     private Integer UserSex;
     private String UserGrade;
     private String UserMajor;
+    private String UserName;
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
 
     public String getTrueName() {
         return TrueName;

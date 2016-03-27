@@ -73,4 +73,33 @@ public class PresentService {
             }
         });
     }
+    public void makeY(String key,String name,String userId,String info,Context context,Listener listener){
+        url="giveservice/DoGiveService.php";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("GiveId",userId);
+        params.add("GetInformation",info);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                try{
+                    PresentModel studyModel=new Gson().fromJson(reponseStr,PresentModel.class);
+                    if(studyModel.getState()==1){
+                        listener.onSuccess();
+                    }else{
+                        listener.onFailure(studyModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络错误");
+            }
+        });
+    }
 }

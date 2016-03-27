@@ -74,7 +74,9 @@ public class MainActivity extends Activity {
                         break;
                     case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));
                         break;
+
                 }
+                //finish();
             }
         });
     }

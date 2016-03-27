@@ -77,7 +77,6 @@ public class WelcomeActivity extends Activity {
             }
         }.start();
     }
-
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {

@@ -92,7 +92,7 @@ public class SellAdpter extends BaseAdapter {
             }
         });
         if (cachedImage == null) {
-            iv.setImageResource(R.drawable.ic_launcher);
+            //iv.setImageResource(R.drawable.ic_launcher);
         }else{
             iv.setImageDrawable(cachedImage);
         }

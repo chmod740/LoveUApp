@@ -74,8 +74,8 @@ public class SellMainFragment extends Fragment {
             @Override
             public void onRefresh() {
                 try {
-                    Thread.sleep(1000);
                     next();
+                    Thread.sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

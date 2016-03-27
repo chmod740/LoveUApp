@@ -1,4 +1,4 @@
-package com.imudges.LoveUApp.ui.PresentFragment;
+package com.imudges.LoveUApp.ui.CooperationFragment;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -17,22 +17,27 @@ import java.util.List;
 /**
  * Created by dy on 2016/3/27.
  */
-public class PresentAdapter extends BaseAdapter {
+public class CooperationAdapter extends BaseAdapter {
     private AsyncImageLoader asyncImageLoader;
     List<String> data;
-    List<String> name;
     List<String> info;
+    List<String> time;
+    List<String> money;
+    List<String> name;
 
     Context context;
     ImageView iv;
-    TextView tv1,tv2;
+    TextView tv1,tv2,tv3,tv4;
     private ListView listView;
 
-    public PresentAdapter(Context context, List<String> list,List<String> name,List<String> info,ListView listView) {
+    public CooperationAdapter(Context context, List<String> list,List<String> info,List<String> time,List<String> money,
+                              List<String> name,ListView listView) {
         this.context = context;
         this.data = list;
-        this.name=name;
-        this.info=info;
+        this.name = name;
+        this.info = info;
+        this.time = time;
+        this.money = money;
         asyncImageLoader = new AsyncImageLoader();
         this.listView=listView;
         // TODO Auto-generated constructor stub
@@ -60,13 +65,17 @@ public class PresentAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_present_1,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_cooperation_3_1,null);
         }
-        iv = (ImageView) convertView.findViewById(R.id.present_1_img);
-        tv1=(TextView)convertView.findViewById(R.id.present_1_man) ;
+        iv = (ImageView) convertView.findViewById(R.id.cooperation3_1_img);
+        tv1=(TextView)convertView.findViewById(R.id.cooperation3_1_neirong);
         tv1.setText(name.get(position));
-        tv2=(TextView)convertView.findViewById(R.id.present_1_info) ;
-        tv2.setText(info.get(position));
+        tv2=(TextView)convertView.findViewById(R.id.cooperation3_1_biaoti);
+        tv2.setText(money.get(position));
+        tv3=(TextView)convertView.findViewById(R.id.cooperation3_1_man);
+        tv3.setText(info.get(position));
+        tv4=(TextView)convertView.findViewById(R.id.cooperation3_1_time);
+        tv4.setText(info.get(position));
         String url=data.get(position).toString();
         iv.setTag(url);
 

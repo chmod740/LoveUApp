@@ -26,7 +26,6 @@ import java.net.URL;
 public class WelcomeActivity extends Activity {
     private ImageView welcomeImg = null;
     private UserService userService = new UserService();
-    private String username,secretKey;
     private String Url="";
 
     @Override
@@ -38,7 +37,6 @@ public class WelcomeActivity extends Activity {
         setContentView(R.layout.welcome_layout);
 
         welcomeImg = (ImageView) this.findViewById(R.id.welcome_img);
-        //loadData(getApplicationContext());
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
         anima.setDuration(3000);// 设置动画显示时间
         welcomeImg.startAnimation(anima);
@@ -96,44 +94,31 @@ public class WelcomeActivity extends Activity {
         }
 
         public void onAnimationEnd(Animation animation) {
-            skip(); // 动画结束后跳转到别的页面
+            loadData();
+            // 动画结束后跳转到别的页面
         }
-
         public void onAnimationRepeat(Animation animation) {
-
         }
-
     }
-
-    private void skip() {
-        //判断跳转主界面或者登陆界面
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
-
-    }
-
-    private void loadData(Context context) {
+    private void loadData() {
         Get get=new Get("User",getApplicationContext());
-        String a=get.getout("username","");
-        String b=get.getout("password","");
-        Get get1=new Get("UserKey",getApplicationContext());
-        String c=get1.getout("secretkey","");
-        //Toast.makeText(WelcomeActivity.this,a+b+c , Toast.LENGTH_SHORT).show();
+        String name=get.getout("username","");
+        String passsword=get.getout("password","");
+        relogin(name,passsword);
     }
-
-    public void relogin(String username,String secretKey){
-        userService.SureName(getApplicationContext(), new Listener() {
+    public void relogin(String username,String pass){
+        userService.login(username, pass, getApplicationContext(), new Listener() {
             @Override
             public void onSuccess() {
-                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
             }
-
             @Override
             public void onFailure(String msg) {
-                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
-                Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();;
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
             }
-        }, secretKey, username);
+        });
     }
 
 }

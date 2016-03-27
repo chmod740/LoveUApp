@@ -88,35 +88,6 @@ public class UserService {
         });
     }
 
-    public void SureName(Context context,Listener listener,String Key,String name){
-        url = "service/ReLoginService.php";
-        params = new RequestParams();
-        params.add("UserName",name);
-        params.add("SecretKey",Key);
-        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                reponseStr = new String(bytes);
-                try {
-                    RegisterModel registerModel = new Gson().fromJson(reponseStr,RegisterModel.class);
-                    if (registerModel.getState()==1){
-                        listener.onSuccess();
-                    }else {
-                        listener.onFailure(registerModel.getMsg());
-                    }
-                }catch (Exception e){
-                    listener.onFailure(e.getLocalizedMessage());
-                }
-            }
-
-            @Override
-            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                listener.onFailure("网络请求失败！");
-            }
-        });
-
-    }
-
     /**
      * 获取昵称
      */

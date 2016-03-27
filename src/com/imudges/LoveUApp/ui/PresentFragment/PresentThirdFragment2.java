@@ -1,12 +1,9 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,15 +20,8 @@ import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by 1111 on 2016/3/21.
@@ -56,15 +46,15 @@ public class PresentThirdFragment2 extends Fragment {
         return inflater.inflate(R.layout.present_main_list, container, false);
     }
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        GetPresent();
         listView = (ListView) getView().findViewById(R.id.present_list);
 
         Url=new ArrayList<>();
         Name=new ArrayList<>();
         user_id=new ArrayList<>();
         info=new ArrayList<>();
+        GetPresent();
 
         adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,listView);
         listView.setAdapter(adapter);

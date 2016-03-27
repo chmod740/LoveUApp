@@ -1,11 +1,9 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +22,7 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by 1111 on 2016/3/14.
@@ -53,9 +49,8 @@ public class PresentThirdFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        GetPresent();
         listView = (ListView) getView().findViewById(R.id.present_list);
 
         Url=new ArrayList<>();
@@ -63,6 +58,7 @@ public class PresentThirdFragment extends Fragment {
         user_id=new ArrayList<>();
         info=new ArrayList<>();
 
+        GetPresent();
         adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,listView);
         listView.setAdapter(adapter);
 

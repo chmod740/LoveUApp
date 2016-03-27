@@ -41,6 +41,7 @@ public class PresentThirdFragment extends Fragment {
     private List<String> Url;
     private List<String> Name;
     private List<String> info;
+    private List<String> state;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,9 +58,10 @@ public class PresentThirdFragment extends Fragment {
         Name=new ArrayList<>();
         user_id=new ArrayList<>();
         info=new ArrayList<>();
+        state=new ArrayList<>();
 
         GetPresent();
-        adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,listView);
+        adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,state,listView);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -107,6 +109,7 @@ public class PresentThirdFragment extends Fragment {
                         info.add(getPresentModels.get(j).getGiveInformation());
                         user_id.add(j,getPresentModels.get(j).getGiveId()+"");
                         Url.add(getPresentModels.get(j).getGiveImage());
+                        state.add("");
                     }
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();

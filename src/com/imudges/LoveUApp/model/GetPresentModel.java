@@ -13,6 +13,15 @@ public class GetPresentModel {
     private String UserId;
     private String GetInformation;
     private String UserName;
+    private String GetUser;
+
+    public String getGetUser() {
+        return GetUser;
+    }
+
+    public void setGetUser(String getUser) {
+        GetUser = getUser;
+    }
 
     public String getUserName() {
         return UserName;

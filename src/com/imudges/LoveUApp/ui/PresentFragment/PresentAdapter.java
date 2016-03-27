@@ -22,17 +22,19 @@ public class PresentAdapter extends BaseAdapter {
     List<String> data;
     List<String> name;
     List<String> info;
+    List<String> getstate;
 
     Context context;
     ImageView iv;
-    TextView tv1,tv2;
+    TextView tv1,tv2,tv3;
     private ListView listView;
 
-    public PresentAdapter(Context context, List<String> list,List<String> name,List<String> info,ListView listView) {
+    public PresentAdapter(Context context, List<String> list,List<String> name,List<String> info,List<String> getstate,ListView listView) {
         this.context = context;
         this.data = list;
         this.name=name;
         this.info=info;
+        this.getstate=getstate;
         asyncImageLoader = new AsyncImageLoader();
         this.listView=listView;
         // TODO Auto-generated constructor stub
@@ -67,6 +69,8 @@ public class PresentAdapter extends BaseAdapter {
         tv1.setText(name.get(position));
         tv2=(TextView)convertView.findViewById(R.id.present_1_info) ;
         tv2.setText(info.get(position));
+        tv3=(TextView)convertView.findViewById(R.id.present_1_who);
+        tv3.setText(getstate.get(position));
         String url=data.get(position).toString();
         iv.setTag(url);
 

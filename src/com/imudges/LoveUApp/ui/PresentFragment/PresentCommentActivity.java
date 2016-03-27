@@ -1,7 +1,9 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,7 +15,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
+import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.GetPresentModel;
+import com.imudges.LoveUApp.model.PresentModel;
 import com.imudges.LoveUApp.model.UserModel;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
@@ -48,6 +52,7 @@ public class PresentCommentActivity extends Activity {
     private String url1;
     private RequestParams params1;
     private String username;
+    private String secretkey;
     private boolean set;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +68,7 @@ public class PresentCommentActivity extends Activity {
         id = bundle.getString("id");
         set = bundle.getBoolean("set");
         listView = (ListView) findViewById(R.id.present_comment_list);
+        loadData(getApplicationContext());
         simpleAdapter = new SimpleAdapter(this,
                 GetData(),
                 R.layout.item_present_comment,
@@ -76,7 +82,21 @@ public class PresentCommentActivity extends Activity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     Toast.makeText(getApplicationContext(),"点击了",Toast.LENGTH_SHORT).show();
-                }
+                    //上传
+                    System.out.println("点击后发生的"+secretkey+" "+username+" "+getPresentModels.get(i).getGiveId() + " "+getPresentModels.get(i).getUserName());
+                    makeYY(secretkey, username, getPresentModels.get(i).getGiveId() + "", getPresentModels.get(i).getUserName(), getApplicationContext(), new Listener() {
+
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(getApplicationContext(),"成功",Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(String msg) {
+                            Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            }
             });
         }
 
@@ -116,16 +136,10 @@ public class PresentCommentActivity extends Activity {
                     for(j=0;j<Length;j++) {
                         int img = R.drawable.ic_launcher;
                         map = new HashMap<String, Object>();
-                        //getId(getPresentModels.get(j).getUserId());
-                        //System.out.println(username);
                         map.put("man",getPresentModels.get(j).getUserName());
                         map.put("info", getPresentModels.get(j).getGetInformation());
                         map.put("img",R.drawable.ic_launcher);
-                        //user_id.add(j,getPresentModels.get(j).getGiveId()+"");
-
-                        //System.out.println("1");
-                        //downPhoto(getPresentModels.get(j).getGiveImage());
-                        //map.put("img",img);
+                        user_id.add(j,getPresentModels.get(j).getGiveId()+"");
                         list.add(map);
                     }
                 }catch(Exception e){
@@ -155,7 +169,7 @@ public class PresentCommentActivity extends Activity {
             }
         }
     };
-    private void getId(String id){
+    /*private void getId(String id){
 
         url1="service/IdService.php";
         params1=new RequestParams();
@@ -178,5 +192,44 @@ public class PresentCommentActivity extends Activity {
             }
         }) ;
 
+    }*/
+
+    public void makeYY(String key, String name, String giveId, String user, Context context, Listener listener){
+        url="giveservice/FinishGiveService.php";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("GiveId",giveId);
+        params.add("GetUser",user);
+        System.out.println(name+" "+key+" "+giveId+" "+user);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                String reponseStr;
+                reponseStr=new String(bytes);
+                try{
+                    PresentModel studyModel=new Gson().fromJson(reponseStr,PresentModel.class);
+                    System.out.println("状态"+studyModel.getState()+"信息"+studyModel.getMsg());
+                    if(studyModel.getState()==1){
+                        listener.onSuccess();
+                    }else{
+                        listener.onFailure(studyModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络错误");
+            }
+        });
+    }
+    private void loadData(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("User", Context.MODE_PRIVATE);
+        username = sp.getString("username", "").toString();
+        SharedPreferences sd = context.getSharedPreferences("UserKey", Context.MODE_PRIVATE);
+        secretkey = sd.getString("secretkey", "").toString();
     }
 }

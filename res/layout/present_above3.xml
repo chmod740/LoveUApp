@@ -24,7 +24,7 @@
                 android:button="@null"
                 android:textSize="20dp"
                 android:textColor="@color/abovewrite_selector"
-                android:background="@drawable/abovebutton_selector"  />
+                android:background="@drawable/abovebutton_selector"/>
         <RadioButton
                 android:id="@+id/present_top_32"
                 android:button="@null"

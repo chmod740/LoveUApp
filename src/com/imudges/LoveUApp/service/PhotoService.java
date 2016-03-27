@@ -139,6 +139,7 @@ public class PhotoService {
 
     public String Uppic(String name,String secretkey,String Path,String info){
         String postUrl=Url+"?"+"UserName="+name+"&SecretKey="+secretkey+"&GiveInformation="+info;
+        System.out.println("最后的信息："+info);
         String end = "\r\n";
         String twoHyphens = "--";
         String boundary = "*****";

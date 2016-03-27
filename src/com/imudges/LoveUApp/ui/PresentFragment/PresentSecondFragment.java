@@ -79,6 +79,7 @@ public class PresentSecondFragment extends Fragment {
                 PhotoService service=new PhotoService("http://183.175.12.157/LOVEU/giveservice/UpGiveService.php");
                 //Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 String s=service.Uppic(username,secretkey,Path,infoString);
+                System.out.println("信息就是："+infoString);
                 Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
                 System.out.println(s+"******************************************"+secretkey);
             }

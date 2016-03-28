@@ -26,7 +26,7 @@ public class MainMealActivity extends FragmentActivity {
     private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-
+    private static String mealID = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,5 +145,13 @@ public class MainMealActivity extends FragmentActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public static void setMealId(String MealId1){
+        mealID = MealId1;
+    }
+
+    public static String getMealId(){
+        return mealID;
     }
 }

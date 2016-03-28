@@ -125,7 +125,7 @@ public class MealThirdFragment extends Fragment {
                         map.put("time", MealModels.get(j).getFoodTime());
                         map.put("location", MealModels.get(j).getFoodArea());
                         map.put("img", img);
-                        map.put("man",MealModels.get(j).getFriendname());
+                        map.put("man",MealModels.get(j).getGetUser());
                         map.put("way",MealModels.get(j).getFoodWay());
                         list.add(map);
                     }

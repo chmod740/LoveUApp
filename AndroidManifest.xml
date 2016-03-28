@@ -56,6 +56,9 @@
         <activity android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentDetailActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
+        <activity android:name=".MealFragment.MealDetailActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
         <activity android:name="com.imudges.LoveUApp.ui.PresentFragment.PresentDetailActivity1"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"

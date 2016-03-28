@@ -9,11 +9,22 @@ public class MealModel {
     private String Username;
     private String FoodArea;
     private String FoodInformation;
-    private String Friendname;
     private String FoodWay;
     private String FoodTime ;
     private String msg;
     private Integer state;
+    private Integer FoodId;
+    private String PostUser;
+    private String PostImage;
+    private String GetUser;
+
+    public String getGetUser() {
+        return GetUser;
+    }
+
+    public void setGetUser(String getUser) {
+        GetUser = getUser;
+    }
 
     public String getUsername() {
         return Username;
@@ -37,14 +48,6 @@ public class MealModel {
 
     public void setFoodInformation(String foodInformation) {
         FoodInformation = foodInformation;
-    }
-
-    public String getFriendname() {
-        return Friendname;
-    }
-
-    public void setFriendname(String friendname) {
-        Friendname = friendname;
     }
 
     public String getFoodWay() {
@@ -71,11 +74,31 @@ public class MealModel {
         this.msg = msg;
     }
 
-    public Integer getState() {
-        return state;
-    }
+    public Integer getState() { return state; }
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getFoodId() { return FoodId; }
+
+    public void setFoodId(Integer FoodId) {
+        this.FoodId = FoodId;
+    }
+
+    public String getPostUser() {
+        return PostUser;
+    }
+
+    public void setPostUser(String postUser) {
+        PostUser = postUser;
+    }
+
+    public String getPostImage() {
+        return PostImage;
+    }
+
+    public void setPostImage(String postImage) {
+        PostImage = postImage;
     }
 }

@@ -84,4 +84,34 @@ public class MealService {
         });
     }
 
+    public void makeY(String key,Context context,String userid,String name,Listener listener){
+        url="foodservice/DoFoodService.php";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("FoodId",userid);
+        HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                System.out.println(reponseStr);
+                Gson gson=new Gson();
+                MealModel mealModel=gson.fromJson(reponseStr,MealModel.class);
+                try {
+                    if (mealModel.getState()==1){
+                        listener.onSuccess();
+                    }else {
+                        listener.onFailure(mealModel.getMsg());
+                    }
+                }catch (Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络错误");
+            }
+        });
+    }
 }

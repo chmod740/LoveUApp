@@ -124,7 +124,7 @@ public class YueMainFragment extends ListFragment {
             }
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                Toast.makeText(getActivity().getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
         return list;

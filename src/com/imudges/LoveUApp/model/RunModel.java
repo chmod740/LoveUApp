@@ -54,9 +54,7 @@ public class RunModel {
         this.friendname = friendname;
     }
 
-    public Integer getState() {
-        return state;
-    }
+    public Integer getState() { return state; }
 
     public void setState(Integer state) {
         this.state = state;

@@ -1,5 +1,6 @@
 package com.imudges.LoveUApp.ui.MealFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.MealModel;
+import com.imudges.LoveUApp.ui.MainMealActivity;
 import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
@@ -34,6 +36,7 @@ public class MealMainFragment extends Fragment {
 
     private String responStr;
     private List<MealModel> MealModels;
+    private List<String> meal_id=new ArrayList<>();
     private int Length=0;
 
     @Override
@@ -57,6 +60,22 @@ public class MealMainFragment extends Fragment {
                 new int[] { R.id.meal3_2_img, R.id.meal3_2_tx1, R.id.meal3_2_tx2, R.id.meal3_2_tx3,R.id.meal3_2_tx4 ,R.id.meal3_2_tx5}
         );
         listView.setAdapter(simpleAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String send_MealId=null;
+                send_MealId = meal_id.get(position);
+                if (send_MealId != null){
+                    MainMealActivity.setMealId(send_MealId);
+                    Intent intent = new Intent(getActivity(),MealDetailActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getActivity(),"onItemClick sendMeal Failed",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
@@ -102,9 +121,10 @@ public class MealMainFragment extends Fragment {
                         map.put("time", MealModels.get(j).getFoodTime());
                         map.put("location", MealModels.get(j).getFoodArea());
                         map.put("img", img);
-                        map.put("man",MealModels.get(j).getFriendname());
+                        map.put("man",MealModels.get(j).getGetUser());
                         map.put("way",MealModels.get(j).getFoodWay());
                         list.add(map);
+                        meal_id.add(j,MealModels.get(j).getFoodId()+"");
                     }
                 }catch(Exception e){
                     Toast.makeText(getActivity(),"MealMain " + e.getLocalizedMessage() , Toast.LENGTH_LONG).show();

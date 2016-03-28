@@ -113,19 +113,20 @@ public class PresentThirdFragment2 extends Fragment {
                         info.add(getPresentModels.get(j).getGiveInformation());
                         user_id.add(j,getPresentModels.get(j).getGiveId()+"");
                         Url.add(getPresentModels.get(j).getGiveImage());
-                        System.out.println("是否被拿走"+getPresentModels.get(j).getGetUser());
-                        if(getPresentModels.get(j).getGetUser()==null)
+                        System.out.println("是否被拿走"+getPresentModels.get(j).getGetUserName()+getPresentModels.get(j).getGetUser());
+                        System.out.println("图片地址"+getPresentModels.get(j).getGiveImage());
+                        if(getPresentModels.get(j).getGetUserName()==null)
                         {
                                 getstate.add("没送人");
                         continue;
                         }
-                        if(getPresentModels.get(j).getGetUser().equals(username))
+                        if(getPresentModels.get(j).getGetUserName().equals(username))
                         {
                             getstate.add("送给我");
                         continue;
                         }
                         getstate.add("送给别人");
-                        System.out.println(getPresentModels.get(j).getGetUser());
+                       // System.out.println(getPresentModels.get(j).getGetUser());
 //                        getstate.add("送给别人");
                     }
                 }catch(Exception e){

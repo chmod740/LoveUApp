@@ -60,9 +60,6 @@ public class PresentMainFragment extends Fragment{
 
         GetPresent();
 
-        adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,state,listView);
-        listView.setAdapter(adapter);
-
         refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
@@ -111,6 +108,8 @@ public class PresentMainFragment extends Fragment{
                         Url.add(getPresentModels.get(j).getGiveImage());
                         state.add("");
                     }
+                    adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,state,listView);
+                    listView.setAdapter(adapter);
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }

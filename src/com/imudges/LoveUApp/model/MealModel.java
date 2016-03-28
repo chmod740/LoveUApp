@@ -1,37 +1,42 @@
 package com.imudges.LoveUApp.model;
 
-import java.sql.Timestamp;
-
 /**
  * Created by dy on 2016/3/10.
  */
 public class MealModel {
-    private String Username;
-    private String FoodArea;
-    private String FoodInformation;
-    private String FoodWay;
-    private String FoodTime ;
-    private String msg;
-    private Integer state;
     private Integer FoodId;
     private String PostUser;
+    private String FoodArea;
+    private String FoodInformation;
+    private String GetUser ;
+    private String FoodTime;
+    private Integer state;
+    private String FoodWay;
     private String PostImage;
-    private String GetUser;
+    private String msg;
 
-    public String getGetUser() {
-        return GetUser;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setGetUser(String getUser) {
-        GetUser = getUser;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getUsername() {
-        return Username;
+    public Integer getFoodId() {
+        return FoodId;
     }
 
-    public void setUsername(String username) {
-        Username = username;
+    public void setFoodId(Integer foodId) {
+        FoodId = foodId;
+    }
+
+    public String getPostUser() {
+        return PostUser;
+    }
+
+    public void setPostUser(String postUser) {
+        PostUser = postUser;
     }
 
     public String getFoodArea() {
@@ -50,12 +55,12 @@ public class MealModel {
         FoodInformation = foodInformation;
     }
 
-    public String getFoodWay() {
-        return FoodWay;
+    public String getGetUser() {
+        return GetUser;
     }
 
-    public void setFoodWay(String foodWay) {
-        FoodWay = foodWay;
+    public void setGetUser(String getUser) {
+        GetUser = getUser;
     }
 
     public String getFoodTime() {
@@ -66,32 +71,20 @@ public class MealModel {
         FoodTime = foodTime;
     }
 
-    public String getMsg() {
-        return msg;
+    public Integer getState() {
+        return state;
     }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Integer getState() { return state; }
 
     public void setState(Integer state) {
         this.state = state;
     }
 
-    public Integer getFoodId() { return FoodId; }
-
-    public void setFoodId(Integer FoodId) {
-        this.FoodId = FoodId;
+    public String getFoodWay() {
+        return FoodWay;
     }
 
-    public String getPostUser() {
-        return PostUser;
-    }
-
-    public void setPostUser(String postUser) {
-        PostUser = postUser;
+    public void setFoodWay(String foodWay) {
+        FoodWay = foodWay;
     }
 
     public String getPostImage() {

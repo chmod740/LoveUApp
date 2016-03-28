@@ -13,10 +13,12 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.model.MealModel;
+import com.imudges.LoveUApp.model.SellModel;
 import com.imudges.LoveUApp.ui.MainMealActivity;
 import com.imudges.LoveUApp.ui.ReFresh.ReFreshId;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.ui.ReFresh.RefreshableView;
+import com.imudges.LoveUApp.ui.SellFragment.SellAdpter;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -34,32 +36,42 @@ public class MealMainFragment extends Fragment {
 
     private RefreshableView refreshableView;
 
+    private ListView listView;
+    private MealAdapter adpter;
+    RequestParams params;
+    String url;
+
+    public List<String> URL;
+    public List<String> name;
+    public List<String> info;
+    public List<String> area;
+    public List<String> time;
+    public List<String> way;
+
     private String responStr;
     private List<MealModel> MealModels;
-    private List<String> meal_id=new ArrayList<>();
+    private List<String> meal_id;
     private int Length=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list, container, false);
+        return inflater.inflate(R.layout.meal_main_list, container, false);
     }
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ListView listView;
-        SimpleAdapter simpleAdapter;
-        View view = getView();
+        URL = new ArrayList<String>();
+        name=new ArrayList<String>();
+        time=new ArrayList<String>();
+        area=new ArrayList<String>();
+        way=new ArrayList<String>();
+        info=new ArrayList<String>();
+        meal_id=new ArrayList<>();
+        GetSell();
 
-        listView = (ListView) getView().findViewById(android.R.id.list);
-        simpleAdapter = new SimpleAdapter(getActivity(),
-                getData(),
-                R.layout.item_meal_3_2,
-                new String[] { "img", "title", "time", "location","man","way"},
-                new int[] { R.id.meal3_2_img, R.id.meal3_2_tx1, R.id.meal3_2_tx2, R.id.meal3_2_tx3,R.id.meal3_2_tx4 ,R.id.meal3_2_tx5}
-        );
-        listView.setAdapter(simpleAdapter);
+        listView = (ListView) getView().findViewById(R.id.meal_list_ll);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,12 +89,13 @@ public class MealMainFragment extends Fragment {
             }
         });
 
-        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
+        refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
             public void onRefresh() {
                 try {
                     next();
+                    Thread.sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -90,12 +103,7 @@ public class MealMainFragment extends Fragment {
             }
         }, ReFreshId.Meal_Main);
     }
-
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        RequestParams params;
-        String url;
-
+    public void GetSell(){
         url="foodservice/DownFoodService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
@@ -106,37 +114,32 @@ public class MealMainFragment extends Fragment {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
-                try {
-//                    System.out.println(responStr);
-                    Gson gson = new Gson();
-                    MealModels = gson.fromJson(responStr, new TypeToken<List<MealModel>>() {}.getType());
-
-                    Length = MealModels.size();
+                try{
+                    System.out.println(responStr);
+                    Gson gson=new Gson();
+                    MealModels = gson.fromJson(responStr,new TypeToken<List<MealModel>>(){}.getType());
+                    Length=MealModels.size();
                     int j;
-                    for (j = 0; j < Length; j++) {
-                        Map<String, Object> map;
-                        int img = R.drawable.ic_launcher;
-                        map = new HashMap<String, Object>();
-                        map.put("title", MealModels.get(j).getUsername());
-                        map.put("time", MealModels.get(j).getFoodTime());
-                        map.put("location", MealModels.get(j).getFoodArea());
-                        map.put("img", img);
-                        map.put("man",MealModels.get(j).getGetUser());
-                        map.put("way",MealModels.get(j).getFoodWay());
-                        list.add(map);
-                        meal_id.add(j,MealModels.get(j).getFoodId()+"");
+                    for(j=0;j<Length;j++) {
+                        URL.add(MealModels.get(j).getPostImage());
+                        name.add(MealModels.get(j).getPostUser());
+                        time.add(MealModels.get(j).getFoodTime());
+                        area.add(MealModels.get(j).getFoodArea());
+                        way.add(MealModels.get(j).getFoodWay());
+                        info.add(MealModels.get(j).getFoodInformation());
+                        meal_id.add(MealModels.get(j).getFoodId()+"");
                     }
+                    adpter = new MealAdapter(getActivity().getApplicationContext(), URL,name,area,time,way,info,listView);
+                    listView.setAdapter(adpter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity(),"MealMain " + e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
-        return list;
     }
 
     public void next(){

@@ -94,15 +94,15 @@ public class MealDetailActivity extends Activity {
                 MealService service=new MealService();
                 Get get=new Get("User",getApplicationContext());
                 Get get1=new Get("UserKey",getApplicationContext());
-                service.makeY(get1.getout("secretkey", ""), getApplicationContext(),meal_id,get.getout("username", ""), new Listener() {
+                service.makeYY(getApplicationContext(), get.getout("username", ""), get1.getout("secretkey", ""), meal_id, new Listener() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(getApplicationContext(), "约成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MealDetailActivity.this, "约成功", Toast.LENGTH_SHORT).show();
                     }
+
                     @Override
                     public void onFailure(String msg) {
-                        //Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                        System.out.println(msg);
+                        Toast.makeText(MealDetailActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -110,7 +110,7 @@ public class MealDetailActivity extends Activity {
 
         btn_above.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                MealDetailActivity.this.finish();
+                finish();
             }
         });
     }

@@ -3,6 +3,7 @@ package com.imudges.LoveUApp.service;
 import android.content.Context;
 import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.model.FoodModel;
 import com.imudges.LoveUApp.model.MealModel;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -10,6 +11,7 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by dy on 2016/3/10.
@@ -84,24 +86,23 @@ public class MealService {
         });
     }
 
-    public void makeY(String key,Context context,String userid,String name,Listener listener){
+    public void makeYY(Context context, String name, String secretkey, String userid, Listener listener){
         url="foodservice/DoFoodService.php";
         params=new RequestParams();
         params.add("UserName",name);
-        params.add("SecretKey",key);
+        params.add("SecretKey",secretkey);
         params.add("FoodId",userid);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr=new String(bytes);
                 System.out.println(reponseStr);
-                Gson gson=new Gson();
-                MealModel mealModel=gson.fromJson(reponseStr,MealModel.class);
-                try {
-                    if (mealModel.getState()==1){
+                try{
+                    FoodModel foodModel=new Gson().fromJson(reponseStr,FoodModel.class);
+                    if(foodModel.getState()==1){
                         listener.onSuccess();
-                    }else {
-                        listener.onFailure(mealModel.getMsg());
+                    }else{
+                        listener.onFailure(foodModel.getMsg());
                     }
                 }catch (Exception e){
                     listener.onFailure(e.getLocalizedMessage());
@@ -110,8 +111,10 @@ public class MealService {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                listener.onFailure("网络错误");
+
             }
         });
+
     }
+
 }

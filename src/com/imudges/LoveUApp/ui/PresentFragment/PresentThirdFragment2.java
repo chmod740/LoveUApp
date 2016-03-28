@@ -63,9 +63,6 @@ public class PresentThirdFragment2 extends Fragment {
         getstate=new ArrayList<>();
         GetPresent();
 
-        adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,getstate,listView);
-        listView.setAdapter(adapter);
-
         refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
@@ -129,6 +126,8 @@ public class PresentThirdFragment2 extends Fragment {
                        // System.out.println(getPresentModels.get(j).getGetUser());
 //                        getstate.add("送给别人");
                     }
+                    adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,getstate,listView);
+                    listView.setAdapter(adapter);
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }

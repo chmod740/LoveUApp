@@ -67,8 +67,6 @@ public class CooperationThirdFragment extends Fragment {
         HelpId=new ArrayList<String>();
         GetSell();
         listView = (ListView) getView().findViewById(R.id.cooperation_3_1);
-        adpter = new CooperationAdapter(getActivity().getApplicationContext(), URL,info,time,money,postname,listView);
-        listView.setAdapter(adpter);
 
         refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
@@ -110,6 +108,8 @@ public class CooperationThirdFragment extends Fragment {
                         info.add(helpModels.get(j).getHelpInformation());
                         HelpId.add(helpModels.get(j).getHelpId()+"");
                     }
+                    adpter = new CooperationAdapter(getActivity().getApplicationContext(), URL,info,time,money,postname,listView);
+                    listView.setAdapter(adpter);
                 }catch(Exception e){
                     //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }

@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
+import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.ui.Set.UserSet;
 
 /**
@@ -68,6 +69,9 @@ public class MainSetActivity extends Activity{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                Save save=new Save("User",getApplicationContext());
+                save.savein("username","***");
+                save.savein("password","***");
                 SysApplication.getInstance().exit();
                 finish();
             }

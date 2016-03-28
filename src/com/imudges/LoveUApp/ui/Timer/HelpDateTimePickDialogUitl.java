@@ -18,6 +18,7 @@ import android.widget.TimePicker.OnTimeChangedListener;
 import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.PresentModel;
+import com.imudges.LoveUApp.service.HelpService;
 import com.imudges.LoveUApp.service.MealService;
 import com.imudges.LoveUApp.service.RunService;
 import com.imudges.LoveUApp.service.StudyService;
@@ -52,10 +53,10 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
     private String info;
     private String secretkey;
     private String username;
-    private MealService mealService= new MealService();
     private String end;
     private String money;
     private String paypassword;
+    private HelpService service;
 
     /**
      * 日期时间弹出选择框构造函数
@@ -64,7 +65,7 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
      * @param initDateTime 初始日期时间值，作为弹出窗口的标题和日期时间初始值
      */
 
-    public HelpDateTimePickDialogUitl(Activity activity, String initDateTime, String info, String money,String paypassword) {
+    public HelpDateTimePickDialogUitl(Activity activity, String initDateTime, String info, String money) {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         String time = format.format(date);
@@ -72,7 +73,6 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
         this.initDateTime = time;
         this.info = info;
         this.money = money;
-        this.paypassword = paypassword;
         loadData(activity);
 
     }
@@ -117,13 +117,22 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
                 .setPositiveButton("提交", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         inputDate.setText(dateTime);
-
                         chai(dateTime);
-
                         /**
                          * 此处写上传逻辑
                          * end为设置后的时间,String类型
                          */
+                        service=new HelpService();
+                        service.Help(activity, username, secretkey, money, new Listener() {
+                            @Override
+                            public void onSuccess() {
+                                auctionext();
+                            }
+                            @Override
+                            public void onFailure(String msg) {
+                                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
 
                     }
@@ -236,7 +245,30 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
         // Toast.makeText(activity,end,Toast.LENGTH_SHORT).show();
 
     }
-
+    public void auctionext(){
+        EditText ev=new EditText(activity);
+        new AlertDialog.Builder(activity)
+                .setTitle("请输密码")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(ev)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        service.helppost(activity, secretkey, username, money, info, ev.getText().toString(), end, new Listener() {
+                            @Override
+                            public void onSuccess() {
+                                Toast.makeText(activity, "发送请求成功", Toast.LENGTH_SHORT).show();
+                            }
+                            @Override
+                            public void onFailure(String msg) {
+                                Toast.makeText(activity, "发送请求失败：msg", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
+    }
 
 }
 

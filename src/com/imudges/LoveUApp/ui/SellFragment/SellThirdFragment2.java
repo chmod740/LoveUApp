@@ -67,9 +67,6 @@ public class SellThirdFragment2 extends Fragment {
 
         listView = (ListView) getView().findViewById(R.id.sell_list_main);
 
-        adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
-        listView.setAdapter(adpter);
-
         refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
@@ -120,6 +117,8 @@ public class SellThirdFragment2 extends Fragment {
                         money.add(sellModels.get(j).getPaiMoney());
                         SellId.add(sellModels.get(j).getPaiId()+"");
                     }
+                    adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
+                    listView.setAdapter(adpter);
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }

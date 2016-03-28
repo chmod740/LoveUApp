@@ -84,7 +84,7 @@ public class MainYueActivity extends FragmentActivity {
         rbThree = (RadioButton) findViewById(R.id.rbThree);
         rbOne.setText("社交");
         rbTwo.setText("发布");
-        rbThree.setText("记录");
+        rbThree.setText("我");
 
         topRg1 = (RadioGroup) findViewById(R.id.topRg1);
         topRg2 = (RadioGroup) findViewById(R.id.topRg2);

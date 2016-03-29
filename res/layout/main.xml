@@ -40,55 +40,54 @@
 
         <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/composer_button" >
+                android:layout_height="wrap_content" >
 
             <ImageView
                     android:id="@+id/id_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/composer_icn_plus" />
+                    android:src="@drawable/middle" />
         </RelativeLayout>
 
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_camera"
+                android:src="@drawable/yue"
                 android:tag="Run" />
 
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_thought"
+                android:src="@drawable/present"
                 android:tag="Sun" />
 
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_place"
+                android:src="@drawable/syllabus"
                 android:tag="Place" />
 
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_sleep"
+                android:src="@drawable/sell"
                 android:tag="Sleep" />
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_with"
+                android:src="@drawable/cooperation"
                 android:tag="shezhi" />
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/composer_music"
+                android:src="@drawable/meal"
                 android:tag="people" />
 
     </com.imudges.LoveUApp.ui.ArcMenu.ArcMenu>

@@ -1,5 +1,6 @@
 package com.imudges.LoveUApp.ui.CooperationFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,10 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.imudges.LoveUApp.DAO.Get;
@@ -81,6 +79,15 @@ public class CooperationThirdFragment extends Fragment {
                 refreshableView.finishRefreshing();
             }
         }, ReFreshId.Cooperation_Main);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(),CooperationDetail.class);
+                intent.putExtra("HelpId",HelpId.get(i));
+                intent.putExtra("State","self");
+                startActivity(intent);
+            }
+        });
     }
 
     public void GetSell(){

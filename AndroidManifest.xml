@@ -68,5 +68,7 @@
                   android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
         <activity android:name=".SellFragment.SellDetialActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".CooperationFragment.CooperationDetail"
+                  android:screenOrientation="portrait"/>
     </application>
 </manifest>

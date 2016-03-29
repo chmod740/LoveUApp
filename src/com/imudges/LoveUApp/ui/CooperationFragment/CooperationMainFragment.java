@@ -1,5 +1,6 @@
 package com.imudges.LoveUApp.ui.CooperationFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -81,6 +82,15 @@ public class CooperationMainFragment extends Fragment {
                 refreshableView.finishRefreshing();
             }
         }, ReFreshId.Cooperation_Main);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(),CooperationDetail.class);
+                intent.putExtra("HelpId",HelpId.get(i));
+                intent.putExtra("State","main");
+                startActivity(intent);
+            }
+        });
     }
 
     public void GetSell(){

@@ -18,7 +18,7 @@ public class HelpService {
     private String url;
     public void helppost(Context context, String secretkey, String username,String money,
                          String information, String password, String time, Listener listener){
-        url="helpservice/DoHelpService.php";
+        url="helpservice/UpHelpService.php";
         params=new RequestParams();
         params.add("SecretKey",secretkey);
         params.add("UserName",username);
@@ -27,7 +27,6 @@ public class HelpService {
         params.add("DownTime",time);
         params.add("PayPassword",password);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
-
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 reponseStr=new String(bytes);
@@ -42,7 +41,6 @@ public class HelpService {
                     listener.onFailure(e.getLocalizedMessage());
                 }
             }
-
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 listener.onFailure("网络异常");

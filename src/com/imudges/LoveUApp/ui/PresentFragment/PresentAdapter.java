@@ -1,6 +1,8 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.imudges.LoveUApp.service.AsyncImageLoader;
+import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
 
 import java.util.List;
@@ -78,14 +81,20 @@ public class PresentAdapter extends BaseAdapter {
             public void imageLoaded(Drawable imageDrawable, String imageUrl) {
                 ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);
                 if (imageViewByTag != null) {
-                    imageViewByTag.setImageDrawable(imageDrawable);
+                    BitmapDrawable bd = (BitmapDrawable) imageDrawable;
+                    Bitmap bitmap = bd.getBitmap();
+                    bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+                    imageViewByTag.setImageBitmap(bitmap);
                 }
             }
         });
         if (cachedImage == null) {
             //iv.setImageResource(R.drawable.ic_launcher);
         }else{
-            iv.setImageDrawable(cachedImage);
+            BitmapDrawable bd = (BitmapDrawable) cachedImage;
+            Bitmap bitmap = bd.getBitmap();
+            bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+            iv.setImageBitmap(bitmap);
         }
         return convertView;
     }

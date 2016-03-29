@@ -1,15 +1,8 @@
-package com.imudges.LoveUApp.service;
+package com.imudges.LoveUApp.ui.YueFragment;
 
-/**
- * Created by dy on 2016/3/24.
- */
-import java.util.List;
-
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.widget.TextView;
-import com.imudges.LoveUApp.ui.R;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,30 +10,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import com.imudges.LoveUApp.service.AsyncImageLoader;
+import com.imudges.LoveUApp.service.PhotoCut;
+import com.imudges.LoveUApp.ui.R;
 
-public class Myadapter extends BaseAdapter {
+import java.util.List;
+
+/**
+ * Created by dy on 2016/3/29.
+ */
+public class YueAdapter extends BaseAdapter {
     private AsyncImageLoader asyncImageLoader;
     List<String> data;
-    List<String> name;
-    List<String> info;
-    List<String> area;
+    List<String> title;
+    List<String> location;
     List<String> time;
-    List<String> state;
 
     Context context;
     ImageView iv;
-    TextView tv1,tv2,tv3,tv4,tv5;
+    TextView tv1,tv3,tv2;
     private ListView listView;
 
-    public Myadapter(Context context, List<String> list,List<String> name,List<String> info,List<String> area,
-                     List<String> time,List<String> state,ListView listView) {
+    public YueAdapter(Context context, List<String> list,List<String> title, List<String> location,List<String> time,ListView listView) {
         this.context = context;
         this.data = list;
-        this.name=name;
-        this.info=info;
-        this.area=area;
+        this.title=title;
         this.time=time;
-        this.state=state;
+        this.location=location;
         asyncImageLoader = new AsyncImageLoader();
         this.listView=listView;
         // TODO Auto-generated constructor stub
@@ -65,22 +62,18 @@ public class Myadapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position,  View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_run_3_2,null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.run_1,null);
         }
-        iv = (ImageView) convertView.findViewById(R.id.run3_2_img);
-        tv1=(TextView) convertView.findViewById(R.id.run3_2_tx4);
-        tv1.setText(name.get(position).toString());
-        tv2=(TextView) convertView.findViewById(R.id.run3_2_tx1);
-        tv2.setText(info.get(position).toString());
-        tv3=(TextView) convertView.findViewById(R.id.run3_2_tx2);
-        tv3.setText(time.get(position).toString());
-        tv5=(TextView) convertView.findViewById(R.id.run3_2_tx3);
-        tv5.setText(area.get(position).toString());
-        tv4=(TextView) convertView.findViewById(R.id.run3_2_way);
-        tv4.setText(state.get(position).toString());
+        tv1 = (TextView) convertView.findViewById(R.id.title);
+        tv1.setText(title.get(position));
+        tv2 = (TextView) convertView.findViewById(R.id.text1);
+        tv2.setText(time.get(position));
+        tv3 = (TextView) convertView.findViewById(R.id.text2);
+        tv3.setText(location.get(position));
+        iv = (ImageView) convertView.findViewById(R.id.img);
         String url=data.get(position).toString();
         iv.setTag(url);
 
@@ -105,5 +98,4 @@ public class Myadapter extends BaseAdapter {
         }
         return convertView;
     }
-
 }

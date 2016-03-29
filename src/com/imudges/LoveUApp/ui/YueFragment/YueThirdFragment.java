@@ -75,35 +75,16 @@ public class YueThirdFragment extends Fragment {
         area=new ArrayList<String>();
         state=new ArrayList<String>();
 
+
         adapter = new Myadapter(getActivity().getApplicationContext(), URL,name,info,area,time,state,lv);
         lv.setAdapter(adapter);
-//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                new  AlertDialog.Builder(getActivity())
-//                        .setTitle("删除" )
-//                        .setMessage("确定删除吗？" )
-//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                /**
-//                                 * 删除数据逻辑
-//                                 */
-//                                Toast.makeText(getActivity(),"删除",Toast.LENGTH_SHORT).show();
-//                            }
-//                        })
-//                        .setNegativeButton("否" , null)
-//                        .show();
-//                return false;
-//            }
-//        });
         refreshableView = (RefreshableView) getView().findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
             public void onRefresh() {
                 try {
-                    Thread.sleep(1000);
                     next();
+                    Thread.sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -123,7 +104,6 @@ public class YueThirdFragment extends Fragment {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
                     Gson gson=new Gson();
                     List<YueStudyModel> studyModels = gson.fromJson(responStr,new TypeToken<List<YueStudyModel>>(){}.getType());
 
@@ -137,7 +117,6 @@ public class YueThirdFragment extends Fragment {
                         info.add(studyModels.get(j).getXueInformation());
                         state.add("学");
                     }
-
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }

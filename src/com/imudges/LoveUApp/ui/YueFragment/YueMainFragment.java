@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ import java.util.Map;
  * Created by 1111 on 2016/3/10.
  * 自习
  */
-public class YueMainFragment extends ListFragment {
+public class YueMainFragment extends Fragment {
 
     private RefreshableView refreshableView;
 
@@ -43,50 +44,65 @@ public class YueMainFragment extends ListFragment {
     private String responStr;
     private RequestParams params;
     private List<YueStudyModel> studyModels;
+    YueAdapter adapter;
 
-    private Bitmap bitmap;
-    private int Length = 0;
-    private List<String> user_id=new ArrayList<>();
-    private List<String> ID=new ArrayList<>();
-    Map<String, Object> map;
+    ListView listView;
+
+    private List<String> user_id;
+    private List<String> title;
+    private List<String> location;
+    private List<String> Url;
+    private List<String> time;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list, container, true);
+        return inflater.inflate(R.layout.yue_main_list, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         View view =getView();
+        user_id=new ArrayList<String>();
+        title=new ArrayList<String>();
+        location=new ArrayList<String>();
+        Url=new ArrayList<String>();
+        time=new ArrayList<String>();
 
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),
-                GetStudy(),
-                R.layout.run_1,
-                new String[]{"img", "title", "time", "location"},
-                new int[]{R.id.img, R.id.title, R.id.text1, R.id.text2}
-        );
-        setListAdapter(adapter);
+        listView=(ListView) getView().findViewById(R.id.yue_main_list_ot);
+        GetStudy();
+
         refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
         refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
             public void onRefresh() {
                 try {
                     next();
+                    Thread.sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 refreshableView.finishRefreshing();
             }
         }, ReFreshId.Yue_Main_Study);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String send_Username=null;
+                send_Username = user_id.get(i);
+                if (send_Username != null){
+                    MainYueActivity.setUserName(send_Username);
+                    Intent intent = new Intent(getActivity(),StudyDetailActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
     /**
      * 获取自习表中所有信息
      */
-    public List<Map<String, Object>> GetStudy(){
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+    public void GetStudy(){
         url="xueservice/DownXueService.php";
         params=new RequestParams();
         Get get=new Get("User",getActivity().getApplicationContext());
@@ -98,26 +114,18 @@ public class YueMainFragment extends ListFragment {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
                     Gson gson=new Gson();
                     studyModels = gson.fromJson(responStr,new TypeToken<List<YueStudyModel>>(){}.getType());
-
-                    Length=studyModels.size();
                     int j;
-                    for(j=0;j<Length;j++) {
-                        int img = R.drawable.ic_launcher;
-                        map = new HashMap<String, Object>();
-                        map.put("title",studyModels.get(j).getPostUser());
-                        map.put("time", studyModels.get(j).getXueTime());
-                        map.put("location", studyModels.get(j).getXueInformation());
-                        downPhoto(studyModels.get(j).getPostImage());
+                    for(j=0;j<studyModels.size();j++) {
+                        title.add(studyModels.get(j).getPostUser());
+                        time.add(studyModels.get(j).getXueTime());
+                        location.add(studyModels.get(j).getXueInformation());
                         user_id.add(j,studyModels.get(j).getXueId()+"");
-//                        Drawable drawable=new BitmapDrawable(getActivity().getApplicationContext().getResources(),bitmap);
-//                        new ImageView(getActivity().getApplicationContext()).setImageBitmap(bitmap);
-                        map.put("img",bitmap);
-                        list.add(map);
+                        Url.add(studyModels.get(j).getPostImage());
                     }
-                    //change();
+                    adapter=new YueAdapter(getActivity().getApplicationContext(),Url,title,location,time,listView);
+                    listView.setAdapter(adapter);
                 }catch(Exception e){
                     Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -127,37 +135,6 @@ public class YueMainFragment extends ListFragment {
                 Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
-        return list;
-    }
-    public void downPhoto(String Urldownphoto){
-        new Thread(){
-            @Override
-            public void run() {
-                try {
-                    //创建一个url对象
-                    URL url=new URL(Urldownphoto);
-                    //打开URL对应的资源输入流
-                    InputStream is= url.openStream();
-                    //从InputStream流中解析出图片
-                    bitmap = BitmapFactory.decodeStream(is);
-                    //关闭输入流
-                    is.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        String send_Username=null;
-        send_Username = user_id.get(position);
-        if (send_Username != null){
-            MainYueActivity.setUserName(send_Username);
-            Intent intent = new Intent(getActivity(),StudyDetailActivity.class);
-            startActivity(intent);
-        }
     }
     public void next(){
         new Thread(){

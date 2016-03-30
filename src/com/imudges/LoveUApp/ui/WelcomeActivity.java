@@ -1,15 +1,19 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +26,7 @@ import android.widget.Toast;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.AdService;
+import com.imudges.LoveUApp.service.UpDataService;
 import com.imudges.LoveUApp.service.UserService;
 
 import java.io.InputStream;
@@ -31,6 +36,8 @@ public class WelcomeActivity extends Activity {
     private ImageView welcomeImg = null;
     private UserService userService = new UserService();
     private String Url="";
+    private UpDataService service;
+    private static boolean key=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,8 @@ public class WelcomeActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.welcome_layout);
+
+        AppUpdata();
 
         welcomeImg = (ImageView) this.findViewById(R.id.welcome_img);
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
@@ -102,7 +111,9 @@ public class WelcomeActivity extends Activity {
         }
 
         public void onAnimationEnd(Animation animation) {
-            loadData();
+            if(key==false){
+                loadData();
+            }
             // 动画结束后跳转到别的页面
         }
         public void onAnimationRepeat(Animation animation) {
@@ -155,6 +166,55 @@ public class WelcomeActivity extends Activity {
             }
         }
         return false;
+    }
+    public String getVersion() {
+        try {
+            PackageManager manager = this.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            String version = info.versionName;
+            return  version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public void AppUpdata() {
+        service=new UpDataService();
+        //Toast.makeText(WelcomeActivity.this, getVersion(), Toast.LENGTH_SHORT).show();
+        service.updata(getApplicationContext(), getVersion(), new Listener() {
+            @Override
+            public void onSuccess() {
+            }
+            @Override
+            public void onFailure(String msg) {
+                updata(msg);
+            }
+        });
+    }
+    public void updata(String url){
+        key=true;
+        new AlertDialog.Builder(WelcomeActivity.this)
+                .setTitle("是否要更新？")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Uri uri = Uri.parse(url);
+                        Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                        it.setData(uri);
+                        it.setAction( Intent.ACTION_VIEW);
+                        //it.setClassName("com.android.browser","com.android.browser.BrowserActivity");
+                        WelcomeActivity.this.startActivity(it);
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        key=false;
+                        loadData();
+                    }
+                })
+                .show();
     }
 
 }

@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.ui.YueFragment;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -74,26 +75,34 @@ public class YueAdapter extends BaseAdapter {
         tv3 = (TextView) convertView.findViewById(R.id.text2);
         tv3.setText(location.get(position));
         iv = (ImageView) convertView.findViewById(R.id.img);
-        String url=data.get(position).toString();
-        iv.setTag(url);
-
-        Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
-            public void imageLoaded(Drawable imageDrawable, String imageUrl) {
-                ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);
-                if (imageViewByTag != null) {
-                    BitmapDrawable bd = (BitmapDrawable) imageDrawable;
-                    Bitmap bitmap = bd.getBitmap();
-                    bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
-                    imageViewByTag.setImageBitmap(bitmap);
+        try{
+            String url=data.get(position);
+            iv.setTag(url);
+            Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
+                public void imageLoaded(Drawable imageDrawable, String imageUrl) {
+                    ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);
+                    if (imageViewByTag != null) {
+                        try{
+                            BitmapDrawable bd = (BitmapDrawable) imageDrawable;
+                            Bitmap bitmap = bd.getBitmap();
+                            bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+                            imageViewByTag.setImageBitmap(bitmap);
+                        }catch(Exception e){
+                            imageViewByTag.setImageDrawable(imageDrawable);
+                        }
+                    }
                 }
+            });
+            if (cachedImage == null) {
+                //iv.setImageResource(R.drawable.ic_launcher);
+            }else{
+                BitmapDrawable bd = (BitmapDrawable) cachedImage;
+                Bitmap bitmap = bd.getBitmap();
+                bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+                iv.setImageBitmap(bitmap);
             }
-        });
-        if (cachedImage == null) {
-            //iv.setImageResource(R.drawable.ic_launcher);
-        }else{
-            BitmapDrawable bd = (BitmapDrawable) cachedImage;
-            Bitmap bitmap = bd.getBitmap();
-            bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+        }catch(Exception e){
+            Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.default1);
             iv.setImageBitmap(bitmap);
         }
         return convertView;

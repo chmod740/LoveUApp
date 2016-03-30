@@ -117,7 +117,7 @@ public class CooperationThirdFragment2 extends Fragment {
                         info.add(helpModels.get(j).getHelpInformation());
                         HelpId.add(helpModels.get(j).getHelpId()+"");
                     }
-                    adpter = new CooperationAdapter(getActivity().getApplicationContext(), URL,info,time,money,postname,listView);
+                    adpter = new CooperationAdapter(getActivity().getApplicationContext(), URL,time,money,postname,listView);
                     listView.setAdapter(adpter);
                 }catch(Exception e){
                     //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();

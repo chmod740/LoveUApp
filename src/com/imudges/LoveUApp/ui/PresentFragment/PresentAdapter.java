@@ -74,9 +74,13 @@ public class PresentAdapter extends BaseAdapter {
         tv2.setText(info.get(position));
         tv3=(TextView)convertView.findViewById(R.id.present_1_who);
         tv3.setText(getstate.get(position));
-        String url=data.get(position).toString();
-        iv.setTag(url);
-
+        String url=null;
+        try{
+            url=data.get(position).toString();
+            iv.setTag(url);
+        }catch(Exception e){
+            iv.setTag("");
+        }
         Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
             public void imageLoaded(Drawable imageDrawable, String imageUrl) {
                 ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);

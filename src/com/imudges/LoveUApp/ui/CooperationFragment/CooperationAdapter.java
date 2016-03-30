@@ -2,6 +2,7 @@ package com.imudges.LoveUApp.ui.CooperationFragment;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.ui.R;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by dy on 2016/3/27.
@@ -23,22 +25,20 @@ import java.util.List;
 public class CooperationAdapter extends BaseAdapter {
     private AsyncImageLoader asyncImageLoader;
     List<String> data;
-    List<String> info;
     List<String> time;
     List<String> money;
     List<String> name;
 
     Context context;
     ImageView iv;
-    TextView tv1,tv2,tv3,tv4;
+    TextView tv1,tv2,tv4;
     private ListView listView;
 
-    public CooperationAdapter(Context context, List<String> list,List<String> info,List<String> time,List<String> money,
+    public CooperationAdapter(Context context, List<String> list,List<String> time,List<String> money,
                               List<String> name,ListView listView) {
         this.context = context;
         this.data = list;
         this.name = name;
-        this.info = info;
         this.time = time;
         this.money = money;
         asyncImageLoader = new AsyncImageLoader();
@@ -73,32 +73,38 @@ public class CooperationAdapter extends BaseAdapter {
         iv = (ImageView) convertView.findViewById(R.id.cooperation3_1_img);
         tv1=(TextView)convertView.findViewById(R.id.cooperation3_1_neirong);
         tv1.setText(name.get(position));
-        tv2=(TextView)convertView.findViewById(R.id.cooperation3_1_biaoti);
+        tv2=(TextView)convertView.findViewById(R.id.cooperation3_1_money);
         tv2.setText(money.get(position));
-        tv3=(TextView)convertView.findViewById(R.id.cooperation3_1_man);
-        tv3.setText(info.get(position));
         tv4=(TextView)convertView.findViewById(R.id.cooperation3_1_time);
-        tv4.setText(info.get(position));
-        String url=data.get(position).toString();
-        iv.setTag(url);
-
-        Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
-            public void imageLoaded(Drawable imageDrawable, String imageUrl) {
-                ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);
-                if (imageViewByTag != null) {
-                    BitmapDrawable bd = (BitmapDrawable) imageDrawable;
-                    Bitmap bitmap = bd.getBitmap();
-                    bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
-                    imageViewByTag.setImageBitmap(bitmap);
+        tv4.setText(time.get(position));
+        try{
+            String url=data.get(position);
+            iv.setTag(url);
+            Drawable cachedImage = asyncImageLoader.loadDrawable(url, new AsyncImageLoader.ImageCallback() {
+                public void imageLoaded(Drawable imageDrawable, String imageUrl) {
+                    ImageView imageViewByTag = (ImageView) listView.findViewWithTag(imageUrl);
+                    if (imageViewByTag != null) {
+                        try{
+                            BitmapDrawable bd = (BitmapDrawable) imageDrawable;
+                            Bitmap bitmap = bd.getBitmap();
+                            bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+                            imageViewByTag.setImageBitmap(bitmap);
+                        }catch(Exception e){
+                            imageViewByTag.setImageDrawable(imageDrawable);
+                        }
+                    }
                 }
+            });
+            if (cachedImage == null) {
+                //iv.setImageResource(R.drawable.ic_launcher);
+            }else{
+                BitmapDrawable bd = (BitmapDrawable) cachedImage;
+                Bitmap bitmap = bd.getBitmap();
+                bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+                iv.setImageBitmap(bitmap);
             }
-        });
-        if (cachedImage == null) {
-            //iv.setImageResource(R.drawable.ic_launcher);
-        }else{
-            BitmapDrawable bd = (BitmapDrawable) cachedImage;
-            Bitmap bitmap = bd.getBitmap();
-            bitmap=new PhotoCut(context).toRoundBitmap(bitmap);
+        }catch(Exception e){
+            Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.default1);
             iv.setImageBitmap(bitmap);
         }
         return convertView;

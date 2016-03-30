@@ -261,7 +261,7 @@ public class HelpDateTimePickDialogUitl implements OnDateChangedListener,
                             }
                             @Override
                             public void onFailure(String msg) {
-                                Toast.makeText(activity, "发送请求失败：msg", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "发送请求失败："+msg, Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

@@ -25,9 +25,9 @@
                       android:maxLines="2"
                       android:id="@+id/UserSaying"
                       android:textSize="17dp"
-                      android:hint="天道酬勤...."
+                      android:text="天道酬勤...."
                       android:background="@color/white"
-                      android:textColor="#000000"/>
+                      android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -50,45 +50,99 @@
                     android:src="@drawable/middle" />
         </RelativeLayout>
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/yue"
-                android:tag="Run" />
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/yue"
+                    android:tag="Run"/>
+            <TextView android:layout_width="match_parent"
+                      android:text="约"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/present"
+                    android:tag="Sun" />
+            <TextView android:layout_width="match_parent"
+                      android:text="赠送"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/syllabus"
+                    android:tag="Place" />
+            <TextView android:layout_width="match_parent"
+                      android:text="课程表"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/sell"
+                    android:tag="Sleep" />
+            <TextView android:layout_width="match_parent"
+                      android:text="拍卖"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/present"
-                android:tag="Sun" />
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/syllabus"
-                android:tag="Place" />
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/sell"
-                android:tag="Sleep" />
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/cooperation"
-                android:tag="shezhi" />
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/meal"
-                android:tag="people" />
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/cooperation"
+                    android:tag="shezhi" />
+            <TextView android:layout_width="match_parent"
+                      android:text="悬赏"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/meal"
+                    android:tag="people" />
+            <TextView android:layout_width="match_parent"
+                      android:text="吃饭"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </com.imudges.LoveUApp.ui.ArcMenu.ArcMenu>
 

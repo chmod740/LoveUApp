@@ -59,8 +59,7 @@ public class MainActivity extends Activity {
         mArcMenuLeftTop.setOnMenuItemClickListener(new ArcMenu.OnMenuItemClickListener(){
             @Override
             public void onClick(View view, int pos){
-                Toast.makeText(MainActivity.this,
-                        pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show();
                 switch (pos){
                     case 0:startActivity(new Intent(getApplicationContext(),MainYueActivity.class));
                         break;
@@ -86,9 +85,13 @@ public class MainActivity extends Activity {
     private void setImage() {
         // TODO Auto-generated method stub
         //使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
-        Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
-        getAlbum.setType(IMAGE_TYPE);
-        startActivityForResult(getAlbum, IMAGE_CODE);
+        try{
+            Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
+            getAlbum.setType(IMAGE_TYPE);
+            startActivityForResult(getAlbum, IMAGE_CODE);
+        }catch (Exception e){
+            Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

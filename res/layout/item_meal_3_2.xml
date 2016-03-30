@@ -4,21 +4,21 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:orientation="vertical">
+                  android:orientation="vertical"
+                  android:paddingLeft="@dimen/activity_horizontal_margin"
+                  android:paddingRight="10dp"
+                  android:paddingTop="@dimen/activity_vertical_margin">
 
 
         <ImageView android:layout_width="100dp" android:layout_height="100dp"
                    android:id="@+id/meal3_2_img"
-                   android:paddingBottom="@dimen/activity_vertical_margin"
-                   android:paddingLeft="@dimen/activity_horizontal_margin"
-                   android:paddingRight="@dimen/activity_horizontal_margin"
-                   android:paddingTop="@dimen/activity_vertical_margin"
+                   android:layout_gravity="center"
         />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:id="@+id/meal3_2_tx4"
                   android:text="显示内容"
-                  android:textSize="25dp"
-                  android:layout_weight="5"
+                  android:textSize="20dp"
+                  android:textColor="@color/black"
                   android:paddingBottom="@dimen/activity_vertical_margin"
                   android:paddingLeft="@dimen/activity_horizontal_margin"
                   android:paddingRight="@dimen/activity_horizontal_margin"
@@ -26,30 +26,34 @@
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="vertical">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:id="@+id/meal3_2_tx1"
-                  android:text="显示内容"
-                  android:textSize="25dp"/>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
+
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx2"
                       android:text="显示内容"
-                      android:textSize="25dp"
-                      android:layout_weight="3"/>
+                      android:textSize="20dp"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx3"
                       android:text="显示内容"
-                      android:textSize="25dp"
-                      android:layout_weight="3"/>
+                      android:textSize="20dp"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/meal3_2_tx1"
+                  android:text="显示内容"
+                  android:textSize="20dp"
+                  android:layout_weight="1"
+                  android:textColor="@color/black"/>
+            <!--
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx5"
                       android:text="显示内容"
                       android:textSize="25dp"
                       android:layout_weight="3"/>
+                      -->
 
 
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

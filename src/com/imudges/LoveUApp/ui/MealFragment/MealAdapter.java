@@ -81,8 +81,8 @@ public class MealAdapter extends BaseAdapter {
         tv3.setText(time.get(position));
         tv5=(TextView) convertView.findViewById(R.id.meal3_2_tx2);
         tv5.setText(area.get(position));
-        tv4=(TextView) convertView.findViewById(R.id.meal3_2_tx5);
-        tv4.setText(info.get(position));
+        //tv4=(TextView) convertView.findViewById(R.id.meal3_2_tx5);
+        //tv4.setText(info.get(position));
 
         iv = (ImageView) convertView.findViewById(R.id.meal3_2_img);
         String url=data.get(position).toString();

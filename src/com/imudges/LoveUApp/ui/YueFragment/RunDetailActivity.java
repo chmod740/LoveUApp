@@ -127,7 +127,7 @@ public class RunDetailActivity extends Activity {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
+                    //System.out.println(responStr);
                     Gson gson=new Gson();
                     YueRunModel runModel = gson.fromJson(responStr,YueRunModel.class);
                     downPhoto(runModel.getPostImage());
@@ -136,8 +136,8 @@ public class RunDetailActivity extends Activity {
                     tv_time.setText(runModel.getRunArea());
                     tv_other.setText(runModel.getRunInformation());
                 }catch(Exception e){
-                    System.out.println(e.getLocalizedMessage());
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+//                    System.out.println(e.getLocalizedMessage());
+//                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

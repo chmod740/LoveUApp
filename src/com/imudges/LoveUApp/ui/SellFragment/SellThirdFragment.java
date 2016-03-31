@@ -106,7 +106,7 @@ public class SellThirdFragment extends Fragment {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
+                    //System.out.println(responStr);
                     Gson gson=new Gson();
                     sellModels = gson.fromJson(responStr,new TypeToken<List<SellModel>>(){}.getType());
                     Length=sellModels.size();
@@ -122,7 +122,7 @@ public class SellThirdFragment extends Fragment {
                     adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
                     listView.setAdapter(adpter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

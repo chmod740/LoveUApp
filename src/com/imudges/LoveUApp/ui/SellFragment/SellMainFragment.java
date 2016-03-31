@@ -119,7 +119,7 @@ public class SellMainFragment extends Fragment {
                     adpter = new SellAdpter(getActivity().getApplicationContext(), URL,name,user,time,money,listView);
                     listView.setAdapter(adpter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

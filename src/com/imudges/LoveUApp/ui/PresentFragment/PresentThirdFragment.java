@@ -112,7 +112,7 @@ public class PresentThirdFragment extends Fragment {
                     adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,state,listView);
                     listView.setAdapter(adapter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

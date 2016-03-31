@@ -75,13 +75,13 @@ public class PresentSecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 infoString = info.getText().toString();
-                Toast.makeText(getActivity(),username+""+secretkey+""+infoString,Toast.LENGTH_SHORT).show();
-                PhotoService service=new PhotoService("http://183.175.12.157/LOVEU/giveservice/UpGiveService.php");
+                //Toast.makeText(getActivity(),username+""+secretkey+""+infoString,Toast.LENGTH_SHORT).show();
+                PhotoService service=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/giveservice/UpGiveService.php");
                 //Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 String s=service.Uppic(username,secretkey,Path,infoString);
                 System.out.println("信息就是："+infoString);
-                Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
-                System.out.println(s+"******************************************"+secretkey);
+//                Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
+//                System.out.println(s+"******************************************"+secretkey);
             }
         });
 

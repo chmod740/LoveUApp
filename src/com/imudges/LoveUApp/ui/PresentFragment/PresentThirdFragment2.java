@@ -102,7 +102,7 @@ public class PresentThirdFragment2 extends Fragment {
                 try{
                     Gson gson=new Gson();
                     getPresentModels = gson.fromJson(responStr,new TypeToken<List<GetPresentModel>>(){}.getType());
-                    System.out.println(username);
+                    //System.out.println(username);
                     int j;
 
                     for(j=0;j<getPresentModels.size();j++) {
@@ -129,7 +129,7 @@ public class PresentThirdFragment2 extends Fragment {
                     adapter=new PresentAdapter(getActivity().getApplicationContext(),Url,Name,info,getstate,listView);
                     listView.setAdapter(adapter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

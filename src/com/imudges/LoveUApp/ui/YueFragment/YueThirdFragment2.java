@@ -116,7 +116,7 @@ public class YueThirdFragment2 extends Fragment{
                         state.add("学");
                     }
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -133,7 +133,7 @@ public class YueThirdFragment2 extends Fragment{
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
+                    //System.out.println(responStr);
                     Gson gson=new Gson();
                     List<YueRunModel> studyModels = gson.fromJson(responStr,new TypeToken<List<YueRunModel>>(){}.getType());
 
@@ -148,7 +148,7 @@ public class YueThirdFragment2 extends Fragment{
                         state.add("跑");
                     }
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

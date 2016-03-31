@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
                 SavePhoto savePhoto=new SavePhoto(myBitmap,Environment.getExternalStorageDirectory().getPath(),"UserAd");
                 savePhoto.Savephoto();
 
-                PhotoService service=new PhotoService("http://183.175.12.157/LOVEU/service/ImageService.php");
+                PhotoService service=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/service/ImageService.php");
                 Get get1=new Get("UserKey",getApplicationContext());
                 String s=service.uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
                 Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();

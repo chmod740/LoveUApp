@@ -133,7 +133,7 @@ public class StudyDetailActivity extends Activity{
                     downPhoto(studyModels.getPostImage());
                     //System.out.println(studyModels.getPostImage());
                 }catch(Exception e){
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

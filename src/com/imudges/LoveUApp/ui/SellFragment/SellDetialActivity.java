@@ -94,8 +94,8 @@ public class SellDetialActivity extends Activity {
                         information.setText(sell.getPaiInformation());
                     }
                 }catch(Exception e){
-                    System.out.println(e.getLocalizedMessage());
-                    Toast.makeText(SellDetialActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                    System.out.println(e.getLocalizedMessage());
+//                    Toast.makeText(SellDetialActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

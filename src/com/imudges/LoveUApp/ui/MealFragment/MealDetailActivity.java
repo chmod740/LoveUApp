@@ -132,8 +132,8 @@ public class MealDetailActivity extends Activity {
                     tv_time.setText(mealModel.getFoodTime()+"\n"+mealModel.getFoodArea());
                     tv_other.setText(mealModel.getFoodInformation()+" "+mealModel.getFoodArea());
                 }catch(Exception e){
-                    System.out.println(e.getLocalizedMessage());
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+//                    System.out.println(e.getLocalizedMessage());
+//                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

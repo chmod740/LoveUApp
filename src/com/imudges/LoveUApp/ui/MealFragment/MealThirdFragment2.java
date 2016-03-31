@@ -133,7 +133,7 @@ public class MealThirdFragment2 extends Fragment {
                     adpter = new MealAdapter(getActivity().getApplicationContext(), URL,name,area,time,way,info,listView);
                     listView.setAdapter(adpter);
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

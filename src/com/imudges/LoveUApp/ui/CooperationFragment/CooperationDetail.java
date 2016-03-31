@@ -147,7 +147,7 @@ public class CooperationDetail extends Activity {
                     time.setText(helpModel.getDownTime());
                     downPhoto(helpModel.getHelpImage());
                 }catch (Exception e){
-                    Toast.makeText(CooperationDetail.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CooperationDetail.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -176,7 +176,7 @@ public class CooperationDetail extends Activity {
                         Toast.makeText(CooperationDetail.this,sell.getMsg(), Toast.LENGTH_SHORT).show();
                     }
                 }catch(Exception e){
-                    Toast.makeText(CooperationDetail.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CooperationDetail.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

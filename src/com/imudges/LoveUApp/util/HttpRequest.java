@@ -20,7 +20,7 @@ public class HttpRequest {
     /**
      * 服务器地,端口号与应用名组成的基本的URL
      * */
-    private static final String BASE_URL = "http://119.29.90.35/LOVEU/";
+    private static final String BASE_URL = "http://loveu.iheshulin.com:9999/LOVEU/";
     private static AsyncHttpClient client = new AsyncHttpClient();
 
     /**

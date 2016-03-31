@@ -21,8 +21,12 @@
 
         />
     </LinearLayout>-->
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:textSize="20dp"/>
+    <TextView  android:layout_width="match_parent" android:layout_height="50dp"
+               android:background="#FF72CAE1"
+               android:textSize="20dp"
+               android:textColor="@color/black"
+               android:gravity="center"
+               android:text="创建约会"/>
 
     <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -33,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:textColor="@color/black"
                 android:layout_weight="3"
                 android:text="我请客"/>
         <RadioButton
@@ -40,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                android:layout_weight="3"
+                android:textColor="@color/black"
         android:text="55开" />
 
         <RadioButton
@@ -47,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
+                android:textColor="@color/black"
 
                 android:text="他/她请客"/>
     </RadioGroup>
@@ -64,12 +71,12 @@
                       android:paddingRight="3dp"
                       android:paddingTop="3dp">
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-
+android:textSize="@dimen/edtextsize"
                       android:text="内容："/>
             <EditText android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:background="@color/white"
+                      android:background="@drawable/edittext_selector"
                       android:textColor="@color/black"
-                      android:textSize="20dp"
+                      android:textSize="@dimen/edtextsize"
                       android:id="@+id/meal2_ed2"
                       android:textCursorDrawable="@null"
                       android:gravity="top"
@@ -80,12 +87,15 @@
                       android:maxLines="7"
                       android:layout_weight="5"/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-
+                      android:textSize="10dp"
+                      android:text=""/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:textSize="@dimen/edtextsize"
                       android:text="地点："/>
             <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:background="@color/white"
+                      android:background="@drawable/edittext_selector"
                       android:textColor="@color/black"
-                      android:textSize="20dp"
+                      android:textSize="@dimen/edtextsize"
                       android:id="@+id/meal2_ed3"
                       android:textCursorDrawable="@null"
                       android:gravity="top"

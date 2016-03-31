@@ -20,17 +20,18 @@
         android:orientation="vertical">
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:textColor="@color/white"
+
+                      android:textColor="@color/black"
             android:id="@+id/sell_1_biaoti"/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:text="拍卖人"
                       android:textSize="20dp"
-                      android:textColor="@color/white"
+                      android:textColor="@color/black"
                       android:id="@+id/sell_1_paimairen"/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:text="下架时间"
                       android:textSize="20dp"
-                      android:textColor="@color/white"
+                      android:textColor="@color/black"
                       android:id="@+id/sell_1_time"/>
         </LinearLayout>
     </LinearLayout>
@@ -40,10 +41,10 @@
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:text="当前竞价：  "
                   android:textSize="20dp"
-                  android:textColor="@color/white"/>
+                  android:textColor="@color/black"/>
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:textSize="20dp"
-                  android:textColor="@color/white"
+                  android:textColor="@color/black"
                   android:id="@+id/sell_1_money"/>
     </LinearLayout>
 

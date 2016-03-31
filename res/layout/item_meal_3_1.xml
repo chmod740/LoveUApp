@@ -19,6 +19,7 @@
                   android:id="@+id/meal3_tx3"
                   android:text="显示内容"
                   android:textSize="25dp"
+                  android:textColor="@color/black"
                   android:layout_weight="5"
                   android:paddingBottom="@dimen/activity_vertical_margin"
                   android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -30,17 +31,20 @@
         <TextView android:layout_width="match_parent" android:layout_height="90dp"
                   android:id="@+id/meal3_tx1"
                   android:text="显示内容"
+                  android:textColor="@color/black"
                   android:textSize="25dp"/>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_tx2"
                       android:text="显示内容"
+                      android:textColor="@color/black"
                       android:textSize="25dp"
                       android:layout_weight="3"/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_tx4"
                       android:text="显示内容"
+                      android:textColor="@color/black"
                       android:textSize="25dp"
                       android:layout_weight="3"/>
 

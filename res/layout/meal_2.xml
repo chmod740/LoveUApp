@@ -72,6 +72,7 @@
                       android:paddingTop="3dp">
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
 android:textSize="@dimen/edtextsize"
+                      android:textColor="@color/black"
                       android:text="内容："/>
             <EditText android:layout_width="match_parent" android:layout_height="match_parent"
                       android:background="@drawable/edittext_selector"
@@ -91,7 +92,8 @@ android:textSize="@dimen/edtextsize"
                       android:text=""/>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:textSize="@dimen/edtextsize"
-                      android:text="地点："/>
+                      android:text="地点："
+                      android:textColor="@color/black"/>
             <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:background="@drawable/edittext_selector"
                       android:textColor="@color/black"

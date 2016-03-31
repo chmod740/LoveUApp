@@ -12,6 +12,7 @@ import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
+import com.imudges.LoveUApp.ui.Set.AboutActivity;
 import com.imudges.LoveUApp.ui.Set.UserSet;
 
 /**
@@ -79,7 +80,7 @@ public class MainSetActivity extends Activity{
         set_about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "关于", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainSetActivity.this, AboutActivity.class));
             }
         });
         set_help.setOnClickListener(new View.OnClickListener() {

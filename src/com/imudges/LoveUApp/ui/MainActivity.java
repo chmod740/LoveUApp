@@ -164,6 +164,11 @@ public class MainActivity extends Activity {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            startActivity(new Intent(MainActivity.this,MainSetActivity.class));
+            //super.openOptionsMenu();  // 调用这个，就可以弹出菜单
+            return super.onKeyDown(keyCode, event);
+        }
         MyThread my=new MyThread();
         my.start();
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&& key==true) {

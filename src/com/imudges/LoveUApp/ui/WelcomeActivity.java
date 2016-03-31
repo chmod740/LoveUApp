@@ -203,7 +203,6 @@ public class WelcomeActivity extends Activity {
                         Intent it = new Intent(Intent.ACTION_VIEW, uri);
                         it.setData(uri);
                         it.setAction( Intent.ACTION_VIEW);
-                        //it.setClassName("com.android.browser","com.android.browser.BrowserActivity");
                         WelcomeActivity.this.startActivity(it);
                     }
                 })

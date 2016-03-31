@@ -62,6 +62,7 @@ public class MainSyllabusActivity extends FragmentActivity{
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         // 设置滑动菜单的视图界面
         menu.setMenu(R.layout.menu_fragment);
+        SysApplication.getInstance().addActivity(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new SyllabusMenuFragment()).commit();
     }
 

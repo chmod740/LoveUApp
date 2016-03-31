@@ -17,13 +17,13 @@ import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import com.imudges.LoveUApp.ui.R;
 
 /**
  * @author zhy
  */
-public class ArcMenu extends ViewGroup implements OnClickListener
-{
+public class ArcMenu extends ViewGroup implements OnClickListener {
 
     private static final String TAG = "ArcMenu";
     /**
@@ -74,8 +74,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener
         void onClick(View view, int pos);
     }
 
-    public void setOnMenuItemClickListener(
-            OnMenuItemClickListener onMenuItemClickListener) {
+    public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
         this.onMenuItemClickListener = onMenuItemClickListener;
     }
 
@@ -87,7 +86,6 @@ public class ArcMenu extends ViewGroup implements OnClickListener
     public ArcMenu(Context context, AttributeSet attrs)
     {
         this(context, attrs, 0);
-
     }
 
     /**

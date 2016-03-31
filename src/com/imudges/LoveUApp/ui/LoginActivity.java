@@ -254,7 +254,7 @@ public class LoginActivity extends Activity {
                 }
                 @Override
                 public void onFailure(String msg) {
-                    Toast.makeText(getApplicationContext(),"msg"+msg,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
                 }
             });
         }else{
@@ -265,7 +265,7 @@ public class LoginActivity extends Activity {
                 }
                 @Override
                 public void onFailure(String msg) {
-                    Toast.makeText(getApplicationContext(),"msg"+msg,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
                 }
             });
         }

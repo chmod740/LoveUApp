@@ -31,31 +31,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a584e5c-3095-4951-a694-a47aaa13b1aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/arrow.png" />
+    <list default="true" id="9a584e5c-3095-4951-a694-a47aaa13b1aa" name="Default" comment="Sell完工">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.apk" afterPath="$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$layout.class" afterPath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$string.class" afterPath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R.class" afterPath="$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoveUApp.iml" afterPath="$PROJECT_DIR$/LoveUApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/list.xml" afterPath="$PROJECT_DIR$/res/layout/list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMainFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMainFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment2.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment2.java" afterPath="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment2.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="project.properties" />
@@ -86,81 +67,18 @@
     <favorites_list name="LoveUApp" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MealMainFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMainFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="42" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealThirdFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="5" selection-start-line="75" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealThirdFragment2.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27457628">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/MealModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-              <folding>
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/MealService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YueMainFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="125" column="105" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="105" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
         <option value="XSLT Stylesheet" />
-        <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="Interface" />
+        <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -175,57 +93,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainPresentActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainMealActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainCooperationActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/login_layout.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Set/UserSet.java" />
-        <option value="$PROJECT_DIR$/res/layout/syllabus_main.xml" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationThirdFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationThirdFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Timer/HelpDateTimePickDialogUitl.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellAdpter.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/item_sell_1.xml" />
+        <option value="$PROJECT_DIR$/res/layout/item_present_1.xml" />
+        <option value="$PROJECT_DIR$/res/layout/item_cooperation_3_1.xml" />
+        <option value="$PROJECT_DIR$/res/layout/item_meal_3_2.xml" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/model/UpDataModel.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/util/UpDataService.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/service/UpDataService.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/WelcomeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/util/HttpRequest.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSyllabusActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/res/layout/set_user.xml" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSetActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/set__about_list.xml" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Set/AboutActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/setting.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMenuFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMenuFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMenuFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMenuFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationMenuFragment.java" />
-        <option value="$PROJECT_DIR$/res/layout/sell_3_1.xml" />
-        <option value="$PROJECT_DIR$/res/layout/sell_3_2.xml" />
-        <option value="$PROJECT_DIR$/res/layout/sell_above3.xml" />
-        <option value="$PROJECT_DIR$/res/layout/sell_2.xml" />
-        <option value="$PROJECT_DIR$/res/layout/present_2.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellSecondFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentSecondFragment.java" />
-        <option value="$PROJECT_DIR$/res/layout/present_1.xml" />
-        <option value="$PROJECT_DIR$/res/layout/present_3_1.xml" />
-        <option value="$PROJECT_DIR$/res/layout/present_3_2.xml" />
-        <option value="$PROJECT_DIR$/res/layout/present_above3.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Timer/DateTimePickDialogUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/service/RunService.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/service/StudyService.java" />
-        <option value="$PROJECT_DIR$/res/layout/run_2_2.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment.java" />
-        <option value="$PROJECT_DIR$/res/layout/run_2.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment2.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealSecondFragment.java" />
-        <option value="$PROJECT_DIR$/res/layout/list.xml" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/service/MealService.java" />
-        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationDetail.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealDetailActivity.java" />
         <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMainFragment.java" />
         <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment.java" />
         <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentDetailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentDetailActivity1.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellDetialActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/RunDetailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/StudyDetailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueThirdFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueThirdFragment2.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentSecondFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellSecondFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSyllabusActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/set_about_view.xml" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainCooperationActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/ArcMenu/ArcMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
       </list>
     </option>
   </component>
@@ -272,9 +190,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -310,26 +228,8 @@
               <option name="myItemId" value="LoveUApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,10 +252,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YueFragment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,7 +277,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MealFragment" />
+              <option name="myItemId" value="SellFragment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,32 +296,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoveUApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -448,10 +318,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../sdk/extras/android/support/v4/android-support-v4.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/gson.jar!/" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="AndroidTargetDevices" value="e15a925a" />
@@ -483,11 +353,135 @@
       <recent name="E:\Android\git\LoveUApp\res\layout" />
       <recent name="E:\idea-git-project\LoveUApp\libs" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.imudges.LoveUApp.service" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Android\git\LoveUApp\res\drawable" />
       <recent name="D:\work\study\Git\new\LoveUApp\src\com\imudges\LoveUApp\ui\RunFragment" />
       <recent name="E:\Android\git\LoveUApp\libs" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.apk</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/LoveUApp.unaligned.apk</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$layout.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R$string.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/R.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/LoveUApp/com/imudges/LoveUApp/ui/WelcomeActivity.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/cooperation_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/meal_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/present_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/run_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/run_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/sell_2.xml</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Android Application.LoveUApp">
     <configuration default="false" name="All Tests" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
@@ -810,14 +804,14 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="Please select a project..." />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="Please select a project..." />
       <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="Cloud configuration not specified" />
       <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="Cloud configuration not specified" />
       <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
@@ -842,54 +836,6 @@
       <option name="number" value="Default" />
       <updated>1457444896755</updated>
       <workItem from="1457444899643" duration="2480000" />
-    </task>
-    <task id="LOCAL-00001" summary="添加异步请求jar包">
-      <created>1457445612512</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1457445612512</updated>
-    </task>
-    <task id="LOCAL-00002" summary="功能增加">
-      <created>1457497685612</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1457497685612</updated>
-    </task>
-    <task id="LOCAL-00003" summary="功能增加">
-      <created>1457499597826</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1457499597826</updated>
-    </task>
-    <task id="LOCAL-00004" summary="功能增加">
-      <created>1457501532788</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1457501532788</updated>
-    </task>
-    <task id="LOCAL-00005" summary="添加welcome 动画">
-      <created>1457526620893</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1457526620893</updated>
-    </task>
-    <task id="LOCAL-00006" summary="添加welcome 动画">
-      <created>1457527679224</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1457527679224</updated>
-    </task>
-    <task id="LOCAL-00007" summary="增加  读取文件函数">
-      <created>1457528769807</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1457528769807</updated>
-    </task>
-    <task id="LOCAL-00008" summary="添加welcome 动画">
-      <created>1457615659164</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1457615659164</updated>
     </task>
     <task id="LOCAL-00009" summary="添加welcome 动画">
       <created>1457616479029</created>
@@ -1047,7 +993,145 @@
       <option name="project" value="LOCAL" />
       <updated>1458715385102</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="界面+++">
+      <created>1458717262391</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1458717262391</updated>
+    </task>
+    <task id="LOCAL-00036" summary="界面+++">
+      <created>1458717410782</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1458717410782</updated>
+    </task>
+    <task id="LOCAL-00037" summary="界面+++&#10;下拉刷新">
+      <created>1458739986024</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1458739986024</updated>
+    </task>
+    <task id="LOCAL-00038" summary="界面+++&#10;下拉刷新">
+      <created>1458871721889</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1458871721889</updated>
+    </task>
+    <task id="LOCAL-00039" summary="sell++">
+      <created>1458881209402</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1458881209402</updated>
+    </task>
+    <task id="LOCAL-00040" summary="sell++">
+      <created>1458896514778</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1458896514778</updated>
+    </task>
+    <task id="LOCAL-00041" summary="sell++">
+      <created>1458909625859</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1458909625859</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Sell完工">
+      <created>1458985136046</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1458985136046</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Present完工">
+      <created>1459067398297</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1459067398297</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Main++">
+      <created>1459071210520</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1459071210520</updated>
+    </task>
+    <task id="LOCAL-00045" summary="调bug">
+      <created>1459074043070</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1459074043070</updated>
+    </task>
+    <task id="LOCAL-00046" summary="互助ok">
+      <created>1459084030188</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1459084030188</updated>
+    </task>
+    <task id="LOCAL-00047" summary="所有功能完工">
+      <created>1459157796750</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1459157796750</updated>
+    </task>
+    <task id="LOCAL-00048" summary="完工++">
+      <created>1459250068308</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1459250068308</updated>
+    </task>
+    <task id="LOCAL-00049" summary="finish();">
+      <created>1459257029848</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1459257029848</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Sell完工">
+      <created>1459318588798</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1459318588798</updated>
+    </task>
+    <task id="LOCAL-00051" summary="完工">
+      <created>1459320401903</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1459320401903</updated>
+    </task>
+    <task id="LOCAL-00052" summary="完工">
+      <created>1459325574198</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1459325574198</updated>
+    </task>
+    <task id="LOCAL-00053" summary="完事">
+      <created>1459345113573</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1459345113578</updated>
+    </task>
+    <task id="LOCAL-00054" summary="完工">
+      <created>1459345355681</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1459345355681</updated>
+    </task>
+    <task id="LOCAL-00055" summary="完工">
+      <created>1459425368917</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1459425368932</updated>
+    </task>
+    <task id="LOCAL-00056" summary="完工">
+      <created>1459426279823</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1459426279823</updated>
+    </task>
+    <task id="LOCAL-00057" summary="优化">
+      <created>1459429405559</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1459429405559</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1070,31 +1154,31 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0016366612" sideWeight="0.33016106" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.366322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08201893" sideWeight="0.4568082" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07255521" sideWeight="0.47119644" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.26070902" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26061493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06710311" sideWeight="0.47437775" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16202946" sideWeight="0.4531479" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.023659306" sideWeight="0.633678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.016366612" sideWeight="0.5431918" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.49790135" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14729951" sideWeight="0.49790135" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1340694" sideWeight="0.33604136" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26061493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.4948605" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07728706" sideWeight="0.49487555" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1109,15 +1193,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加异步请求jar包" />
-    <MESSAGE value="功能增加" />
-    <MESSAGE value="增加  读取文件函数" />
-    <MESSAGE value="添加welcome 动画" />
-    <MESSAGE value="更新" />
-    <MESSAGE value="添加缓存图片" />
-    <MESSAGE value="修改验证码类" />
-    <MESSAGE value="更改public" />
-    <MESSAGE value="完善图片及登录处理" />
     <MESSAGE value="Service顶" />
     <MESSAGE value="添加获取信息类" />
     <MESSAGE value="完善MainActivity的图片加载延迟" />
@@ -1125,17 +1200,29 @@
     <MESSAGE value="修改图片Bug" />
     <MESSAGE value="添加设置" />
     <MESSAGE value="添加教务系统" />
-    <MESSAGE value="优化" />
     <MESSAGE value="gengxin" />
     <MESSAGE value="界面" />
     <MESSAGE value="界面+" />
     <MESSAGE value="界面++" />
     <MESSAGE value="界面+++" />
-    <option name="LAST_COMMIT_MESSAGE" value="界面+++" />
+    <MESSAGE value="界面+++&#10;下拉刷新" />
+    <MESSAGE value="sell++" />
+    <MESSAGE value="Present完工" />
+    <MESSAGE value="Main++" />
+    <MESSAGE value="调bug" />
+    <MESSAGE value="互助ok" />
+    <MESSAGE value="所有功能完工" />
+    <MESSAGE value="完工++" />
+    <MESSAGE value="finish();" />
+    <MESSAGE value="Sell完工" />
+    <MESSAGE value="完事" />
+    <MESSAGE value="完工" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1144,405 +1231,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/slidingmenu_item.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/slidingmenu_fragment.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationThirdFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3665338">
-          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/StudyDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85739434">
-          <caret line="57" column="14" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/StudyModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5211267">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAboveFragment1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3802817">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../sdk/platforms/android-20/android.jar!/java/lang/Thread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7088234">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../sdk/platforms/android-20/android.jar!/android/view/ViewGroup.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37616822">
-          <caret line="697" column="19" selection-start-line="697" selection-start-column="19" selection-end-line="697" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8181818">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state vertical-scroll-proportion="2.8269231">
+          <caret line="118" column="48" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/util/HttpRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.256654">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/pull_to_refresh.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41304347">
-          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSetActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4904943">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/WelcomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/RefreshableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.203297">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/YueRunModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2967033">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8901099">
-          <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/RunService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13369964">
-          <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.052941177">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/RunDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30952382">
-          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7802198">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Timer/DateTimePickDialogUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.956044">
-          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45604396">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealSecondFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0494505">
-          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43783784">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainMealActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="73" selection-start-line="81" selection-start-column="73" selection-end-line="81" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/meal_2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.939394">
-          <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../sdk/platforms/android-20/data/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1944447">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6363636">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/run_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8939394">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentSecondFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="70" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/cooperation_1.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/run_1.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37574553">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/meal_1.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26838967">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/meal_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56942004">
-          <caret line="35" column="70" selection-start-line="35" selection-start-column="70" selection-end-line="35" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75922674">
-          <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/item_meal_3_2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1809145">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/YueStudyModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.09490334">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/RunModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.52196836">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/MealService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/StudyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2954955">
-          <caret line="45" column="91" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/model/MealModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="105" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="105" />
+        <state vertical-scroll-proportion="-0.6118881">
+          <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1550,7 +1250,15 @@
     <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="42" selection-end-column="36" />
+          <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealMenuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1558,15 +1266,389 @@
     <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="5" selection-start-line="75" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealThirdFragment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27457628">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.66433567">
+          <caret line="135" column="22" selection-start-line="135" selection-start-column="22" selection-end-line="135" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5944056">
+          <caret line="135" column="22" selection-start-line="134" selection-start-column="21" selection-end-line="135" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentDetailActivity1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="21" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentMainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="22" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentThirdFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66433567">
+          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5611888">
+          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellDetialActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="23" selection-start-line="96" selection-start-column="22" selection-end-line="97" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellMainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="22" selection-start-line="121" selection-start-column="22" selection-end-line="121" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3688811">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellThirdFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4020979">
+          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="21" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueThirdFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueThirdFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0034965035">
+          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/StudyDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4318182">
+          <caret line="135" column="22" selection-start-line="135" selection-start-column="22" selection-end-line="135" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/PhotoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0297203">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/CooperationFragment/CooperationSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MealFragment/MealSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/PresentFragment/PresentSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="84" selection-start-line="79" selection-start-column="84" selection-end-line="79" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueSecondFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26868686">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SysApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3070707">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/RegisterActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.84444445">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainMealActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainPresentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSellActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSetActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainSyllabusActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="55" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainYueActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6141414">
+          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/Set/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/set_about_view.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.534483">
+          <caret line="152" column="57" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainCooperationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2517483">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/ArcMenu/ArcMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+          <folding>
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1944#1945#0" expanded="true" />
+            <element signature="e#2007#2008#0" expanded="true" />
+            <element signature="e#2046#2047#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAboveFragment1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAboveFragment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueAboveFragment3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/RunDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8269231">
+          <caret line="139" column="23" selection-start-line="138" selection-start-column="21" selection-end-line="139" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/YueFragment/YueMainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5681818">
+          <caret line="148" column="48" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/sell_2.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59143966">
+          <caret line="70" column="66" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/SellFragment/SellSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6258741">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/WelcomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="41" selection-start-line="111" selection-start-column="8" selection-end-line="112" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25875485">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16958041">
+          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/imudges/LoveUApp/ui/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2027972">
+          <caret line="137" column="40" selection-start-line="137" selection-start-column="40" selection-end-line="137" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1647,7 +1729,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>android-async-http-1.4.8</last-edited>
+          <last-edited>android-support-v42</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

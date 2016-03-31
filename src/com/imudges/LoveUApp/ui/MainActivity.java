@@ -134,6 +134,8 @@ public class MainActivity extends Activity {
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+            }catch (Exception e){
+                e.getLocalizedMessage();
             }
         }
     }

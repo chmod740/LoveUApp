@@ -63,19 +63,19 @@
                 style="@style/rg_btn_style"
                 android:checked="true"
                 android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="首页" />
+                android:text="查看" />
 
         <RadioButton
                 android:id="@+id/meal_rbTwo"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_two_btn_selector"
-                android:text="搜索" />
+                android:text="新建" />
 
         <RadioButton
                 android:id="@+id/meal_rbThree"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_three_btn_selector"
-                android:text="设置" />
+                android:text="我" />
     </RadioGroup>
 
 </LinearLayout>

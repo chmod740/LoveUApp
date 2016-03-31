@@ -25,7 +25,12 @@
 
     <!--头部结束-->
 
-
+    <TextView android:layout_width="match_parent" android:layout_height="45dp"
+              android:maxLines="2"
+    android:padding="5dp"
+    android:textSize="15dp"
+    android:textColor="@color/black"
+    android:id="@+id/register2_tip"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="  "
               android:textSize="20dp"

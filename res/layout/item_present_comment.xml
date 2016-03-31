@@ -31,5 +31,9 @@
               android:gravity="center"
               android:textColor="@color/black"
               android:id="@+id/present_comment_man"/>
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray" />
 
 </LinearLayout>

@@ -63,13 +63,13 @@
                 style="@style/rg_btn_style"
                 android:checked="true"
                 android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="全部" />
+                android:text="查看" />
 
         <RadioButton
                 android:id="@+id/present_rbTwo"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_two_btn_selector"
-                android:text="上传" />
+                android:text="新建" />
 
         <RadioButton
                 android:id="@+id/present_rbThree"

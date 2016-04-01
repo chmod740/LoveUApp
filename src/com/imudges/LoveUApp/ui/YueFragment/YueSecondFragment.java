@@ -51,6 +51,9 @@ public class YueSecondFragment extends Fragment{
 
                 infomation = info.getText().toString();
                 addrss = add.getText().toString();
+                //将两个框内文字清除
+                info.setText("");
+                add.setText("");
                 Toast.makeText(getActivity(),addrss,Toast.LENGTH_SHORT).show();
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
                         getActivity(), initEndDateTime,infomation,addrss,1);

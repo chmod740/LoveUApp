@@ -4,10 +4,19 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/background"
+              android:background="@color/white"
               android:orientation="vertical" >
 
     <!-- 上边菜单栏 -->
+    <fragment
+            android:id="@+id/meal_top_fragment1"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.MealFragment.MealAboveFragment1"
+            android:layout_weight="0.5">
+    </fragment>
+
     <fragment
             android:id="@+id/meal_top_fragment3"
             android:layout_width="fill_parent"
@@ -62,17 +71,23 @@
                 android:id="@+id/meal_rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
-                android:drawableTop="@drawable/rb_one_btn_selector"/>
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="约"
+        />
 
         <RadioButton
                 android:id="@+id/meal_rbTwo"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_two_btn_selector"/>
+                android:drawableTop="@drawable/rb_two_btn_selector"
+                android:text="发布"
+        />
 
         <RadioButton
                 android:id="@+id/meal_rbThree"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_three_btn_selector"/>
+                android:drawableTop="@drawable/rb_three_btn_selector"
+                android:text="我发布的"
+        />
     </RadioGroup>
 
 </LinearLayout>

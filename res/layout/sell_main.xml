@@ -4,7 +4,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/background"
+              android:background="@color/white"
               android:orientation="vertical" >
 
     <!-- 上边菜单栏 -->
@@ -17,6 +17,14 @@
             android:layout_weight="0.5">
     </fragment>
 
+    <fragment
+            android:id="@+id/sell_top_fragment1"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.SellFragment.SellAboveFragment3"
+            android:layout_weight="0.5">
+    </fragment>
     <!-- 上边主页面 -->
 
     <fragment
@@ -62,17 +70,23 @@
                 android:id="@+id/sell_rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
-                android:drawableTop="@drawable/rb_one_btn_selector" />
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="1"
+        />
 
         <RadioButton
                 android:id="@+id/sell_rbTwo"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_two_btn_selector" />
+                android:drawableTop="@drawable/rb_two_btn_selector"
+                android:text="2"
+        />
 
         <RadioButton
                 android:id="@+id/sell_rbThree"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_three_btn_selector" />
+                android:drawableTop="@drawable/rb_three_btn_selector"
+                android:text="3"
+        />
     </RadioGroup>
 
 </LinearLayout>

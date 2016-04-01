@@ -65,6 +65,9 @@ public class MealSecondFragment extends Fragment {
 //                Toast.makeText(getActivity(),infomation,Toast.LENGTH_LONG).show();
                 addrss = add.getText().toString();
 //                Toast.makeText(getActivity(), addrss, Toast.LENGTH_SHORT).show();
+                //将两个框内文字清除
+                info.setText("");
+                add.setText("");
                 MealDateTimePickDialogUitl dateTimePicKDialog = new MealDateTimePickDialogUitl(
                         getActivity(), initEndDateTime, infomation, addrss, which);
                 dateTimePicKDialog.dateTimePicKDialog(ed);

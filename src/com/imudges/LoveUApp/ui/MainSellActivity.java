@@ -45,19 +45,20 @@ public class MainSellActivity extends FragmentActivity{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sell_main);
         SysApplication.getInstance().addActivity(this);
-        mFragments = new Fragment[5];
+        mFragments = new Fragment[6];
         fragmentManager = getSupportFragmentManager();
         mFragments[0] = fragmentManager.findFragmentById(R.id.sell_fragment1);
         mFragments[1] = fragmentManager.findFragmentById(R.id.sell_fragment2);
         mFragments[2] = fragmentManager.findFragmentById(R.id.sell_fragment3_1);
         mFragments[3] = fragmentManager.findFragmentById(R.id.sell_fragment3_2);
 
-        mFragments[4] = fragmentManager.findFragmentById(R.id.sell_top_fragment3);
+        mFragments[4] = fragmentManager.findFragmentById(R.id.sell_top_fragment1);
+        mFragments[5] = fragmentManager.findFragmentById(R.id.sell_top_fragment3);
 
         fragmentTransaction = fragmentManager.beginTransaction()
                 .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
-                .hide(mFragments[3]).hide(mFragments[4]);
-        fragmentTransaction.show(mFragments[0]).commit();
+                .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5]);
+        fragmentTransaction.show(mFragments[0]).show(mFragments[4]).commit();
         setFragmentIndicator();
     }
 
@@ -72,10 +73,10 @@ public class MainSellActivity extends FragmentActivity{
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 fragmentTransaction = fragmentManager.beginTransaction()
                         .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
-                        .hide(mFragments[3]).hide(mFragments[4]);
+                        .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5]);
                 switch (checkedId) {
                     case R.id.sell_rbOne:
-                        fragmentTransaction.show(mFragments[0]).commit();
+                        fragmentTransaction.show(mFragments[0]).show(mFragments[4]).commit();
                         break;
 
                     case R.id.sell_rbTwo:
@@ -83,7 +84,7 @@ public class MainSellActivity extends FragmentActivity{
                         break;
 
                     case R.id.sell_rbThree:
-                        fragmentTransaction.show(mFragments[2]).show(mFragments[4]).commit();
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[5]).commit();
                         topRg.check(R.id.sell_top_31);
                         break;
 
@@ -98,14 +99,14 @@ public class MainSellActivity extends FragmentActivity{
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 fragmentTransaction = fragmentManager.beginTransaction()
                         .hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2])
-                        .hide(mFragments[3]).hide(mFragments[4]);
+                        .hide(mFragments[3]).hide(mFragments[4]).hide(mFragments[5]);
                 switch (checkedId) {
                     case R.id.sell_top_31:
-                        fragmentTransaction.show(mFragments[2]).show(mFragments[4]).commit();
+                        fragmentTransaction.show(mFragments[2]).show(mFragments[5]).commit();
                         break;
 
                     case R.id.sell_top_32:
-                        fragmentTransaction.show(mFragments[3]).show(mFragments[4]).commit();
+                        fragmentTransaction.show(mFragments[3]).show(mFragments[5]).commit();
                         break;
 
                     default:

@@ -43,6 +43,8 @@ public class CooperationSecondFragment extends Fragment{
             public void onClick(View view) {
                 biaotiString=biaoti.getText().toString();
                 neirongString=neirong.getText().toString();
+                biaoti.setText("");
+                neirong.setText("");
                 if(biaotiString.equals("")||neirongString.equals("")){
                     Toast.makeText(getActivity().getApplicationContext(), "请完善信息！", Toast.LENGTH_SHORT).show();
                 }else{

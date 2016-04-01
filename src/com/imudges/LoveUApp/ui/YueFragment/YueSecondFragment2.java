@@ -50,6 +50,9 @@ public class YueSecondFragment2 extends Fragment {
 
                 infomation = info.getText().toString();
                 addrss = add.getText().toString();
+                //将两个框内文字清除
+                info.setText("");
+                add.setText("");
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
                         getActivity(), initEndDateTime,infomation,addrss,2);
                 dateTimePicKDialog.dateTimePicKDialog(ed);

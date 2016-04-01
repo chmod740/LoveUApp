@@ -43,7 +43,6 @@ public class MainYueActivity extends FragmentActivity {
 
         //初始化滑动菜单
         initSlidingMenu();
-        
 //        initView();
 
     }

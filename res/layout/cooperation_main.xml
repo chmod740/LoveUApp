@@ -4,10 +4,19 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/background"
+              android:background="@color/white"
               android:orientation="vertical" >
 
     <!-- 上边菜单栏 -->
+    <fragment
+            android:id="@+id/cooperation_top_fragment1"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_height="55dp"
+            android:name="com.imudges.LoveUApp.ui.CooperationFragment.CooperationAboveFragment1"
+            android:layout_weight="0.5">
+    </fragment>
+
     <fragment
             android:id="@+id/cooperation_top_fragment3"
             android:layout_width="fill_parent"
@@ -16,7 +25,6 @@
             android:name="com.imudges.LoveUApp.ui.CooperationFragment.CooperationAboveFragment3"
             android:layout_weight="0.5">
     </fragment>
-
     <!-- 上边主页面 -->
 
     <fragment

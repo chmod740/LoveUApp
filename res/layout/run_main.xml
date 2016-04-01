@@ -4,7 +4,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/background"
+              android:background="@color/white"
               android:orientation="vertical"
               android:fitsSystemWindows="true"
 android:clipToPadding="true">
@@ -92,17 +92,23 @@ android:clipToPadding="true">
                 android:id="@+id/rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
-                android:drawableTop="@drawable/rb_one_btn_selector"/>
+                android:drawableTop="@drawable/rb_one_btn_selector"
+                android:text="约"
+        />
 
         <RadioButton
                 android:id="@+id/rbTwo"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_two_btn_selector"/>
+                android:drawableTop="@drawable/rb_two_btn_selector"
+                android:text="发布"
+        />
 
         <RadioButton
                 android:id="@+id/rbThree"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_three_btn_selector"/>
+                android:drawableTop="@drawable/rb_three_btn_selector"
+                android:text="我发出的"
+        />
     </RadioGroup>
 
 </LinearLayout>

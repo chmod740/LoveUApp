@@ -22,7 +22,7 @@
         />
     </LinearLayout>-->
     <TextView  android:layout_width="match_parent" android:layout_height="50dp"
-               android:background="#FF72CAE1"
+               android:background="@color/darkblue"
                android:textSize="20dp"
                android:textColor="@color/black"
                android:gravity="center"

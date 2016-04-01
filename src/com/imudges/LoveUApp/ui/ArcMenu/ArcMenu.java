@@ -42,7 +42,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
     /**
      * 当前ArcMenu的状态
      */
-    private Status mCurrentStatus = Status.CLOSE;
+    private Status mCurrentStatus = Status.OPEN;
     /**
      * 回调接口
      */
@@ -171,7 +171,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
             for (int i = 0; i < count - 1; i++)
             {
                 View child = getChildAt(i + 1);
-                child.setVisibility(View.GONE);
+                child.setVisibility(View.VISIBLE);
                 if(i<3){
                     cl = (int) (mRadius * Math.sin(Math.PI/ (count - 4)
                             * i));

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+                android:background="@drawable/meunt"
               android:layout_height="match_parent">
 
     <LinearLayout android:layout_width="match_parent"
@@ -10,23 +11,39 @@
 
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp">
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
                        android:id="@+id/menu_img_user"
                        android:clickable="true"/>
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textSize="20sp"
-                      android:layout_toRightOf="@+id/menu_img_user"
-                      android:layout_centerVertical="true"
-                      android:layout_marginLeft="10dp"
-                      android:id="@+id/menu_text"
-                      android:gravity="center"
-                      android:clickable="true"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_toRightOf="@+id/menu_img_user"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="5dp"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textSize="22dp"
+                          android:textColor="@color/black"
+                          android:id="@+id/menu_text"
+                          android:gravity="center_vertical"
+                          android:clickable="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textSize="15dp"
+                          android:background="@drawable/edittext_selector"
+                          android:textColor="@color/black"
+                          android:gravity="center_vertical"
+                          android:text="天道酬勤。。。"
+                          android:clickable="true"/>
+            </LinearLayout>
+
         </RelativeLayout>
 
+        <TextView android:layout_width="match_parent" android:layout_height="50dp"/>
         <ListView android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:paddingTop="20dp"
@@ -47,7 +64,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentBottom="true"
                   android:text="设置"
-                  android:textColor="@color/white"
+                  android:textColor="@color/black"
                   android:textSize="20dp"
                   android:paddingLeft="7dp"
                   android:paddingBottom="23dp"

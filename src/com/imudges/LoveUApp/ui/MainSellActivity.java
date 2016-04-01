@@ -31,7 +31,7 @@ public class MainSellActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
 
         //设置标题
-        setTitle("Sell");
+        //setTitle("Sell");
 
         //初始化主界面
         initMain();

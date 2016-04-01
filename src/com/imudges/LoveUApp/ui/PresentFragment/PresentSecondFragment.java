@@ -79,7 +79,7 @@ public class PresentSecondFragment extends Fragment {
                 PhotoService service=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/giveservice/UpGiveService.php");
                 //Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 String s=service.Uppic(username,secretkey,Path,infoString);
-                System.out.println("信息就是："+infoString);
+                //System.out.println("信息就是："+infoString);
 //                Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
 //                System.out.println(s+"******************************************"+secretkey);
             }
@@ -137,6 +137,8 @@ public class PresentSecondFragment extends Fragment {
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+            }catch (Exception e){
+                e.getLocalizedMessage();
             }
         }
     }

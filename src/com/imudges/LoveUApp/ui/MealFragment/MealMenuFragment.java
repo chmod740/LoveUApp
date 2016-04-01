@@ -65,17 +65,17 @@ public class MealMenuFragment extends Fragment {
                     case 2:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainPresentActivity.class));
                         break;
-                    case 3:
-                        startActivity(new Intent(getActivity().getApplicationContext(),MainSellActivity.class));
+                    case 3:Toast.makeText(getActivity(), "由于资金流问题，该功能无法应用，敬请期待!", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(getActivity().getApplicationContext(),MainSellActivity.class));
                         break;
-                    case 4:
-                        startActivity(new Intent(getActivity().getApplicationContext(),MainCooperationActivity.class));
+                    case 4:Toast.makeText(getActivity(), "由于资金流问题，该功能无法应用，敬请期待!", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(getActivity().getApplicationContext(),MainCooperationActivity.class));
                         break;
                     case 5:
                         startActivity(new Intent(getActivity().getApplicationContext(),MainSyllabusActivity.class));
                         break;
                 }
-                getActivity().finish();
+                //getActivity().finish();
             }
         });
         UserSet.setOnClickListener(new View.OnClickListener() {

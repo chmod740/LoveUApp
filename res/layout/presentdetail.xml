@@ -10,21 +10,22 @@
         <TextView android:layout_width="match_parent"
                   android:layout_weight="1"
                   android:text="返回"
+                  android:textSize="20dp"
                   android:gravity="center"
                   android:id="@+id/present_d_back"
                   android:clickable="true"
-                  android:background="@drawable/set_button"
+                  android:background="@drawable/detail_button"
                   android:layout_height="match_parent"/>
         <TextView android:layout_width="match_parent" android:layout_height="50dp"
                   android:text="详情"
-                  android:textSize="25dp"
+                  android:textSize="20dp"
                   android:layout_weight="1"
                   android:textColor="@color/white"
-                  android:background="@color/blue"
+                  android:background="#FF72CAE1"
                   android:gravity="center"/>
         <TextView android:layout_width="match_parent"
                   android:layout_weight="1"
-                  android:background="@color/blue"
+                  android:background="#FF72CAE1"
                   android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"

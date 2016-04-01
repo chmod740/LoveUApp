@@ -68,9 +68,11 @@ public class MainActivity extends Activity {
                         break;
                     case 2:startActivity(new Intent(getApplicationContext(),MainSyllabusActivity.class));
                         break;
-                    case 3:startActivity(new Intent(getApplicationContext(),MainSellActivity.class));
+                    case 3://startActivity(new Intent(getApplicationContext(),MainSellActivity.class));
+                        Toast.makeText(MainActivity.this, "由于资金流问题，该功能无法应用，敬请期待!", Toast.LENGTH_SHORT).show();
                         break;
-                    case 4:startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));
+                    case 4://startActivity(new Intent(getApplicationContext(),MainCooperationActivity.class));
+                        Toast.makeText(MainActivity.this, "由于资金流问题，该功能无法应用，敬请期待!", Toast.LENGTH_SHORT).show();
                         break;
                     case 5:startActivity(new Intent(getApplicationContext(),MainMealActivity.class));
                         break;

@@ -130,7 +130,7 @@ public class PhotoService {
             while ((ch = is.read()) != -1){
                 b.append((char) ch);
             }
-            return "上传成功"+b.toString();
+            return "上传成功";
 
         } catch (Exception e){
             return e.toString();

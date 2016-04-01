@@ -38,19 +38,18 @@ import java.util.Map;
  */
 public class PresentCommentActivity extends Activity {
     private ListView listView;
-    private SimpleAdapter simpleAdapter;
+    CommentAdapter adapter;
+    private List<String> name;
+    private List<String> info;
+    private List<String> Url;
+
     private RefreshableView refreshableView;
     private String url;
     private String responStr;
     private RequestParams params;
     private List<GetPresentModel> getPresentModels;
-    private int Length = 0;
-    private  Map<String, Object> map;
     private List<String> user_id=new ArrayList<>();
     private String id;
-    private String responStr1;
-    private String url1;
-    private RequestParams params1;
     private String username;
     private String secretkey;
     private boolean set;
@@ -69,21 +68,19 @@ public class PresentCommentActivity extends Activity {
         set = bundle.getBoolean("set");
         listView = (ListView) findViewById(R.id.present_comment_list);
         loadData(getApplicationContext());
-        simpleAdapter = new SimpleAdapter(this,
-                GetData(),
-                R.layout.item_present_comment,
-                new String[]{"man", "info", "img"},
-                new int[]{R.id.present_comment_man, R.id.present_comment_info, R.id.present_comment_img}
-        );
-        listView.setAdapter(simpleAdapter);
+        name=new ArrayList<>();
+        info=new ArrayList<>();
+        Url=new ArrayList<>();
+        GetData();
+
         if (set == true) {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                    Toast.makeText(getApplicationContext(),"点击了",Toast.LENGTH_SHORT).show();
-                    //上传
-                    System.out.println("点击后发生的"+secretkey+" "+username+" "+getPresentModels.get(i).getGiveId() + " "+getPresentModels.get(i).getUserName());
+//                    Toast.makeText(getApplicationContext(),"点击了",Toast.LENGTH_SHORT).show();
+//                    //上传
+//                    System.out.println("点击后发生的"+secretkey+" "+username+" "+getPresentModels.get(i).getGiveId() + " "+getPresentModels.get(i).getUserName());
                     makeYY(secretkey, username, getPresentModels.get(i).getGiveId() + "", getPresentModels.get(i).getUserName(), getApplicationContext(), new Listener() {
 
                         @Override
@@ -116,8 +113,7 @@ public class PresentCommentActivity extends Activity {
         }, ReFreshId.Present_1);
     }
 
-    public List<Map<String, Object>> GetData(){
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+    public void GetData(){
 
         url="giveservice/GetService.php";
         params=new RequestParams();
@@ -127,21 +123,18 @@ public class PresentCommentActivity extends Activity {
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 responStr=new String(bytes);
                 try{
-                    System.out.println(responStr);
                     Gson gson=new Gson();
                     getPresentModels = gson.fromJson(responStr,new TypeToken<List<GetPresentModel>>(){}.getType());
 
-                    Length=getPresentModels.size();
                     int j;
-                    for(j=0;j<Length;j++) {
-                        int img = R.drawable.ic_launcher;
-                        map = new HashMap<String, Object>();
-                        map.put("man",getPresentModels.get(j).getUserName());
-                        map.put("info", getPresentModels.get(j).getGetInformation());
-                        map.put("img",R.drawable.ic_launcher);
+                    for(j=0;j<getPresentModels.size();j++) {
                         user_id.add(j,getPresentModels.get(j).getGiveId()+"");
-                        list.add(map);
+                        name.add(getPresentModels.get(j).getUserName());
+                        info.add(getPresentModels.get(j).getGetInformation());
+                        Url.add(getPresentModels.get(j).getGiveImage());
                     }
+                    adapter=new CommentAdapter(getApplicationContext(),Url,name,info,listView);
+                    listView.setAdapter(adapter);
                 }catch(Exception e){
                     Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
@@ -151,7 +144,6 @@ public class PresentCommentActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
-        return list;
     }
     public void next(){
         new Thread(){

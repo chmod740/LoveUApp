@@ -146,7 +146,6 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
         int count = getChildCount();
         for (int i = 0; i < count; i++)
         {
-            // mesure child
             getChildAt(i).measure(MeasureSpec.UNSPECIFIED,
                     MeasureSpec.UNSPECIFIED);
         }
@@ -172,6 +171,9 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
             {
                 View child = getChildAt(i + 1);
                 child.setVisibility(View.VISIBLE);
+                child.setClickable(true);
+                child.setFocusable(true);
+
                 if(i<3){
                     cl = (int) (mRadius * Math.sin(Math.PI/ (count - 4)
                             * i));
@@ -208,6 +210,12 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
         View cButton = getChildAt(0);
 
         cButton.setOnClickListener(this);
+
+        int count = getChildCount();
+        for (int i = 0; i < count - 1; i++) {
+            View child = getChildAt(i + 1);
+            child.setOnClickListener(this);
+        }
 
 
         int width = cButton.getMeasuredWidth();
@@ -336,8 +344,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
             animset.addAnimation(animation);
             childView.startAnimation(animset);
             final int index = i + 1;
-            childView.setOnClickListener(new View.OnClickListener()
-            {
+            childView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v)
                 {

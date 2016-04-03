@@ -21,33 +21,32 @@ import com.imudges.LoveUApp.ui.Set.UserSet;
  */
 public class MainSetActivity extends Activity{
 
-    private TextView set_phone,setback,setself;
-    private ImageView set_image;
-    private TextView set_help,set_about,set_out;
-    private LinearLayout set_user,set_user_P;
+    private TextView set_phone;
+    private ImageView set_image,setback;
+    private TextView set_out;
+    private LinearLayout set_user,set_user_P,set_about,set_help,setself,chong;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        setContentView(R.layout.setting);
+        setContentView(R.layout.set_ting);
         init();
         setUserImage();
         Myclick();
     }
 
     public void init(){
-        set_about=(TextView)findViewById(R.id.set_user_about);
+        set_about=(LinearLayout)findViewById(R.id.set_user_about);
         set_image=(ImageView)findViewById(R.id.set_imageView);
-        set_help=(TextView)findViewById(R.id.set_user_Help);
+        set_help=(LinearLayout)findViewById(R.id.set_user_Help);
         set_phone=(TextView)findViewById(R.id.setPhone);
         set_out=(TextView)findViewById(R.id.set_user_Out);
-        setback=(TextView)findViewById(R.id.setback);
+        setback=(ImageView)findViewById(R.id.setback);
         set_user=(LinearLayout) findViewById(R.id.set_user_User);
         set_user_P=(LinearLayout) findViewById(R.id.set_user_Phone);
-        setself=(TextView) findViewById(R.id.set_user_self);
+        setself=(LinearLayout) findViewById(R.id.set_user_self);
 
+        chong=(LinearLayout)findViewById(R.id.set_user_chongzhi);
     }
     public void Myclick(){
         //用户管理
@@ -99,6 +98,12 @@ public class MainSetActivity extends Activity{
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainSetActivity.this, "个人信息", Toast.LENGTH_SHORT).show();
+            }
+        });
+        chong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainSetActivity.this, "充值", Toast.LENGTH_SHORT).show();
             }
         });
     }

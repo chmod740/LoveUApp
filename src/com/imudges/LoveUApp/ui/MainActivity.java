@@ -127,9 +127,9 @@ public class MainActivity extends Activity {
 
                 PhotoService service=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/service/ImageService.php");
                 Get get1=new Get("UserKey",getApplicationContext());
-                //String s=service.uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
+                String s=service.uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
 //                System.out.println(s);
-//                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

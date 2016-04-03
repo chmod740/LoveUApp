@@ -144,8 +144,10 @@ public class RegisterActivity extends Activity {
         password2 = ed_password2.getText().toString();
 
 
-        if(password1.equals(password2)!=true)
+        if(password1.equals(password2)!=true){
+            Toast.makeText(RegisterActivity.this, "密码不一致", Toast.LENGTH_SHORT).show();
             return ;
+        }
         register(username,password1,number,sexvalue);
     }
 }

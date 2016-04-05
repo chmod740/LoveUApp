@@ -26,7 +26,7 @@
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:textSize="22dp"
-                          android:textColor="@color/black"
+                          android:textColor="@color/white"
                           android:id="@+id/menu_text"
                           android:gravity="center_vertical"
                           android:clickable="true"/>
@@ -34,8 +34,7 @@
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:textSize="15dp"
-                          android:background="@drawable/edittext_selector"
-                          android:textColor="@color/black"
+                          android:textColor="@color/white"
                           android:gravity="center_vertical"
                           android:text="天道酬勤。。。"
                           android:clickable="true"/>
@@ -64,7 +63,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentBottom="true"
                   android:text="设置"
-                  android:textColor="@color/black"
+                  android:textColor="@color/white"
                   android:textSize="20dp"
                   android:paddingLeft="7dp"
                   android:paddingBottom="23dp"

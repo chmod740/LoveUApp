@@ -132,7 +132,7 @@ public class MainActivity extends FragmentActivity{
             public void run() {
                 try {
                     while(true){
-                        Thread.sleep(2500);
+                        Thread.sleep(2000);
                         handler.sendEmptyMessage(0x9527);
                     }
                 } catch (Exception e) {

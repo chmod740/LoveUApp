@@ -15,7 +15,7 @@
                   android:id="@+id/item"
                   android:textSize="20dp"
                   android:gravity="center_vertical"
-                  android:textColor="@color/black"/>
+                  android:textColor="@color/white"/>
     </LinearLayout>
     <TextView android:layout_width="match_parent"
               android:background="#EAEAEA"

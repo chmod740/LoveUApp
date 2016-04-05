@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.imudges.LoveUApp.ui.MainMealActivity;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.ui.Timer.MealDateTimePickDialogUitl;
 
@@ -14,7 +15,7 @@ import com.imudges.LoveUApp.ui.Timer.MealDateTimePickDialogUitl;
  */
 public class MealSecondFragment extends Fragment {
 
-    private Button bt;
+    private Button bt,btn;
     private String infomation;
     private EditText info;
     private EditText ed;
@@ -72,6 +73,13 @@ public class MealSecondFragment extends Fragment {
                         getActivity(), initEndDateTime, infomation, addrss, which);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
 
+            }
+        });
+
+        btn = (Button) getView().findViewById(R.id.meal_top_2_button);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MainMealActivity.getMenu().showMenu();//显示SlidingMenu
             }
         });
     }

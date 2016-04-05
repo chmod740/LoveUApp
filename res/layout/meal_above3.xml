@@ -5,6 +5,11 @@
                 android:background="@color/darkblue"
                 android:layout_height="match_parent">
 
+    <Button android:id="@+id/meal_top_3_button"
+            android:background="@drawable/open_slidingmenu"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"/>
+
 <RadioGroup
         android:id="@+id/meal_topRg3"
         android:layout_width="wrap_content"

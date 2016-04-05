@@ -20,7 +20,7 @@ import com.slidingmenu.lib.SlidingMenu;
  * Created by dy on 2016/3/9.
  */
 public class MainSellActivity extends FragmentActivity{
-    private SlidingMenu menu;
+    private static SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
@@ -142,5 +142,8 @@ public class MainSellActivity extends FragmentActivity{
         } else {
             super.onBackPressed();
         }
+    }
+    public static SlidingMenu getMenu() {
+        return menu;
     }
 }

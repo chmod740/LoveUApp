@@ -19,7 +19,7 @@ import com.slidingmenu.lib.SlidingMenu;
  * Created by 1111 on 2016/3/14.
  */
 public class MainCooperationActivity extends FragmentActivity {
-    private SlidingMenu menu;
+    private static SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
@@ -142,5 +142,9 @@ public class MainCooperationActivity extends FragmentActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public static SlidingMenu getMenu() {
+        return menu;
     }
 }

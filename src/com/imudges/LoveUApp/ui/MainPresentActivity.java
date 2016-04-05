@@ -18,7 +18,7 @@ import com.slidingmenu.lib.SlidingMenu;
  */
 public class MainPresentActivity extends FragmentActivity {
 
-    private SlidingMenu menu;
+    private static SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
@@ -141,5 +141,9 @@ public class MainPresentActivity extends FragmentActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public static SlidingMenu getMenu() {
+        return menu;
     }
 }

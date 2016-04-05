@@ -21,7 +21,7 @@ import com.slidingmenu.lib.SlidingMenu;
  * Created by dy on 2016/3/9.
  */
 public class MainMealActivity extends FragmentActivity {
-    private SlidingMenu menu;
+    private static SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg,topRg;
     private FragmentManager fragmentManager;
@@ -154,5 +154,9 @@ public class MainMealActivity extends FragmentActivity {
 
     public static String getMealId(){
         return mealID;
+    }
+
+    public static SlidingMenu getMenu() {
+        return menu;
     }
 }

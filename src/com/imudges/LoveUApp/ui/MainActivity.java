@@ -1,23 +1,36 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.*;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
 import com.imudges.LoveUApp.ui.ArcMenu.MyThread;
+import com.imudges.LoveUApp.ui.MealFragment.MealMenuFragment;
+import com.slidingmenu.lib.SlidingMenu;
 
 
 /**
  * Created by dy on 2016/3/9.
  */
-public class MainActivity extends Activity{
+public class MainActivity extends FragmentActivity{
 
+    private SlidingMenu menu;
     public static boolean key=false;
 
     private ViewFlipper viewFlipper;
@@ -34,6 +47,9 @@ public class MainActivity extends Activity{
         setContentView(R.layout.main_another);
         SysApplication.getInstance().addActivity(this);
         init();
+
+        //初始化滑动菜单
+        initSlidingMenu();
 
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
@@ -155,4 +171,21 @@ public class MainActivity extends Activity{
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * 初始化滑动菜单
+     */
+    private void initSlidingMenu() {
+        // 设置滑动菜单的属性值
+        menu = new SlidingMenu(this);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setShadowWidthRes(R.dimen.shadow_width);
+        menu.setShadowDrawable(R.drawable.shadow);
+        menu.toggle();
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        // 设置滑动菜单的视图界面
+        menu.setMenu(R.layout.menu_fragment);
+        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new MainMenuFragment()).commit();
+    }
 }

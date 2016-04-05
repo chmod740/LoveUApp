@@ -20,6 +20,7 @@ import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.SellPhotoService;
 import com.imudges.LoveUApp.service.SellService;
+import com.imudges.LoveUApp.ui.MainSellActivity;
 import com.imudges.LoveUApp.ui.R;
 
 import java.io.FileNotFoundException;
@@ -40,7 +41,7 @@ public class SellSecondFragment extends Fragment {
     private Spinner spinner;
     private ArrayAdapter<String> adapter;
     private EditText title,info;
-    private Button selectimg,sure;
+    private Button selectimg,sure,btn;
     private ImageView Image;
     private String time;
     private String titleString,infoString;//EditText 中的数据
@@ -63,6 +64,13 @@ public class SellSecondFragment extends Fragment {
         selectimg = (Button) getView().findViewById(R.id.sell_2_selectimg);
         sure = (Button) getView().findViewById(R.id.sell_2_sure);
         Image=(ImageView) getView().findViewById(R.id.sell_image);
+        btn = (Button) getView().findViewById(R.id.sell_top_2_button);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MainSellActivity.getMenu().showMenu();//显示SlidingMenu
+            }
+        });
+
         myclick();
 
         spinner = (Spinner)getView().findViewById(R.id.sell_2_spinner);

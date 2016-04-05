@@ -4,6 +4,10 @@
                 android:layout_width="match_parent"
                 android:background="@color/darkblue"
                 android:layout_height="40dp">
+    <Button android:id="@+id/cooperation_top_1_button"
+            android:background="@drawable/open_slidingmenu"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"/>
     <TextView android:id="@+id/cooperation_above1_tv"
               android:layout_width="wrap_content"
               android:layout_height="match_parent"

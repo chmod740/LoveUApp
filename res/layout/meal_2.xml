@@ -5,28 +5,23 @@
               android:orientation="vertical"
               android:fitsSystemWindows="true"
 >
-    <!--<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:orientation="horizontal"
-                  android:background="@color/blue">
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="25dp"
-                android:text="@string/fuhao"
-                android:id="@+id/run2_back"
-                android:background="@color/blue"/>
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:background="@color/blue"
-                  android:text="                学"
-                  android:textSize="25dp"
-                  android:textColor="@color/white"
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/darkblue">
+        <Button android:id="@+id/meal_top_2_button"
+                android:background="@drawable/open_slidingmenu"
+                android:layout_width="45dp"
+                android:paddingTop="5dp"
+                android:layout_height="wrap_content"/>
+        <TextView  android:layout_width="match_parent"
+                   android:layout_height="45dp"
+                   android:textSize="20dp"
+                   android:textColor="@color/white"
+                   android:gravity="center"
+                   android:text="创建约会         "/>
+    </LinearLayout>
 
-        />
-    </LinearLayout>-->
-    <TextView  android:layout_width="match_parent" android:layout_height="50dp"
-               android:background="@color/darkblue"
-               android:textSize="20dp"
-               android:textColor="@color/white"
-               android:gravity="center"
-               android:text="创建约会"/>
 
     <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -70,8 +65,9 @@
                       android:paddingLeft="3dp"
                       android:paddingRight="3dp"
                       android:paddingTop="3dp">
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-android:textSize="@dimen/edtextsize"
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:textSize="@dimen/edtextsize"
                       android:textColor="@color/black"
                       android:text="内容："/>
             <EditText android:layout_width="match_parent" android:layout_height="match_parent"

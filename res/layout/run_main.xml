@@ -7,13 +7,13 @@
               android:background="@color/white"
               android:orientation="vertical"
               android:fitsSystemWindows="true"
-android:clipToPadding="true">
+              android:clipToPadding="true">
     <!-- 上边菜单栏 -->
 
     <fragment
             android:id="@+id/top_fragment1"
             android:layout_width="fill_parent"
-            android:layout_height="55dp"
+            android:layout_height="45dp"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment1"
             android:layout_weight="0.5">
     </fragment>
@@ -21,7 +21,7 @@ android:clipToPadding="true">
     <fragment
             android:id="@+id/top_fragment2"
             android:layout_width="fill_parent"
-            android:layout_height="55dp"
+            android:layout_height="45dp"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment2"
             android:layout_weight="0.5">
     </fragment>
@@ -30,7 +30,7 @@ android:clipToPadding="true">
             android:id="@+id/top_fragment3"
             android:layout_width="fill_parent"
             android:layout_gravity="center"
-            android:layout_height="55dp"
+            android:layout_height="45dp"
             android:name="com.imudges.LoveUApp.ui.YueFragment.YueAboveFragment3"
             android:layout_weight="0.5">
     </fragment>

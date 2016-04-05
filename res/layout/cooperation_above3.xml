@@ -3,9 +3,12 @@
               android:orientation="vertical"
               android:background="@color/darkblue"
               android:layout_width="match_parent"
-
               android:layout_height="match_parent">
 
+    <Button android:id="@+id/cooperation_top_3_button"
+            android:background="@drawable/open_slidingmenu"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"/>
     <RadioGroup
             android:id="@+id/cooperation_topRg3"
             android:layout_width="wrap_content"

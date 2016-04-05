@@ -26,6 +26,7 @@ import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.service.PresentService;
 import com.imudges.LoveUApp.ui.MainActivity;
+import com.imudges.LoveUApp.ui.MainPresentActivity;
 import com.imudges.LoveUApp.ui.R;
 
 import java.io.FileNotFoundException;
@@ -47,7 +48,7 @@ public class PresentSecondFragment extends Fragment {
     private ArrayAdapter<String> adapter;
     private String time;
     private EditText title,info;
-    private Button selectimg,sure;
+    private Button selectimg,sure,btn;
     private String username,secretkey;
     private String titleString,infoString;//EditText 中的数据
     private PresentService presentService = new PresentService();
@@ -110,6 +111,12 @@ public class PresentSecondFragment extends Fragment {
             }
         });
 
+        btn = (Button) getView().findViewById(R.id.present_top_2_button);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MainPresentActivity.getMenu().showMenu();//显示SlidingMenu
+            }
+        });
     }
 
     private void loadData(Context context) {

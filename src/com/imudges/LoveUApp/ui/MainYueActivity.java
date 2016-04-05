@@ -22,7 +22,7 @@ import com.slidingmenu.lib.SlidingMenu;
  * Created by dy on 2016/3/9.
  */
 public class MainYueActivity extends FragmentActivity {
-    private SlidingMenu menu;
+    private static SlidingMenu menu;
     private Fragment[] mFragments;
     private RadioGroup bottomRg;
     private RadioGroup topRg1,topRg2,topRg3;
@@ -227,5 +227,9 @@ public class MainYueActivity extends FragmentActivity {
 
     public static String getUserName(){
         return userName;
+    }
+
+    public static SlidingMenu getMenu() {
+        return menu;
     }
 }

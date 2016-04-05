@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.imudges.LoveUApp.ui.MainCooperationActivity;
 import com.imudges.LoveUApp.ui.R;
 import com.imudges.LoveUApp.ui.Timer.HelpDateTimePickDialogUitl;
 
@@ -20,7 +21,7 @@ import com.imudges.LoveUApp.ui.Timer.HelpDateTimePickDialogUitl;
  */
 public class CooperationSecondFragment extends Fragment{
 
-    private Button bt;
+    private Button bt,btn;
     private EditText neirong,biaoti;
     private String initEndDateTime = "2013年9月3日 14:44"; // 初始化开始时间
     private EditText edtime;
@@ -52,6 +53,13 @@ public class CooperationSecondFragment extends Fragment{
                             new HelpDateTimePickDialogUitl(getActivity(),initEndDateTime,neirongString,biaotiString);
                     helpDateTimePickDialogUitl.dateTimePicKDialog(edtime);
                 }
+            }
+        });
+
+        btn = (Button) getView().findViewById(R.id.cooperation_top_2_button);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MainCooperationActivity.getMenu().showMenu();//显示SlidingMenu
             }
         });
     }

@@ -69,7 +69,7 @@ public class PresentSecondFragment extends Fragment {
         info = (EditText) getView().findViewById(R.id.present_2_info);
         selectimg = (Button) getView().findViewById(R.id.present_2_selectimg);
         shengyu = (TextView)getView().findViewById(R.id.present_2_surplus);
-        shengyu.setText("还可以输入100字");
+        shengyu.setText("还可以输入100个字");
         selectimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +92,7 @@ public class PresentSecondFragment extends Fragment {
             public void afterTextChanged(Editable editable) {
                 int num;
                 num=100-editable.length();
-               shengyu.setText("还可以输入"+num+"字");
+               shengyu.setText("还可以输入"+num+"个字");
             }
         });
         sure = (Button) getView().findViewById(R.id.present_2_sure);

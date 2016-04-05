@@ -38,7 +38,12 @@
                   android:id="@+id/cooperation2_biaoti"
                   android:hint="标题"
                   android:textColorHint="@color/gray"
+                  android:maxLines="2"
+                  android:maxLength="20"
                   android:background="@drawable/edittext_selector"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/cooperation2_shengyu1"
+        android:gravity="right"/>
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:text="设置内容："
                   android:textSize="20dp"
@@ -53,7 +58,12 @@
                   android:gravity="top"
                   android:id="@+id/cooperation2_neirong"
                   android:hint="内容"
+                  android:maxLines="7"
+                  android:maxLength="100"
                   android:background="@drawable/edittext_selector"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/cooperation2_shengyu2"
+                  android:gravity="right"/>
         <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
             <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="提交"

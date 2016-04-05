@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ public class CooperationSecondFragment extends Fragment{
     private String initEndDateTime = "2013年9月3日 14:44"; // 初始化开始时间
     private EditText edtime;
     private String neirongString,biaotiString;
+    private TextView shengyu1,shengyu2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,10 +38,50 @@ public class CooperationSecondFragment extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        shengyu1 = (TextView)getView().findViewById(R.id.cooperation2_shengyu1);
+        shengyu2 = (TextView)getView().findViewById(R.id.cooperation2_shengyu2);
+        shengyu1.setText("还可以输入20个字");
+        shengyu2.setText("还可以输入100个字");
         bt=(Button) getView().findViewById(R.id.cooperation2_tijiao);
         edtime = new EditText(getActivity().getApplicationContext());
         neirong = (EditText) getView().findViewById(R.id.cooperation2_neirong);
         biaoti = (EditText) getView().findViewById(R.id.cooperation2_biaoti);
+        biaoti.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int num;
+                num=20-editable.length();
+                shengyu1.setText("还可以输入"+num+"个字");
+            }
+        });
+        neirong.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int num;
+                num=100-editable.length();
+                shengyu2.setText("还可以输入"+num+"个字");
+            }
+        });
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

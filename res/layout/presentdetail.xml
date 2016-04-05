@@ -83,14 +83,14 @@
         <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <Button android:layout_width="match_parent" android:layout_height="50dp"
         android:id="@+id/present_detail_bt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/login_button_selector"
         android:text="我想要~"
         android:textColor="@color/white"
-        android:textSize="23dp"/>
+        android:textSize="18dp"/>
         </RelativeLayout>
     </LinearLayout>
 

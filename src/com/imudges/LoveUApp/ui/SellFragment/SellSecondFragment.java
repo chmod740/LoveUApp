@@ -12,6 +12,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +48,7 @@ public class SellSecondFragment extends Fragment {
     private String time;
     private String titleString,infoString;//EditText 中的数据
     private SellService sellService;
-
+    private TextView shengyu1,shengyu2;
 
     private static final String[] m={"三天","五天","七天"};
     @Override
@@ -58,6 +60,7 @@ public class SellSecondFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
         title = (EditText) getView().findViewById(R.id.sell_2_title);
         info = (EditText) getView().findViewById(R.id.sell_2_info);
@@ -71,6 +74,46 @@ public class SellSecondFragment extends Fragment {
             }
         });
 
+        shengyu1 = (TextView)getView().findViewById(R.id.sell_2_shengyu1);
+        shengyu2 = (TextView)getView().findViewById(R.id.sell_2_shengyu2);
+        shengyu1.setText("还可以输入20个字");
+        shengyu2.setText("还可以输入100个字");
+        title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int num;
+                num=20-editable.length();
+                shengyu1.setText("还可以输入"+num+"个字");
+            }
+        });
+        info.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int num;
+                num=100-editable.length();
+                shengyu2.setText("还可以输入"+num+"个字");
+            }
+        });
         myclick();
 
         spinner = (Spinner)getView().findViewById(R.id.sell_2_spinner);

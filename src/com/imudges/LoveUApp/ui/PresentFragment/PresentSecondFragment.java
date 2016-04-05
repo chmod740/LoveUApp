@@ -13,6 +13,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,7 @@ public class PresentSecondFragment extends Fragment {
     private String titleString,infoString;//EditText 中的数据
     private PresentService presentService = new PresentService();
     private ImageView UserImage;
+    private TextView shengyu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,10 +67,31 @@ public class PresentSecondFragment extends Fragment {
         UserImage = (ImageView) getView().findViewById(R.id.present_2_img);
         info = (EditText) getView().findViewById(R.id.present_2_info);
         selectimg = (Button) getView().findViewById(R.id.present_2_selectimg);
+        shengyu = (TextView)getView().findViewById(R.id.present_2_surplus);
+        shengyu.setText("还可以输入100字");
         selectimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setImage();
+            }
+        });
+
+        info.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int num;
+                num=100-editable.length();
+               shengyu.setText("还可以输入"+num+"字");
             }
         });
         sure = (Button) getView().findViewById(R.id.present_2_sure);

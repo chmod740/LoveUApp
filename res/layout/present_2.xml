@@ -43,7 +43,7 @@
                   android:textSize="@dimen/edtextsize"
                   android:text="详细信息："
                   android:textColor="@color/black"/>
-        <EditText android:layout_width="match_parent" android:layout_height="250dp"
+        <EditText android:layout_width="match_parent" android:layout_height="200dp"
                   android:id="@+id/present_2_info"
                   android:paddingTop="3dp"
                   android:background="@drawable/edittext_selector"
@@ -57,6 +57,9 @@
                   android:paddingRight="3dp"
                   android:textColor="@color/black"
                  />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/present_2_surplus"
+        android:gravity="right"/>
         <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
             <Button android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:textSize="20dp"

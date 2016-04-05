@@ -92,8 +92,9 @@ public class WelcomeActivity extends Activity {
     private class AnimationImpl implements Animation.AnimationListener {
 
         public void onAnimationStart(Animation animation) {
-            if(!checkNetworkAvailable(WelcomeActivity.this)){
-                welcomeImg.setBackgroundResource(R.drawable.welcome);
+            if(true){
+                //!checkNetworkAvailable(WelcomeActivity.this)
+                welcomeImg.setBackgroundResource(R.drawable.we);
             }else{
                 Get get=new Get("AdS",getApplicationContext());
                 Url=get.getout("AdS","http://7xrqhs.com1.z0.glb.clouddn.com/welcome.jpg");

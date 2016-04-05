@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/sell"
+                    android:src="@drawable/sell2"
                     android:tag="Sleep" />
             <TextView android:layout_width="match_parent"
                       android:text="拍卖"

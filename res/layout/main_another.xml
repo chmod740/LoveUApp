@@ -1,0 +1,178 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="350dp">
+
+        <ViewFlipper android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/viewflipper"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_weight="1"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_yue"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_pai"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_present"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_weight="1"
+                      android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_xuan"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_food"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_height="match_parent">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:layout_height="match_parent"/>
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_weight="2"
+                               android:src="@drawable/ic_launcher"
+                               android:clickable="true"
+                               android:id="@+id/main_ke"
+                               android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:layout_weight="3"
+                              android:text="约"
+                              android:textColor="@color/black"
+                              android:gravity="center_horizontal"
+                              android:textSize="15dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

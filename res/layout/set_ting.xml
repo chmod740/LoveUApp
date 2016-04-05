@@ -36,9 +36,10 @@
                           android:id="@+id/set_user_User"
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
-                <ImageView android:layout_width="40dp"
-                           android:src="@drawable/ic_launcher"
-                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="30dp"
+                           android:paddingTop="8dp"
+                           android:src="@drawable/set_personal"
+                           android:layout_height="30dp"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">
@@ -74,9 +75,10 @@
                           android:clickable="true"
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
-                <ImageView android:layout_width="40dp"
-                           android:src="@drawable/ic_launcher"
-                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="30dp"
+                           android:paddingTop="8dp"
+                           android:src="@drawable/set_phone"
+                           android:layout_height="30dp" />
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">
@@ -116,9 +118,10 @@
                           android:id="@+id/set_user_self"
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
-                <ImageView android:layout_width="40dp"
-                           android:src="@drawable/ic_launcher"
-                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="30dp"
+                           android:paddingTop="8dp"
+                           android:src="@drawable/set_information"
+                           android:layout_height="30dp" />
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">
@@ -150,9 +153,10 @@
                           android:id="@+id/set_user_Help"
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
-                <ImageView android:layout_width="40dp"
-                           android:src="@drawable/ic_launcher"
-                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="30dp"
+                           android:paddingTop="8dp"
+                           android:src="@drawable/set_help"
+                           android:layout_height="30dp" />
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">
@@ -184,9 +188,10 @@
                           android:id="@+id/set_user_chongzhi"
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
-                <ImageView android:layout_width="40dp"
-                           android:src="@drawable/ic_launcher"
-                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="30dp"
+                           android:paddingTop="8dp"
+                           android:src="@drawable/set_money"
+                           android:layout_height="30dp"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">
@@ -221,8 +226,9 @@
                           android:layout_height="45dp">
                 <TextView android:layout_width="15dp" android:layout_height="match_parent"/>
                 <ImageView android:layout_width="40dp"
-                           android:src="@drawable/tubiao"
-                           android:layout_height="match_parent"/>
+                           android:paddingTop="8dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/tubiao"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
                               android:layout_height="match_parent">

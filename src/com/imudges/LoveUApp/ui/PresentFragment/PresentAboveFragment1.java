@@ -18,7 +18,7 @@ public class PresentAboveFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.present_above1,container,false);
         tv_titile = (TextView) view.findViewById(R.id.present_above1_tv);
-        tv_titile.setText("赠送");
+        //tv_titile.setText("赠送");
         return view;
     }
 }

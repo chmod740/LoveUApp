@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
+              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:paddingLeft="10dp"
-                  android:paddingRight="10dp"
-                  android:paddingTop="10dp">
-
-
-        <ImageView android:layout_width="100dp" android:layout_height="100dp"
-                   android:id="@+id/meal3_2_img"
-                   android:layout_gravity="center"
-        />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:id="@+id/meal3_2_tx4"
-                  android:text="显示内容"
-                  android:textSize="20dp"
-                  android:textColor="@color/black"
-                  android:paddingBottom="10dp"
-                  android:paddingLeft="10dp"
-                  android:paddingRight="10dp"
-                  android:paddingTop="10dp"/>
-    </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:paddingTop="10dp">
+                  android:orientation="horizontal">
+
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+                      android:paddingTop="10dp">
+
+
+            <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                       android:id="@+id/meal3_2_img"
+                       android:layout_gravity="center"
+            />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:id="@+id/meal3_2_tx4"
+                      android:text="显示内容"
+                      android:textSize="20dp"
+                      android:textColor="@color/black"
+                      android:paddingBottom="10dp"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+                      android:paddingTop="10dp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:paddingTop="10dp">
 
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx2"
@@ -40,12 +44,12 @@
                       android:textSize="20dp"
                       android:layout_weight="1"
                       android:textColor="@color/black"/>
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:id="@+id/meal3_2_tx1"
-                  android:text="显示内容"
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:textColor="@color/black"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/meal3_2_tx1"
+                      android:text="显示内容"
+                      android:textSize="20dp"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"/>
             <!--
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx5"
@@ -55,10 +59,11 @@
                       -->
 
 
+        </LinearLayout>
     </LinearLayout>
     <View
             android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:background="@color/gray" />
+            android:layout_height="2dp"
+            android:background="@color/gray"/>
 
 </LinearLayout>

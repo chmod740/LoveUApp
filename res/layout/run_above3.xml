@@ -12,28 +12,28 @@
             android:orientation="horizontal"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:background="@color/darkblue">
+            android:background="@drawable/abovegroup_selector">
 
         <RadioButton
                 android:id="@+id/run_top_31"
                 android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:checked="true"
                 android:text="发出"
                 android:button="@null"
-                android:textSize="20dp"
+                android:textSize="16dp"
                 android:textColor="@color/abovewrite_selector"
-                android:background="@drawable/abovebutton_selector" />
+                android:background="@drawable/abovebuttonl_selector" />
         <RadioButton
                 android:id="@+id/run_top_32"
                 android:button="@null"
                 android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:textSize="20dp"
+                android:layout_height="30dp"
+                android:textSize="16dp"
                 android:text="接受"
                 android:gravity="center"
-                android:background="@drawable/abovebutton_selector"
+                android:background="@drawable/abovebuttonr_selector"
                 android:textColor="@color/abovewrite_selector" />
 
     </RadioGroup>

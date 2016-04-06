@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity{
 
     private SlidingMenu menu;
     public static boolean key=false;
+    private Button btn_set,btn_sliding;
 
     private ViewFlipper viewFlipper;
 
@@ -150,6 +151,21 @@ public class MainActivity extends FragmentActivity{
         iv5=(ImageView)findViewById(R.id.main_present);
         iv6=(ImageView)findViewById(R.id.main_xuan);
 
+        btn_set = (Button) findViewById(R.id.main_top_set);
+        btn_sliding = (Button) findViewById(R.id.main_top_sliding_button);
+
+        btn_set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MainSetActivity.class));
+            }
+        });
+        btn_sliding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menu.showMenu();
+            }
+        });
     }
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -188,4 +204,5 @@ public class MainActivity extends FragmentActivity{
         menu.setMenu(R.layout.menu_fragment);
         getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new MainMenuFragment()).commit();
     }
+
 }

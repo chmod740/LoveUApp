@@ -23,6 +23,7 @@ import java.util.Map;
 public class MainMenuFragment extends Fragment {
     private ImageView userImage,userSetImg;
     private TextView UserTv,UserSet;
+    private Button btn_sliding,btn_set;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,6 @@ public class MainMenuFragment extends Fragment {
         userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
         UserSet=(TextView) view.findViewById(R.id.userSet);
-
         setUser();
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);

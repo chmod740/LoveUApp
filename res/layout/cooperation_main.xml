@@ -4,7 +4,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/white"
+              android:background="@color/light_grey"
               android:orientation="vertical" >
 
     <!-- 上边菜单栏 -->
@@ -60,30 +60,23 @@
 
     <RadioGroup
             android:id="@+id/cooperation_bottomRg"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="@drawable/bottom_back"
-            android:orientation="horizontal" >
+            style="@style/tg_group_style" >
 
         <RadioButton
                 android:id="@+id/cooperation_rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
-                android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="查看" />
+                android:drawableTop="@drawable/rb_one_btn_selector" />
 
         <RadioButton
                 android:id="@+id/cooperation_rbTwo"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_two_btn_selector"
-                android:text="新建" />
+                android:drawableTop="@drawable/rb_two_btn_selector" />
 
         <RadioButton
                 android:id="@+id/cooperation_rbThree"
                 style="@style/rg_btn_style"
-                android:drawableTop="@drawable/rb_three_btn_selector"
-                android:text="我" />
+                android:drawableTop="@drawable/rb_three_btn_selector" />
     </RadioGroup>
 
 </LinearLayout>

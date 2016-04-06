@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/white"
+              android:background="@color/light_grey"
               android:orientation="vertical"
               android:fitsSystemWindows="true"
               android:clipToPadding="true">
@@ -82,32 +81,25 @@
 
     <RadioGroup
             android:id="@+id/bottomRg"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:background="@drawable/bottom_back"
-            android:orientation="horizontal">
+            style="@style/tg_group_style">
 
         <RadioButton
                 android:id="@+id/rbOne"
                 style="@style/rg_btn_style"
                 android:checked="true"
                 android:drawableTop="@drawable/rb_one_btn_selector"
-                android:text="约"
         />
 
         <RadioButton
                 android:id="@+id/rbTwo"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_two_btn_selector"
-                android:text="发布"
         />
 
         <RadioButton
                 android:id="@+id/rbThree"
                 style="@style/rg_btn_style"
                 android:drawableTop="@drawable/rb_three_btn_selector"
-                android:text="我发出的"
         />
     </RadioGroup>
 

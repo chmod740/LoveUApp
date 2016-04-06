@@ -8,8 +8,9 @@
               android:background="@color/blue"
               android:layout_height="wrap_content"/>
     <LinearLayout android:layout_width="match_parent"
+                  android:background="@color/darkblue"
                   android:orientation="horizontal"
-                  android:layout_height="wrap_content">
+                  android:layout_height="40dp">
         <TextView android:layout_width="match_parent"
                   android:background="@drawable/set_button"
                   android:text="返回"

@@ -1,9 +1,14 @@
 package com.imudges.LoveUApp.ui.MealFragment;
 
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +16,12 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
+import com.imudges.LoveUApp.service.PhotoCut;
+import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.ui.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +50,7 @@ public class MealMenuFragment extends Fragment {
         UserSet=(TextView) view.findViewById(R.id.userSet);
 
         setUser();
+        Myclick();
 
         ListView listView = (ListView) view.findViewById(R.id.menu_list);
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),
@@ -100,27 +110,27 @@ public class MealMenuFragment extends Fragment {
 
         Map<String, Object> map;
         map = new HashMap<String, Object>();
-        map.put("text", "主菜单");
+        map.put("text", "   主菜单");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "约" );
+        map.put("text", "   约" );
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "赠送");
+        map.put("text", "   赠送");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "拍卖");
+        map.put("text", "   拍卖");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "互助");
+        map.put("text", "   互助");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "课程表");
+        map.put("text", "   课程表");
         list.add(map);
 
         return list;
@@ -139,5 +149,62 @@ public class MealMenuFragment extends Fragment {
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
         Bitmap bitmap=getPhoto.getphoto();
         userImage.setImageBitmap(bitmap);
+    }
+
+    private ProgressDialog progressDialog;
+    private final String IMAGE_TYPE="image/*";
+    private final int IMAGE_CODE=1;
+    private Bitmap TestBitmap;
+    private String Path;
+    public void Myclick(){
+        userImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
+                getAlbum.setType(IMAGE_TYPE);
+                startActivityForResult(getAlbum, IMAGE_CODE);
+            }
+        });
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        if (resultCode != getActivity().RESULT_OK) {
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (requestCode == IMAGE_CODE) {
+            try {
+                Uri originUri = data.getData();
+                Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originUri);
+                TestBitmap = bm;
+                String[] proj = {MediaStore.Images.Media.DATA};
+                Cursor cursor = getActivity().getContentResolver().query(originUri, proj, null, null, null);
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                String path = cursor.getString(column_index);
+                Path =Environment.getExternalStorageDirectory().getPath()+ "/"+path.substring(20);
+                //Toast.makeText(MainActivity.this, Path, Toast.LENGTH_SHORT).show();
+                PhotoCut bitmapUtil = new PhotoCut(getActivity());
+                Bitmap myBitmap = bitmapUtil.toRoundBitmap(TestBitmap);
+                userImage.setImageBitmap(myBitmap);
+
+                Get get=new Get("User",getActivity().getApplicationContext());
+                Get get1=new Get("UserKey",getActivity().getApplicationContext());
+                get.getout("username","");get1.getout("secretkey","");
+                String s=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/service/ImageService.php")
+                        .uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
+                Toast.makeText(getActivity(),s , Toast.LENGTH_SHORT).show();
+
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }catch (Exception e){
+                e.getLocalizedMessage();
+            }
+        }
     }
 }

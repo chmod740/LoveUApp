@@ -98,27 +98,27 @@ public class MainMenuFragment extends Fragment {
 
         Map<String, Object> map;
         map = new HashMap<String, Object>();
-        map.put("text", "约");
+        map.put("text", "   约");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "吃饭" );
+        map.put("text", "   吃饭" );
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "赠送");
+        map.put("text", "   赠送");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "拍卖");
+        map.put("text", "   拍卖");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "互助");
+        map.put("text", "   互助");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("text", "课程表");
+        map.put("text", "   课程表");
         list.add(map);
 
         return list;

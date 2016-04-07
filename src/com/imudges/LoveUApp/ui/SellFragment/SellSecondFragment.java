@@ -7,6 +7,7 @@ import android.content.SyncStatusObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -149,6 +150,9 @@ public class SellSecondFragment extends Fragment {
                 sellService=new SellService();
                 titleString=title.getText().toString();
                 infoString=info.getText().toString();
+                info.setText("");
+                title.setText("");
+                Image.setImageResource(R.drawable.photo);
                 Get get=new Get("User",getActivity().getApplicationContext());
                 Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 SellPhotoService sell=new SellPhotoService("http://loveu.iheshulin.com:9999/LOVEU/paiservice/UpPaiService.php");

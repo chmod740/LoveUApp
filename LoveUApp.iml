@@ -13,7 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android SDK" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
@@ -46,7 +46,6 @@
       <library>
         <CLASSES>
           <root url="jar://F:/sdk/extras/android/support/v4/android-support-v4.jar!/" />
-          <root url="jar://E:/../sdk/extras/android/support/v4/android-support-v4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -55,12 +54,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://E:/../sdk/extras/android/support/v4/android-support-v4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../sdk/extras/android/support/v4/android-support-v4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="v4" level="project" />
   </component>
 </module>

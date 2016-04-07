@@ -3,64 +3,60 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:background="@drawable/background_login_div_bg"
                   style="@style/div_margin"
                   android:orientation="horizontal">
 
-
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:paddingLeft="10dp"
-                      android:paddingRight="10dp"
-                      android:paddingTop="10dp">
-
-
-            <ImageView android:layout_width="100dp" android:layout_height="100dp"
+            <ImageView android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_margin="10dp"
                        android:id="@+id/meal3_2_img"
                        android:layout_gravity="center"
             />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:id="@+id/meal3_2_tx4"
-                      android:text="显示内容"
-                      android:textSize="20dp"
-                      android:textColor="@color/black"
-                      android:paddingBottom="10dp"
-                      android:paddingLeft="10dp"
-                      android:paddingRight="10dp"
-                      android:paddingTop="10dp"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
                       android:orientation="vertical"
-                      android:paddingTop="10dp">
+                      android:paddingTop="10dp" >
 
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            <RelativeLayout android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/meal3_2_tx4"
+                          android:textColor="@color/white"
+                          android:text="名字"
+                          android:textSize="20sp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="6dp"
+                          android:id="@+id/meal3_2_tx1"
+                          android:text="时间"
+                          android:textSize="14sp"
+                          android:layout_alignParentEnd="true"
+                          android:layout_marginEnd="5dp"
+                          android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
                       android:id="@+id/meal3_2_tx2"
                       android:text="显示内容"
-                      android:textSize="20dp"
-                      android:layout_weight="1"
-                      android:textColor="@color/black"/>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:textSize="16sp"
+                      android:layout_marginTop="10dp"
+                      android:textColor="@color/white"/>
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
                       android:id="@+id/meal3_2_tx3"
                       android:text="显示内容"
-                      android:textSize="20dp"
-                      android:layout_weight="1"
-                      android:textColor="@color/black"/>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:id="@+id/meal3_2_tx1"
-                      android:text="显示内容"
-                      android:textSize="20dp"
-                      android:layout_weight="1"
-                      android:textColor="@color/black"/>
-            <!--
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:id="@+id/meal3_2_tx5"
-                      android:text="显示内容"
-                      android:textSize="25dp"
-                      android:layout_weight="3"/>
-                      -->
-
+                      android:textSize="16sp"
+                      android:textColor="@color/white"/>
 
         </LinearLayout>
     </LinearLayout>

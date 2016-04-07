@@ -22,7 +22,6 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.Toast;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.service.AdService;

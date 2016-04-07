@@ -103,6 +103,7 @@ public class PresentSecondFragment extends Fragment {
             public void onClick(View view) {
                 infoString = info.getText().toString();
                 info.setText("");
+                UserImage.setImageResource(R.drawable.photo);
                 //Toast.makeText(getActivity(),username+""+secretkey+""+infoString,Toast.LENGTH_SHORT).show();
                 PhotoService service=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/giveservice/UpGiveService.php");
                 //Get get1=new Get("UserKey",getActivity().getApplicationContext());

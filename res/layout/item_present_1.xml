@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-
->
+              android:layout_height="wrap_content">
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:background="@drawable/background_login_div_bg"
                   android:orientation="horizontal"
                   style="@style/div_margin">
-
-
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:paddingRight="@dimen/activity_horizontal_margin">
-
-        <ImageView android:layout_width="100dp" android:layout_height="100dp"
+        <ImageView android:layout_width="100dp"
+                   android:layout_height="100dp"
+                   android:layout_marginTop="5dp"
+                   android:src="@drawable/photo"
+                   android:paddingLeft="@dimen/activity_horizontal_margin"
+                   android:paddingRight="@dimen/activity_horizontal_margin"
                    android:id="@+id/present_1_img"/>
-        <TextView android:layout_width="match_parent" android:layout_height="35dp"
-                  android:textSize="16dp"
-                  android:textColor="@color/black"
-                  android:text="物品主人"
-                  android:gravity="center"
-                  android:id="@+id/present_1_man"/>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:textSize="16dp"
-                  android:text="内容..."
-                  android:textColor="@color/black"
-                  android:id="@+id/present_1_info"
-        />
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:textColor="@color/black"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:id="@+id/present_1_who"
-                android:text=""
-                />
-        </RelativeLayout>
-    </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_marginTop="10dp"
+                      android:orientation="vertical">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:textSize="20sp"
+                      android:textColor="@color/white"
+                      android:text="物品主人"
+                      android:id="@+id/present_1_man"/>
 
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp"
+                      android:textSize="16sp"
+                      android:text="内容..."
+                      android:textColor="@color/white"
+                      android:id="@+id/present_1_info"/>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="16sp"
+                          android:textColor="@color/white"
+                          android:layout_alignParentBottom="true"
+                          android:layout_alignParentRight="true"
+                          android:layout_marginRight="5dp"
+                          android:layout_marginBottom="5dp"
+                          android:id="@+id/present_1_who"/>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

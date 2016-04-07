@@ -81,6 +81,7 @@ public class Myadapter extends BaseAdapter {
         tv5.setText(area.get(position).toString());
         tv4=(TextView) convertView.findViewById(R.id.run3_2_way);
         tv4.setText(state.get(position).toString());
+
         String url=data.get(position).toString();
         iv.setTag(url);
 

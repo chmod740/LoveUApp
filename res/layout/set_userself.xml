@@ -29,7 +29,7 @@
                   android:layout_height="75dp">
         <TextView android:layout_width="25dp"
                   android:layout_height="match_parent"/>
-        <TextView android:layout_width="125dp"
+        <TextView android:layout_width="100dp"
                   android:hint="输入昵称:"
                   android:gravity="center_vertical"
                   android:textSize="20dp"
@@ -52,7 +52,7 @@
                   android:layout_height="75dp">
         <TextView android:layout_width="25dp"
                   android:layout_height="match_parent"/>
-        <TextView android:layout_width="125dp"
+        <TextView android:layout_width="100dp"
                   android:hint="座右铭:"
                   android:gravity="center_vertical"
                   android:textSize="20dp"
@@ -73,7 +73,7 @@
                   android:orientation="horizontal"
                   android:layout_height="wrap_content">
         <TextView android:layout_width="wrap_content"
-                  android:hint="    座右铭10个字以内，还剩"
+                  android:hint="     座右铭10个字以内，还剩"
                   android:textSize="20dp"
                   android:textColorHint="#FF808080"
                   android:layout_height="wrap_content"/>

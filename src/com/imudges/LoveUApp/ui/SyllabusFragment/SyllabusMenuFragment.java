@@ -162,7 +162,7 @@ public class SyllabusMenuFragment extends Fragment {
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType(IMAGE_TYPE);
                 intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
                 intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.

@@ -37,7 +37,8 @@ public class UserChange extends Activity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                k--;
+                String s=saying.getText().toString();
+                k=10-s.length();
                 zi.setText(k+"");
             }
 

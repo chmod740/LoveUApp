@@ -176,6 +176,7 @@ public class MainActivity extends FragmentActivity{
         MyThread my=new MyThread();
         my.start();
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&& key==true) {
+            SysApplication.getInstance().exit();
             finish();
             return true;
         }

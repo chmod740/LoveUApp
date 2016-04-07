@@ -1,6 +1,8 @@
 package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -12,7 +14,10 @@ import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
+import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.service.ChongzhiService;
 import com.imudges.LoveUApp.ui.Set.AboutActivity;
+import com.imudges.LoveUApp.ui.Set.UserChange;
 import com.imudges.LoveUApp.ui.Set.UserSet;
 
 /**
@@ -70,8 +75,12 @@ public class MainSetActivity extends Activity{
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 Save save=new Save("User",getApplicationContext());
-                save.savein("username","***");
-                save.savein("password","***");
+                save.savein("username","");
+                save.savein("password","");
+                save.savein("truename","");
+                save.savein("major","");
+                save.savein("grade","");
+                save.savein("sex","");
                 SysApplication.getInstance().exit();
                 finish();
             }
@@ -91,19 +100,20 @@ public class MainSetActivity extends Activity{
         set_user_P.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "电话", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainSetActivity.this, "暂不支持更改电话！", Toast.LENGTH_SHORT).show();
             }
         });
         setself.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "个人信息", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainSetActivity.this,UserChange.class));
+                //Toast.makeText(MainSetActivity.this, "个人信息", Toast.LENGTH_SHORT).show();
             }
         });
         chong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "充值", Toast.LENGTH_SHORT).show();
+                chongzhi();
             }
         });
     }
@@ -125,6 +135,34 @@ public class MainSetActivity extends Activity{
             phone+=s;
         }
         set_phone.setText(phone);
+    }
+
+    public void chongzhi(){
+        ChongzhiService service=new ChongzhiService();
+        EditText editText=new EditText(MainSetActivity.this);
+        new AlertDialog.Builder(MainSetActivity.this)
+                .setTitle("请输入金额")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(editText)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Get get=new Get("User",getApplicationContext());
+                        Get get1=new Get("UserKey",getApplicationContext());
+                        service.chong(getApplicationContext(),get.getout("username","") ,get1.getout("secretkey","") , editText.getText().toString(), new Listener() {
+                            @Override
+                            public void onSuccess() {
+                                Toast.makeText(MainSetActivity.this, "充值成功", Toast.LENGTH_SHORT).show();
+                            }
+                            @Override
+                            public void onFailure(String msg) {
+                                Toast.makeText(MainSetActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
     }
 
 }

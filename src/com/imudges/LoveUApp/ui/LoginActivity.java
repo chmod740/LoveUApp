@@ -228,8 +228,8 @@ public class LoginActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                username=ed1.getText().toString();
-                test();
+//                username=ed1.getText().toString();
+//                test();
                 //Toast.makeText(LoginActivity.this, username, Toast.LENGTH_SHORT).show();
             }
         });

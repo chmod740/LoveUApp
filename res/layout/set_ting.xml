@@ -260,7 +260,7 @@
             <Button android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:textSize="20dp"
-                    android:text="退 出 登 录"
+                    android:text="注 销 登 录"
                     android:id="@+id/set_user_Out"
                     android:background="@drawable/set_contune"
                     android:layout_height="50dp"/>

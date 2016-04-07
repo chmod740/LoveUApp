@@ -41,6 +41,7 @@ public class UserSet extends Activity {
         setContentView(R.layout.set_user);
         init();
         Myclick();
+        setUser();
     }
     public void Myclick(){
         back.setOnClickListener(new View.OnClickListener() {
@@ -109,13 +110,19 @@ public class UserSet extends Activity {
                         UserModel userModel = new Gson().fromJson(responStr, UserModel.class);
                         if (userModel.getState() == 1) {
                             truename.setText(userModel.getTrueName());
+                            Save save=new Save("User",UserSet.this);
                             if(userModel.getUserSex()==1){
                                 sex.setText("男");
+                                save.savein("sex","男");
                             }else{
                                 sex.setText("女");
+                                save.savein("sex","女");
                             }
                             major.setText(userModel.getUserMajor());
                             gread.setText(userModel.getUserGrade());
+                            save.savein("truename",userModel.getNickName());
+                            save.savein("major",userModel.getUserMajor());
+                            save.savein("grade",userModel.getUserGrade());
                         } else {
                             Toast.makeText(UserSet.this, userModel.getMag(), Toast.LENGTH_SHORT).show();
                         }
@@ -140,13 +147,19 @@ public class UserSet extends Activity {
                         UserModel userModel=new Gson().fromJson(responStr,UserModel.class);
                         if(userModel.getState()==1){
                             truename.setText(userModel.getTrueName());
+                            Save save=new Save("User",UserSet.this);
                             if(userModel.getUserSex()==1){
                                 sex.setText("男");
+                                save.savein("sex","男");
                             }else{
                                 sex.setText("女");
+                                save.savein("sex","女");
                             }
                             major.setText(userModel.getUserMajor());
                             gread.setText(userModel.getUserGrade());
+                            save.savein("truename",userModel.getNickName());
+                            save.savein("major",userModel.getUserMajor());
+                            save.savein("grade",userModel.getUserGrade());
                         }else{
                             Toast.makeText(UserSet.this,userModel.getMag(), Toast.LENGTH_SHORT).show();
                         }
@@ -176,4 +189,11 @@ public class UserSet extends Activity {
         cb=(CheckBox) findViewById(R.id.manage_agreement);
     }
 
+    public void setUser(){
+        Get get=new Get("User",getApplicationContext());
+        truename.setText(get.getout("truename",""));
+        major.setText(get.getout("major",""));
+        sex.setText(get.getout("sex",""));
+        gread.setText(get.getout("grade",""));
+    }
 }

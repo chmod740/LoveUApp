@@ -1,15 +1,19 @@
 package com.imudges.LoveUApp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+import com.imudges.LoveUApp.ui.ArcMenu.MyThread;
 import com.imudges.LoveUApp.ui.PresentFragment.PresentMenuFragment;
 import com.slidingmenu.lib.SlidingMenu;
 
@@ -115,6 +119,27 @@ public class MainPresentActivity extends FragmentActivity {
         });
     }
 
+    public static boolean key=false;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            startActivity(new Intent(MainPresentActivity.this,MainSetActivity.class));
+            //super.openOptionsMenu();  // 调用这个，就可以弹出菜单
+            return super.onKeyDown(keyCode, event);
+        }
+        MyThread my=new MyThread();
+        my.start();
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&& key==true) {
+            SysApplication.getInstance().exit();
+            finish();
+            return true;
+        }
+        if(key==false){
+            Toast.makeText(MainPresentActivity.this, "(>ˍ<) ～您真的想要离开吗?", Toast.LENGTH_LONG).show();
+            key=true;
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     /**
      * 初始化滑动菜单
      */

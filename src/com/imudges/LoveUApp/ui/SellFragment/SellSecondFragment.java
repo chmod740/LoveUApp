@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SyncStatusObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,11 +21,13 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.SellPhotoService;
 import com.imudges.LoveUApp.service.SellService;
 import com.imudges.LoveUApp.ui.MainSellActivity;
 import com.imudges.LoveUApp.ui.R;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -160,39 +163,36 @@ public class SellSecondFragment extends Fragment {
      * 回调图片
      */
 
-    private void setImage() {
-        // TODO Auto-generated method stub
-        //使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
-        Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
-        getAlbum.setType(IMAGE_TYPE);
-        startActivityForResult(getAlbum, IMAGE_CODE);
+    public void setImage(){
+        Intent intent = new Intent();
+        intent.setType(IMAGE_TYPE);
+        intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
+        intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
+        intent.putExtra("aspectY", 1);
+        //输出地址
+        intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
+        intent.putExtra("outputFormat", "JPEG");//返回格式
+        startActivityForResult(Intent.createChooser(intent, "选择图片"), IMAGE_CODE);
     }
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
         if (resultCode != getActivity().RESULT_OK) {
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
-        ContentResolver resolver = getActivity().getContentResolver();
         if (requestCode == IMAGE_CODE) {
             try {
-                Uri originUri = data.getData();
-                Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originUri);
-                TestBitmap = bm;
-                String[] proj = {MediaStore.Images.Media.DATA};
-                Cursor cursor = getActivity().managedQuery(originUri, proj, null, null, null);
-                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-                cursor.moveToFirst();
-                String path = cursor.getString(column_index);
-                Path = Environment.getExternalStorageDirectory().getPath()+ "/"+path.substring(20);
-                Image.setImageBitmap(TestBitmap);
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 2;
+                Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg", options);
+                Path=Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg";
+
+//                PhotoCut bitmapUtil = new PhotoCut(getActivity());
+//                Bitmap myBitmap = bitmapUtil.toRoundBitmap(bitmap);
+                Image.setImageBitmap(bitmap);
+
+            }catch (Exception e){
+                e.getLocalizedMessage();
             }
         }
     }

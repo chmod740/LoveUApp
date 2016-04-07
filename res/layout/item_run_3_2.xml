@@ -3,76 +3,82 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/background_login_div_bg"
-                  style="@style/div_margin"
-                  android:orientation="horizontal">
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_login_div_bg"
+                        style="@style/div_margin">
 
 
-        <LinearLayout android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical">
-
-
-            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+            <ImageView android:layout_width="100dp"
+                       android:layout_height="100dp"
                        android:id="@+id/run3_2_img"
                        android:src="@drawable/default1"
                        android:paddingBottom="10dp"
                        android:paddingLeft="10dp"
                        android:paddingRight="10dp"
-                       android:paddingTop="10dp"
+                       android:paddingTop="15dp"
             />
+
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_toRightOf="@+id/run3_2_img"
+                              android:orientation="vertical" android:layout_toStartOf="@+id/run3_2_way">
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="10dp"
+                                  android:orientation="horizontal">
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/run3_2_tx6"
+                                  android:textSize="17sp"
+                                  android:textColor="@color/white"
+                                  android:text="小伙伴："/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/run3_2_tx4"
+                                  android:text="账号"
+                                  android:textSize="18sp"
+                                  android:textColor="@color/white"
+                                  android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/run3_2_tx1"
+                              android:layout_marginTop="4dp"
+                              android:text="内容"
+                              android:textColor="@color/white"
+                              android:textSize="16sp"/>
+
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="4dp"
+                              android:id="@+id/run3_2_tx2"
+                              android:text="时间"
+                              android:textSize="16sp"
+                              android:textColor="@color/white"/>
+
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/run3_2_tx3"
+                              android:layout_marginTop="4dp"
+                              android:textSize="16sp"
+                              android:text="地点"
+                              android:layout_marginBottom="5dp"
+                              android:textColor="@color/white"/>
+
+                </LinearLayout>
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:id="@+id/run3_2_tx4"
-                      android:text="显示内容"
-                      android:textSize="20sp"
-                      android:layout_weight="5"
-                      android:textColor="@color/black"
-                      android:layout_gravity="center_horizontal"
-                      android:paddingBottom="8dp"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
-            <RelativeLayout android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:text="跑/学"
+                      android:textColor="@color/green"
+                      android:textSize="22sp"
+                      android:layout_alignParentEnd="true"
+                      android:id="@+id/run3_2_way"/>
+        </RelativeLayout>
 
-                            android:layout_height="wrap_content">
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/run3_2_tx1"
-                          android:layout_marginTop="10dp"
-                          android:text="显示内容"
-                          android:textColor="@color/white"
-                          android:textSize="20sp"/>
-
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="10dp"
-                          android:id="@+id/run3_2_tx2"
-                          android:text="显示内容"
-                          android:textSize="14sp"
-                          android:layout_alignParentRight="true"
-                          android:textColor="@color/white"/>
-            </RelativeLayout>
-
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/run3_2_tx3"
-                          android:layout_marginTop="10dp"
-                          android:text="显示内容"
-                          android:textColor="@color/black"
-                          android:textSize="16sp"/>
-
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
-                          android:layout_marginRight="8dp"
-                          android:text="跑/学"
-                          android:textColor="@color/green"
-                          android:textSize="20sp"
-                          android:gravity="right"
-                          android:id="@+id/run3_2_way"/>
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

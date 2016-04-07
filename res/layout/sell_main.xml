@@ -4,7 +4,9 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/light_grey"
+              android:background="@drawable/background4"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
               android:orientation="vertical" >
 
     <!-- 上边菜单栏 -->
@@ -22,7 +24,7 @@
             android:layout_width="fill_parent"
             android:layout_gravity="center"
             android:layout_height="45dp"
-            android:name="com.imudges.LoveUApp.ui.SellFragment.SellAboveFragment3"
+            android:name="com.imudges.LoveUApp.ui.SellFragment.SellAboveFragment1"
             android:layout_weight="0.5">
     </fragment>
     <!-- 上边主页面 -->

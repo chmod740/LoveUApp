@@ -10,24 +10,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.*;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.TimePicker.OnTimeChangedListener;
-import com.google.gson.Gson;
 import com.imudges.LoveUApp.listener.Listener;
-import com.imudges.LoveUApp.model.PresentModel;
 import com.imudges.LoveUApp.service.HelpService;
-import com.imudges.LoveUApp.service.MealService;
-import com.imudges.LoveUApp.service.RunService;
-import com.imudges.LoveUApp.service.StudyService;
 import com.imudges.LoveUApp.ui.MainActivity;
 import com.imudges.LoveUApp.ui.R;
-import com.imudges.LoveUApp.util.HttpRequest;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import org.apache.http.Header;
 
 /**
  * 日期时间选择控件 使用方法： private EditText inputDate;//需要设置的日期时间文本编辑框 private String

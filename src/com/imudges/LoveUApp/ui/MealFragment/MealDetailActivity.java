@@ -45,7 +45,7 @@ public class MealDetailActivity extends Activity {
     private Bitmap bitmap;
 
     private String meal_id = null;
-    private TextView tv_userName,tv_sex,tv_submitTime,tv_time,tv_other;
+    private TextView tv_userName,tv_sex,tv_way,tv_time,tv_other,tv_address;
     private Button btn_button, btn_above;
     private ImageView userImage;
 
@@ -53,19 +53,20 @@ public class MealDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.run_details);
+        setContentView(R.layout.meal_details);
         initView();
     }
 
     private void initView() {
 
-        tv_userName = (TextView) findViewById(R.id.run_details_name);
-        tv_submitTime = (TextView) findViewById(R.id.run_details_submit_time);
-        tv_other = (TextView) findViewById(R.id.run_details_other);
-        tv_time = (TextView) findViewById(run_details_time);
-        btn_button = (Button) findViewById(R.id.run_details_button);
-        btn_above = (Button) findViewById(R.id.run_details_above_button);
-        userImage=(ImageView) findViewById(R.id.run_details_img);
+        tv_userName = (TextView) findViewById(R.id.meal_details_name);
+        tv_way = (TextView)findViewById(R.id.meal_details_submit_way);
+        tv_time = (TextView) findViewById(R.id.meal_details_submit_time);
+        tv_other = (TextView) findViewById(R.id.meal_details_other);
+        btn_button = (Button) findViewById(R.id.meal_details_button);
+        tv_address = (TextView) findViewById(R.id.meal_details_area) ;
+        btn_above = (Button) findViewById(R.id.meal_details_above_button);
+        userImage=(ImageView) findViewById(R.id.meal_details_img);
 
         WindowManager windowManager = this.getWindowManager();
         DisplayMetrics outMetrics = new DisplayMetrics();
@@ -80,12 +81,12 @@ public class MealDetailActivity extends Activity {
         //<-----------获取userId---------->
         meal_id = MainMealActivity.getMealId();
         if(meal_id == ""||meal_id == null){
-            Toast.makeText(this,"userName is null",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"userName is null",Toast.LENGTH_LONG).show();
         }
         else {
             getInfo();
             MainMealActivity.setMealId("");
-            Toast.makeText(this,"userName is " + meal_id,Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"userName is " + meal_id,Toast.LENGTH_LONG).show();
         }
         //<--------------------------------->
 
@@ -127,10 +128,11 @@ public class MealDetailActivity extends Activity {
                     Gson gson=new Gson();
                     MealModel mealModel = gson.fromJson(responStr,MealModel.class);
                     downPhoto(mealModel.getPostImage());
-                    tv_submitTime.setText(mealModel.getFoodWay());
+                    tv_way.setText(mealModel.getFoodWay());
                     tv_userName.setText(mealModel.getPostUser());
-                    tv_time.setText(mealModel.getFoodTime()+"\n"+mealModel.getFoodArea());
-                    tv_other.setText(mealModel.getFoodInformation()+" "+mealModel.getFoodArea());
+                    tv_time.setText(mealModel.getFoodTime());
+                    tv_address.setText(mealModel.getFoodArea());
+                    tv_other.setText(mealModel.getFoodInformation());
                 }catch(Exception e){
 //                    System.out.println(e.getLocalizedMessage());
 //                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();

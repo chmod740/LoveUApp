@@ -142,7 +142,7 @@ public class CooperationDetail extends Activity {
                     HelpModel helpModel=new Gson().fromJson(responStr,HelpModel.class);
                     info.setText(helpModel.getHelpInformation());
                     money.setText(helpModel.getHelpMoney());
-                    user.setText(helpModel.getPostUser());
+                    user.setText(""+helpModel.getPostUser());
                     time.setText(helpModel.getDownTime());
                     downPhoto(helpModel.getHelpImage());
                 }catch (Exception e){

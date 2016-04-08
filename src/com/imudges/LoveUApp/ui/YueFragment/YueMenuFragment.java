@@ -1,14 +1,10 @@
 package com.imudges.LoveUApp.ui.YueFragment;
 
-import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -24,11 +20,8 @@ import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.ui.*;
 import com.imudges.LoveUApp.ui.Set.UserChange;
-import org.w3c.dom.Text;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

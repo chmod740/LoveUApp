@@ -69,7 +69,7 @@ public class PresentDetailActivity extends Activity{
                 intent.putExtras(bundle);
                 //startActivityForResult(intent, 10);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
         bt.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +104,7 @@ public class PresentDetailActivity extends Activity{
                     //System.out.println(responStr);
                     Gson gson=new Gson();
                     GetPresentModel presentModels = gson.fromJson(responStr,GetPresentModel.class);
-                    man.setText(presentModels.getGiveUser());
+                    man.setText("发出者   "+presentModels.getGiveUser());
                     info.setText(presentModels.getGiveInformation());
                     downPhoto(presentModels.getGiveImage());
                     //System.out.println(studyModels.getPostImage());

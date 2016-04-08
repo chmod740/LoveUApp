@@ -1,17 +1,13 @@
 package com.imudges.LoveUApp.ui.PresentFragment;
 
-import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -20,10 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.imudges.LoveUApp.DAO.Get;
-import com.imudges.LoveUApp.DAO.SavePhoto;
-import com.imudges.LoveUApp.listener.Listener;
-import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.PhotoService;
 import com.imudges.LoveUApp.service.PresentService;
 import com.imudges.LoveUApp.ui.MainActivity;
@@ -31,8 +23,6 @@ import com.imudges.LoveUApp.ui.MainPresentActivity;
 import com.imudges.LoveUApp.ui.R;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * Created by 1111 on 2016/3/14.

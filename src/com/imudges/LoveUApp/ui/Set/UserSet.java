@@ -13,6 +13,7 @@ import com.imudges.LoveUApp.listener.Listener;
 import com.imudges.LoveUApp.model.UserModel;
 import com.imudges.LoveUApp.service.JWXTService;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.SysApplication;
 import com.imudges.LoveUApp.util.HttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -39,6 +40,7 @@ public class UserSet extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.set_user);
+        SysApplication.getInstance().addActivity(this);
         init();
         Myclick();
         setUser();

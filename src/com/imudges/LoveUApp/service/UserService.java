@@ -152,4 +152,33 @@ public class UserService {
         });
     }
 
+    public void changesaying(Context context,String name,String key,String say,String nick,Listener listener){
+        url="";
+        params=new RequestParams();
+        params.add("UserName",name);
+        params.add("SecretKey",key);
+        params.add("Saying",say);
+        params.add("Nick",nick);
+        HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                reponseStr=new String(bytes);
+                try{
+                    UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
+                    if(userModel.getState()==1){
+                        listener.onSuccess();
+                    }else{
+                        listener.onFailure(userModel.getMag());
+                    }
+                }catch(Exception e){
+                    listener.onFailure(e.getLocalizedMessage());
+                }
+            }
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                listener.onFailure("网络异常");
+            }
+        });
+    }
+
 }

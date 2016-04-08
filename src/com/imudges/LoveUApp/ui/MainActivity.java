@@ -95,13 +95,13 @@ public class MainActivity extends FragmentActivity{
         iv4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(MainActivity.this,MainSellActivity.class));
+                startActivity(new Intent(MainActivity.this,MainSellActivity.class));
             }
         });
         iv5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(MainActivity.this,MainPresentActivity.class));
+                startActivity(new Intent(MainActivity.this,MainPresentActivity.class));
             }
         });
         iv6.setOnClickListener(new View.OnClickListener() {

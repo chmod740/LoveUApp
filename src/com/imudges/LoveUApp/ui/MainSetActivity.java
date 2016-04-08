@@ -113,7 +113,7 @@ public class MainSetActivity extends Activity{
         chong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chongzhi();
+                Chong();
             }
         });
     }
@@ -137,9 +137,27 @@ public class MainSetActivity extends Activity{
         set_phone.setText(phone);
     }
 
-    public void chongzhi(){
-        ChongzhiService service=new ChongzhiService();
-        EditText editText=new EditText(MainSetActivity.this);
+    public void Chong(){
+        new AlertDialog.Builder(MainSetActivity.this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setMessage("充值管理")
+                .setPositiveButton("设置充值密码", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        chongpass();
+                    }
+                })
+                .setNegativeButton("充值", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        chongzhi();
+                    }
+                })
+                .show();
+    }
+    public void chongzhi() {
+        ChongzhiService service = new ChongzhiService();
+        EditText editText = new EditText(MainSetActivity.this);
         new AlertDialog.Builder(MainSetActivity.this)
                 .setTitle("请输入金额")
                 .setIcon(android.R.drawable.ic_dialog_info)
@@ -147,13 +165,42 @@ public class MainSetActivity extends Activity{
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Get get=new Get("User",getApplicationContext());
-                        Get get1=new Get("UserKey",getApplicationContext());
-                        service.chong(getApplicationContext(),get.getout("username","") ,get1.getout("secretkey","") , editText.getText().toString(), new Listener() {
+                        Get get = new Get("User", getApplicationContext());
+                        Get get1 = new Get("UserKey", getApplicationContext());
+                        service.chong(getApplicationContext(), get.getout("username", ""), get1.getout("secretkey", ""), editText.getText().toString(), new Listener() {
                             @Override
                             public void onSuccess() {
                                 Toast.makeText(MainSetActivity.this, "充值成功", Toast.LENGTH_SHORT).show();
                             }
+
+                            @Override
+                            public void onFailure(String msg) {
+                                Toast.makeText(MainSetActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
+    }
+    public void chongpass(){
+        ChongzhiService service = new ChongzhiService();
+        EditText editText = new EditText(MainSetActivity.this);
+        new AlertDialog.Builder(MainSetActivity.this)
+                .setTitle("请输入重置密码")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(editText)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Get get = new Get("User", getApplicationContext());
+                        Get get1 = new Get("UserKey", getApplicationContext());
+                        service.chongpass(getApplicationContext(), get.getout("username", ""), get1.getout("secretkey", ""), editText.getText().toString(), new Listener() {
+                            @Override
+                            public void onSuccess() {
+                                Toast.makeText(MainSetActivity.this, "设置成功", Toast.LENGTH_SHORT).show();
+                            }
+
                             @Override
                             public void onFailure(String msg) {
                                 Toast.makeText(MainSetActivity.this, msg, Toast.LENGTH_SHORT).show();

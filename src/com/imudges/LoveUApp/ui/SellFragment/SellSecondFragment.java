@@ -157,7 +157,7 @@ public class SellSecondFragment extends Fragment {
                 Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 SellPhotoService sell=new SellPhotoService("http://loveu.iheshulin.com:9999/LOVEU/paiservice/UpPaiService.php");
                 String msg=sell.uploadFile(get.getout("username",""),get1.getout("secretkey",""),infoString,titleString,time,Path);
-//                Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 //                System.out.println(msg);
             }
         });

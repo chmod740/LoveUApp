@@ -36,7 +36,6 @@
                           android:textSize="15dp"
                           android:textColor="@color/white"
                           android:gravity="center_vertical"
-                          android:text="天道酬勤。。。"
                           android:id="@+id/meun_saying"
                           android:background="@drawable/set_caidan"
                           android:clickable="true"/>

@@ -14,14 +14,30 @@
                       android:layout_height="match_parent">
             <TextView android:layout_width="25dp" android:layout_height="match_parent"/>
             <ImageView android:layout_width="100dp"
-                       android:src="@drawable/default1"
+                       android:id="@+id/self_iv"
+                       android:clickable="true"
                        android:layout_height="100dp"/>
             <TextView android:layout_width="25dp" android:layout_height="match_parent"/>
-            <TextView android:layout_width="match_parent"
-                      android:textColor="@color/white"
-                      android:text="admin"
-                      android:textSize="20dp"
-                      android:layout_height="100dp"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_height="100dp">
+                <TextView android:layout_width="match_parent"
+                          android:id="@+id/self_user"
+                          android:textSize="20dp"
+                          android:layout_height="40dp"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal" android:layout_height="match_parent">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="剩余金额："
+                              android:textSize="20dp"
+                              android:layout_height="match_parent"/>
+                    <TextView android:layout_width="match_parent"
+                              android:id="@+id/self_money"
+                              android:textSize="20dp"
+                              android:layout_height="match_parent"/>
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"/>
@@ -41,7 +57,6 @@
                   android:textSize="22dp"
                   android:gravity="center_vertical"
                   android:textCursorDrawable="@null"
-                  android:background="@color/white"
                   android:textColor="#000000"
                   android:layout_height="match_parent"/>
 
@@ -63,9 +78,9 @@
         <EditText android:layout_width="match_parent"
                   android:textSize="22dp"
                   android:id="@+id/self_saying"
+                  android:maxLength="10"
                   android:gravity="center_vertical"
                   android:textCursorDrawable="@null"
-                  android:background="@color/white"
                   android:textColor="#000000"
                   android:layout_height="match_parent"/>
 

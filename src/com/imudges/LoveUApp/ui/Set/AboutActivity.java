@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.imudges.LoveUApp.ui.R;
+import com.imudges.LoveUApp.ui.SysApplication;
 
 
 /**
@@ -27,6 +28,7 @@ public class AboutActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         setContentView(R.layout.set_about_view);
+        SysApplication.getInstance().addActivity(this);
         init();
         tv2.setText(getVersion());
         tv1.setOnClickListener(new View.OnClickListener() {

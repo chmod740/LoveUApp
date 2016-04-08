@@ -36,6 +36,7 @@ import java.util.Map;
 public class MainMenuFragment extends Fragment {
     private ImageView userImage,userSetImg;
     private TextView UserTv,UserSet;
+    TextView say;
     private Button btn_sliding,btn_set;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainMenuFragment extends Fragment {
         userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
         UserSet=(TextView) view.findViewById(R.id.userSet);
+        say=(TextView)view.findViewById(R.id.meun_saying);
         setUser();
         Myclick();
         TextView tv=(TextView)view.findViewById(R.id.meun_saying);
@@ -154,6 +156,8 @@ public class MainMenuFragment extends Fragment {
         //Toast.makeText(getActivity().getApplicationContext(),get1.getout(get.getout("username",""),get.getout("username","")) , Toast.LENGTH_LONG).show();
         UserTv.setText(get1.getout(get.getout("username",""),get.getout("username","")));
 
+        say.setText(get.getout("saying",""));
+
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
         Bitmap bitmap=getPhoto.getphoto();
         userImage.setImageBitmap(bitmap);
@@ -170,6 +174,8 @@ public class MainMenuFragment extends Fragment {
                 intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
                 intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
                 intent.putExtra("aspectY", 1);
+                intent.putExtra("outputX", 200);
+                intent.putExtra("outputY", 200);
                 //输出地址
                 intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
                 intent.putExtra("outputFormat", "JPEG");//返回格式

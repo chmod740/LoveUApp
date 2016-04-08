@@ -42,6 +42,7 @@ public class YueMenuFragment extends Fragment {
 
     private ImageView userImage,userSetImg;
     private TextView userTv,userSet;
+    TextView say;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class YueMenuFragment extends Fragment {
         userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         userTv=(TextView) view.findViewById(R.id.menu_text);
         userSet=(TextView) view.findViewById(R.id.userSet);
+        say=(TextView)view.findViewById(R.id.meun_saying);
         //tvOutput.setText (savedInstanceState.getString ("output"));
 
         setUser();
@@ -106,7 +108,7 @@ public class YueMenuFragment extends Fragment {
                         startActivity(new Intent(getActivity().getApplicationContext(),MainSyllabusActivity.class));
                         break;
                 }
-                //getActivity().finish();
+                getActivity().finish();
             }
         });
 
@@ -170,6 +172,8 @@ public class YueMenuFragment extends Fragment {
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
         Bitmap bitmap=getPhoto.getphoto();
         userImage.setImageBitmap(bitmap);
+
+        say.setText(get.getout("saying",""));
     }
     private final String IMAGE_TYPE="image/*";
     private final int IMAGE_CODE=1;
@@ -213,9 +217,11 @@ public class YueMenuFragment extends Fragment {
                 Get get=new Get("User",getActivity().getApplicationContext());
                 Get get1=new Get("UserKey",getActivity().getApplicationContext());
                 get.getout("username","");get1.getout("secretkey","");
+
                 String s=new PhotoService("http://loveu.iheshulin.com:9999/LOVEU/service/ImageService.php")
                         .uploadFile(get.getout("username",""),get1.getout("secretkey",""),Path);
                 Toast.makeText(getActivity(),s , Toast.LENGTH_SHORT).show();
+
             }catch (Exception e){
                 e.getLocalizedMessage();
             }

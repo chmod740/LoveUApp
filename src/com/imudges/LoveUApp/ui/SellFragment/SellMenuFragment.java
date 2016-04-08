@@ -36,7 +36,7 @@ import java.util.Map;
  */
 public class SellMenuFragment extends Fragment {
     private ImageView userImage,userSetImg;
-    private TextView UserTv,UserSet;
+    private TextView UserTv,UserSet,say;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,7 @@ public class SellMenuFragment extends Fragment {
         userSetImg = (ImageView) view.findViewById(R.id.userset_img);
         UserTv=(TextView) view.findViewById(R.id.menu_text);
         UserSet=(TextView) view.findViewById(R.id.userSet);
+        say=(TextView)view.findViewById(R.id.meun_saying);
 
         setUser();
         Myclick();
@@ -160,6 +161,8 @@ public class SellMenuFragment extends Fragment {
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");
         Bitmap bitmap=getPhoto.getphoto();
         userImage.setImageBitmap(bitmap);
+
+        say.setText(get.getout("saying",""));
     }
     private final String IMAGE_TYPE="image/*";
     private final int IMAGE_CODE=1;
@@ -173,6 +176,8 @@ public class SellMenuFragment extends Fragment {
                 intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
                 intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
                 intent.putExtra("aspectY", 1);
+                intent.putExtra("outputX", 200);
+                intent.putExtra("outputY", 200);
                 //输出地址
                 intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
                 intent.putExtra("outputFormat", "JPEG");//返回格式

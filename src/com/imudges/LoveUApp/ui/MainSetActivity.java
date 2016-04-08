@@ -167,6 +167,19 @@ public class MainSetActivity extends Activity{
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Get get = new Get("User", getApplicationContext());
                         Get get1 = new Get("UserKey", getApplicationContext());
+                        String ss=editText.getText().toString();
+                        char []a=ss.toCharArray();
+                        for (char x:a) {
+                            if(x>'9'||x<'0'){
+                                Toast.makeText(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        }
+                        Integer s=new Integer(editText.getText().toString());
+                        if(s<=0){
+                            Toast.makeText(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         service.chong(getApplicationContext(), get.getout("username", ""), get1.getout("secretkey", ""), editText.getText().toString(), new Listener() {
                             @Override
                             public void onSuccess() {
@@ -176,6 +189,7 @@ public class MainSetActivity extends Activity{
                             @Override
                             public void onFailure(String msg) {
                                 Toast.makeText(MainSetActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                System.out.println(msg);
                             }
                         });
                     }

@@ -5,7 +5,7 @@ package com.imudges.LoveUApp.model;
  */
 public class MoneyModel {
     private Integer state;
-    private Integer msg;
+    private Integer money;
 
     public Integer getState() {
         return state;
@@ -16,10 +16,10 @@ public class MoneyModel {
     }
 
     public Integer getMsg() {
-        return msg;
+        return money;
     }
 
     public void setMsg(Integer msg) {
-        this.msg = msg;
+        this.money = msg;
     }
 }

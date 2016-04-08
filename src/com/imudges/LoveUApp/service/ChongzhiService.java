@@ -47,11 +47,11 @@ public class ChongzhiService {
     }
 
     public void chongpass(Context context, String UserName, String SecretKey,String pass, Listener listener) {
-        url = "";
+        url = "moneyservice/SetService.php";
         params = new RequestParams();
         params.add("UserName",UserName);
         params.add("SecretKey",SecretKey);
-        params.add("PassWord",pass);
+        params.add("PayPassword",pass);
         HttpRequest.post(context, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {

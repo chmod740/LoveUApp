@@ -21,13 +21,13 @@
                    android:gravity="center"
                    android:text="主页"/>
 
-        <Button android:layout_width="20dp"
-                android:layout_height="20dp"
+        <Button android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:id="@+id/main_top_set"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/settt"/>
+                android:background="@drawable/ic_set"/>
     </RelativeLayout>
 
     <LinearLayout android:layout_width="match_parent"

@@ -6,7 +6,7 @@
 
         <RelativeLayout android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/background_login_div_bg"
+                        android:background="@drawable/background_div_bg"
                         style="@style/div_margin">
 
 

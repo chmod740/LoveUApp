@@ -4,30 +4,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/gray">
-    <LinearLayout android:layout_width="match_parent"
-                  android:orientation="horizontal"
-                  android:layout_height="50dp">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/darkblue"
+                    android:layout_height="40dp">
+
+        <Button style="@style/top_back_text"
+                android:id="@+id/present_d_back"/>
+
         <TextView android:layout_width="match_parent"
-                  android:layout_weight="1"
-                  android:text="返回"
-                  android:textSize="20dp"
-                  android:gravity="center"
-                  android:id="@+id/present_d_back"
-                  android:clickable="true"
-                  android:background="@drawable/detail_button"
-                  android:layout_height="match_parent"/>
-        <TextView android:layout_width="match_parent" android:layout_height="50dp"
-                  android:text="详情"
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:textColor="@color/white"
-                  android:background="#FF72CAE1"
-                  android:gravity="center"/>
-        <TextView android:layout_width="match_parent"
-                  android:layout_weight="1"
-                  android:background="#FF72CAE1"
-                  android:layout_height="match_parent"/>
-    </LinearLayout>
+                  android:layout_height="match_parent"
+                  android:text="@string/detail"
+                  style="@style/top_middle_text"/>
+    </RelativeLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                   android:orientation="vertical"
                   android:paddingLeft="10dp"

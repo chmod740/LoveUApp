@@ -27,7 +27,7 @@
                 android:checked="true"
                 android:text="发出"
                 android:button="@null"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/abovewrite_selector"
                 android:background="@drawable/abovebuttonl_selector" />
         <RadioButton
@@ -35,7 +35,7 @@
                 android:button="@null"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:text="接受"
                 android:gravity="center"
                 android:background="@drawable/abovebuttonr_selector"

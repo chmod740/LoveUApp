@@ -15,10 +15,7 @@
 
         <TextView  android:layout_width="wrap_content"
                    android:layout_height="match_parent"
-                   android:layout_centerInParent="true"
-                   android:textSize="20sp"
-                   android:textColor="@color/white"
-                   android:gravity="center"
+                   style="@style/top_middle_text"
                    android:text="主页"/>
 
         <Button android:layout_width="40dp"

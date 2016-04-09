@@ -87,4 +87,19 @@
         <item name="android:layout_marginBottom">2dp</item>
         <item name="android:layout_marginTop">4dp</item>
     </style>
+
+    <style name="top_back_text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:textColor">@color/top_back_text</item>
+        <item name="android:background">@drawable/ic_back</item>
+    </style>
+
+    <style name="top_middle_text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
 </resources>

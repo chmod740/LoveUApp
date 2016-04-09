@@ -4,7 +4,9 @@
     <color name="transparent">#0000</color>
     <color name="white">#fff</color>
     <color name="weibo_listtab_off">#8d8d8d</color>
-    <color name="darkblue">#4fc3f7</color><!-- 上方标题栏颜色 -->
+    <color name="top_back_text">#e1f5fe</color><!--上方标题栏返回按钮字体颜色-->
+    <color name="darkblue">#29b6f6</color><!-- 上方标题栏颜色 -->
+    <color name="darker_blue">#81d4fa</color>
     <color name="light_grey">#eeeeee</color><!--中间背景颜色-->
     <color name="lighter_grey">#fafafa</color>
     <color name="green">#00FF00</color>

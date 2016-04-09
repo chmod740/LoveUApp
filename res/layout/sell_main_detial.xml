@@ -6,27 +6,21 @@
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="vertical"
                   android:layout_height="wrap_content">
-        <LinearLayout android:layout_width="match_parent"
+        <RelativeLayout android:layout_width="match_parent"
                       android:orientation="horizontal"
-                      android:layout_height="50dp">
+                      android:background="@color/darkblue"
+                      android:layout_height="40dp">
+            <Button   style="@style/top_back_text"
+                      android:id="@+id/sell_d_back"/>
+
             <TextView android:layout_width="match_parent"
-                      android:layout_weight="1"
-                      android:text="返回"
-                      android:id="@+id/sell_d_back"
-                      android:background="@drawable/detail_button"
-                      android:clickable="true"
-                      android:textSize="20dp"
+                      android:text="@string/detail"
                       android:gravity="center"
+                      android:textSize="20sp"
+                      android:textColor="@color/white"
                       android:layout_height="match_parent"/>
-            <TextView android:layout_width="match_parent"
-                      android:layout_weight="1"
-                      android:background="#FF72CAE1"
-                      android:layout_height="match_parent"/>
-            <TextView android:layout_width="match_parent"
-                      android:layout_weight="1"
-                      android:background="#FF72CAE1"
-                      android:layout_height="match_parent"/>
-        </LinearLayout>
+
+        </RelativeLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical"
         android:paddingRight="10dp"

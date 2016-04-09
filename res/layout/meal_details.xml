@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:background="@color/gray"
+              android:background="@color/light_grey"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
->
+              android:layout_height="match_parent">
     <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="#FF72CAE1">
-        <Button android:layout_width="75dp"
-                android:layout_height="45dp"
-                android:text="返回"
-                android:background="@drawable/detail_button"
+                    android:layout_height="40dp"
+                    android:background="@color/darkblue">
+        <Button style="@style/top_back_text"
                 android:id="@+id/meal_details_above_button"/>
 
+        <TextView android:layout_width="match_parent"
+                  android:text="@string/detail"
+                  android:gravity="center"
+                  android:textSize="20sp"
+                  android:textColor="@color/white"
+                  android:layout_height="match_parent"/>
     </RelativeLayout>
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:paddingLeft="10dp"
-                  android:paddingRight="10dp"
-    >
+                  android:paddingRight="10dp">
         <ImageView
                 android:layout_gravity="center"
                 android:id="@+id/meal_details_img"

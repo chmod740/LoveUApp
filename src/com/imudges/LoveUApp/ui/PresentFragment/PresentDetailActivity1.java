@@ -26,12 +26,12 @@ import java.net.URL;
  */
 public class PresentDetailActivity1 extends Activity{
     private String id;
-    private Button bt;
+    private Button bt,back;
     private String url;
     private String responStr;
     private RequestParams params;
     private Bitmap bitmap;
-    private TextView man,info,back;
+    private TextView man,info;
     private ImageView img;
     private boolean set;
     @Override
@@ -45,7 +45,7 @@ public class PresentDetailActivity1 extends Activity{
         man = (TextView) findViewById(R.id.present_detail1_man);
         info = (TextView) findViewById(R.id.present_detai11_info);
         img = (ImageView) findViewById(R.id.present_detail1_img) ;
-        back=(TextView)findViewById(R.id.present_d_back1) ;
+        back=(Button) findViewById(R.id.present_d_back1) ;
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

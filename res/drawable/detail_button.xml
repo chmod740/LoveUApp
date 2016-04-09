@@ -3,14 +3,14 @@
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
-            <solid android:color="#FF72CAE1"></solid>
+            <solid android:color="@color/darkblue"></solid>
 
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <!-- 填充的颜色 -->
-            <solid android:color="#FFACDAE5"></solid>
+            <solid android:color="@color/darker_blue"></solid>
 
         </shape>
     </item>

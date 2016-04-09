@@ -33,9 +33,9 @@ import java.net.URL;
  */
 public class CooperationDetail extends Activity {
 
-    private TextView money,time,user,info,back;
+    private TextView money,time,user,info;
     private ImageView userimage;
-    private Button button;
+    private Button button,back;
 
     private String url;
     private String responStr;
@@ -65,7 +65,7 @@ public class CooperationDetail extends Activity {
         time=(TextView) findViewById(R.id.help_d_uptime);
         user=(TextView) findViewById(R.id.help_d_username);
         info=(TextView) findViewById(R.id.help_d_info);
-        back=(TextView) findViewById(R.id.help_d_back);
+        back=(Button) findViewById(R.id.help_d_back);
         userimage=(ImageView)findViewById(R.id.help_d_image);
         button=(Button)findViewById(R.id.help_d_button);
     }

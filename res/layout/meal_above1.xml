@@ -13,10 +13,8 @@
     <TextView android:id="@+id/meal_above1_tv"
               android:layout_width="wrap_content"
               android:layout_height="match_parent"
-              android:textSize="20dp"
-              android:gravity="center"
-              android:layout_centerHorizontal="true"
-              android:layout_centerInParent="true"
-              android:textColor="@color/white"
+
+              style="@style/top_middle_text"
+              android:text="123"
     />
 </RelativeLayout>

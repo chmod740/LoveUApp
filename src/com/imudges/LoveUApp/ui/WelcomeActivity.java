@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class WelcomeActivity extends Activity {
+
     private ImageView welcomeImg = null;
     private UserService userService = new UserService();
     private String Url="";

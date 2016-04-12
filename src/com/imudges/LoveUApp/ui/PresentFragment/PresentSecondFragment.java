@@ -122,6 +122,8 @@ public class PresentSecondFragment extends Fragment {
         intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
         intent.putExtra("aspectY", 1);
         //输出地址
+        intent.putExtra("outputX", 125);
+        intent.putExtra("outputY", 125);
         intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
         intent.putExtra("outputFormat", "JPEG");//返回格式
         startActivityForResult(Intent.createChooser(intent, "选择图片"), IMAGE_CODE);

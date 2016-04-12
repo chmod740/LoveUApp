@@ -127,11 +127,11 @@ public class DateTimePickDialogUtil implements OnDateChangedListener,
 
                         if (which == 2) {
                             updata(username, info, secretkey, end, address, activity);
-                            Toast.makeText(activity, "跑" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(activity, "跑" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
                         }
                         if (which == 1) {
                             xuedata(username, info, secretkey, end, address, activity);
-                            Toast.makeText(activity, "学" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(activity, "学" + " " + dateTime + " " + info + " " + address + " " + username + " " + secretkey, Toast.LENGTH_SHORT).show();
                         }
 
                     }

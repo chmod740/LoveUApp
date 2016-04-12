@@ -134,8 +134,8 @@ public class MealDateTimePickDialogUitl implements OnDateChangedListener,
                                 Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
                             }
                         });
-                            Toast.makeText(activity, "饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey, Toast.LENGTH_SHORT).show();
-                            System.out.println("饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey);
+//                            Toast.makeText(activity, "饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey, Toast.LENGTH_SHORT).show();
+//                            System.out.println("饭" + " " + dateTime + " " + info + " " + address + " "+which +" "+ username + " " + secretkey);
 
 
                     }

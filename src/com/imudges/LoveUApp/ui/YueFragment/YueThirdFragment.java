@@ -150,7 +150,7 @@ public class YueThirdFragment extends Fragment {
                         state.add("跑");
                     }
                 }catch(Exception e){
-                    Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

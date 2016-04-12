@@ -56,12 +56,12 @@ public class MainActivity extends FragmentActivity{
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 
         //往viewFlipper添加View
-        viewFlipper.addView(getImageView(R.drawable.sell2));
-        viewFlipper.addView(getImageView(R.drawable.food));
+        viewFlipper.addView(getImageView(R.drawable.run));
+        viewFlipper.addView(getImageView(R.drawable.food_));
         viewFlipper.addView(getImageView(R.drawable.run2));
-        viewFlipper.addView(getImageView(R.drawable.send));
+        viewFlipper.addView(getImageView(R.drawable.present));
         viewFlipper.addView(getImageView(R.drawable.help));
-        viewFlipper.addView(getImageView(R.drawable.school));
+        viewFlipper.addView(getImageView(R.drawable.study));
 
         //动画效果
         leftInAnimation = AnimationUtils.loadAnimation(this, R.anim.left_in);

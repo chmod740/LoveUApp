@@ -129,7 +129,7 @@ public class UserSet extends Activity {
                             Toast.makeText(UserSet.this, userModel.getMag(), Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
-                        Toast.makeText(UserSet.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(UserSet.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
                 @Override
@@ -166,7 +166,7 @@ public class UserSet extends Activity {
                             Toast.makeText(UserSet.this,userModel.getMag(), Toast.LENGTH_SHORT).show();
                         }
                     }catch(Exception e){
-                        Toast.makeText(UserSet.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(UserSet.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
                 @Override

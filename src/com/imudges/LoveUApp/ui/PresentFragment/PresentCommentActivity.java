@@ -136,7 +136,7 @@ public class PresentCommentActivity extends Activity {
                     adapter=new CommentAdapter(getApplicationContext(),Url,name,info,listView);
                     listView.setAdapter(adapter);
                 }catch(Exception e){
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),e.getLocalizedMessage() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override

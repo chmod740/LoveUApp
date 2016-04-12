@@ -171,8 +171,8 @@ public class MealMenuFragment extends Fragment {
                 intent.putExtra("crop", "true");    // crop=true 有这句才能出来最后的裁剪页面.
                 intent.putExtra("aspectX", 1);      // 这两项为裁剪框的比例.
                 intent.putExtra("aspectY", 1);
-                intent.putExtra("outputX", 200);
-                intent.putExtra("outputY", 200);
+                intent.putExtra("outputX", 125);
+                intent.putExtra("outputY", 125);
                 //输出地址
                 intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()+"/loveu.jpg")));
                 intent.putExtra("outputFormat", "JPEG");//返回格式

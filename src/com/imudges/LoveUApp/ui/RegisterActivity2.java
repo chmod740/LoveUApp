@@ -31,7 +31,7 @@ public class RegisterActivity2  extends Activity{
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         ederification = (EditText) findViewById(R.id.register2_verification);
-        Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),number,Toast.LENGTH_SHORT).show();
         tip = (TextView) findViewById(R.id.register2_tip);
         tip.setText("我们已经给你的手机号码+86  "+number+"  发送了一条验证短信。");
     }

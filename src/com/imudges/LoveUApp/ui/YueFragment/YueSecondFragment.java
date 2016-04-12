@@ -97,12 +97,10 @@ public class YueSecondFragment extends Fragment{
                 //将两个框内文字清除
                 info.setText("");
                 add.setText("");
-                Toast.makeText(getActivity(),addrss,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),addrss,Toast.LENGTH_SHORT).show();
                 DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
                         getActivity(), initEndDateTime,infomation,addrss,1);
                 dateTimePicKDialog.dateTimePicKDialog(ed);
-
-
             }
         });
     }

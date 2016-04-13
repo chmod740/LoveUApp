@@ -140,14 +140,14 @@ public class MainSetActivity extends Activity{
     public void Chong(){
         new AlertDialog.Builder(MainSetActivity.this)
                 .setIcon(android.R.drawable.ic_dialog_info)
-                .setMessage("充值管理")
-                .setPositiveButton("设置充值密码", new DialogInterface.OnClickListener() {
+                .setMessage("钱包管理")
+                .setPositiveButton("设置钱包密码", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         chongpass();
                     }
                 })
-                .setNegativeButton("充值", new DialogInterface.OnClickListener() {
+                .setNegativeButton("钱包", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         chongzhi();
@@ -201,7 +201,7 @@ public class MainSetActivity extends Activity{
         ChongzhiService service = new ChongzhiService();
         EditText editText = new EditText(MainSetActivity.this);
         new AlertDialog.Builder(MainSetActivity.this)
-                .setTitle("请输入重置密码")
+                .setTitle("请输入钱包密码")
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setView(editText)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {

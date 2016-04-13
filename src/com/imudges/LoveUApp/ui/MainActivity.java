@@ -55,7 +55,15 @@ public class MainActivity extends FragmentActivity{
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 
+        WindowManager windowManager = this.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+
+        windowManager.getDefaultDisplay().getMetrics(outMetrics);
+        int width = outMetrics.widthPixels;
+        int height = 3/4*width;
+
         //往viewFlipper添加View
+        viewFlipper.setMinimumHeight(height);
         viewFlipper.addView(getImageView(R.drawable.run));
         viewFlipper.addView(getImageView(R.drawable.food_));
         viewFlipper.addView(getImageView(R.drawable.run2));

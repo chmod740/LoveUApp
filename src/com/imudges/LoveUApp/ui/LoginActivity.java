@@ -11,17 +11,24 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
+import com.google.gson.Gson;
 import com.imudges.LoveUApp.DAO.Get;
 import com.imudges.LoveUApp.DAO.GetPhoto;
 import com.imudges.LoveUApp.DAO.Save;
 import com.imudges.LoveUApp.DAO.SavePhoto;
 import com.imudges.LoveUApp.listener.Listener;
+import com.imudges.LoveUApp.model.UserModel;
 import com.imudges.LoveUApp.service.PhotoCut;
 import com.imudges.LoveUApp.service.UserService;
+import com.imudges.LoveUApp.util.HttpRequest;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import org.apache.http.Header;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -110,8 +117,42 @@ public class LoginActivity extends Activity {
 
     private void saveData(Context context){
         Save save=new Save("User",getApplicationContext());
-        save.savein("username",username);
-        save.savein("password",password);
+        int k=0;
+        char a[]=username.toCharArray();
+        for (char x:a){
+            if(x>='0'&&x<='9')
+                k++;
+        }
+        System.out.println(k);
+        if(k==11){
+            String url="service/NumberService.php";
+            RequestParams params=new RequestParams();
+            params.add("UserPhone",username);
+            HttpRequest.get(context, url, params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                   String reponseStr=new String(bytes);
+                    try{
+                        UserModel userModel=new Gson().fromJson(reponseStr,UserModel.class);
+                        if(userModel.getState()==1){
+                            username=userModel.getUserName();
+                            save.savein("username",username);
+                            //Toast.makeText(LoginActivity.this, username, Toast.LENGTH_SHORT).show();
+                            save.savein("password",password);
+                        }else{
+                        }
+                    }catch(Exception e){
+                    }
+                }
+                @Override
+                public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                }
+            });
+        }else{
+            save.savein("username",username);
+            save.savein("password",password);
+        }
+        //System.out.print(username);
     }
     public void setImage(){
         GetPhoto getPhoto=new GetPhoto(Environment.getExternalStorageDirectory().getPath(),"UserAd");

@@ -36,7 +36,7 @@ public class PresentMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        Toast.makeText(getActivity(),"Present",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),"Present",Toast.LENGTH_LONG).show();
     }
 
     @Override

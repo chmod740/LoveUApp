@@ -35,7 +35,7 @@ public class SellMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        Toast.makeText(getActivity(),"Sell",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),"Sell",Toast.LENGTH_LONG).show();
     }
 
     @Override

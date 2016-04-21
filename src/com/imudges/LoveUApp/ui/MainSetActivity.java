@@ -2,11 +2,14 @@ package com.imudges.LoveUApp.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -94,13 +97,13 @@ public class MainSetActivity extends Activity{
         set_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "帮助", Toast.LENGTH_SHORT).show();
+                showToast(MainSetActivity.this, "帮助", Toast.LENGTH_SHORT);
             }
         });
         set_user_P.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainSetActivity.this, "暂不支持更改电话！", Toast.LENGTH_SHORT).show();
+                showToast(MainSetActivity.this, "暂不支持更改电话！", Toast.LENGTH_SHORT);
             }
         });
         setself.setOnClickListener(new View.OnClickListener() {
@@ -171,13 +174,13 @@ public class MainSetActivity extends Activity{
                         char []a=ss.toCharArray();
                         for (char x:a) {
                             if(x>'9'||x<'0'){
-                                Toast.makeText(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT).show();
+                                showToast(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT);
                                 return;
                             }
                         }
                         Integer s=new Integer(editText.getText().toString());
                         if(s<=0){
-                            Toast.makeText(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT).show();
+                            showToast(MainSetActivity.this, "请输入正格式", Toast.LENGTH_SHORT);
                             return;
                         }
                         service.chong(getApplicationContext(), get.getout("username", ""), get1.getout("secretkey", ""), editText.getText().toString(), new Listener() {
@@ -224,6 +227,34 @@ public class MainSetActivity extends Activity{
                 })
                 .setNegativeButton("取消", null)
                 .show();
+    }
+    private static Toast mToast = null;
+    static Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                mToast=null;
+            }
+        }
+    };
+    public static void showToast(Context context, String text, int duration) {
+        if (mToast == null) {
+            mToast = Toast.makeText(context, text, duration);
+        } else {
+            mToast.cancel();
+            new Thread(){
+                @Override
+                public void run() {
+                    try{
+                        Thread.sleep(2000);
+                    }catch (Exception e){
+                        e.getLocalizedMessage();
+                    }
+                    handler.sendEmptyMessage(0x9527);
+                }
+            }.start();
+        }
+        mToast.show();
     }
 
 }

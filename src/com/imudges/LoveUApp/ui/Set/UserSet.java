@@ -1,7 +1,10 @@
 package com.imudges.LoveUApp.ui.Set;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -58,6 +61,7 @@ public class UserSet extends Activity {
                 if(cb.isChecked()){
                     Get get=new Get("User",getApplicationContext());
                     usernum=get.getout("username","");
+
                     Get get1=new Get("UserKey",getApplicationContext());
                     secret=get1.getout("secretkey","");
                     num=name.getText().toString();
@@ -65,7 +69,7 @@ public class UserSet extends Activity {
 
                     setup(usernum,secret,num,pass);
                 }else{
-                    Toast.makeText(UserSet.this, "您未勾选保密协议", Toast.LENGTH_LONG).show();
+                    showToast(UserSet.this, "您未勾选保密协议", Toast.LENGTH_LONG);
                 }
             }
         });
@@ -111,6 +115,7 @@ public class UserSet extends Activity {
                     try {
                         UserModel userModel = new Gson().fromJson(responStr, UserModel.class);
                         if (userModel.getState() == 1) {
+                            showToast(UserSet.this, "获取成功", Toast.LENGTH_SHORT);
                             truename.setText(userModel.getTrueName());
                             Save save=new Save("User",UserSet.this);
                             if(userModel.getUserSex()==1){
@@ -122,7 +127,7 @@ public class UserSet extends Activity {
                             }
                             major.setText(userModel.getUserMajor());
                             gread.setText(userModel.getUserGrade());
-                            save.savein("truename",userModel.getNickName());
+                            save.savein("TrueName",userModel.getNickName());
                             save.savein("major",userModel.getUserMajor());
                             save.savein("grade",userModel.getUserGrade());
                         } else {
@@ -148,6 +153,7 @@ public class UserSet extends Activity {
                     try{
                         UserModel userModel=new Gson().fromJson(responStr,UserModel.class);
                         if(userModel.getState()==1){
+                            showToast(UserSet.this, "获取成功", Toast.LENGTH_SHORT);
                             truename.setText(userModel.getTrueName());
                             Save save=new Save("User",UserSet.this);
                             if(userModel.getUserSex()==1){
@@ -159,7 +165,7 @@ public class UserSet extends Activity {
                             }
                             major.setText(userModel.getUserMajor());
                             gread.setText(userModel.getUserGrade());
-                            save.savein("truename",userModel.getNickName());
+                            save.savein("TrueName",userModel.getNickName());
                             save.savein("major",userModel.getUserMajor());
                             save.savein("grade",userModel.getUserGrade());
                         }else{
@@ -193,9 +199,37 @@ public class UserSet extends Activity {
 
     public void setUser(){
         Get get=new Get("User",getApplicationContext());
-        truename.setText(get.getout("truename",""));
+        truename.setText(get.getout("TrueName",""));
         major.setText(get.getout("major",""));
         sex.setText(get.getout("sex",""));
         gread.setText(get.getout("grade",""));
+    }
+    private static Toast mToast = null;
+    static Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==0x9527) {
+                mToast=null;
+            }
+        }
+    };
+    public static void showToast(Context context, String text, int duration) {
+        if (mToast == null) {
+            mToast = Toast.makeText(context, text, duration);
+        } else {
+            mToast.cancel();
+            new Thread(){
+                @Override
+                public void run() {
+                    try{
+                        Thread.sleep(2000);
+                    }catch (Exception e){
+                        e.getLocalizedMessage();
+                    }
+                    handler.sendEmptyMessage(0x9527);
+                }
+            }.start();
+        }
+        mToast.show();
     }
 }

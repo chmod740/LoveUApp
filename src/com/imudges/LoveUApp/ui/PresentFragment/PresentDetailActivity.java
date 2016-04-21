@@ -82,7 +82,7 @@ public class PresentDetailActivity extends Activity{
                 presentService.makeY(get1.getout("secretkey", ""), get.getout("username", ""), id,ed.getText().toString(), getApplicationContext(), new Listener() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(getApplicationContext(), "约成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "正在请求哦，请等待。", Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onFailure(String msg) {

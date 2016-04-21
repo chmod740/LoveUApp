@@ -102,7 +102,7 @@ public class StudyDetailActivity extends Activity{
                     }
                     @Override
                     public void onFailure(String msg) {
-                        Toast.makeText(StudyDetailActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(StudyDetailActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
             }

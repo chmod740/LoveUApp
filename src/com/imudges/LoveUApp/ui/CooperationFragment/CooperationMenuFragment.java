@@ -36,7 +36,7 @@ public class CooperationMenuFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        Toast.makeText(getActivity(),"Cooperation",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),"Cooperation",Toast.LENGTH_LONG).show();
     }
 
     @Override

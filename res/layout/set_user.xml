@@ -58,6 +58,7 @@
         <EditText android:layout_width="match_parent"
                   android:gravity="center_vertical"
                   android:textSize="20dp"
+                  android:password="true"
                   android:hint="输入密码"
                   android:textColorHint="#FF808080"
                   android:layout_weight="1"
